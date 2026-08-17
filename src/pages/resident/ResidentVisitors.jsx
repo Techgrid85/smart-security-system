@@ -31,19 +31,18 @@ function ResidentVisitors() {
   const [selectedVisitor, setSelectedVisitor] = useState(null);
   const [detailLoading, setDetailLoading] = useState(false);
 
-  const [formData, setFormData] = useState({
-    visitorName: "",
-    email: "",
-    phone: "",
-    purpose: "",
-    visitDate: "",
-    visitStartTime: "",
-    visitEndTime: "",
-  });
+const [formData, setFormData] = useState({
+  visitorName: "",
+  email: "",
+  phone: "",
+  visitorType: "Guest",
+  vehicleNumber: "",
+  purpose: "",
+  visitDate: "",
+  visitStartTime: "",
+  visitEndTime: "",
+});
 
-  // ================================
-  // AUTH HEADERS
-  // ================================
   const getHeaders = () => {
     const token = localStorage.getItem("token");
 
@@ -52,9 +51,6 @@ function ResidentVisitors() {
     };
   };
 
-  // ================================
-  // GET ALL MY VISITORS
-  // ================================
   const fetchVisitors = async () => {
     try {
       setLoading(true);
@@ -89,9 +85,6 @@ function ResidentVisitors() {
     fetchVisitors();
   }, []);
 
-  // ================================
-  // HANDLE FORM CHANGE
-  // ================================
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -104,17 +97,19 @@ function ResidentVisitors() {
   // ================================
   // RESET FORM
   // ================================
-  const resetForm = () => {
-    setFormData({
-      visitorName: "",
-      email: "",
-      phone: "",
-      purpose: "",
-      visitDate: "",
-      visitStartTime: "",
-      visitEndTime: "",
-    });
-  };
+const resetForm = () => {
+  setFormData({
+    visitorName: "",
+    email: "",
+    phone: "",
+    visitorType: "Guest",
+    vehicleNumber: "",
+    purpose: "",
+    visitDate: "",
+    visitStartTime: "",
+    visitEndTime: "",
+  });
+};
 
   // ================================
   // CLOSE CREATE FORM
@@ -202,14 +197,20 @@ function ResidentVisitors() {
       setSubmitting(true);
 
       const payload = {
-        visitorName: formData.visitorName.trim(),
-        email: formData.email.trim().toLowerCase(),
-        phone: formData.phone,
-        purpose: formData.purpose.trim(),
-        visitDate: formData.visitDate,
-        visitStartTime: visitStartTime.toISOString(),
-        visitEndTime: visitEndTime.toISOString(),
-      };
+  visitorName: formData.visitorName.trim(),
+  email: formData.email.trim().toLowerCase(),
+  phone: formData.phone,
+
+  visitorType: formData.visitorType,
+
+  vehicleNumber: formData.vehicleNumber.trim().toUpperCase(),
+
+  purpose: formData.purpose.trim(),
+
+  visitDate: formData.visitDate,
+  visitStartTime: visitStartTime.toISOString(),
+  visitEndTime: visitEndTime.toISOString(),
+};
 
       const response = await axios.post(
         "https://smart-society-backend-delta.vercel.app/resident/visitors",
@@ -478,6 +479,49 @@ function ResidentVisitors() {
                     className="w-full rounded-[9px] border border-slate-200 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
                   />
                 </div>
+                {/* VISITOR TYPE */}
+<div>
+  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+    Visitor Type
+  </label>
+
+  <select
+    name="visitorType"
+    value={formData.visitorType}
+    onChange={handleChange}
+    required
+    className="w-full rounded-[9px] border border-slate-200 bg-white px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+  >
+    <option value="Guest">Guest</option>
+    <option value="Delivery">Delivery</option>
+    <option value="Cab">Cab</option>
+    <option value="Vendor">Vendor</option>
+  </select>
+</div>
+
+{/* VEHICLE NUMBER */}
+<div>
+  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+    Vehicle Number
+    <span className="ml-1 normal-case text-slate-400">
+      (Optional)
+    </span>
+  </label>
+
+  <input
+    type="text"
+    name="vehicleNumber"
+    value={formData.vehicleNumber}
+    onChange={(e) => {
+      setFormData((prev) => ({
+        ...prev,
+        vehicleNumber: e.target.value.toUpperCase(),
+      }));
+    }}
+    placeholder="e.g. ABC-123"
+    className="w-full rounded-[9px] border border-slate-200 px-3 py-2.5 text-[11px] font-medium uppercase text-slate-700 outline-none transition placeholder:normal-case placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+  />
+</div>
 
                 {/* PURPOSE */}
                 <div>
@@ -669,9 +713,7 @@ function ResidentVisitors() {
                       <td className="px-5 py-4">
                         <button
                           type="button"
-                          onClick={() =>
-                            navigate("/resident/visitors-details")
-                          }
+                          onClick={() => handleViewVisitor(visitor._id)}
                           className="flex items-center gap-1.5 rounded-[8px] border border-slate-200 bg-white px-2.5 py-1.5 text-[9.5px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600"
                         >
                           <Eye size={13} />
@@ -693,122 +735,144 @@ function ResidentVisitors() {
 
         </section>
 
-        {/* ================= VISITOR DETAIL MODAL ================= */}
-        {(detailLoading || selectedVisitor) && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4">
+      {/* ================= VISITOR DETAIL MODAL ================= */}
+{(detailLoading || selectedVisitor) && (
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4">
 
-            <div className="max-h-[90vh] w-full max-w-[550px] overflow-y-auto rounded-[16px] bg-white shadow-xl">
+    <div className="max-h-[90vh] w-full max-w-[550px] overflow-y-auto rounded-[16px] bg-white shadow-xl">
 
-              {detailLoading ? (
-                <div className="flex min-h-[250px] items-center justify-center">
-                  <p className="text-[11px] font-medium text-slate-400">
-                    Loading visitor details...
-                  </p>
-                </div>
-              ) : (
-                <>
-                  <div className="flex items-start justify-between border-b border-slate-200 px-5 py-4">
+      {detailLoading ? (
+        <div className="flex min-h-[250px] items-center justify-center">
+          <p className="text-[11px] font-medium text-slate-400">
+            Loading visitor details...
+          </p>
+        </div>
+      ) : (
+        <>
+          {/* ================= MODAL HEADER ================= */}
+          <div className="flex items-start justify-between border-b border-slate-200 px-5 py-4">
 
-                    <div>
-                      <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-emerald-500">
-                        Visitor Details
-                      </p>
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-emerald-500">
+                Visitor Details
+              </p>
 
-                      <h2 className="mt-1 text-[15px] font-bold text-slate-900">
-                        {selectedVisitor?.visitorName}
-                      </h2>
-                    </div>
+              <h2 className="mt-1 text-[15px] font-bold text-slate-900">
+                {selectedVisitor?.visitorName}
+              </h2>
+            </div>
 
-                    <button
-                      type="button"
-                      onClick={() => setSelectedVisitor(null)}
-                      className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100"
-                    >
-                      <X size={17} />
-                    </button>
+            <button
+              type="button"
+              onClick={() => setSelectedVisitor(null)}
+              className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100"
+            >
+              <X size={17} />
+            </button>
 
-                  </div>
+          </div>
 
-                  <div className="space-y-5 p-5">
+          <div className="space-y-5 p-5">
 
-                    <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+            {/* ================= DIGITAL GATE KEY ================= */}
+            <div className="rounded-[12px] border border-emerald-100 bg-emerald-50 p-4">
 
-                      <DetailItem
-                        label="Email"
-                        value={selectedVisitor?.email}
-                      />
+              <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+                Digital Gate Key
+              </p>
 
-                      <DetailItem
-                        label="Phone"
-                        value={selectedVisitor?.phone}
-                      />
+              <p className="mt-2 break-all text-[20px] font-extrabold tracking-[0.18em] text-emerald-700">
+                {selectedVisitor?.gateKey || "Not available"}
+              </p>
 
-                      <DetailItem
-                        label="Flat Number"
-                        value={selectedVisitor?.flatNo || "-"}
-                      />
-
-                      <DetailItem
-                        label="Visit Date"
-                        value={formatDate(
-                          selectedVisitor?.visitDate
-                        )}
-                      />
-
-                      <DetailItem
-                        label="Start Time"
-                        value={formatTime(
-                          selectedVisitor?.visitStartTime
-                        )}
-                      />
-
-                      <DetailItem
-                        label="End Time"
-                        value={formatTime(
-                          selectedVisitor?.visitEndTime
-                        )}
-                      />
-
-                      <DetailItem
-                        label="Gate Status"
-                        value={
-                          selectedVisitor?.gateStatus || "-"
-                        }
-                      />
-
-                      <div>
-                        <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
-                          Approval Status
-                        </p>
-
-                        <div className="mt-1">
-                          <VisitorStatus
-                            status={selectedVisitor?.status}
-                          />
-                        </div>
-                      </div>
-
-                    </div>
-
-                    <div>
-                      <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
-                        Purpose
-                      </p>
-
-                      <div className="mt-2 rounded-[10px] bg-slate-50 p-4">
-                        <p className="text-[11px] leading-6 text-slate-600">
-                          {selectedVisitor?.purpose || "-"}
-                        </p>
-                      </div>
-                    </div>
-
-                  </div>
-                </>
-              )}
+              <p className="mt-2 text-[10px] font-medium text-emerald-600/80">
+                Show this key to security personnel for visitor verification.
+              </p>
 
             </div>
+
+            {/* ================= DETAILS GRID ================= */}
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+
+              <DetailItem
+                label="Email"
+                value={selectedVisitor?.email}
+              />
+
+              <DetailItem
+                label="Phone"
+                value={selectedVisitor?.phone}
+              />
+
+              <DetailItem
+                label="Visitor Type"
+                value={selectedVisitor?.visitorType || "Guest"}
+              />
+
+              <DetailItem
+                label="Vehicle Number"
+                value={selectedVisitor?.vehicleNumber || "No vehicle"}
+              />
+
+              <DetailItem
+                label="Flat Number"
+                value={selectedVisitor?.flatNo || "-"}
+              />
+
+              <DetailItem
+                label="Visit Date"
+                value={formatDate(selectedVisitor?.visitDate)}
+              />
+
+              <DetailItem
+                label="Start Time"
+                value={formatTime(selectedVisitor?.visitStartTime)}
+              />
+
+              <DetailItem
+                label="End Time"
+                value={formatTime(selectedVisitor?.visitEndTime)}
+              />
+
+              <DetailItem
+                label="Gate Status"
+                value={selectedVisitor?.gateStatus || "-"}
+              />
+
+              <div>
+                <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                  Approval Status
+                </p>
+
+                <div className="mt-1">
+                  <VisitorStatus
+                    status={selectedVisitor?.status}
+                  />
+                </div>
+              </div>
+
+            </div>
+
+            {/* ================= PURPOSE ================= */}
+            <div>
+              <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                Purpose
+              </p>
+
+              <div className="mt-2 rounded-[10px] bg-slate-50 p-4">
+                <p className="text-[11px] leading-6 text-slate-600">
+                  {selectedVisitor?.purpose || "-"}
+                </p>
+              </div>
+            </div>
+
           </div>
-        )}
+        </>
+      )}
+
+    </div>
+  </div>
+)}
 
       </div>
     </DashboardLayout>
