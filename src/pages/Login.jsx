@@ -3,7 +3,6 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  Building2,
   Mail,
   Lock,
   LogIn,
@@ -171,7 +170,11 @@ const login = async (e) => {
 
         <div className="flex items-center gap-4 mb-12">
           <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/30">
-            <Building2 size={29} />
+            <img
+  src="/SmartSociety_Logo.svg"
+  alt="SmartSociety Logo"
+  className="h-full w-full object-contain"
+/>
           </div>
 
           <div>
