@@ -16,6 +16,7 @@ import ResidentEvents from "./pages/resident/ResidentEvents";
 import ResidentNotices from "./pages/resident/ResidentNotices";
 import FacilityBookings from "./pages/resident/FacilityBookings";
 import ResidentPolls from "./pages/resident/ResidentPolls";
+import ResidentEmergency from "./pages/resident/ResidentEmergency";
 import ResidentSettings from "./pages/resident/ResidentSettings";
 
 
@@ -274,6 +275,14 @@ function App() {
           element={
             <ProtectedRoute role="resident">
               <ResidentPolls />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/resident/emergency"
+          element={
+            <ProtectedRoute role="resident">
+              <ResidentEmergency />
             </ProtectedRoute>
           }
         />

@@ -205,8 +205,8 @@ const dashboardConfig = {
         title: "HELP & INFORMATION",
         items: [
           {
-            label: "Emergency Contacts",
-            icon: Phone,
+            label: "Emergency Center",
+            icon: AlertTriangle,
             path: "/resident/emergency",
           },
           {
