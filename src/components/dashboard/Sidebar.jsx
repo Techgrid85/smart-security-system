@@ -1,5 +1,5 @@
 import {
-  Building2,
+
   LogOut,
   Menu,
   X,
@@ -149,7 +149,11 @@ function Sidebar({
               : "SmartSociety"
           }
         >
-          <img href="SmartSociety_Logo.svg" />
+          <img
+  src="/SmartSociety_Logo.svg"
+  alt="SmartSociety Logo"
+  className="h-full w-full object-contain"
+/>
         </button>
 
         {/* BRAND */}
