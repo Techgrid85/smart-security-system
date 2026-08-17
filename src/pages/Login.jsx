@@ -235,7 +235,7 @@ const login = async (e) => {
               <img
                 src="/SmartSociety_Logo.svg"
                 alt="SmartSociety Logo"
-                className="h-full w-full object-contain"
+                className="h-14 w-14 object-contain"
               />
             </div>
 
