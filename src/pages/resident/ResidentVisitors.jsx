@@ -307,6 +307,14 @@ const resetForm = () => {
     });
   };
 
+const getQrUrl = (gateKey) => {
+  if (!gateKey) return "";
+
+  return `https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(
+    gateKey
+  )}`;
+};
+
   return (
     <DashboardLayout role="resident">
       <div className="w-full min-w-0 max-w-full">
@@ -852,6 +860,41 @@ const resetForm = () => {
               </div>
 
             </div>
+
+            {/* ================= QR GATE PASS ================= */}
+{selectedVisitor?.gateKey && (
+  <div className="rounded-[14px] border border-slate-200 bg-slate-50 p-5 text-center">
+    <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-slate-400">
+      Digital Visitor Pass
+    </p>
+
+    <h3 className="mt-1 text-[13px] font-bold text-slate-800">
+      Gate Verification QR
+    </h3>
+
+    <div className="mx-auto mt-4 flex w-fit rounded-[12px] bg-white p-3 shadow-sm">
+      <img
+        src={getQrUrl(selectedVisitor.gateKey)}
+        alt="Visitor Gate QR Code"
+        className="h-[180px] w-[180px]"
+      />
+    </div>
+
+    <p className="mt-4 text-[10px] font-medium text-slate-500">
+      Show this QR code to security at the gate.
+    </p>
+
+    <div className="mt-3">
+      <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-slate-400">
+        Gate Key
+      </p>
+
+      <p className="mt-1 text-[20px] font-extrabold tracking-[0.2em] text-emerald-600">
+        {selectedVisitor.gateKey}
+      </p>
+    </div>
+  </div>
+)}
 
             {/* ================= PURPOSE ================= */}
             <div>
