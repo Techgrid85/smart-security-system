@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import toast from "react-hot-toast";
+import jsPDF from "jspdf";
+import QRCode from "qrcode";
 
 import {
   Users,
@@ -15,6 +17,7 @@ import {
   Eye,
   UserCheck,
   Mail,
+  Download,
   CalendarDays,
 } from "lucide-react";
 
@@ -314,6 +317,265 @@ const getQrUrl = (gateKey) => {
     gateKey
   )}`;
 };
+// ================================
+// DOWNLOAD VISITOR PASS PDF
+// ================================
+const downloadVisitorPassPDF = async (visitor) => {
+  try {
+    if (!visitor?.gateKey) {
+      toast.error("Gate key is not available yet");
+      return;
+    }
+
+    const qrDataUrl = await QRCode.toDataURL(
+      visitor.gateKey,
+      {
+        width: 300,
+        margin: 2,
+      }
+    );
+
+    const pdf = new jsPDF();
+
+    const pageWidth = pdf.internal.pageSize.getWidth();
+
+    // ================================
+    // HEADER
+    // ================================
+
+    pdf.setFillColor(16, 185, 129);
+    pdf.rect(0, 0, pageWidth, 32, "F");
+
+    pdf.setTextColor(255, 255, 255);
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(20);
+    pdf.text("SmartSociety", 20, 20);
+
+    pdf.setFontSize(9);
+    pdf.setFont("helvetica", "normal");
+    pdf.text("DIGITAL VISITOR PASS", pageWidth - 20, 20, {
+      align: "right",
+    });
+
+    // ================================
+    // VISITOR INFORMATION
+    // ================================
+
+    pdf.setTextColor(30, 41, 59);
+
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(15);
+    pdf.text("Visitor Pass", 20, 48);
+
+    pdf.setDrawColor(226, 232, 240);
+    pdf.line(20, 53, pageWidth - 20, 53);
+
+    let y = 66;
+
+    const addRow = (label, value) => {
+      pdf.setFont("helvetica", "bold");
+      pdf.setFontSize(9);
+      pdf.setTextColor(100, 116, 139);
+      pdf.text(label, 20, y);
+
+      pdf.setFont("helvetica", "normal");
+      pdf.setTextColor(30, 41, 59);
+      pdf.text(String(value || "-"), 65, y);
+
+      y += 12;
+    };
+
+    addRow("Visitor Name", visitor.visitorName);
+    addRow("Visitor Type", visitor.visitorType || "Guest");
+    addRow("Phone", visitor.phone);
+    addRow("Email", visitor.email);
+    addRow(
+      "Vehicle Number",
+      visitor.vehicleNumber || "No vehicle"
+    );
+    addRow(
+      "Resident",
+      visitor.resident?.name || "Resident"
+    );
+    addRow("Flat Number", visitor.flatNo || visitor.resident?.flatNo);
+    addRow("Visit Date", formatDate(visitor.visitDate));
+    addRow(
+      "Start Time",
+      formatTime(visitor.visitStartTime)
+    );
+    addRow(
+      "End Time",
+      formatTime(visitor.visitEndTime)
+    );
+    addRow("Purpose", visitor.purpose);
+    addRow("Status", visitor.status);
+
+    // ================================
+    // QR CODE
+    // ================================
+
+    const qrX = pageWidth - 78;
+    const qrY = 62;
+
+    pdf.addImage(
+      qrDataUrl,
+      "PNG",
+      qrX,
+      qrY,
+      55,
+      55
+    );
+
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(8);
+    pdf.setTextColor(100, 116, 139);
+
+    pdf.text(
+      "SCAN AT GATE",
+      qrX + 27.5,
+      qrY + 61,
+      {
+        align: "center",
+      }
+    );
+
+    // ================================
+    // GATE KEY BOX
+    // ================================
+
+    y = Math.max(y, 130);
+
+    pdf.setFillColor(236, 253, 245);
+    pdf.setDrawColor(167, 243, 208);
+
+    pdf.roundedRect(
+      20,
+      y,
+      pageWidth - 40,
+      30,
+      4,
+      4,
+      "FD"
+    );
+
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(8);
+    pdf.setTextColor(5, 150, 105);
+
+    pdf.text(
+      "DIGITAL GATE KEY",
+      pageWidth / 2,
+      y + 9,
+      {
+        align: "center",
+      }
+    );
+
+    pdf.setFontSize(18);
+    pdf.setTextColor(4, 120, 87);
+
+    pdf.text(
+      visitor.gateKey,
+      pageWidth / 2,
+      y + 22,
+      {
+        align: "center",
+      }
+    );
+
+    // ================================
+    // SECURITY NOTICE
+    // ================================
+
+    y += 43;
+
+    pdf.setFont("helvetica", "bold");
+    pdf.setFontSize(9);
+    pdf.setTextColor(30, 41, 59);
+
+    pdf.text(
+      "Security Instructions",
+      20,
+      y
+    );
+
+    y += 8;
+
+    pdf.setFont("helvetica", "normal");
+    pdf.setFontSize(8);
+    pdf.setTextColor(100, 116, 139);
+
+    pdf.text(
+      "Please present this QR code or Gate Key to security",
+      20,
+      y
+    );
+
+    y += 6;
+
+    pdf.text(
+      "personnel for verification at the society entrance.",
+      20,
+      y
+    );
+
+    // ================================
+    // FOOTER
+    // ================================
+
+    const pageHeight =
+      pdf.internal.pageSize.getHeight();
+
+    pdf.setDrawColor(226, 232, 240);
+
+    pdf.line(
+      20,
+      pageHeight - 25,
+      pageWidth - 20,
+      pageHeight - 25
+    );
+
+    pdf.setFontSize(7);
+    pdf.setTextColor(148, 163, 184);
+
+    pdf.text(
+      "Generated by SmartSociety",
+      20,
+      pageHeight - 15
+    );
+
+    pdf.text(
+      `Pass ID: ${visitor._id}`,
+      pageWidth - 20,
+      pageHeight - 15,
+      {
+        align: "right",
+      }
+    );
+
+    // ================================
+    // DOWNLOAD
+    // ================================
+
+    pdf.save(
+      `SmartSociety-Visitor-Pass-${visitor.visitorName
+        ?.replace(/\s+/g, "-")
+        .toLowerCase()}.pdf`
+    );
+
+    toast.success("Visitor pass PDF downloaded");
+  } catch (error) {
+    console.error(
+      "Visitor Pass PDF Error:",
+      error
+    );
+
+    toast.error(
+      "Failed to generate visitor pass PDF"
+    );
+  }
+};
+
 
   return (
     <DashboardLayout role="resident">
@@ -798,6 +1060,19 @@ const getQrUrl = (gateKey) => {
               </p>
 
             </div>
+
+                      <div className="mt-5 flex justify-center">
+                        <button
+                          type="button"
+                          onClick={() =>
+                            downloadVisitorPassPDF(selectedVisitor)
+                          }
+                          className="inline-flex items-center gap-2 rounded-[9px] bg-emerald-500 px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-emerald-600"
+                        >
+                          <Download size={14} />
+                          Download Visitor Pass PDF
+                        </button>
+                      </div>
 
             {/* ================= DETAILS GRID ================= */}
             <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
