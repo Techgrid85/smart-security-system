@@ -1,7 +1,7 @@
-
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
+import { Html5Qrcode } from "html5-qrcode";
 
 import {
   ShieldCheck,
@@ -28,10 +28,12 @@ function VerifyGatePass() {
   const [scannerOpen, setScannerOpen] = useState(false);
   const [scannerError, setScannerError] = useState("");
 
-  const videoRef = useRef(null);
-  const streamRef = useRef(null);
-  const animationRef = useRef(null);
+  const scannerRef = useRef(null);
+  const isScannerRunningRef = useRef(false);
 
+  // ==========================================
+  // AUTH HEADERS
+  // ==========================================
   const getHeaders = () => {
     const token = localStorage.getItem("token");
 
@@ -95,113 +97,27 @@ function VerifyGatePass() {
   };
 
   // ==========================================
-  // OPEN CAMERA
-  // ==========================================
-  const openScanner = async () => {
-    setScannerError("");
-    setScannerOpen(true);
-
-    try {
-      if (!navigator.mediaDevices?.getUserMedia) {
-        setScannerError(
-          "Camera access is not supported in this browser"
-        );
-        return;
-      }
-
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: {
-            ideal: "environment",
-          },
-        },
-        audio: false,
-      });
-
-      streamRef.current = stream;
-
-      if (videoRef.current) {
-        videoRef.current.srcObject = stream;
-        await videoRef.current.play();
-      }
-
-      startQrDetection();
-    } catch (error) {
-      console.error("Camera Error:", error);
-
-      setScannerError(
-        "Unable to access camera. Please allow camera permission."
-      );
-    }
-  };
-
-  // ==========================================
-  // QR DETECTION
-  // Uses built-in browser BarcodeDetector
-  // No npm package required
-  // ==========================================
-  const startQrDetection = async () => {
-    if (!("BarcodeDetector" in window)) {
-      setScannerError(
-        "QR scanning is not supported by this browser. Please use the 6-digit gate key."
-      );
-      return;
-    }
-
-    try {
-      const detector = new window.BarcodeDetector({
-        formats: ["qr_code"],
-      });
-
-      const scanFrame = async () => {
-        if (!videoRef.current || !scannerOpen) {
-          return;
-        }
-
-        try {
-          const barcodes = await detector.detect(
-            videoRef.current
-          );
-
-          if (barcodes.length > 0) {
-            const rawValue = barcodes[0].rawValue?.trim();
-
-            if (rawValue) {
-              handleScannedValue(rawValue);
-              return;
-            }
-          }
-        } catch (error) {
-          console.error("QR Detection Error:", error);
-        }
-
-        animationRef.current =
-          requestAnimationFrame(scanFrame);
-      };
-
-      scanFrame();
-    } catch (error) {
-      console.error("Barcode Detector Error:", error);
-
-      setScannerError(
-        "Unable to start QR scanner. Please enter the gate key manually."
-      );
-    }
-  };
-
-  // ==========================================
   // HANDLE QR RESULT
+  //
   // Supports:
   // 482916
   // SMARTSOCIETY:GATE:482916
   // ==========================================
-  const handleScannedValue = (value) => {
+  const handleScannedValue = async (value) => {
+    const cleanValue = value?.trim();
+
+    if (!cleanValue) {
+      return;
+    }
+
     let scannedKey = "";
 
-    if (/^\d{6}$/.test(value)) {
-      scannedKey = value;
+    // QR contains only the 6-digit gate key
+    if (/^\d{6}$/.test(cleanValue)) {
+      scannedKey = cleanValue;
     } else {
-      const match = value.match(/(\d{6})/);
+      // Find a 6-digit gate key inside the QR text
+      const match = cleanValue.match(/(\d{6})/);
 
       if (match) {
         scannedKey = match[1];
@@ -213,7 +129,8 @@ function VerifyGatePass() {
       return;
     }
 
-    stopScanner();
+    // Stop scanner before verification
+    await stopScanner();
 
     setGateKey(scannedKey);
 
@@ -223,42 +140,120 @@ function VerifyGatePass() {
   };
 
   // ==========================================
-  // STOP CAMERA
+  // START QR SCANNER
   // ==========================================
-  const stopScanner = () => {
-    if (animationRef.current) {
-      cancelAnimationFrame(animationRef.current);
-      animationRef.current = null;
+  const startScanner = async () => {
+    try {
+      setScannerError("");
+
+      const scanner = new Html5Qrcode(
+        "smart-society-qr-reader"
+      );
+
+      scannerRef.current = scanner;
+
+      await scanner.start(
+        {
+          facingMode: "environment",
+        },
+        {
+          fps: 10,
+
+          qrbox: {
+            width: 250,
+            height: 250,
+          },
+
+          aspectRatio: 1,
+        },
+        (decodedText) => {
+          handleScannedValue(decodedText);
+        },
+        () => {
+          // Normal scanning failures are ignored.
+          // The scanner keeps looking for a QR code.
+        }
+      );
+
+      isScannerRunningRef.current = true;
+    } catch (error) {
+      console.error("QR Scanner Error:", error);
+
+      isScannerRunningRef.current = false;
+
+      setScannerError(
+        "Unable to access the camera. Please allow camera permission and try again."
+      );
+    }
+  };
+
+  // ==========================================
+  // OPEN SCANNER
+  // ==========================================
+  const openScanner = () => {
+    setScannerError("");
+    setScannerOpen(true);
+  };
+
+  // ==========================================
+  // STOP SCANNER
+  // ==========================================
+  const stopScanner = async () => {
+    try {
+      if (scannerRef.current) {
+        if (isScannerRunningRef.current) {
+          await scannerRef.current.stop();
+        }
+
+        try {
+          await scannerRef.current.clear();
+        } catch (clearError) {
+          console.warn(
+            "Scanner clear warning:",
+            clearError
+          );
+        }
+
+        scannerRef.current = null;
+      }
+    } catch (error) {
+      console.error("Stop Scanner Error:", error);
     }
 
-    if (streamRef.current) {
-      streamRef.current.getTracks().forEach((track) => {
-        track.stop();
-      });
-
-      streamRef.current = null;
-    }
-
-    if (videoRef.current) {
-      videoRef.current.srcObject = null;
-    }
+    isScannerRunningRef.current = false;
 
     setScannerOpen(false);
   };
 
   // ==========================================
-  // CLEAN UP CAMERA
+  // START SCANNER AFTER MODAL OPENS
+  // ==========================================
+  useEffect(() => {
+    if (!scannerOpen) return;
+
+    const timer = setTimeout(() => {
+      startScanner();
+    }, 200);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, [scannerOpen]);
+
+  // ==========================================
+  // CLEAN UP SCANNER
   // ==========================================
   useEffect(() => {
     return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
-
-      if (streamRef.current) {
-        streamRef.current
-          .getTracks()
-          .forEach((track) => track.stop());
+      if (scannerRef.current) {
+        scannerRef.current
+          .stop()
+          .catch(() => {})
+          .finally(() => {
+            try {
+              scannerRef.current?.clear();
+            } catch {}
+          });
       }
     };
   }, []);
@@ -281,7 +276,9 @@ function VerifyGatePass() {
       );
 
       if (response.data.success) {
-        toast.success("Visitor entry recorded successfully");
+        toast.success(
+          "Visitor entry recorded successfully"
+        );
 
         setVisitor(response.data.data);
         setGateKey("");
@@ -301,12 +298,18 @@ function VerifyGatePass() {
     }
   };
 
+  // ==========================================
+  // FORMAT DATE
+  // ==========================================
   const formatDate = (date) => {
     if (!date) return "-";
 
     return new Date(date).toLocaleDateString();
   };
 
+  // ==========================================
+  // FORMAT TIME
+  // ==========================================
   const formatTime = (date) => {
     if (!date) return "-";
 
@@ -546,15 +549,15 @@ function VerifyGatePass() {
 
               <div className="p-5">
 
+                {/* ================= CAMERA ================= */}
                 <div className="relative overflow-hidden rounded-[14px] bg-slate-900">
 
-                  <video
-                    ref={videoRef}
-                    className="aspect-square w-full object-cover"
-                    playsInline
-                    muted
+                  <div
+                    id="smart-society-qr-reader"
+                    className="w-full"
                   />
 
+                  {/* Scanner Overlay */}
                   <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
 
                     <div className="h-[65%] w-[65%] rounded-[14px] border-2 border-emerald-400 shadow-[0_0_0_9999px_rgba(0,0,0,0.15)]" />
@@ -563,6 +566,7 @@ function VerifyGatePass() {
 
                 </div>
 
+                {/* ================= SCANNER ERROR ================= */}
                 {scannerError && (
                   <div className="mt-4 flex gap-2 rounded-[10px] bg-amber-50 p-3 text-amber-700">
 
@@ -578,6 +582,7 @@ function VerifyGatePass() {
                   </div>
                 )}
 
+                {/* ================= SCANNING MESSAGE ================= */}
                 {!scannerError && (
                   <p className="mt-4 text-center text-[10px] font-medium text-slate-400">
                     Scanning automatically...
@@ -595,7 +600,9 @@ function VerifyGatePass() {
   );
 }
 
-
+// ==========================================
+// INFO COMPONENT
+// ==========================================
 function Info({ icon: Icon, label, value }) {
   return (
     <div className="flex items-start gap-3">
@@ -618,6 +625,4 @@ function Info({ icon: Icon, label, value }) {
   );
 }
 
-
 export default VerifyGatePass;
-
