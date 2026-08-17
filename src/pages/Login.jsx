@@ -232,7 +232,11 @@ const login = async (e) => {
 
           <div className="flex lg:hidden items-center justify-center gap-3 mb-8">
             <div className="w-11 h-11 rounded-xl bg-emerald-500 text-white flex items-center justify-center">
-              <Building2 size={23} />
+              <img
+                src="/SmartSociety_Logo.svg"
+                alt="SmartSociety Logo"
+                className="h-full w-full object-contain"
+              />
             </div>
 
             <div>
