@@ -3,7 +3,6 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  Building2,
   ChevronDown,
   ArrowRight,
   User,
@@ -276,7 +275,7 @@ useEffect(() => {
       <div className="hidden lg:flex lg:w-1/2 xl:w-[52%] bg-[#12372a] text-white px-16 xl:px-24 py-16 flex-col justify-center">
         <div className="flex items-center gap-4 mb-12">
           <div className="w-14 h-14 rounded-2xl bg-emerald-500 flex items-center justify-center shadow-lg shadow-emerald-500/30">
-            <Building2 size={29} />
+            <img src="/SmartSociety_Logo.svg" alt="SmartSociety Logo" className="h-full w-full object-contain" />
           </div>
 
           <div>
@@ -334,7 +333,7 @@ useEffect(() => {
           {/* MOBILE BRAND */}
           <div className="flex lg:hidden items-center justify-center gap-3 mb-7">
             <div className="w-11 h-11 rounded-xl bg-emerald-500 text-white flex items-center justify-center">
-              <Building2 size={23} />
+              <img src="/SmartSociety_Logo.svg" alt="SmartSociety Logo" className="h-full w-full object-contain" />
             </div>
 
             <div>
