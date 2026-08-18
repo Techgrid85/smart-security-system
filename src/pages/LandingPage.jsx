@@ -34,9 +34,6 @@ function LandingPage() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [openFAQ, setOpenFAQ] = useState(0);
 
-  // ==========================================
-  // SCROLL NAVBAR
-  // ==========================================
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
