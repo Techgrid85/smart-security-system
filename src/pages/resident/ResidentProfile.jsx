@@ -161,8 +161,17 @@ function ResidentProfile() {
 
             <div className="px-5 pb-5">
 
-              <div className="-mt-10 flex h-20 w-20 items-center justify-center rounded-2xl border-4 border-white bg-emerald-500 text-[20px] font-extrabold text-white shadow-lg">
-                {getInitials(resident?.name)}
+              {/* AVATAR */}
+              <div className="-mt-10 flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl border-4 border-white bg-emerald-500 text-[20px] font-extrabold text-white shadow-lg">
+                {resident?.profilePic ? (
+                  <img
+                    src={resident.profilePic}
+                    alt={resident?.name || "Resident"}
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  getInitials(resident?.name)
+                )}
               </div>
 
               <div className="mt-4">
