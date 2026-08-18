@@ -316,7 +316,7 @@ function Sidebar({
                           min-w-5
                           items-center
                           justify-center
-                          rounded-full
+                          rounded-[1px]
                           px-1.5
                           text-[9px]
                           font-bold
@@ -349,7 +349,7 @@ function Sidebar({
       <div className="shrink-0 border-t border-white/5 p-3">
         <div
           className={`
-            rounded-[10px]
+            rounded-[1px]
             bg-[#1d2a40]
 
             ${
