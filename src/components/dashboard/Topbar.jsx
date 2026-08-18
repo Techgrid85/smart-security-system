@@ -174,7 +174,7 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
           >
             {/* AVATAR */}
             
-            <div className="flex h-[34px] w-[34px] shrink-0 items-center justify-center overflow-hidden rounded-[1px] bg-emerald-500 text-[10px] font-extrabold text-white">
+            <div className="flex h-[34px] w-[34px] shrink-0 items-center justify-center overflow-hidden rounded-[15px] bg-emerald-500 text-[10px] font-extrabold text-white">
               {user?.profilePic ? (
                 <img
                   src={user.profilePic}
@@ -234,6 +234,8 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
 
               {/* SETTINGS */}
               <button
+
+
                 type="button"
                 onClick={() =>
                   handleNavigate(`/${role}/settings`)
