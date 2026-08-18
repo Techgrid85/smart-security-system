@@ -42,3 +42,156 @@ textarea {
 .sidebar-scroll::-webkit-scrollbar {
   display: none;
 }
+
+/* =========================================================
+   SMARTSOCIETY GLOBAL THEME
+   ========================================================= */
+
+@layer components {
+
+  /* PAGE */
+
+  .ss-page {
+    @apply min-h-screen bg-[#f7f3ed] text-[#32143b];
+  }
+
+
+  /* CARDS */
+
+  .ss-card {
+    @apply border border-[#e2d9df] bg-white;
+  }
+
+  .ss-card-hover {
+    @apply border border-[#e2d9df] bg-white transition-all duration-300 hover:border-[#bca9c0] hover:shadow-[0_10px_30px_rgba(50,20,59,0.06)];
+  }
+
+  .ss-card-dark {
+    @apply border border-white/10 bg-[#32143b] text-white;
+  }
+
+
+  /* HEADINGS */
+
+  .ss-heading {
+    @apply font-black text-[#32143b];
+  }
+
+  .ss-heading-light {
+    @apply font-black text-white;
+  }
+
+  .ss-subheading {
+    @apply font-normal text-[#63366f];
+  }
+
+  .ss-text {
+    @apply text-[#756b78];
+  }
+
+  .ss-muted {
+    @apply text-[#8b778e];
+  }
+
+
+  /* SECTION LABEL */
+
+  .ss-section-label {
+    @apply flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#9b7740];
+  }
+
+  .ss-section-line {
+    @apply h-px w-8 bg-[#9b7740];
+  }
+
+
+  /* BUTTONS */
+
+  .ss-button {
+    @apply inline-flex items-center justify-center gap-2 bg-[#32143b] px-5 py-3 text-sm font-bold text-white transition-all duration-200 hover:bg-[#63366f];
+  }
+
+  .ss-button-gold {
+    @apply inline-flex items-center justify-center gap-2 bg-[#d9be82] px-5 py-3 text-sm font-bold text-[#32143b] transition-all duration-200 hover:bg-[#f0d9a5];
+  }
+
+  .ss-button-outline {
+    @apply inline-flex items-center justify-center gap-2 border border-[#d9be82] px-5 py-3 text-sm font-bold text-[#32143b] transition-all duration-200 hover:bg-[#d9be82];
+  }
+
+
+  /* INPUTS */
+
+  .ss-label {
+    @apply mb-2 block text-xs font-bold uppercase tracking-wider text-[#49394d];
+  }
+
+  .ss-input {
+    @apply w-full border border-[#dcd2df] bg-white px-4 py-3 text-sm text-[#32143b] outline-none transition-all placeholder:text-[#8b778e] focus:border-[#9b7740] focus:ring-1 focus:ring-[#9b7740]/20;
+  }
+
+  .ss-input-error {
+    @apply w-full border border-red-300 bg-white px-4 py-3 text-sm text-[#32143b] outline-none focus:border-red-500 focus:ring-1 focus:ring-red-500/20;
+  }
+
+
+  /* TABLE */
+
+  .ss-table {
+    @apply w-full border-collapse;
+  }
+
+  .ss-table thead {
+    @apply bg-[#32143b];
+  }
+
+  .ss-table th {
+    @apply px-5 py-4 text-left text-[10px] font-bold uppercase tracking-[0.12em] text-[#d9be82];
+  }
+
+  .ss-table td {
+    @apply border-t border-[#e8e1e8] px-5 py-4 text-sm text-[#756b78];
+  }
+
+  .ss-table tbody tr {
+    @apply transition-colors hover:bg-[#f7f3ed];
+  }
+
+
+  /* STATUS */
+
+  .ss-status-success {
+    @apply inline-flex items-center bg-green-100 px-3 py-1 text-[10px] font-bold text-green-700;
+  }
+
+  .ss-status-warning {
+    @apply inline-flex items-center bg-[#d9be82]/20 px-3 py-1 text-[10px] font-bold text-[#9b7740];
+  }
+
+  .ss-status-danger {
+    @apply inline-flex items-center bg-red-100 px-3 py-1 text-[10px] font-bold text-red-700;
+  }
+
+  .ss-status-info {
+    @apply inline-flex items-center bg-[#63366f]/10 px-3 py-1 text-[10px] font-bold text-[#63366f];
+  }
+
+
+  /* DIVIDERS */
+
+  .ss-divider {
+    @apply border-t border-[#e2d9df];
+  }
+
+
+  /* DARK SECTION */
+
+  .ss-dark-section {
+    @apply bg-[#32143b] text-white;
+  }
+
+  .ss-deep-section {
+    @apply bg-[#210c28] text-white;
+  }
+
+}
