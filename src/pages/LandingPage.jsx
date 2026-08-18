@@ -44,9 +44,6 @@ function LandingPage() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // ==========================================
-  // NAVIGATION
-  // ==========================================
   const navLinks = [
     { name: "Home", href: "#home" },
     { name: "About", href: "#about" },
