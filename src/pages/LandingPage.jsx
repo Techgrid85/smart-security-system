@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import "../../index.css";
 import {
   ArrowRight,
   ArrowUp,
@@ -23,20 +24,7 @@ import {
   ChevronDown,
   ChevronUp,
   HelpCircle,
-  MapPin,
   Clock,
-  Waves,
-  Dumbbell,
-  TreeDeciduous,
-  Gamepad2,
-  Shield,
-  Film,
-  Music,
-  Coffee,
-  Flower2,
-  TentTree,
-  Baby,
-  Footprints,
   Zap,
   UserCog,
 } from "lucide-react";
@@ -47,11 +35,11 @@ function LandingPage() {
   const [openFAQ, setOpenFAQ] = useState(0);
 
   // ==========================================
-  // SCROLL NAVBAR EFFECT
+  // SCROLL NAVBAR
   // ==========================================
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
+      setIsScrolled(window.scrollY > 20);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -60,7 +48,7 @@ function LandingPage() {
   }, []);
 
   // ==========================================
-  // NAV LINKS
+  // NAVIGATION
   // ==========================================
   const navLinks = [
     { name: "Home", href: "#home" },
@@ -73,7 +61,7 @@ function LandingPage() {
   ];
 
   // ==========================================
-  // PORTALS - KEEPING YOUR EXISTING DATA
+  // PORTALS
   // ==========================================
   const portals = [
     {
@@ -131,7 +119,7 @@ function LandingPage() {
   ];
 
   // ==========================================
-  // MODULES - KEEPING YOUR EXISTING DATA
+  // MODULES
   // ==========================================
   const modules = [
     {
@@ -215,7 +203,7 @@ function LandingPage() {
   ];
 
   // ==========================================
-  // AMENITIES / SYSTEM BENEFITS
+  // AMENITIES / SYSTEM FEATURES
   // ==========================================
   const facilityCategories = [
     {
@@ -230,7 +218,7 @@ function LandingPage() {
         {
           name: "Guard Approval System",
           desc: "Security guards can approve visitors before allowing entry.",
-          icon: Shield,
+          icon: ShieldCheck,
         },
         {
           name: "Entry & Exit Logs",
@@ -240,7 +228,7 @@ function LandingPage() {
         {
           name: "Active Visitor Tracking",
           desc: "Monitor visitors currently inside the society more efficiently.",
-          icon: Footprints,
+          icon: Users,
         },
       ],
     },
@@ -358,133 +346,152 @@ function LandingPage() {
   };
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-white text-slate-900">
+    <div className="min-h-screen overflow-x-hidden bg-white font-[Plus_Jakarta_Sans] text-plum-950">
 
-      {/* ==========================================
+      {/* =====================================================
           NAVBAR
-      ========================================== */}
+      ===================================================== */}
       <header
         className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "border-b border-slate-200 bg-white/95 py-3 shadow-sm backdrop-blur-xl"
+            ? "border-b border-plum-100 bg-white/85 py-3 shadow-sm shadow-plum-900/5 backdrop-blur-md"
             : "bg-transparent py-5"
         }`}
       >
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between">
 
-          {/* LOGO */}
-          <button
-            onClick={scrollToTop}
-            className="flex items-center gap-3 text-left"
-          >
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500 shadow-lg shadow-emerald-500/25">
-              <img
-                src="/SmartSociety_Logo.svg"
-                alt="SmartSociety"
-                className="h-full w-full object-contain p-1"
-              />
-            </div>
-
-            <div>
-              <h1
-                className={`text-[18px] font-extrabold tracking-tight transition-colors ${
-                  isScrolled ? "text-slate-900" : "text-white"
-                }`}
-              >
-                Smart<span className="text-emerald-400">Society</span>
-              </h1>
-
-              <p
-                className={`text-[8px] font-bold uppercase tracking-[0.15em] ${
-                  isScrolled ? "text-slate-400" : "text-slate-300"
-                }`}
-              >
-                Smart Society Management
-              </p>
-            </div>
-          </button>
-
-          {/* DESKTOP NAVIGATION */}
-          <nav className="hidden items-center gap-1 lg:flex">
-            {navLinks.map((link) => (
-              <button
-                key={link.name}
-                onClick={() => handleNavClick(link.href)}
-                className={`rounded-full px-4 py-2 text-[12px] font-bold transition ${
-                  isScrolled
-                    ? "text-slate-600 hover:bg-emerald-50 hover:text-emerald-600"
-                    : "text-white/85 hover:bg-white/10 hover:text-white"
-                }`}
-              >
-                {link.name}
-              </button>
-            ))}
-          </nav>
-
-          {/* DESKTOP ACTIONS */}
-          <div className="hidden items-center gap-3 lg:flex">
-            <Link
-              to="/login"
-              className={`rounded-xl px-4 py-2.5 text-[11px] font-bold transition ${
-                isScrolled
-                  ? "text-slate-600 hover:text-emerald-600"
-                  : "text-white hover:text-emerald-300"
-              }`}
+            {/* LOGO */}
+            <button
+              onClick={scrollToTop}
+              className="group flex items-center space-x-2.5"
             >
-              Login
-            </Link>
+              <div className="relative">
+                <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-plum-800 via-lavender-400 to-sand-400 opacity-60 blur transition duration-300 group-hover:opacity-100" />
 
-            <Link
-              to="/register"
-              className="rounded-xl bg-emerald-500 px-5 py-2.5 text-[11px] font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-600"
-            >
-              Get Started
-            </Link>
-          </div>
+                <div className="relative flex items-center justify-center rounded-xl border border-plum-100 bg-white p-2 shadow-sm">
+                  <img
+                    src="/SmartSociety_Logo.svg"
+                    alt="SmartSociety"
+                    className="h-5 w-5 object-contain"
+                  />
+                </div>
+              </div>
 
-          {/* MOBILE BUTTON */}
-          <button
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className={`rounded-xl p-2.5 transition lg:hidden ${
-              isScrolled
-                ? "text-slate-800 hover:bg-slate-100"
-                : "text-white hover:bg-white/10"
-            }`}
-          >
-            {isMobileMenuOpen ? <X size={22} /> : <Menu size={22} />}
-          </button>
-        </div>
+              <div className="flex flex-col text-left">
+                <span
+                  className={`text-lg font-extrabold leading-none tracking-tight transition-colors ${
+                    isScrolled ? "text-plum-900" : "text-white"
+                  }`}
+                >
+                  Smart
+                  <span className="font-light text-sand-400">
+                    Society
+                  </span>
+                </span>
 
-        {/* MOBILE MENU */}
-        <div
-          className={`absolute left-0 right-0 top-full border-t border-slate-100 bg-white shadow-xl transition-all duration-300 lg:hidden ${
-            isMobileMenuOpen
-              ? "visible translate-y-0 opacity-100"
-              : "invisible -translate-y-3 opacity-0"
-          }`}
-        >
-          <div className="space-y-1 px-4 py-5">
-            {navLinks.map((link) => (
-              <button
-                key={link.name}
-                onClick={() => handleNavClick(link.href)}
-                className="block w-full rounded-xl px-4 py-3 text-left text-[13px] font-bold text-slate-700 transition hover:bg-emerald-50 hover:text-emerald-600"
-              >
-                {link.name}
-              </button>
-            ))}
+                <span
+                  className={`mt-0.5 text-[9px] font-semibold uppercase tracking-[0.2em] transition-colors ${
+                    isScrolled
+                      ? "text-lavender-600"
+                      : "text-lavender-200"
+                  }`}
+                >
+                  Smart Society Management
+                </span>
+              </div>
+            </button>
 
-            <div className="grid grid-cols-2 gap-3 border-t border-slate-100 pt-4">
+            {/* DESKTOP NAV */}
+            <nav className="hidden items-center justify-center gap-2 lg:flex">
+              {navLinks.map((link) => (
+                <button
+                  key={link.name}
+                  onClick={() => handleNavClick(link.href)}
+                  className={`whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
+                    isScrolled
+                      ? "text-plum-700 hover:bg-lavender-100 hover:text-plum-950"
+                      : "text-white/90 hover:bg-white/10 hover:text-white"
+                  }`}
+                >
+                  {link.name}
+                </button>
+              ))}
+            </nav>
+
+            {/* ACTIONS */}
+            <div className="hidden items-center gap-2 lg:flex">
               <Link
                 to="/login"
-                className="rounded-xl border border-slate-200 py-3 text-center text-[12px] font-bold text-slate-700"
+                className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${
+                  isScrolled
+                    ? "text-plum-700 hover:bg-lavender-100"
+                    : "text-white/90 hover:bg-white/10"
+                }`}
               >
                 Login
               </Link>
 
               <Link
                 to="/register"
-                className="rounded-xl bg-emerald-500 py-3 text-center text-[12px] font-bold text-white"
+                className="rounded-full bg-sand-400 px-5 py-2.5 text-sm font-bold text-plum-950 shadow-lg shadow-sand-400/20 transition hover:bg-sand-300"
+              >
+                Get Started
+              </Link>
+            </div>
+
+            {/* MOBILE BUTTON */}
+            <button
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className={`rounded-lg p-2 transition-colors lg:hidden ${
+                isScrolled
+                  ? "text-plum-800 hover:bg-lavender-100"
+                  : "text-white hover:bg-white/10"
+              }`}
+              aria-label="Toggle menu"
+            >
+              {isMobileMenuOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
+            </button>
+          </div>
+        </div>
+
+        {/* MOBILE MENU */}
+        <div
+          className={`absolute left-0 right-0 top-full border-b border-plum-100 bg-white/97 backdrop-blur-lg transition-all duration-300 lg:hidden ${
+            isMobileMenuOpen
+              ? "pointer-events-auto translate-y-0 opacity-100"
+              : "pointer-events-none -translate-y-4 opacity-0"
+          }`}
+        >
+          <div className="space-y-1 px-4 pb-6 pt-4">
+
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => handleNavClick(link.href)}
+                className="block w-full rounded-xl px-4 py-3 text-left text-base font-semibold text-plum-800 transition-colors hover:bg-lavender-100 hover:text-plum-950"
+              >
+                {link.name}
+              </button>
+            ))}
+
+            <div className="mt-3 grid grid-cols-2 gap-3 border-t border-plum-100 pt-4">
+              <Link
+                to="/login"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="rounded-xl border border-plum-200 py-3 text-center text-sm font-semibold text-plum-800 transition hover:bg-lavender-50"
+              >
+                Login
+              </Link>
+
+              <Link
+                to="/register"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="rounded-xl bg-sand-400 py-3 text-center text-sm font-bold text-plum-950 transition hover:bg-sand-300"
               >
                 Get Started
               </Link>
@@ -493,45 +500,49 @@ function LandingPage() {
         </div>
       </header>
 
-      {/* ==========================================
+      {/* =====================================================
           HERO
-      ========================================== */}
+      ===================================================== */}
       <section
         id="home"
-        className="relative min-h-screen overflow-hidden bg-[#0b1628] pt-32"
+        className="relative min-h-screen overflow-hidden bg-plum-950 pt-32"
       >
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(16,185,129,0.22),_transparent_35%),radial-gradient(circle_at_bottom_left,_rgba(59,130,246,0.12),_transparent_30%)]" />
-          <div className="absolute inset-0 opacity-[0.06] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:45px_45px]" />
-        </div>
+        {/* GRID */}
+        <div className="absolute inset-0 bg-grid-dark opacity-60" />
 
-        <div className="relative mx-auto grid min-h-[calc(100vh-100px)] max-w-7xl items-center gap-14 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
+        {/* GLOW */}
+        <div className="absolute -right-20 -top-32 h-[520px] w-[520px] rounded-full bg-plum-700/30 blur-[130px]" />
 
-          {/* HERO LEFT */}
-          <div>
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-300">
-              <Sparkles size={14} />
+        <div className="absolute -bottom-32 -left-20 h-[450px] w-[450px] rounded-full bg-lavender-400/10 blur-[120px]" />
+
+        <div className="relative mx-auto grid min-h-[calc(100vh-100px)] max-w-7xl items-center gap-16 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
+
+          {/* LEFT */}
+          <div className="animate-fade-in">
+
+            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sand-400/30 bg-sand-400/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.15em] text-sand-300">
+              <Sparkles size={13} />
               Complete Society Management Platform
             </div>
 
-            <h2 className="max-w-3xl text-[42px] font-extrabold leading-[1.08] tracking-tight text-white sm:text-[56px] lg:text-[64px]">
+            <h1 className="max-w-3xl text-[43px] font-extrabold leading-[1.04] tracking-tight text-white sm:text-[57px] lg:text-[68px]">
               Smarter Society.
               <br />
-              <span className="text-emerald-400">
+              <span className="text-gradient-gold">
                 Better Living.
               </span>
-            </h2>
+            </h1>
 
-            <p className="mt-6 max-w-xl text-[15px] leading-relaxed text-slate-300 sm:text-[17px]">
+            <p className="mt-7 max-w-xl text-[15px] leading-relaxed text-lavender-200 sm:text-[17px]">
               SmartSociety brings residents, administration, security and
               maintenance together through one connected system designed for
               better daily society management.
             </p>
 
-            <div className="mt-8 flex flex-wrap gap-4">
+            <div className="mt-9 flex flex-wrap gap-3">
               <Link
                 to="/register"
-                className="inline-flex items-center gap-2 rounded-xl bg-emerald-500 px-6 py-3.5 text-[12px] font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-600"
+                className="inline-flex items-center gap-2 rounded-xl bg-sand-400 px-6 py-3.5 text-[12px] font-bold text-plum-950 shadow-lg shadow-sand-400/20 transition hover:bg-sand-300"
               >
                 Get Started
                 <ArrowRight size={16} />
@@ -539,12 +550,13 @@ function LandingPage() {
 
               <button
                 onClick={() => handleNavClick("#about")}
-                className="rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 text-[12px] font-bold text-white transition hover:bg-white/10"
+                className="rounded-xl border border-lavender-400/20 bg-white/5 px-6 py-3.5 text-[12px] font-bold text-white transition hover:bg-white/10"
               >
                 Explore Platform
               </button>
             </div>
 
+            {/* STATS */}
             <div className="mt-12 grid max-w-xl grid-cols-2 gap-4 sm:grid-cols-4">
               {[
                 ["4", "Dedicated Portals"],
@@ -554,12 +566,13 @@ function LandingPage() {
               ].map(([value, label]) => (
                 <div
                   key={label}
-                  className="border-l border-white/10 pl-4"
+                  className="border-l border-lavender-400/20 pl-4"
                 >
-                  <p className="text-[23px] font-extrabold text-white">
+                  <p className="text-[24px] font-extrabold text-white">
                     {value}
                   </p>
-                  <p className="mt-1 text-[9px] font-bold uppercase tracking-wide text-slate-500">
+
+                  <p className="mt-1 text-[9px] font-bold uppercase tracking-wide text-lavender-400">
                     {label}
                   </p>
                 </div>
@@ -567,16 +580,18 @@ function LandingPage() {
             </div>
           </div>
 
-          {/* HERO RIGHT */}
-          <div className="relative">
-            <div className="absolute -inset-6 rounded-[35px] bg-emerald-500/10 blur-3xl" />
+          {/* RIGHT */}
+          <div className="relative animate-float">
 
-            <div className="relative overflow-hidden rounded-[28px] border border-white/10 bg-[#111c30] shadow-2xl">
+            <div className="absolute -inset-8 rounded-[40px] bg-lavender-400/10 blur-3xl" />
 
-              <div className="flex items-center justify-between border-b border-white/10 px-6 py-5">
+            <div className="relative overflow-hidden rounded-[28px] border border-plum-700 bg-plum-900/80 shadow-2xl backdrop-blur-sm">
+
+              {/* HEADER */}
+              <div className="flex items-center justify-between border-b border-plum-700 px-6 py-5">
                 <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-500">
-                    <Building2 size={19} className="text-white" />
+                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-plum-700 to-plum-800 text-sand-400">
+                    <Building2 size={20} />
                   </div>
 
                   <div>
@@ -584,75 +599,93 @@ function LandingPage() {
                       SmartSociety Overview
                     </p>
 
-                    <p className="text-[9px] text-slate-500">
+                    <p className="text-[9px] text-lavender-400">
                       Connected management platform
                     </p>
                   </div>
                 </div>
 
                 <div className="flex gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-red-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-amber-400/70" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-emerald-400/70" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-plum-500" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-sand-400" />
+                  <span className="h-2.5 w-2.5 rounded-full bg-lavender-400" />
                 </div>
               </div>
 
+              {/* GRID */}
               <div className="grid grid-cols-2">
                 {[
                   ["Residents", Users],
                   ["Security", ShieldCheck],
                   ["Maintenance", Wrench],
                   ["Management", ClipboardCheck],
-                ].map(([label, Icon]) => (
+                ].map(([label, Icon], index) => (
                   <div
                     key={label}
-                    className="border-b border-r border-white/10 p-6 last:border-r-0"
+                    className={`border-plum-700 p-6 ${
+                      index < 2 ? "border-b" : ""
+                    } ${index % 2 === 0 ? "border-r" : ""}`}
                   >
-                    <Icon size={21} className="text-emerald-400" />
+                    <Icon
+                      size={21}
+                      className="text-sand-400"
+                    />
 
                     <p className="mt-5 text-[12px] font-bold text-white">
                       {label}
                     </p>
 
-                    <p className="mt-2 text-[9px] leading-relaxed text-slate-500">
+                    <p className="mt-2 text-[9px] leading-relaxed text-lavender-400">
                       Connected and managed from one system.
                     </p>
                   </div>
                 ))}
               </div>
 
-              <div className="flex items-center justify-between px-6 py-5">
+              {/* STATUS */}
+              <div className="flex items-center justify-between border-t border-plum-700 px-6 py-5">
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-slate-500">
+                  <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-lavender-500">
                     System Status
                   </p>
 
-                  <p className="mt-2 flex items-center gap-2 text-[11px] font-bold text-emerald-400">
-                    <span className="h-2 w-2 rounded-full bg-emerald-400" />
+                  <p className="mt-2 flex items-center gap-2 text-[11px] font-bold text-sand-400">
+                    <span className="h-2 w-2 rounded-full bg-sand-400" />
                     All modules connected
                   </p>
                 </div>
 
-                <LockKeyhole size={23} className="text-slate-600" />
+                <LockKeyhole
+                  size={23}
+                  className="text-plum-500"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* ==========================================
+      {/* =====================================================
           ABOUT
-      ========================================== */}
-      <section id="about" className="scroll-mt-24 bg-white py-24">
-        <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+      ===================================================== */}
+      <section
+        id="about"
+        className="scroll-mt-24 bg-white py-24"
+      >
+        <div className="mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
 
+          {/* VISUAL */}
           <div className="relative">
-            <div className="rounded-[28px] bg-gradient-to-br from-emerald-500 to-teal-700 p-8 shadow-xl shadow-emerald-500/15">
-              <div className="rounded-[22px] border border-white/20 bg-[#0f172a] p-7">
+
+            <div className="absolute -inset-5 rounded-[35px] bg-lavender-100 blur-2xl" />
+
+            <div className="relative rounded-[28px] border border-plum-100 bg-lavender-50 p-3 shadow-xl">
+
+              <div className="rounded-[23px] bg-plum-950 p-7">
 
                 <div className="flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-500">
-                    <Building2 className="text-white" size={25} />
+                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-plum-700 to-plum-800 text-sand-400">
+                    <Building2 size={25} />
                   </div>
 
                   <div>
@@ -660,7 +693,7 @@ function LandingPage() {
                       One Connected Platform
                     </p>
 
-                    <p className="mt-1 text-[11px] text-slate-400">
+                    <p className="mt-1 text-[11px] text-lavender-400">
                       Built for modern society operations
                     </p>
                   </div>
@@ -675,43 +708,47 @@ function LandingPage() {
                   ].map((item) => (
                     <div
                       key={item}
-                      className="rounded-xl border border-white/10 bg-white/5 p-4"
+                      className="rounded-xl border border-plum-700 bg-plum-900/70 p-4"
                     >
                       <CheckCircle2
                         size={17}
-                        className="text-emerald-400"
+                        className="text-sand-400"
                       />
+
                       <p className="mt-3 text-[11px] font-bold text-white">
                         {item}
                       </p>
                     </div>
                   ))}
                 </div>
+
               </div>
             </div>
           </div>
 
+          {/* CONTENT */}
           <div>
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+
+            <div className="inline-flex items-center gap-2 rounded-full border border-plum-100 bg-lavender-50 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-plum-700">
               <Sparkles size={13} />
               About SmartSociety
             </div>
 
-            <h2 className="mt-6 text-[35px] font-extrabold leading-tight tracking-tight text-slate-900 sm:text-[48px]">
+            <h2 className="mt-6 text-[36px] font-extrabold leading-tight tracking-tight text-plum-950 sm:text-[49px]">
               One platform for your
-              <span className="block text-emerald-500">
+              <span className="block text-gradient-plum">
                 entire society.
               </span>
             </h2>
 
-            <p className="mt-6 text-[15px] leading-relaxed text-slate-500">
+            <p className="mt-6 text-[15px] leading-relaxed text-plum-700/70">
               SmartSociety brings essential society operations into one
               connected system. Instead of managing residents, visitors,
               complaints, maintenance and communication separately, everything
               can be organized through dedicated role-based portals.
             </p>
 
-            <p className="mt-4 text-[15px] leading-relaxed text-slate-500">
+            <p className="mt-4 text-[15px] leading-relaxed text-plum-700/70">
               Administration, residents, guards and maintenance staff can work
               together through clear workflows and access the features relevant
               to their responsibilities.
@@ -719,7 +756,7 @@ function LandingPage() {
 
             <button
               onClick={() => handleNavClick("#portals")}
-              className="mt-8 inline-flex items-center gap-2 text-[12px] font-bold text-emerald-600 transition hover:text-emerald-700"
+              className="mt-8 inline-flex items-center gap-2 text-[12px] font-bold text-plum-700 transition hover:text-plum-950"
             >
               Explore the portals
               <ArrowRight size={16} />
@@ -728,60 +765,67 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* ==========================================
+      {/* =====================================================
           PORTALS
-      ========================================== */}
+      ===================================================== */}
       <section
         id="portals"
-        className="scroll-mt-24 bg-slate-50 py-24"
+        className="scroll-mt-24 relative overflow-hidden bg-lavender-50 py-24"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="absolute inset-0 bg-grid-light opacity-70" />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <div className="mx-auto mb-16 max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+
+            <div className="inline-flex items-center gap-2 rounded-full border border-plum-100 bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-plum-700 shadow-sm">
               <Users size={13} />
               Role-Based Access
             </div>
 
-            <h2 className="mt-5 text-[34px] font-extrabold tracking-tight text-slate-900 sm:text-[48px]">
+            <h2 className="mt-5 text-[35px] font-extrabold tracking-tight text-plum-950 sm:text-[48px]">
               A portal designed for
-              <span className="text-emerald-500"> every role.</span>
+              <span className="block text-gradient-plum">
+                every role.
+              </span>
             </h2>
 
-            <p className="mt-5 text-[15px] leading-relaxed text-slate-500">
+            <p className="mt-5 text-[15px] leading-relaxed text-plum-700/65">
               Every user gets a dedicated workspace with the tools and
               information relevant to their responsibilities.
             </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
+
             {portals.map((portal) => {
               const Icon = portal.icon;
 
               return (
                 <div
                   key={portal.title}
-                  className="group rounded-[24px] border border-slate-200 bg-white p-7 transition-all duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-500/10"
+                  className="group rounded-[24px] border border-plum-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-lavender-300 hover:shadow-xl hover:shadow-plum-900/10"
                 >
                   <div className="flex items-start justify-between gap-5">
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-emerald-50 text-emerald-500 transition group-hover:bg-emerald-500 group-hover:text-white">
+
+                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-plum-100 bg-lavender-50 text-plum-800 transition duration-300 group-hover:bg-plum-800 group-hover:text-sand-300">
                       <Icon size={25} />
                     </div>
 
-                    <span className="rounded-full bg-slate-100 px-3 py-1.5 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <span className="rounded-full bg-lavender-50 px-3 py-1.5 text-[9px] font-bold uppercase tracking-wide text-lavender-700">
                       Portal
                     </span>
                   </div>
 
-                  <p className="mt-7 text-[10px] font-bold uppercase tracking-[0.1em] text-emerald-500">
+                  <p className="mt-7 text-[10px] font-bold uppercase tracking-[0.1em] text-sand-600">
                     {portal.subtitle}
                   </p>
 
-                  <h3 className="mt-2 text-[22px] font-extrabold text-slate-900">
+                  <h3 className="mt-2 text-[22px] font-extrabold text-plum-950">
                     {portal.title}
                   </h3>
 
-                  <p className="mt-4 text-[13px] leading-relaxed text-slate-500">
+                  <p className="mt-4 text-[13px] leading-relaxed text-plum-700/65">
                     {portal.description}
                   </p>
 
@@ -789,12 +833,13 @@ function LandingPage() {
                     {portal.features.map((feature) => (
                       <div
                         key={feature}
-                        className="flex items-center gap-2 text-[11px] font-semibold text-slate-600"
+                        className="flex items-center gap-2 text-[11px] font-semibold text-plum-700"
                       >
                         <CheckCircle2
                           size={14}
-                          className="shrink-0 text-emerald-500"
+                          className="shrink-0 text-sand-600"
                         />
+
                         {feature}
                       </div>
                     ))}
@@ -806,9 +851,9 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* ==========================================
+      {/* =====================================================
           FEATURES
-      ========================================== */}
+      ===================================================== */}
       <section
         id="features"
         className="scroll-mt-24 bg-white py-24"
@@ -816,44 +861,47 @@ function LandingPage() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <div className="mb-16 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+
             <div className="max-w-2xl">
-              <div className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+
+              <div className="inline-flex items-center gap-2 rounded-full border border-plum-100 bg-lavender-50 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-plum-700">
                 <Zap size={13} />
                 Core Modules
               </div>
 
-              <h2 className="mt-5 text-[34px] font-extrabold tracking-tight text-slate-900 sm:text-[48px]">
+              <h2 className="mt-5 text-[35px] font-extrabold tracking-tight text-plum-950 sm:text-[48px]">
                 Everything your society
-                <span className="block text-emerald-500">
+                <span className="block text-gradient-plum">
                   needs in one system.
                 </span>
               </h2>
             </div>
 
-            <p className="max-w-md text-[14px] leading-relaxed text-slate-500">
+            <p className="max-w-md text-[14px] leading-relaxed text-plum-700/65">
               Manage essential society operations through connected modules
               built around everyday administrative and community workflows.
             </p>
           </div>
 
           <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+
             {modules.map((module) => {
               const Icon = module.icon;
 
               return (
                 <div
                   key={module.title}
-                  className="group rounded-[20px] border border-slate-200 bg-slate-50 p-6 transition hover:-translate-y-1 hover:border-emerald-200 hover:bg-white hover:shadow-lg hover:shadow-slate-200/60"
+                  className="group rounded-[20px] border border-plum-100 bg-lavender-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-lavender-300 hover:bg-white hover:shadow-lg hover:shadow-plum-900/10"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-white text-emerald-500 shadow-sm transition group-hover:bg-emerald-500 group-hover:text-white">
+                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-plum-100 bg-white text-plum-800 shadow-sm transition group-hover:bg-plum-800 group-hover:text-sand-300">
                     <Icon size={21} />
                   </div>
 
-                  <h3 className="mt-6 text-[15px] font-extrabold text-slate-900">
+                  <h3 className="mt-6 text-[15px] font-extrabold text-plum-950">
                     {module.title}
                   </h3>
 
-                  <p className="mt-3 text-[11px] leading-relaxed text-slate-500">
+                  <p className="mt-3 text-[11px] leading-relaxed text-plum-700/65">
                     {module.description}
                   </p>
                 </div>
@@ -863,31 +911,32 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* ==========================================
+      {/* =====================================================
           AMENITIES
-      ========================================== */}
+      ===================================================== */}
       <section
         id="amenities"
-        className="scroll-mt-24 relative overflow-hidden bg-emerald-50/40 py-24"
+        className="scroll-mt-24 relative overflow-hidden bg-lavender-50 py-24"
       >
-        <div className="absolute inset-0 opacity-[0.04] [background-image:linear-gradient(rgba(16,185,129,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(16,185,129,.7)_1px,transparent_1px)] [background-size:40px_40px]" />
+        <div className="absolute inset-0 bg-grid-light opacity-60" />
 
         <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <div className="mx-auto mb-16 max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-200 bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600 shadow-sm">
+
+            <div className="inline-flex items-center gap-2 rounded-full border border-plum-100 bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-plum-700 shadow-sm">
               <Sparkles size={13} />
               Connected Society Features
             </div>
 
-            <h2 className="mt-5 text-[34px] font-extrabold tracking-tight text-slate-900 sm:text-[48px]">
+            <h2 className="mt-5 text-[35px] font-extrabold tracking-tight text-plum-950 sm:text-[48px]">
               Everything needed for
-              <span className="block text-emerald-500">
+              <span className="block text-gradient-plum">
                 smarter society living.
               </span>
             </h2>
 
-            <p className="mt-5 text-[15px] leading-relaxed text-slate-500">
+            <p className="mt-5 text-[15px] leading-relaxed text-plum-700/65">
               From visitor control and maintenance workflows to resident
               communication and community activities, SmartSociety keeps
               important operations connected.
@@ -895,44 +944,51 @@ function LandingPage() {
           </div>
 
           <div className="space-y-16">
+
             {facilityCategories.map((category) => {
               const CategoryIcon = category.icon;
 
               return (
                 <div key={category.category}>
+
                   <div className="mb-6 flex items-center gap-3">
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-emerald-100 bg-white text-emerald-500 shadow-sm">
+
+                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-plum-100 bg-white text-plum-800 shadow-sm">
                       <CategoryIcon size={20} />
                     </div>
 
-                    <h3 className="text-[20px] font-extrabold text-slate-900">
+                    <h3 className="text-[20px] font-extrabold text-plum-950">
                       {category.category}
                     </h3>
 
-                    <div className="ml-2 h-px flex-1 bg-gradient-to-r from-emerald-200 to-transparent" />
+                    <div className="ml-2 h-px flex-1 bg-gradient-to-r from-lavender-300 to-transparent" />
                   </div>
 
                   <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+
                     {category.items.map((item) => {
                       const ItemIcon = item.icon;
 
                       return (
                         <div
                           key={item.name}
-                          className="group overflow-hidden rounded-[20px] border border-emerald-100 bg-white transition-all duration-300 hover:-translate-y-1 hover:border-emerald-300 hover:shadow-xl hover:shadow-emerald-500/10"
+                          className="group overflow-hidden rounded-[20px] border border-plum-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-lavender-300 hover:shadow-xl hover:shadow-plum-900/10"
                         >
-                          <div className="flex h-36 items-center justify-center bg-gradient-to-br from-emerald-50 via-white to-teal-50">
-                            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-emerald-100 bg-white text-emerald-500 shadow-sm transition duration-300 group-hover:scale-110 group-hover:bg-emerald-500 group-hover:text-white">
+
+                          <div className="flex h-36 items-center justify-center bg-gradient-to-br from-lavender-50 via-white to-sand-50">
+
+                            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-plum-100 bg-white text-plum-800 shadow-sm transition duration-300 group-hover:scale-110 group-hover:bg-plum-800 group-hover:text-sand-300">
                               <ItemIcon size={25} />
                             </div>
                           </div>
 
                           <div className="p-5">
-                            <h4 className="text-[13px] font-extrabold text-slate-900">
+
+                            <h4 className="text-[13px] font-extrabold text-plum-950">
                               {item.name}
                             </h4>
 
-                            <p className="mt-2 text-[11px] leading-relaxed text-slate-500">
+                            <p className="mt-2 text-[11px] leading-relaxed text-plum-700/65">
                               {item.desc}
                             </p>
                           </div>
@@ -945,12 +1001,15 @@ function LandingPage() {
             })}
           </div>
 
-          <div className="mt-20 rounded-[28px] border border-emerald-100 bg-white p-8 shadow-sm sm:p-12">
-            <h3 className="text-center text-[24px] font-extrabold text-slate-900">
+          {/* FEATURE SUMMARY */}
+          <div className="mt-20 rounded-[28px] border border-plum-100 bg-white p-8 shadow-sm sm:p-12">
+
+            <h3 className="text-center text-[24px] font-extrabold text-plum-950">
               One Connected SmartSociety Experience
             </h3>
 
             <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-4 md:grid-cols-3 lg:grid-cols-4">
+
               {[
                 "Role-Based Access",
                 "Resident Profiles",
@@ -969,11 +1028,11 @@ function LandingPage() {
                   key={item}
                   className="flex items-center gap-2"
                 >
-                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-emerald-100 text-emerald-600">
+                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sand-100 text-sand-700">
                     <CheckCircle2 size={12} />
                   </div>
 
-                  <span className="text-[11px] font-semibold text-slate-600">
+                  <span className="text-[11px] font-semibold text-plum-700">
                     {item}
                   </span>
                 </div>
@@ -983,33 +1042,40 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* ==========================================
+      {/* =====================================================
           HOW IT WORKS
-      ========================================== */}
-      <section className="bg-[#0b1628] py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      ===================================================== */}
+      <section className="relative overflow-hidden bg-plum-950 py-24">
+
+        <div className="absolute inset-0 bg-grid-dark opacity-60" />
+
+        <div className="absolute -right-20 top-0 h-96 w-96 rounded-full bg-plum-700/20 blur-[120px]" />
+
+        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
           <div className="mx-auto mb-16 max-w-3xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-400/20 bg-emerald-400/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-300">
+
+            <div className="inline-flex items-center gap-2 rounded-full border border-sand-400/30 bg-sand-400/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-sand-300">
               <ClipboardCheck size={13} />
               How It Works
             </div>
 
-            <h2 className="mt-5 text-[34px] font-extrabold tracking-tight text-white sm:text-[48px]">
+            <h2 className="mt-5 text-[35px] font-extrabold tracking-tight text-white sm:text-[48px]">
               Simple workflows.
-              <span className="block text-emerald-400">
+              <span className="block text-gradient-gold">
                 Better management.
               </span>
             </h2>
           </div>
 
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+
             {steps.map((step) => (
               <div
                 key={step.number}
-                className="relative overflow-hidden rounded-[22px] border border-white/10 bg-white/5 p-7"
+                className="group relative overflow-hidden rounded-[22px] border border-plum-700 bg-plum-900/70 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-lavender-500/40"
               >
-                <p className="text-[42px] font-extrabold leading-none text-emerald-400/25">
+                <p className="text-[42px] font-extrabold leading-none text-sand-400/20 transition group-hover:text-sand-400/30">
                   {step.number}
                 </p>
 
@@ -1017,7 +1083,7 @@ function LandingPage() {
                   {step.title}
                 </h3>
 
-                <p className="mt-3 text-[11px] leading-relaxed text-slate-400">
+                <p className="mt-3 text-[11px] leading-relaxed text-lavender-300/70">
                   {step.description}
                 </p>
               </div>
@@ -1026,9 +1092,9 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* ==========================================
+      {/* =====================================================
           FAQ
-      ========================================== */}
+      ===================================================== */}
       <section
         id="faq"
         className="scroll-mt-24 bg-white py-24"
@@ -1036,30 +1102,32 @@ function LandingPage() {
         <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
           <div className="mx-auto mb-14 max-w-2xl text-center">
-            <div className="inline-flex items-center gap-2 rounded-full border border-emerald-100 bg-emerald-50 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+
+            <div className="inline-flex items-center gap-2 rounded-full border border-plum-100 bg-lavender-50 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-plum-700">
               <HelpCircle size={13} />
               Frequently Asked Questions
             </div>
 
-            <h2 className="mt-5 text-[34px] font-extrabold tracking-tight text-slate-900 sm:text-[45px]">
+            <h2 className="mt-5 text-[35px] font-extrabold tracking-tight text-plum-950 sm:text-[45px]">
               Everything you need to
-              <span className="block text-emerald-500">
+              <span className="block text-gradient-plum">
                 know about SmartSociety.
               </span>
             </h2>
           </div>
 
           <div className="space-y-3">
+
             {faqData.map((item, index) => {
               const isOpen = openFAQ === index;
 
               return (
                 <div
                   key={item.question}
-                  className={`overflow-hidden rounded-2xl border transition-all ${
+                  className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
                     isOpen
-                      ? "border-emerald-300 bg-emerald-50/40 shadow-sm"
-                      : "border-slate-200 bg-white hover:border-emerald-200"
+                      ? "border-lavender-300 bg-lavender-50/60 shadow-sm"
+                      : "border-plum-100 bg-white hover:border-lavender-300"
                   }`}
                 >
                   <button
@@ -1068,19 +1136,19 @@ function LandingPage() {
                     }
                     className="flex w-full items-center justify-between gap-5 px-6 py-5 text-left"
                   >
-                    <span className="text-[13px] font-bold text-slate-800 sm:text-[15px]">
+                    <span className="text-[13px] font-bold text-plum-900 sm:text-[15px]">
                       {item.question}
                     </span>
 
                     {isOpen ? (
                       <ChevronUp
                         size={19}
-                        className="shrink-0 text-emerald-600"
+                        className="shrink-0 text-plum-700"
                       />
                     ) : (
                       <ChevronDown
                         size={19}
-                        className="shrink-0 text-slate-400"
+                        className="shrink-0 text-lavender-600"
                       />
                     )}
                   </button>
@@ -1090,7 +1158,7 @@ function LandingPage() {
                       isOpen ? "max-h-96" : "max-h-0"
                     }`}
                   >
-                    <p className="px-6 pb-6 text-[13px] leading-relaxed text-slate-500">
+                    <p className="px-6 pb-6 text-[13px] leading-relaxed text-plum-700/65">
                       {item.answer}
                     </p>
                   </div>
@@ -1101,13 +1169,20 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* ==========================================
+      {/* =====================================================
           CTA
-      ========================================== */}
-      <section className="bg-emerald-500 py-20">
-        <div className="mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
+      ===================================================== */}
+      <section className="relative overflow-hidden bg-plum-800 py-20">
+
+        <div className="absolute inset-0 bg-grid-dark opacity-50" />
+
+        <div className="absolute -right-20 -top-24 h-80 w-80 rounded-full bg-lavender-400/10 blur-[100px]" />
+
+        <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
+
           <div className="max-w-2xl">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-white/25 bg-white/10 text-white">
+
+            <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-sand-400/30 bg-sand-400/10 text-sand-300">
               <ShieldCheck size={21} />
             </div>
 
@@ -1115,7 +1190,7 @@ function LandingPage() {
               Ready for smarter society management?
             </h2>
 
-            <p className="mt-3 text-[14px] leading-relaxed text-emerald-50/90">
+            <p className="mt-3 text-[14px] leading-relaxed text-lavender-200/80">
               Bring administration, residents, security and maintenance
               together through one connected SmartSociety platform.
             </p>
@@ -1123,7 +1198,7 @@ function LandingPage() {
 
           <Link
             to="/register"
-            className="inline-flex items-center gap-2 rounded-xl bg-white px-6 py-3.5 text-[12px] font-bold text-emerald-600 shadow-lg transition hover:bg-emerald-50"
+            className="inline-flex items-center gap-2 rounded-xl bg-sand-400 px-6 py-3.5 text-[12px] font-bold text-plum-950 shadow-lg transition hover:bg-sand-300"
           >
             Get Started
             <ArrowRight size={16} />
@@ -1131,58 +1206,101 @@ function LandingPage() {
         </div>
       </section>
 
-      {/* ==========================================
+      {/* =====================================================
           FOOTER
-      ========================================== */}
+      ===================================================== */}
       <footer
         id="contact"
-        className="scroll-mt-24 relative overflow-hidden bg-[#08111f] pt-16"
+        className="relative overflow-hidden bg-plum-950 pb-8 pt-16 text-lavender-200"
       >
-        <div className="absolute inset-0 opacity-[0.04] [background-image:linear-gradient(rgba(255,255,255,.7)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,.7)_1px,transparent_1px)] [background-size:40px_40px]" />
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        {/* TOP LINE */}
+        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-plum-800 via-sand-400 to-plum-800" />
 
-          <div className="grid gap-10 pb-12 md:grid-cols-2 lg:grid-cols-4">
+        {/* GRID */}
+        <div className="pointer-events-none absolute inset-0 bg-grid-dark opacity-50" />
+
+        <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-plum-700/20 blur-[120px]" />
+
+        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+
+          <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-12">
 
             {/* BRAND */}
-            <div>
+            <div className="space-y-5 md:col-span-4">
+
               <button
                 onClick={scrollToTop}
-                className="flex items-center gap-3"
+                className="group flex items-center space-x-2.5"
               >
-                <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-500">
-                  <img
-                    src="/SmartSociety_Logo.svg"
-                    alt="SmartSociety"
-                    className="h-full w-full object-contain p-1"
-                  />
+                <div className="relative">
+
+                  <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-lavender-400 to-sand-400 opacity-50 blur" />
+
+                  <div className="relative flex items-center justify-center rounded-xl border border-plum-700 bg-plum-900 p-2">
+                    <img
+                      src="/SmartSociety_Logo.svg"
+                      alt="SmartSociety"
+                      className="h-5 w-5 object-contain"
+                    />
+                  </div>
                 </div>
 
-                <div className="text-left">
-                  <p className="text-[18px] font-extrabold text-white">
-                    Smart<span className="text-emerald-400">Society</span>
-                  </p>
+                <div className="flex flex-col text-left">
 
-                  <p className="text-[8px] font-bold uppercase tracking-[0.13em] text-slate-500">
+                  <span className="text-xl font-extrabold leading-none tracking-tight text-white">
+                    Smart
+                    <span className="font-light text-sand-400">
+                      Society
+                    </span>
+                  </span>
+
+                  <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-[0.2em] text-lavender-400">
                     Smart Society Management
-                  </p>
+                  </span>
                 </div>
               </button>
 
-              <p className="mt-5 max-w-sm text-[12px] leading-relaxed text-slate-400">
+              <p className="max-w-sm text-sm leading-relaxed text-lavender-300/75">
                 A connected platform designed to help manage residents,
                 visitors, complaints, maintenance, communication and daily
                 society operations more efficiently.
               </p>
+
+              <div className="space-y-3 text-sm">
+
+                <div className="flex items-center gap-3">
+                  <Building2 className="h-4 w-4 shrink-0 text-sand-400" />
+                  <span className="text-lavender-300/75">
+                    Society Management Platform
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <ShieldCheck className="h-4 w-4 shrink-0 text-sand-400" />
+                  <span className="text-lavender-300/75">
+                    Role-Based Access
+                  </span>
+                </div>
+
+                <div className="flex items-center gap-3">
+                  <Clock className="h-4 w-4 shrink-0 text-sand-400" />
+                  <span className="text-lavender-300/75">
+                    Connected Operations
+                  </span>
+                </div>
+              </div>
             </div>
 
             {/* EXPLORE */}
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-emerald-400">
-                Explore
-              </p>
+            <div className="space-y-4 md:col-span-2">
 
-              <div className="mt-5 space-y-3">
+              <span className="block text-xs font-extrabold uppercase tracking-widest text-sand-400">
+                Explore
+              </span>
+
+              <ul className="space-y-2 text-sm">
+
                 {[
                   ["About", "#about"],
                   ["Portals", "#portals"],
@@ -1190,73 +1308,96 @@ function LandingPage() {
                   ["Amenities", "#amenities"],
                   ["FAQ", "#faq"],
                 ].map(([name, href]) => (
-                  <button
-                    key={name}
-                    onClick={() => handleNavClick(href)}
-                    className="block text-[12px] font-medium text-slate-400 transition hover:text-white"
-                  >
-                    {name}
-                  </button>
+                  <li key={name}>
+                    <button
+                      onClick={() => handleNavClick(href)}
+                      className="text-lavender-300/75 transition-colors hover:text-white"
+                    >
+                      {name}
+                    </button>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
             {/* PORTALS */}
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-emerald-400">
-                Portals
-              </p>
+            <div className="space-y-4 md:col-span-2">
 
-              <div className="mt-5 space-y-3 text-[12px] font-medium text-slate-400">
-                <p>Administration</p>
-                <p>Resident Portal</p>
-                <p>Security Portal</p>
-                <p>Staff Portal</p>
-              </div>
+              <span className="block text-xs font-extrabold uppercase tracking-widest text-sand-400">
+                Portals
+              </span>
+
+              <ul className="space-y-2 text-sm">
+
+                <li className="text-lavender-300/75">
+                  Administration
+                </li>
+
+                <li className="text-lavender-300/75">
+                  Resident Portal
+                </li>
+
+                <li className="text-lavender-300/75">
+                  Security Portal
+                </li>
+
+                <li className="text-lavender-300/75">
+                  Staff Portal
+                </li>
+              </ul>
             </div>
 
-            {/* CONTACT */}
-            <div>
-              <p className="text-[10px] font-bold uppercase tracking-[0.15em] text-emerald-400">
-                SmartSociety
-              </p>
+            {/* SMART SOCIETY */}
+            <div className="space-y-4 md:col-span-4">
 
-              <p className="mt-5 text-[12px] leading-relaxed text-slate-400">
+              <span className="block text-xs font-extrabold uppercase tracking-widest text-sand-400">
+                SmartSociety
+              </span>
+
+              <p className="text-sm leading-relaxed text-lavender-300/75">
                 One connected system for better society management and
                 organized daily operations.
               </p>
 
-              <div className="mt-5 space-y-3">
-                <div className="flex items-center gap-3 text-[11px] text-slate-400">
-                  <Building2 size={15} className="text-emerald-400" />
-                  Society Management Platform
-                </div>
+              <div className="rounded-2xl border border-plum-700 bg-plum-900/60 p-5">
 
-                <div className="flex items-center gap-3 text-[11px] text-slate-400">
-                  <ShieldCheck size={15} className="text-emerald-400" />
-                  Role-Based Access
-                </div>
+                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-lavender-400">
+                  System Access
+                </p>
 
-                <div className="flex items-center gap-3 text-[11px] text-slate-400">
-                  <Clock size={15} className="text-emerald-400" />
-                  Connected Operations
+                <div className="mt-4 flex flex-wrap gap-2">
+
+                  {[
+                    "Administration",
+                    "Residents",
+                    "Security",
+                    "Maintenance",
+                  ].map((item) => (
+                    <span
+                      key={item}
+                      className="rounded-full border border-plum-700 bg-plum-800 px-3 py-1.5 text-[10px] font-semibold text-lavender-200"
+                    >
+                      {item}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
           </div>
 
           {/* BOTTOM */}
-          <div className="flex flex-col items-center justify-between gap-4 border-t border-white/10 py-7 sm:flex-row">
-            <p className="text-[10px] font-medium text-slate-600">
+          <div className="flex flex-col items-center justify-between gap-4 border-t border-plum-800 py-7 text-xs text-lavender-400/70 sm:flex-row">
+
+            <p>
               © {new Date().getFullYear()} SmartSociety. All rights reserved.
             </p>
 
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-2 text-[10px] font-bold text-slate-300 transition hover:bg-white/10 hover:text-white"
+              className="flex items-center gap-1.5 rounded-lg border border-plum-700 bg-plum-900 px-3 py-1.5 text-lavender-200 transition-colors hover:bg-plum-800"
             >
               Back to top
-              <ArrowUp size={13} />
+              <ArrowUp className="h-3.5 w-3.5" />
             </button>
           </div>
         </div>
