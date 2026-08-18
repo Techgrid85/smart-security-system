@@ -38,7 +38,7 @@ function Sidebar({
       confirmButtonText: "Yes, Logout",
       cancelButtonText: "Cancel",
       confirmButtonColor: "#9b7740",
-      cancelButtonColor: "#64748b",
+      cancelButtonColor: "#756b78",
       background: "#32143b",
       color: "#ffffff",
     }).then((result) => {
@@ -94,9 +94,11 @@ function Sidebar({
         bg-[#210c28]
 
         border-r
-        border-white/[0.08]
+        border-white/10
 
-        shadow-[10px_0_40px_rgba(33,12,40,0.25)]
+        shadow-[10px_0_40px_rgba(33,12,40,0.20)]
+
+        font-[Poppins]
 
         transition-all
         duration-300
@@ -129,12 +131,12 @@ function Sidebar({
       <div
         className={`
           flex
-          h-[76px]
+          h-[82px]
           shrink-0
           items-center
 
           border-b
-          border-white/[0.08]
+          border-white/10
 
           ${
             collapsed
@@ -144,17 +146,15 @@ function Sidebar({
         `}
       >
 
-        {/* ===============================================
-            LOGO
-        =============================================== */}
+        {/* LOGO */}
 
         <button
           type="button"
           onClick={handleLogoClick}
           className={`
             flex
-            h-10
-            w-10
+            h-11
+            w-11
             shrink-0
             items-center
             justify-center
@@ -172,7 +172,7 @@ function Sidebar({
 
             shadow-[0_5px_20px_rgba(217,190,130,0.08)]
 
-            transition
+            transition-all
 
             ${
               collapsed
@@ -193,9 +193,7 @@ function Sidebar({
           />
         </button>
 
-        {/* ===============================================
-            BRAND
-        =============================================== */}
+        {/* BRAND */}
 
         <div
           className={`
@@ -209,21 +207,19 @@ function Sidebar({
             }
           `}
         >
-          <h1 className="truncate text-[17px] font-black leading-none tracking-tight text-white">
+          <h1 className="truncate text-[17px] font-extrabold leading-none tracking-tight text-white">
             Smart
-            <span className="font-normal text-[#d9be82]">
+            <span className="font-light text-[#d9be82]">
               Society
             </span>
           </h1>
 
-          <p className="mt-1 truncate text-[9px] font-bold uppercase tracking-[0.11em] text-white/45">
+          <p className="mt-1 truncate text-[8px] font-semibold uppercase tracking-[0.2em] text-white/40">
             {config.portalLabel}
           </p>
         </div>
 
-        {/* ===============================================
-            DESKTOP COLLAPSE
-        =============================================== */}
+        {/* DESKTOP COLLAPSE */}
 
         {!collapsed && (
           <button
@@ -238,13 +234,13 @@ function Sidebar({
               items-center
               justify-center
 
-              rounded-lg
+              rounded-full
 
               text-white/40
 
-              transition
+              transition-all
 
-              hover:bg-white/[0.06]
+              hover:bg-white/10
               hover:text-[#d9be82]
 
               lg:flex
@@ -255,9 +251,7 @@ function Sidebar({
           </button>
         )}
 
-        {/* ===============================================
-            MOBILE CLOSE
-        =============================================== */}
+        {/* MOBILE CLOSE */}
 
         <button
           type="button"
@@ -271,13 +265,13 @@ function Sidebar({
             items-center
             justify-center
 
-            rounded-lg
+            rounded-full
 
             text-white/40
 
-            transition
+            transition-all
 
-            hover:bg-white/[0.06]
+            hover:bg-white/10
             hover:text-[#d9be82]
 
             lg:hidden
@@ -292,22 +286,22 @@ function Sidebar({
           NAVIGATION
       ================================================= */}
 
-      <div className="sidebar-scroll flex-1 overflow-y-auto overflow-x-hidden px-3 py-6">
+      <div className="sidebar-scroll flex-1 overflow-y-auto overflow-x-hidden px-3 py-7">
 
         {config.sections.map((section) => (
           <div
             key={section.title}
-            className="mb-6"
+            className="mb-7"
           >
 
             {/* SECTION TITLE */}
 
             {!collapsed && (
-              <div className="mb-2.5 flex items-center gap-2 px-3">
+              <div className="mb-3 flex items-center gap-2 px-3">
 
-                <span className="h-px w-3 bg-[#9b7740]/60" />
+                <span className="h-px w-8 bg-[#9b7740]/60" />
 
-                <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-[#d9be82]/60">
+                <p className="text-[9px] font-bold uppercase tracking-[0.2em] text-[#d9be82]/65">
                   {section.title}
                 </p>
 
@@ -340,27 +334,28 @@ function Sidebar({
                       group
                       relative
                       flex
-                      h-[43px]
+                      h-[44px]
                       w-full
                       items-center
 
-                      rounded-lg
+                      rounded-none
 
-                      text-[12.5px]
-                      font-medium
+                      text-[12px]
+                      font-semibold
 
                       transition-all
+                      duration-200
 
                       ${
                         isActive
                           ? `
                             bg-[#9b7740]
                             text-white
-                            shadow-[0_6px_20px_rgba(155,119,64,0.22)]
+                            shadow-[0_8px_24px_rgba(155,119,64,0.20)]
                           `
                           : `
                             text-white/50
-                            hover:bg-white/[0.045]
+                            hover:bg-white/[0.05]
                             hover:text-white
                           `
                       }
@@ -376,30 +371,30 @@ function Sidebar({
                     {/* ACTIVE INDICATOR */}
 
                     {isActive && (
-                      <span className="
-                        absolute
-                        left-0
-                        top-1/2
-                        h-5
-                        w-[3px]
-                        -translate-y-1/2
-                        rounded-r-full
-                        bg-[#f0d9a5]
-                      " />
+                      <span
+                        className="
+                          absolute
+                          left-0
+                          top-0
+                          h-full
+                          w-[3px]
+                          bg-[#f0d9a5]
+                        "
+                      />
                     )}
 
                     {/* ICON */}
 
                     <Icon
                       size={17}
-                      strokeWidth={2}
+                      strokeWidth={1.8}
                       className={`
                         shrink-0
 
                         ${
                           isActive
-                            ? "text-white"
-                            : "text-white/45 group-hover:text-[#d9be82]"
+                            ? "text-[#f0d9a5]"
+                            : "text-white/40 group-hover:text-[#d9be82]"
                         }
                       `}
                     />
@@ -444,7 +439,7 @@ function Sidebar({
                           ${
                             isActive
                               ? "bg-white/15 text-white"
-                              : "bg-[#9b7740]/15 text-[#d9be82]"
+                              : "bg-[#d9be82]/10 text-[#d9be82]"
                           }
 
                           ${
@@ -457,6 +452,7 @@ function Sidebar({
                         {item.badge}
                       </span>
                     )}
+
                   </button>
                 );
               })}
@@ -471,16 +467,14 @@ function Sidebar({
           USER AREA
       ================================================= */}
 
-      <div className="shrink-0 border-t border-white/[0.08] p-3">
+      <div className="shrink-0 border-t border-white/10 p-3">
 
         <div
           className={`
-            rounded-lg
-
             border
-            border-white/[0.06]
+            border-white/10
 
-            bg-white/[0.045]
+            bg-[#32143b]
 
             ${
               collapsed
@@ -490,31 +484,30 @@ function Sidebar({
           `}
         >
 
-          {/* =============================================
-              AVATAR
-          ============================================= */}
+          {/* AVATAR */}
 
-          <div className="
-            flex
-            h-9
-            w-9
-            shrink-0
-            overflow-hidden
-            items-center
-            justify-center
+          <div
+            className="
+              flex
+              h-9
+              w-9
+              shrink-0
+              overflow-hidden
+              items-center
+              justify-center
 
-            rounded-full
+              rounded-full
 
-            border
-            border-[#d9be82]/30
+              border
+              border-[#d9be82]/40
 
-            bg-[#9b7740]
+              bg-[#9b7740]
 
-            text-[10px]
-            font-extrabold
-            text-white
-          ">
-
+              text-[10px]
+              font-extrabold
+              text-white
+            "
+          >
             {user?.profilePic ? (
               <img
                 src={user.profilePic}
@@ -525,20 +518,15 @@ function Sidebar({
               user?.name
                 ? user.name
                     .split(" ")
-                    .map(
-                      (word) => word[0]
-                    )
+                    .map((word) => word[0])
                     .join("")
                     .slice(0, 2)
                     .toUpperCase()
                 : "U"
             )}
-
           </div>
 
-          {/* =============================================
-              USER INFO
-          ============================================= */}
+          {/* USER INFO */}
 
           <div
             className={`
@@ -552,7 +540,6 @@ function Sidebar({
               }
             `}
           >
-
             <p className="truncate text-[11px] font-bold text-white">
               {user?.name || "User"}
             </p>
@@ -560,12 +547,9 @@ function Sidebar({
             <p className="mt-0.5 truncate text-[9px] font-medium text-white/40">
               {config.roleLabel}
             </p>
-
           </div>
 
-          {/* =============================================
-              LOGOUT
-          ============================================= */}
+          {/* LOGOUT */}
 
           <button
             type="button"
@@ -573,9 +557,9 @@ function Sidebar({
             className={`
               text-white/35
 
-              transition
+              transition-all
 
-              hover:text-red-400
+              hover:text-[#d9be82]
 
               ${
                 collapsed
