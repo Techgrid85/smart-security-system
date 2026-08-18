@@ -23,7 +23,7 @@ function DashboardLayout({ role, children }) {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f7f3ed] text-[#32143b]">
+    <div className="min-h-screen overflow-x-hidden bg-[#f7f5f8]">
 
       {/* MOBILE OVERLAY */}
       {mobileSidebarOpen && (
@@ -94,17 +94,7 @@ function DashboardLayout({ role, children }) {
         </main>
 
         {/* FOOTER */}
-        <footer
-          className="
-            border-t
-            border-[#e2d9df]
-            bg-white
-            px-4
-            py-4
-            sm:px-5
-            lg:px-7
-          "
-        >
+        <footer className="border-t border-[#e8e1e9] bg-white px-4 py-4 sm:px-5 lg:px-7">
           <div
             className="
               flex

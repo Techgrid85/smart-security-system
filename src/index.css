@@ -195,3 +195,42 @@ textarea {
   }
 
 }
+
+:root {
+  /* Brand */
+  --color-primary: #9b7740;
+  --color-primary-dark: #826331;
+  --color-primary-light: #f8f3e8;
+
+  /* Purple */
+  --color-dark: #32143b;
+  --color-sidebar: #210c28;
+  --color-purple-light: #f3edf5;
+
+  /* Background */
+  --color-background: #f7f5f8;
+  --color-card: #ffffff;
+
+  /* Borders */
+  --color-border: #e8e1e9;
+  --color-border-light: #f0ebf1;
+
+  /* Text */
+  --color-text: #32143b;
+  --color-text-dark: #210c28;
+  --color-text-muted: #786d7b;
+  --color-text-light: #9c929f;
+
+  /* Status */
+  --color-success: #16a34a;
+  --color-success-light: #f0fdf4;
+
+  --color-warning: #9b7740;
+  --color-warning-light: #f8f3e8;
+
+  --color-danger: #dc2626;
+  --color-danger-light: #fef2f2;
+
+  --color-info: #6366f1;
+  --color-info-light: #eef2ff;
+}
