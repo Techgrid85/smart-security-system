@@ -15,19 +15,19 @@ import {
 
 import DashboardLayout from "../../components/dashboard/DashboardLayout";
 
+const API_URL =
+  "https://smart-society-backend-delta.vercel.app";
+
 function SocietyMap() {
   const [flats, setFlats] = useState([]);
   const [loading, setLoading] = useState(true);
 
-  // Clicked flat
   const [selectedFlat, setSelectedFlat] = useState(null);
-
-  // Hovered flat
   const [hoveredFlat, setHoveredFlat] = useState(null);
 
-  // ==========================================
+  // =====================================================
   // FETCH FLATS
-  // ==========================================
+  // =====================================================
 
   const fetchFlats = async () => {
     try {
@@ -41,7 +41,7 @@ function SocietyMap() {
       }
 
       const response = await axios.get(
-        "https://smart-society-backend-delta.vercel.app/admin/flats",
+        `${API_URL}/admin/flats`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -53,7 +53,8 @@ function SocietyMap() {
         setFlats(response.data.data || []);
       } else {
         toast.error(
-          response.data.message || "Failed to load society map"
+          response.data.message ||
+            "Failed to load society map"
         );
       }
     } catch (error) {
@@ -72,10 +73,10 @@ function SocietyMap() {
     fetchFlats();
   }, []);
 
-  // ==========================================
-  // GROUP
+  // =====================================================
+  // GROUP FLATS
   // BLOCK -> FLOOR -> FLATS
-  // ==========================================
+  // =====================================================
 
   const groupedFlats = useMemo(() => {
     return flats.reduce((groups, flat) => {
@@ -96,17 +97,17 @@ function SocietyMap() {
     }, {});
   }, [flats]);
 
-  // ==========================================
+  // =====================================================
   // BLOCKS
-  // ==========================================
+  // =====================================================
 
-  const blocks = Object.keys(groupedFlats).sort((a, b) =>
-    a.localeCompare(b)
+  const blocks = Object.keys(groupedFlats).sort(
+    (a, b) => a.localeCompare(b)
   );
 
-  // ==========================================
+  // =====================================================
   // STATS
-  // ==========================================
+  // =====================================================
 
   const stats = {
     total: flats.length,
@@ -124,42 +125,45 @@ function SocietyMap() {
     ).length,
   };
 
-  // ==========================================
-  // STATUS COLORS
-  // ==========================================
+  // =====================================================
+  // STATUS CARD STYLING
+  // =====================================================
 
   const getStatusClass = (status) => {
     switch (status) {
       case "Occupied":
         return `
-          border-emerald-500
+          border-emerald-300
           bg-emerald-500
           text-white
           hover:bg-emerald-600
+          hover:border-emerald-400
         `;
 
       case "Maintenance":
         return `
-          border-amber-400
+          border-amber-300
           bg-amber-400
           text-slate-900
           hover:bg-amber-500
+          hover:border-amber-400
         `;
 
       case "Vacant":
       default:
         return `
-          border-slate-300
-          bg-slate-100
+          border-slate-200
+          bg-slate-50
           text-slate-600
-          hover:bg-slate-200
+          hover:bg-slate-100
+          hover:border-slate-300
         `;
     }
   };
 
-  // ==========================================
+  // =====================================================
   // STATUS DOT
-  // ==========================================
+  // =====================================================
 
   const getStatusDot = (status) => {
     switch (status) {
@@ -174,9 +178,9 @@ function SocietyMap() {
     }
   };
 
-  // ==========================================
+  // =====================================================
   // LOADING
-  // ==========================================
+  // =====================================================
 
   if (loading) {
     return (
@@ -185,7 +189,7 @@ function SocietyMap() {
           <div className="text-center">
             <div className="mx-auto h-9 w-9 animate-spin rounded-full border-4 border-emerald-500 border-t-transparent" />
 
-            <p className="mt-4 text-[11px] font-semibold text-slate-500">
+            <p className="mt-4 text-[11px] font-medium text-slate-400">
               Loading society map...
             </p>
           </div>
@@ -194,116 +198,165 @@ function SocietyMap() {
     );
   }
 
-  // ==========================================
+  // =====================================================
   // PAGE
-  // ==========================================
+  // =====================================================
 
   return (
     <DashboardLayout role="admin">
       <div className="w-full min-w-0 max-w-full">
 
-        {/* ====================================== */}
+        {/* ================================================= */}
         {/* PAGE HEADER */}
-        {/* ====================================== */}
+        {/* ================================================= */}
 
-        <div className="mb-6">
-          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
-            Society Management
-          </p>
+        <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
 
-          <h1 className="text-[22px] font-extrabold tracking-tight text-slate-900 md:text-[24px]">
-            Society Map
-          </h1>
+          <div>
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+              Society Management
+            </p>
 
-          <p className="mt-1 text-[11.5px] font-medium text-slate-400">
-            Visual overview of blocks, floors and flats across the
-            society.
-          </p>
+            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+              Society Map
+            </h1>
+
+            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+              Visual overview of blocks, floors and flats across the society.
+            </p>
+          </div>
+
+          <div className="hidden items-center gap-2 rounded-[1px] border border-slate-200 bg-white px-3 py-2 sm:flex">
+            <MapPinned
+              size={14}
+              className="text-emerald-500"
+            />
+
+            <span className="text-[10px] font-semibold text-slate-500">
+              {blocks.length} Blocks
+            </span>
+          </div>
+
         </div>
 
-        {/* ====================================== */}
-        {/* STAT CARDS */}
-        {/* ====================================== */}
+        {/* ================================================= */}
+        {/* STATS */}
+        {/* ================================================= */}
 
-        <div className="mb-6 grid grid-cols-2 gap-3 md:grid-cols-4">
+        <div className="mb-6 grid grid-cols-2 gap-4 xl:grid-cols-4">
 
           {/* TOTAL */}
 
-          <div className="border border-slate-200 bg-white p-4 transition hover:border-slate-300">
-            <div className="mb-3 flex h-9 w-9 items-center justify-center bg-slate-100 text-slate-500">
-              <Home size={17} />
+          <div className="relative overflow-hidden rounded-[1px] border border-slate-200 bg-white p-5">
+
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-slate-900 opacity-[0.04]" />
+
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
+              <Building2 size={20} />
             </div>
 
-            <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-slate-400">
               Total Flats
             </p>
 
-            <p className="mt-2 text-[22px] font-extrabold leading-none text-slate-900">
+            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-slate-900">
               {stats.total}
             </p>
+
+            <p className="mt-2 text-[10.5px] font-medium text-slate-400">
+              All registered flats
+            </p>
+
           </div>
 
           {/* OCCUPIED */}
 
-          <div className="border border-emerald-200 bg-emerald-50 p-4 transition hover:border-emerald-300">
-            <div className="mb-3 flex h-9 w-9 items-center justify-center bg-emerald-100 text-emerald-600">
-              <Users size={17} />
+          <div className="relative overflow-hidden rounded-[1px] border border-emerald-200 bg-white p-5">
+
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-emerald-500 opacity-[0.06]" />
+
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+              <Users size={20} />
             </div>
 
-            <p className="text-[9px] font-bold uppercase tracking-wide text-emerald-600">
+            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-emerald-600">
               Occupied
             </p>
 
-            <p className="mt-2 text-[22px] font-extrabold leading-none text-emerald-700">
+            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-slate-900">
               {stats.occupied}
             </p>
+
+            <p className="mt-2 text-[10.5px] font-medium text-slate-400">
+              Currently occupied
+            </p>
+
           </div>
 
           {/* VACANT */}
 
-          <div className="border border-slate-200 bg-slate-50 p-4 transition hover:border-slate-300">
-            <div className="mb-3 flex h-9 w-9 items-center justify-center bg-white text-slate-500">
-              <Building2 size={17} />
+          <div className="relative overflow-hidden rounded-[1px] border border-slate-200 bg-white p-5">
+
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-slate-500 opacity-[0.05]" />
+
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-slate-500">
+              <Home size={20} />
             </div>
 
-            <p className="text-[9px] font-bold uppercase tracking-wide text-slate-500">
+            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-slate-500">
               Vacant
             </p>
 
-            <p className="mt-2 text-[22px] font-extrabold leading-none text-slate-700">
+            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-slate-900">
               {stats.vacant}
             </p>
+
+            <p className="mt-2 text-[10.5px] font-medium text-slate-400">
+              Available flats
+            </p>
+
           </div>
 
           {/* MAINTENANCE */}
 
-          <div className="border border-amber-200 bg-amber-50 p-4 transition hover:border-amber-300">
-            <div className="mb-3 flex h-9 w-9 items-center justify-center bg-amber-100 text-amber-600">
-              <MapPinned size={17} />
+          <div className="relative overflow-hidden rounded-[1px] border border-amber-200 bg-white p-5">
+
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-amber-500 opacity-[0.06]" />
+
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-500">
+              <Building2 size={20} />
             </div>
 
-            <p className="text-[9px] font-bold uppercase tracking-wide text-amber-600">
+            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-amber-600">
               Maintenance
             </p>
 
-            <p className="mt-2 text-[22px] font-extrabold leading-none text-amber-700">
+            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-slate-900">
               {stats.maintenance}
             </p>
+
+            <p className="mt-2 text-[10.5px] font-medium text-slate-400">
+              Under maintenance
+            </p>
+
           </div>
+
         </div>
 
-        {/* ====================================== */}
+        {/* ================================================= */}
         {/* LEGEND */}
-        {/* ====================================== */}
+        {/* ================================================= */}
 
-        <div className="mb-6 flex flex-wrap items-center gap-5 border border-slate-200 bg-white px-4 py-3">
+        <div className="mb-6 flex flex-wrap items-center gap-5 rounded-[1px] border border-slate-200 bg-white px-4 py-3">
 
-          <p className="mr-1 text-[10px] font-bold tracking-wide text-slate-500">
-            STATUS
-          </p>
+          <div className="mr-1 flex items-center gap-2">
+            <span className="text-[10px] font-bold text-slate-500">
+              STATUS
+            </span>
+          </div>
 
           <div className="flex items-center gap-2">
-            <span className="h-3 w-3 bg-emerald-500" />
+            <span className="h-2.5 w-2.5 rounded-[1px] bg-emerald-500" />
 
             <span className="text-[10px] font-semibold text-slate-600">
               Occupied
@@ -311,7 +364,7 @@ function SocietyMap() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="h-3 w-3 bg-slate-300" />
+            <span className="h-2.5 w-2.5 rounded-[1px] bg-slate-300" />
 
             <span className="text-[10px] font-semibold text-slate-600">
               Vacant
@@ -319,7 +372,7 @@ function SocietyMap() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="h-3 w-3 bg-amber-400" />
+            <span className="h-2.5 w-2.5 rounded-[1px] bg-amber-400" />
 
             <span className="text-[10px] font-semibold text-slate-600">
               Maintenance
@@ -329,18 +382,20 @@ function SocietyMap() {
           <div className="ml-auto hidden text-[9px] font-medium text-slate-400 md:block">
             Hover for quick information • Click for full details
           </div>
+
         </div>
 
-        {/* ====================================== */}
+        {/* ================================================= */}
         {/* MAP */}
-        {/* ====================================== */}
+        {/* ================================================= */}
 
         {blocks.length === 0 ? (
-          <div className="border border-slate-200 bg-white p-12 text-center">
-            <MapPinned
-              size={32}
-              className="mx-auto text-slate-300"
-            />
+
+          <div className="rounded-[1px] border border-slate-200 bg-white p-12 text-center">
+
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 text-slate-300">
+              <MapPinned size={28} />
+            </div>
 
             <h2 className="mt-4 text-[14px] font-bold text-slate-700">
               No flats found
@@ -349,11 +404,15 @@ function SocietyMap() {
             <p className="mt-1 text-[10px] font-medium text-slate-400">
               Add flats from the Flats management section.
             </p>
+
           </div>
+
         ) : (
-          <div className="grid gap-6 xl:grid-cols-2">
+
+          <div className="grid gap-5 xl:grid-cols-2">
 
             {blocks.map((block) => {
+
               const floors = Object.keys(
                 groupedFlats[block]
               )
@@ -367,18 +426,20 @@ function SocietyMap() {
               return (
                 <section
                   key={block}
-                  className="overflow-hidden border border-slate-200 bg-white shadow-sm"
+                  className="overflow-hidden rounded-[1px] border border-slate-200 bg-white"
                 >
 
+                  {/* ================================================= */}
                   {/* BLOCK HEADER */}
+                  {/* ================================================= */}
 
-                  <div className="flex items-center justify-between border-b border-slate-800 bg-slate-900 px-4 py-3">
+                  <div className="flex items-center justify-between bg-slate-900 px-5 py-4">
 
                     <div className="flex items-center gap-3">
 
-                      <div className="flex h-8 w-8 items-center justify-center border border-white/10 bg-white/5">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5">
                         <Building2
-                          size={15}
+                          size={16}
                           className="text-emerald-400"
                         />
                       </div>
@@ -388,14 +449,15 @@ function SocietyMap() {
                           Society Block
                         </p>
 
-                        <h2 className="text-[14px] font-extrabold text-white">
+                        <h2 className="mt-0.5 text-[14px] font-extrabold text-white">
                           Block {block}
                         </h2>
                       </div>
+
                     </div>
 
                     <div className="text-right">
-                      <p className="text-[11px] font-bold text-white">
+                      <p className="text-[12px] font-bold text-white">
                         {blockFlats.length}
                       </p>
 
@@ -403,12 +465,17 @@ function SocietyMap() {
                         Flats
                       </p>
                     </div>
+
                   </div>
 
+                  {/* ================================================= */}
                   {/* FLOORS */}
+                  {/* ================================================= */}
 
                   <div className="p-4">
+
                     {floors.map((floor) => {
+
                       const floorFlats = [
                         ...groupedFlats[block][floor],
                       ].sort((a, b) =>
@@ -427,7 +494,7 @@ function SocietyMap() {
                           className="border-b border-slate-200 py-4 last:border-b-0"
                         >
 
-                          {/* FLOOR LABEL */}
+                          {/* FLOOR HEADER */}
 
                           <div className="mb-3 flex items-center gap-3">
 
@@ -447,6 +514,7 @@ function SocietyMap() {
                             <span className="text-[8px] font-semibold text-slate-400">
                               {floorFlats.length} flats
                             </span>
+
                           </div>
 
                           {/* FLATS */}
@@ -454,6 +522,7 @@ function SocietyMap() {
                           <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
 
                             {floorFlats.map((flat) => (
+
                               <button
                                 key={flat._id}
                                 type="button"
@@ -470,6 +539,7 @@ function SocietyMap() {
                                   group
                                   relative
                                   min-h-[78px]
+                                  rounded-[1px]
                                   border
                                   p-3
                                   text-left
@@ -481,28 +551,25 @@ function SocietyMap() {
                                 `}
                               >
 
-                                {/* FLAT ICON */}
-
                                 <Home
                                   size={15}
                                   className="mb-2 opacity-80"
                                 />
 
-                                {/* FLAT NUMBER */}
-
                                 <p className="text-[11px] font-extrabold">
                                   {flat.flatNo}
                                 </p>
-
-                                {/* TYPE */}
 
                                 <p className="mt-0.5 text-[8px] font-medium opacity-80">
                                   {flat.type}
                                 </p>
 
+                                {/* ================================================= */}
                                 {/* HOVER POPUP */}
+                                {/* ================================================= */}
 
                                 {hoveredFlat === flat._id && (
+
                                   <div
                                     className="
                                       pointer-events-none
@@ -513,6 +580,8 @@ function SocietyMap() {
                                       mb-2
                                       w-56
                                       -translate-x-1/2
+                                      overflow-hidden
+                                      rounded-xl
                                       border
                                       border-slate-700
                                       bg-slate-900
@@ -522,7 +591,7 @@ function SocietyMap() {
                                     "
                                   >
 
-                                    {/* TITLE */}
+                                    {/* POPUP TITLE */}
 
                                     <div className="border-b border-white/10 pb-2">
 
@@ -533,9 +602,10 @@ function SocietyMap() {
                                       <p className="mt-1 text-[12px] font-extrabold text-white">
                                         {flat.flatNo}
                                       </p>
+
                                     </div>
 
-                                    {/* BASIC DETAILS */}
+                                    {/* DETAILS */}
 
                                     <div className="mt-2 space-y-1.5">
 
@@ -592,6 +662,7 @@ function SocietyMap() {
                                           {flat.status}
                                         </span>
                                       </div>
+
                                     </div>
 
                                     {/* RESIDENT */}
@@ -617,35 +688,45 @@ function SocietyMap() {
                                           No resident assigned
                                         </p>
                                       )}
+
                                     </div>
 
-                                    {/* CLICK HINT */}
+                                    {/* HINT */}
 
                                     <div className="mt-3 border-t border-white/10 pt-2">
                                       <p className="text-[8px] font-medium text-slate-500">
                                         Click for full details
                                       </p>
                                     </div>
+
                                   </div>
                                 )}
+
                               </button>
+
                             ))}
+
                           </div>
+
                         </div>
                       );
                     })}
+
                   </div>
+
                 </section>
               );
             })}
+
           </div>
         )}
 
-        {/* ====================================== */}
+        {/* ================================================= */}
         {/* FULL DETAILS MODAL */}
-        {/* ====================================== */}
+        {/* ================================================= */}
 
         {selectedFlat && (
+
           <div
             className="
               fixed
@@ -660,20 +741,26 @@ function SocietyMap() {
             "
             onClick={() => setSelectedFlat(null)}
           >
+
             <div
               className="
                 w-full
                 max-w-lg
                 overflow-hidden
+                rounded-xl
                 border
                 border-slate-200
                 bg-white
                 shadow-2xl
               "
-              onClick={(e) => e.stopPropagation()}
+              onClick={(e) =>
+                e.stopPropagation()
+              }
             >
 
+              {/* ================================================= */}
               {/* MODAL HEADER */}
+              {/* ================================================= */}
 
               <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
 
@@ -689,13 +776,16 @@ function SocietyMap() {
 
                 <button
                   type="button"
-                  onClick={() => setSelectedFlat(null)}
+                  onClick={() =>
+                    setSelectedFlat(null)
+                  }
                   className="
                     flex
                     h-8
                     w-8
                     items-center
                     justify-center
+                    rounded-lg
                     border
                     border-slate-200
                     text-slate-400
@@ -706,9 +796,12 @@ function SocietyMap() {
                 >
                   <X size={15} />
                 </button>
+
               </div>
 
+              {/* ================================================= */}
               {/* MODAL CONTENT */}
+              {/* ================================================= */}
 
               <div className="space-y-4 p-5">
 
@@ -719,10 +812,12 @@ function SocietyMap() {
                     flex
                     items-center
                     justify-between
+                    rounded-[1px]
                     border
                     p-3
                     ${
-                      selectedFlat.status === "Occupied"
+                      selectedFlat.status ===
+                      "Occupied"
                         ? "border-emerald-200 bg-emerald-50"
                         : selectedFlat.status ===
                           "Maintenance"
@@ -731,6 +826,7 @@ function SocietyMap() {
                     }
                   `}
                 >
+
                   <div>
                     <p className="text-[8px] font-bold uppercase tracking-wide text-slate-400">
                       Current Status
@@ -745,11 +841,13 @@ function SocietyMap() {
                     className={`
                       h-3
                       w-3
+                      rounded-[1px]
                       ${getStatusDot(
                         selectedFlat.status
                       )}
                     `}
                   />
+
                 </div>
 
                 {/* BASIC INFORMATION */}
@@ -781,11 +879,12 @@ function SocietyMap() {
                 {/* RESIDENT */}
 
                 {selectedFlat.resident ? (
-                  <div className="border border-slate-200">
 
-                    <div className="flex items-center gap-2 border-b border-slate-200 px-4 py-3">
+                  <div className="overflow-hidden rounded-[1px] border border-slate-200">
 
-                      <div className="flex h-7 w-7 items-center justify-center bg-emerald-50 text-emerald-500">
+                    <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-50 px-4 py-3">
+
+                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
                         <Users size={14} />
                       </div>
 
@@ -798,6 +897,7 @@ function SocietyMap() {
                           Assigned resident
                         </p>
                       </div>
+
                     </div>
 
                     <div className="space-y-3 p-4">
@@ -813,47 +913,63 @@ function SocietyMap() {
                       </div>
 
                       <div className="flex items-center gap-2">
+
                         <Mail
                           size={13}
-                          className="text-emerald-500"
+                          className="shrink-0 text-slate-400"
                         />
 
                         <p className="break-all text-[10px] font-medium text-slate-600">
                           {selectedFlat.resident.email}
                         </p>
+
                       </div>
 
                       <div className="flex items-center gap-2">
+
                         <Phone
                           size={13}
-                          className="text-emerald-500"
+                          className="shrink-0 text-slate-400"
                         />
 
                         <p className="text-[10px] font-medium text-slate-600">
                           {selectedFlat.resident.phone ||
                             "Not provided"}
                         </p>
+
                       </div>
+
                     </div>
+
                   </div>
+
                 ) : (
-                  <div className="border border-slate-200 bg-slate-50 p-4">
+
+                  <div className="rounded-[1px] border border-slate-200 bg-slate-50 p-4">
+
                     <p className="text-[10px] font-medium text-slate-500">
-                      No resident is currently assigned to this
-                      flat.
+                      No resident is currently assigned to this flat.
                     </p>
+
                   </div>
+
                 )}
+
               </div>
 
+              {/* ================================================= */}
               {/* MODAL FOOTER */}
+              {/* ================================================= */}
 
               <div className="flex justify-end border-t border-slate-200 px-5 py-3">
 
                 <button
                   type="button"
-                  onClick={() => setSelectedFlat(null)}
+                  onClick={() =>
+                    setSelectedFlat(null)
+                  }
                   className="
+                    rounded-[1px]
                     border
                     border-slate-300
                     px-4
@@ -862,30 +978,32 @@ function SocietyMap() {
                     font-bold
                     text-slate-600
                     transition
-                    hover:border-emerald-300
-                    hover:bg-emerald-50
-                    hover:text-emerald-600
+                    hover:bg-slate-50
+                    hover:text-slate-800
                   "
                 >
                   Close
                 </button>
 
               </div>
+
             </div>
+
           </div>
         )}
+
       </div>
     </DashboardLayout>
   );
 }
 
-/* ==========================================
-   INFO BOX
-========================================== */
+// =====================================================
+// INFO BOX
+// =====================================================
 
 function InfoBox({ label, value }) {
   return (
-    <div className="border border-slate-200 bg-white p-3 transition hover:border-emerald-200">
+    <div className="rounded-[1px] border border-slate-200 bg-white p-3">
       <p className="text-[8px] font-bold uppercase tracking-wide text-slate-400">
         {label}
       </p>
