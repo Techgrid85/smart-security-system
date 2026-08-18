@@ -198,6 +198,9 @@ const fetchApprovedVisitors = async () => {
     e
   ) => {
     const visitorId = e.target.value;
+    const selectedVisitor = approvedVisitors.find(
+      (visitor) => String(visitor._id) === String(visitorId)
+    );
 
     setSelectedApprovedId(visitorId);
     setApprovedVisitor(null);
@@ -207,11 +210,18 @@ const fetchApprovedVisitors = async () => {
       return;
     }
 
+    if (!selectedVisitor?.gateKey) {
+      setError(
+        "This visitor pass does not have a valid gate key. Please refresh the visitor list."
+      );
+      return;
+    }
+
     try {
       setLoadingDetails(true);
 
       const response = await axios.get(
-        `https://smart-society-backend-delta.vercel.app/guard/verify-pass/${visitorId}`,
+        `https://smart-society-backend-delta.vercel.app/guard/verify-pass/${selectedVisitor.gateKey}`,
         config
       );
 
@@ -332,6 +342,7 @@ const fetchApprovedVisitors = async () => {
         resident: "",
         flatNo: "",
         visitorName: "",
+        email: "",
         phone: "",
         purpose: "",
       });
