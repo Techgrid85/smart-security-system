@@ -5,6 +5,13 @@ import residentDash from "../assets/res-dash.png";
 import guardDash from "../assets/guard-dash.png";
 import ssbanner from "../assets/ssbanner.png";
 import flats from "../assets/flats.png";
+import visitorPasses from "../assets/res-passes.png";
+import visitors from "../assets/res-vistors.png";
+import complaints from "../assets/complaints.png";
+import maintenanceBills from "../assets/mantainace-bills.png";
+import bookings from "../assets/res-booking.png";
+import notices from "../assets/notices.png";
+import polls from "../assets/polls.png";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -182,21 +189,25 @@ function LandingPage() {
       items: [
         {
           name: "Smart Visitor Passes",
+          image: visitorPasses,
           desc: "Create and manage visitor passes with a clear approval workflow.",
           icon: UserRoundCheck,
         },
         {
           name: "Guard Approval System",
+          image: guardDash,
           desc: "Security guards can approve visitors before allowing entry.",
           icon: ShieldCheck,
         },
         {
           name: "Entry & Exit Logs",
+          image: visitors,
           desc: "Maintain organized records of visitor entry and exit activity.",
           icon: ClipboardCheck,
         },
         {
           name: "Active Visitor Tracking",
+          image: visitors,
           desc: "Monitor visitors currently inside the society more efficiently.",
           icon: UserRoundCheck,
         },
@@ -214,16 +225,19 @@ function LandingPage() {
         },
         {
           name: "Complaint Management",
+          image: complaints,
           desc: "Submit complaints, assign staff and track their resolution.",
           icon: MessageSquareWarning,
         },
         {
           name: "Maintenance Bills",
+          image: maintenanceBills,
           desc: "Manage maintenance records, bills and generated invoices.",
           icon: ReceiptText,
         },
         {
           name: "Staff Management",
+          image: staffDash,
           desc: "Keep staff responsibilities and assigned work organized.",
           icon: UserCog,
         },
@@ -235,21 +249,25 @@ function LandingPage() {
       items: [
         {
           name: "Events & Bookings",
+          image: bookings,
           desc: "Keep residents informed about society events and activities.",
           icon: CalendarDays,
         },
         {
           name: "Important Notices",
+          image: notices,
           desc: "Share announcements and important information with residents.",
           icon: Bell,
         },
         {
           name: "Society Polls",
+          image: polls,
           desc: "Allow residents to participate in community decisions.",
           icon: Vote,
         },
         {
           name: "Resident Portal",
+          image: residentDash,
           desc: "Give residents access to important society services in one place.",
           icon: Home,
         },
@@ -913,7 +931,11 @@ function LandingPage() {
 
                     <div className="absolute inset-0 bg-gradient-to-br from-[#63366f] via-[#32143b] to-[#210c28]" />
 
-                     <img src={item.image} alt={item.name} />
+                    <img
+                      src={item.image}
+                      alt={item.name}
+                      className="absolute inset-0 h-full w-full object-cover transition duration-500 group-hover:scale-105"
+                    />
                     
 
                     <span className="absolute right-5 top-5 text-[9px] font-bold text-white/35">
