@@ -173,8 +173,17 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
             className="flex h-[40px] items-center gap-2 rounded-[9px] px-1.5 transition hover:bg-slate-50"
           >
             {/* AVATAR */}
-            <div className="flex h-[34px] w-[34px] shrink-0 items-center justify-center rounded-[9px] bg-emerald-500 text-[10px] font-extrabold text-white">
-              {userInitials}
+            
+            <div className="flex h-[34px] w-[34px] shrink-0 items-center justify-center overflow-hidden rounded-[9px] bg-emerald-500 text-[10px] font-extrabold text-white">
+              {user?.profilePic ? (
+                <img
+                  src={user.profilePic}
+                  alt={user?.name || "User"}
+                  className="h-full w-full object-cover"
+                />
+              ) : (
+                userInitials
+              )}
             </div>
 
             {/* USER INFORMATION */}
