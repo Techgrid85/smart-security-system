@@ -913,9 +913,8 @@ function LandingPage() {
 
                     <div className="absolute inset-0 bg-gradient-to-br from-[#63366f] via-[#32143b] to-[#210c28]" />
 
-                    <div className="relative flex h-20 w-20 items-center justify-center border border-[#d9be82]/30 text-[#d9be82] transition duration-500 group-hover:scale-110">
                      <img src={item.image} alt={item.name} />
-                    </div>
+                    
 
                     <span className="absolute right-5 top-5 text-[9px] font-bold text-white/35">
                       {String(index + 1).padStart(2, "0")}
