@@ -363,6 +363,13 @@ const login = async (e) => {
               Create account
             </Link>
           </p>
+          <br />
+          <Link
+              to="/"
+              className="font-semibold text-emerald-600 hover:text-emerald-700"
+            >
+              Go back to Home Page
+            </Link>
 
         </div>
       </div>
