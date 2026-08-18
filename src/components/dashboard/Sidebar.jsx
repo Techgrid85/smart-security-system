@@ -1,10 +1,14 @@
 import {
-
   LogOut,
   Menu,
   X,
 } from "lucide-react";
-import { useLocation, useNavigate } from "react-router-dom";
+
+import {
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+
 import Swal from "sweetalert2";
 
 import dashboardConfig from "../../config/dashboardConfig";
@@ -21,6 +25,10 @@ function Sidebar({
   const location = useLocation();
   const navigate = useNavigate();
 
+  // ==========================================
+  // LOGOUT
+  // ==========================================
+
   const handleLogout = () => {
     Swal.fire({
       title: "Logout?",
@@ -29,9 +37,9 @@ function Sidebar({
       showCancelButton: true,
       confirmButtonText: "Yes, Logout",
       cancelButtonText: "Cancel",
-      confirmButtonColor: "#ef4444",
+      confirmButtonColor: "#9b7740",
       cancelButtonColor: "#64748b",
-      background: "#0f172a",
+      background: "#32143b",
       color: "#ffffff",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -44,7 +52,7 @@ function Sidebar({
           icon: "success",
           timer: 1000,
           showConfirmButton: false,
-          background: "#0f172a",
+          background: "#32143b",
           color: "#ffffff",
         }).then(() => {
           window.location.href = "/login";
@@ -53,13 +61,20 @@ function Sidebar({
     });
   };
 
+  // ==========================================
+  // NAVIGATION
+  // ==========================================
+
   const handleNavigation = (path) => {
     setMobileOpen(false);
     navigate(path);
   };
 
+  // ==========================================
+  // LOGO CLICK
+  // ==========================================
+
   const handleLogoClick = () => {
-    // On desktop, clicking logo expands collapsed sidebar
     if (collapsed) {
       setCollapsed(false);
     }
@@ -75,10 +90,14 @@ function Sidebar({
         z-50
         flex
         flex-col
-        bg-[#0f172a]
+
+        bg-[#210c28]
+
         border-r
-        border-slate-800/60
-        shadow-2xl
+        border-white/[0.08]
+
+        shadow-[10px_0_40px_rgba(33,12,40,0.25)]
+
         transition-all
         duration-300
         ease-in-out
@@ -102,15 +121,20 @@ function Sidebar({
         }
       `}
     >
-      {/* HEADER */}
+
+      {/* =================================================
+          HEADER
+      ================================================= */}
+
       <div
         className={`
           flex
           h-[76px]
           shrink-0
           items-center
+
           border-b
-          border-white/5
+          border-white/[0.08]
 
           ${
             collapsed
@@ -119,7 +143,11 @@ function Sidebar({
           }
         `}
       >
-        {/* LOGO - CLICK TO EXPAND WHEN COLLAPSED */}
+
+        {/* ===============================================
+            LOGO
+        =============================================== */}
+
         <button
           type="button"
           onClick={handleLogoClick}
@@ -130,11 +158,20 @@ function Sidebar({
             shrink-0
             items-center
             justify-center
-            rounded-xl
-            bg-emerald-500
-            text-white
-            shadow-lg
-            shadow-emerald-500/20
+
+            overflow-hidden
+
+            rounded-full
+
+            border
+            border-white/20
+
+            bg-white/10
+
+            backdrop-blur-md
+
+            shadow-[0_5px_20px_rgba(217,190,130,0.08)]
+
             transition
 
             ${
@@ -150,13 +187,16 @@ function Sidebar({
           }
         >
           <img
-  src="/SmartSociety_Logo.svg"
-  alt="SmartSociety Logo"
-  className="h-full w-full object-contain"
-/>
+            src="/SmartSociety_Logo.svg"
+            alt="SmartSociety Logo"
+            className="h-full w-full object-cover"
+          />
         </button>
 
-        {/* BRAND */}
+        {/* ===============================================
+            BRAND
+        =============================================== */}
+
         <div
           className={`
             ml-3
@@ -169,16 +209,22 @@ function Sidebar({
             }
           `}
         >
-          <h1 className="truncate text-[17px] font-extrabold leading-none tracking-tight text-white">
-            SmartSociety
+          <h1 className="truncate text-[17px] font-black leading-none tracking-tight text-white">
+            Smart
+            <span className="font-normal text-[#d9be82]">
+              Society
+            </span>
           </h1>
 
-          <p className="mt-1 truncate text-[9px] font-bold uppercase tracking-[0.11em] text-slate-400">
+          <p className="mt-1 truncate text-[9px] font-bold uppercase tracking-[0.11em] text-white/45">
             {config.portalLabel}
           </p>
         </div>
 
-        {/* DESKTOP COLLAPSE BUTTON - HIDDEN WHEN COLLAPSED */}
+        {/* ===============================================
+            DESKTOP COLLAPSE
+        =============================================== */}
+
         {!collapsed && (
           <button
             type="button"
@@ -191,11 +237,16 @@ function Sidebar({
               shrink-0
               items-center
               justify-center
+
               rounded-lg
-              text-slate-400
+
+              text-white/40
+
               transition
-              hover:bg-white/5
-              hover:text-white
+
+              hover:bg-white/[0.06]
+              hover:text-[#d9be82]
+
               lg:flex
             "
             title="Collapse sidebar"
@@ -204,7 +255,10 @@ function Sidebar({
           </button>
         )}
 
-        {/* MOBILE CLOSE BUTTON */}
+        {/* ===============================================
+            MOBILE CLOSE
+        =============================================== */}
+
         <button
           type="button"
           onClick={() => setMobileOpen(false)}
@@ -216,11 +270,16 @@ function Sidebar({
             shrink-0
             items-center
             justify-center
+
             rounded-lg
-            text-slate-400
+
+            text-white/40
+
             transition
-            hover:bg-white/5
-            hover:text-white
+
+            hover:bg-white/[0.06]
+            hover:text-[#d9be82]
+
             lg:hidden
           "
           title="Close sidebar"
@@ -229,20 +288,36 @@ function Sidebar({
         </button>
       </div>
 
-      {/* NAVIGATION */}
+      {/* =================================================
+          NAVIGATION
+      ================================================= */}
+
       <div className="sidebar-scroll flex-1 overflow-y-auto overflow-x-hidden px-3 py-6">
+
         {config.sections.map((section) => (
           <div
             key={section.title}
-            className="mb-5"
+            className="mb-6"
           >
+
+            {/* SECTION TITLE */}
+
             {!collapsed && (
-              <p className="mb-2.5 px-3 text-[9px] font-bold tracking-[0.14em] text-slate-500">
-                {section.title}
-              </p>
+              <div className="mb-2.5 flex items-center gap-2 px-3">
+
+                <span className="h-px w-3 bg-[#9b7740]/60" />
+
+                <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-[#d9be82]/60">
+                  {section.title}
+                </p>
+
+              </div>
             )}
 
+            {/* ITEMS */}
+
             <div className="space-y-1">
+
               {section.items.map((item) => {
                 const Icon = item.icon;
 
@@ -263,19 +338,31 @@ function Sidebar({
                     }
                     className={`
                       group
+                      relative
                       flex
                       h-[43px]
                       w-full
                       items-center
-                      rounded-[1px]
+
+                      rounded-lg
+
                       text-[12.5px]
                       font-medium
+
                       transition-all
 
                       ${
                         isActive
-                          ? "bg-emerald-500 text-white shadow-[0_5px_16px_rgba(16,185,129,0.2)]"
-                          : "text-slate-400 hover:bg-white/[0.045] hover:text-white"
+                          ? `
+                            bg-[#9b7740]
+                            text-white
+                            shadow-[0_6px_20px_rgba(155,119,64,0.22)]
+                          `
+                          : `
+                            text-white/50
+                            hover:bg-white/[0.045]
+                            hover:text-white
+                          `
                       }
 
                       ${
@@ -285,11 +372,39 @@ function Sidebar({
                       }
                     `}
                   >
+
+                    {/* ACTIVE INDICATOR */}
+
+                    {isActive && (
+                      <span className="
+                        absolute
+                        left-0
+                        top-1/2
+                        h-5
+                        w-[3px]
+                        -translate-y-1/2
+                        rounded-r-full
+                        bg-[#f0d9a5]
+                      " />
+                    )}
+
+                    {/* ICON */}
+
                     <Icon
                       size={17}
                       strokeWidth={2}
-                      className="shrink-0"
+                      className={`
+                        shrink-0
+
+                        ${
+                          isActive
+                            ? "text-white"
+                            : "text-white/45 group-hover:text-[#d9be82]"
+                        }
+                      `}
                     />
+
+                    {/* LABEL */}
 
                     <span
                       className={`
@@ -308,6 +423,8 @@ function Sidebar({
                       {item.label}
                     </span>
 
+                    {/* BADGE */}
+
                     {item.badge && (
                       <span
                         className={`
@@ -316,15 +433,18 @@ function Sidebar({
                           min-w-5
                           items-center
                           justify-center
-                          rounded-[1px]
+
+                          rounded-full
+
                           px-1.5
+
                           text-[9px]
                           font-bold
 
                           ${
                             isActive
                               ? "bg-white/15 text-white"
-                              : "bg-red-500/15 text-red-400"
+                              : "bg-[#9b7740]/15 text-[#d9be82]"
                           }
 
                           ${
@@ -340,17 +460,27 @@ function Sidebar({
                   </button>
                 );
               })}
+
             </div>
           </div>
         ))}
+
       </div>
 
-      {/* USER */}
-      <div className="shrink-0 border-t border-white/5 p-3">
+      {/* =================================================
+          USER AREA
+      ================================================= */}
+
+      <div className="shrink-0 border-t border-white/[0.08] p-3">
+
         <div
           className={`
-            rounded-[1px]
-            bg-[#1d2a40]
+            rounded-lg
+
+            border
+            border-white/[0.06]
+
+            bg-white/[0.045]
 
             ${
               collapsed
@@ -359,9 +489,32 @@ function Sidebar({
             }
           `}
         >
-          {/* AVATAR */}
-          
-          <div className="flex h-9 w-9 shrink-0 overflow-hidden items-center justify-center rounded-lg bg-emerald-500 text-[10px] font-extrabold text-white">
+
+          {/* =============================================
+              AVATAR
+          ============================================= */}
+
+          <div className="
+            flex
+            h-9
+            w-9
+            shrink-0
+            overflow-hidden
+            items-center
+            justify-center
+
+            rounded-full
+
+            border
+            border-[#d9be82]/30
+
+            bg-[#9b7740]
+
+            text-[10px]
+            font-extrabold
+            text-white
+          ">
+
             {user?.profilePic ? (
               <img
                 src={user.profilePic}
@@ -371,16 +524,22 @@ function Sidebar({
             ) : (
               user?.name
                 ? user.name
-                  .split(" ")
-                  .map((word) => word[0])
-                  .join("")
-                  .slice(0, 2)
-                  .toUpperCase()
+                    .split(" ")
+                    .map(
+                      (word) => word[0]
+                    )
+                    .join("")
+                    .slice(0, 2)
+                    .toUpperCase()
                 : "U"
             )}
+
           </div>
 
-          {/* USER INFO */}
+          {/* =============================================
+              USER INFO
+          ============================================= */}
+
           <div
             className={`
               min-w-0
@@ -393,22 +552,29 @@ function Sidebar({
               }
             `}
           >
+
             <p className="truncate text-[11px] font-bold text-white">
               {user?.name || "User"}
             </p>
 
-            <p className="mt-0.5 truncate text-[9px] font-medium text-slate-400">
+            <p className="mt-0.5 truncate text-[9px] font-medium text-white/40">
               {config.roleLabel}
             </p>
+
           </div>
 
-          {/* LOGOUT */}
+          {/* =============================================
+              LOGOUT
+          ============================================= */}
+
           <button
             type="button"
             onClick={handleLogout}
             className={`
-              text-slate-500
+              text-white/35
+
               transition
+
               hover:text-red-400
 
               ${
@@ -421,8 +587,11 @@ function Sidebar({
           >
             <LogOut size={15} />
           </button>
+
         </div>
+
       </div>
+
     </aside>
   );
 }
