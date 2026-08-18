@@ -35,12 +35,25 @@ textarea {
   font: inherit;
 }
 .sidebar-scroll {
-  scrollbar-width: none;
-  -ms-overflow-style: none;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(217, 190, 130, 0.7) transparent;
 }
 
 .sidebar-scroll::-webkit-scrollbar {
-  display: none;
+  width: 7px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb {
+  background: rgba(217, 190, 130, 0.7);
+  border-radius: 999px;
+}
+
+.sidebar-scroll::-webkit-scrollbar-thumb:hover {
+  background: #d9be82;
 }
 
 /* =========================================================
