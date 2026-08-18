@@ -12,6 +12,11 @@ import {
   Home,
   Save,
   Lock,
+  Car,
+  UserRound,
+  Users,
+  Camera,
+  Upload,
 } from "lucide-react";
 
 import DashboardLayout from "../../components/dashboard/DashboardLayout";
@@ -21,12 +26,25 @@ function ResidentSettings() {
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [uploadingPicture, setUploadingPicture] = useState(false);
+
+  const [selectedImage, setSelectedImage] = useState(null);
+  const [previewImage, setPreviewImage] = useState("");
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     phone: "",
     flatNo: "",
+
+    vehicleRegistration: "",
+
+    emergencyContactName: "",
+    emergencyContactRelationship: "",
+
+    familyDetails: "",
+
+    profilePic: "",
   });
 
   // ==========================================
@@ -39,6 +57,7 @@ function ResidentSettings() {
 
       if (!token) {
         toast.error("Please login again");
+        navigate("/");
         return;
       }
 
@@ -59,6 +78,21 @@ function ResidentSettings() {
           email: resident.email || "",
           phone: resident.phone || "",
           flatNo: resident.flatNo || "",
+
+          vehicleRegistration:
+            resident.vehicleRegistration || "",
+
+          emergencyContactName:
+            resident.emergencyContact?.name || "",
+
+          emergencyContactRelationship:
+            resident.emergencyContact?.relationship || "",
+
+          familyDetails:
+            resident.familyDetails || "",
+
+          profilePic:
+            resident.profilePic || "",
         });
       } else {
         toast.error(
@@ -96,6 +130,162 @@ function ResidentSettings() {
   };
 
   // ==========================================
+  // INITIALS
+  // ==========================================
+
+  const getInitials = (name) => {
+    if (!name) return "R";
+
+    return name
+      .split(" ")
+      .map((word) => word[0])
+      .join("")
+      .slice(0, 2)
+      .toUpperCase();
+  };
+
+  // ==========================================
+  // SELECT PROFILE PICTURE
+  // ==========================================
+
+  const handleImageChange = (e) => {
+    const file = e.target.files?.[0];
+
+    if (!file) return;
+
+    // Allowed formats
+    const allowedTypes = [
+      "image/jpeg",
+      "image/png",
+      "image/webp",
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      toast.error(
+        "Only JPG, PNG and WEBP images are allowed"
+      );
+
+      e.target.value = "";
+      return;
+    }
+
+    // 5MB limit
+    if (file.size > 5 * 1024 * 1024) {
+      toast.error(
+        "Profile picture must be smaller than 5MB"
+      );
+
+      e.target.value = "";
+      return;
+    }
+
+    setSelectedImage(file);
+
+    const previewUrl = URL.createObjectURL(file);
+
+    setPreviewImage(previewUrl);
+  };
+
+  // ==========================================
+  // UPLOAD PROFILE PICTURE
+  // ==========================================
+
+  const handleProfilePictureUpload = async () => {
+    if (!selectedImage) {
+      toast.error("Please select a profile picture");
+      return;
+    }
+
+    try {
+      setUploadingPicture(true);
+
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        toast.error("Please login again");
+        navigate("/");
+        return;
+      }
+
+      const data = new FormData();
+
+      data.append(
+        "profilePic",
+        selectedImage
+      );
+
+      const response = await axios.put(
+        "https://smart-society-backend-delta.vercel.app/resident/profile-picture",
+        data,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      );
+
+      if (response.data.success) {
+        const newProfilePic =
+          response.data.data?.profilePic || "";
+
+        setFormData((prev) => ({
+          ...prev,
+          profilePic: newProfilePic,
+        }));
+
+        setSelectedImage(null);
+        setPreviewImage("");
+
+        // Update localStorage user
+        const storedUser =
+          localStorage.getItem("user");
+
+        if (storedUser) {
+          try {
+            const user = JSON.parse(storedUser);
+
+            localStorage.setItem(
+              "user",
+              JSON.stringify({
+                ...user,
+                profilePic: newProfilePic,
+              })
+            );
+          } catch (error) {
+            console.error(
+              "Local user update error:",
+              error
+            );
+          }
+        }
+
+        toast.success(
+          response.data.message ||
+            "Profile picture updated successfully"
+        );
+      } else {
+        toast.error(
+          response.data.message ||
+            "Failed to update profile picture"
+        );
+      }
+    } catch (error) {
+      console.error(
+        "Profile Picture Upload Error:",
+        error
+      );
+
+      toast.error(
+        error.response?.data?.message ||
+          "Failed to update profile picture"
+      );
+    } finally {
+      setUploadingPicture(false);
+    }
+  };
+
+  // ==========================================
   // UPDATE PROFILE
   // ==========================================
 
@@ -109,6 +299,7 @@ function ResidentSettings() {
 
       if (!token) {
         toast.error("Please login again");
+        navigate("/");
         return;
       }
 
@@ -117,6 +308,18 @@ function ResidentSettings() {
         {
           name: formData.name,
           phone: formData.phone,
+
+          vehicleRegistration:
+            formData.vehicleRegistration,
+
+          emergencyContactName:
+            formData.emergencyContactName,
+
+          emergencyContactRelationship:
+            formData.emergencyContactRelationship,
+
+          familyDetails:
+            formData.familyDetails,
         },
         {
           headers: {
@@ -131,7 +334,10 @@ function ResidentSettings() {
             "Settings updated successfully"
         );
 
-        // Keep localStorage user data updated
+        // ==========================================
+        // UPDATE LOCAL STORAGE USER
+        // ==========================================
+
         const storedUser =
           localStorage.getItem("user");
 
@@ -156,14 +362,39 @@ function ResidentSettings() {
           }
         }
 
+        // ==========================================
+        // UPDATE FORM DATA
+        // ==========================================
+
+        const updatedResident =
+          response.data.data;
+
         setFormData((prev) => ({
           ...prev,
+
           name:
-            response.data.data?.name ||
+            updatedResident?.name ||
             prev.name,
+
           phone:
-            response.data.data?.phone ||
+            updatedResident?.phone ||
             prev.phone,
+
+          vehicleRegistration:
+            updatedResident?.vehicleRegistration ||
+            "",
+
+          emergencyContactName:
+            updatedResident?.emergencyContact
+              ?.name || "",
+
+          emergencyContactRelationship:
+            updatedResident?.emergencyContact
+              ?.relationship || "",
+
+          familyDetails:
+            updatedResident?.familyDetails ||
+            "",
         }));
       } else {
         toast.error(
@@ -236,151 +467,410 @@ function ResidentSettings() {
 
         </div>
 
-        {/* SETTINGS CARD */}
-        <section className="max-w-3xl overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <div className="max-w-3xl space-y-5">
 
-          {/* CARD HEADER */}
-          <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4">
+          {/* ==========================================
+              PROFILE PICTURE
+          ========================================== */}
 
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
-              <Settings size={17} />
-            </div>
+          <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
 
-            <div>
-              <h2 className="text-[13px] font-bold text-slate-900">
-                Account Settings
-              </h2>
+            <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4">
 
-              <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
-                Update your personal information.
-              </p>
-            </div>
-
-          </div>
-
-          {/* FORM */}
-          <form
-            onSubmit={handleSubmit}
-            className="space-y-5 p-5"
-          >
-
-            {/* NAME */}
-            <div>
-              <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
-                Full Name
-              </label>
-
-              <div className="relative">
-                <User
-                  size={15}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
-                />
-
-                <input
-                  type="text"
-                  name="name"
-                  value={formData.name}
-                  onChange={handleChange}
-                  placeholder="Enter your name"
-                  className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
-                />
-              </div>
-            </div>
-
-            {/* EMAIL */}
-            <div>
-              <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
-                Email Address
-              </label>
-
-              <div className="relative">
-                <Mail
-                  size={15}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
-                />
-
-                <input
-                  type="email"
-                  value={formData.email}
-                  disabled
-                  className="h-10 w-full cursor-not-allowed rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-3 text-[11px] text-slate-400 outline-none"
-                />
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+                <Camera size={17} />
               </div>
 
-              <p className="mt-1.5 flex items-center gap-1 text-[9px] font-medium text-slate-400">
-                <Lock size={10} />
-                Email address cannot be changed here.
-              </p>
-            </div>
+              <div>
+                <h2 className="text-[13px] font-bold text-slate-900">
+                  Profile Picture
+                </h2>
 
-            {/* PHONE */}
-            <div>
-              <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
-                Phone Number
-              </label>
-
-              <div className="relative">
-                <Phone
-                  size={15}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
-                />
-
-                <input
-                  type="tel"
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleChange}
-                  placeholder="Enter 10 digit phone number"
-                  maxLength={10}
-                  className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
-                />
-              </div>
-            </div>
-
-            {/* FLAT */}
-            <div>
-              <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
-                Flat Number
-              </label>
-
-              <div className="relative">
-                <Home
-                  size={15}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
-                />
-
-                <input
-                  type="text"
-                  value={formData.flatNo}
-                  disabled
-                  className="h-10 w-full cursor-not-allowed rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-3 text-[11px] text-slate-400 outline-none"
-                />
+                <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
+                  Update your resident profile picture.
+                </p>
               </div>
 
-              <p className="mt-1.5 text-[9px] font-medium text-slate-400">
-                Flat assignment can only be changed by the administrator.
-              </p>
             </div>
 
-            {/* SAVE */}
-            <div className="flex justify-end border-t border-slate-100 pt-5">
+            <div className="flex flex-col gap-5 p-5 sm:flex-row sm:items-center">
 
-              <button
-                type="submit"
-                disabled={saving}
-                className="flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
-              >
-                <Save size={14} />
+              {/* AVATAR */}
 
-                {saving
-                  ? "Saving..."
-                  : "Save Changes"}
-              </button>
+              <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-emerald-500 text-2xl font-extrabold text-white">
+
+                {previewImage ||
+                formData.profilePic ? (
+                  <img
+                    src={
+                      previewImage ||
+                      formData.profilePic
+                    }
+                    alt="Profile"
+                    className="h-full w-full object-cover"
+                  />
+                ) : (
+                  getInitials(formData.name)
+                )}
+
+              </div>
+
+              <div className="flex flex-col gap-3">
+
+                <label className="inline-flex w-fit cursor-pointer items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-[10.5px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600">
+
+                  <Upload size={14} />
+
+                  Choose Picture
+
+                  <input
+                    type="file"
+                    accept="image/jpeg,image/png,image/webp"
+                    onChange={handleImageChange}
+                    className="hidden"
+                  />
+
+                </label>
+
+                {selectedImage && (
+                  <button
+                    type="button"
+                    onClick={handleProfilePictureUpload}
+                    disabled={uploadingPicture}
+                    className="flex w-fit items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    <Save size={14} />
+
+                    {uploadingPicture
+                      ? "Uploading..."
+                      : "Update Picture"}
+                  </button>
+                )}
+
+                <p className="text-[9px] font-medium text-slate-400">
+                  JPG, PNG or WEBP. Maximum size 5MB.
+                </p>
+
+              </div>
 
             </div>
 
-          </form>
-        </section>
+          </section>
+
+          {/* ==========================================
+              PERSONAL INFORMATION
+          ========================================== */}
+
+          <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+
+            <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4">
+
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+                <Settings size={17} />
+              </div>
+
+              <div>
+                <h2 className="text-[13px] font-bold text-slate-900">
+                  Personal Information
+                </h2>
+
+                <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
+                  Update your personal account details.
+                </p>
+              </div>
+
+            </div>
+
+            <form
+              onSubmit={handleSubmit}
+              className="space-y-5 p-5"
+            >
+
+              {/* NAME */}
+
+              <div>
+                <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                  Full Name
+                </label>
+
+                <div className="relative">
+
+                  <User
+                    size={15}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                  />
+
+                  <input
+                    type="text"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleChange}
+                    placeholder="Enter your name"
+                    className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                  />
+
+                </div>
+              </div>
+
+              {/* EMAIL */}
+
+              <div>
+                <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                  Email Address
+                </label>
+
+                <div className="relative">
+
+                  <Mail
+                    size={15}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                  />
+
+                  <input
+                    type="email"
+                    value={formData.email}
+                    disabled
+                    className="h-10 w-full cursor-not-allowed rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-3 text-[11px] text-slate-400 outline-none"
+                  />
+
+                </div>
+
+                <p className="mt-1.5 flex items-center gap-1 text-[9px] font-medium text-slate-400">
+                  <Lock size={10} />
+                  Email address cannot be changed here.
+                </p>
+              </div>
+
+              {/* PHONE */}
+
+              <div>
+                <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                  Phone Number
+                </label>
+
+                <div className="relative">
+
+                  <Phone
+                    size={15}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                  />
+
+                  <input
+                    type="tel"
+                    name="phone"
+                    value={formData.phone}
+                    onChange={handleChange}
+                    placeholder="Enter 10 digit phone number"
+                    maxLength={10}
+                    className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                  />
+
+                </div>
+              </div>
+
+              {/* FLAT */}
+
+              <div>
+                <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                  Flat Number
+                </label>
+
+                <div className="relative">
+
+                  <Home
+                    size={15}
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                  />
+
+                  <input
+                    type="text"
+                    value={formData.flatNo}
+                    disabled
+                    className="h-10 w-full cursor-not-allowed rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-3 text-[11px] text-slate-400 outline-none"
+                  />
+
+                </div>
+
+                <p className="mt-1.5 text-[9px] font-medium text-slate-400">
+                  Flat assignment can only be changed by the administrator.
+                </p>
+              </div>
+
+              {/* ==========================================
+                  OTHER INFORMATION
+              ========================================== */}
+
+              <div className="border-t border-slate-100 pt-5">
+
+                <div className="mb-5">
+
+                  <h3 className="text-[12px] font-bold text-slate-900">
+                    Other Information
+                  </h3>
+
+                  <p className="mt-1 text-[9.5px] font-medium text-slate-400">
+                    Add additional information used by the society.
+                  </p>
+
+                </div>
+
+                {/* VEHICLE */}
+
+                <div className="mb-5">
+
+                  <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                    Vehicle Registration
+                  </label>
+
+                  <div className="relative">
+
+                    <Car
+                      size={15}
+                      className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                    />
+
+                    <input
+                      type="text"
+                      name="vehicleRegistration"
+                      value={
+                        formData.vehicleRegistration
+                      }
+                      onChange={handleChange}
+                      placeholder="e.g. ABC-123"
+                      maxLength={30}
+                      className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 uppercase outline-none transition focus:border-emerald-400"
+                    />
+
+                  </div>
+
+                </div>
+
+                {/* EMERGENCY CONTACT */}
+
+                <div className="mb-5">
+
+                  <div className="mb-3 flex items-center gap-2">
+
+                    <UserRound
+                      size={14}
+                      className="text-emerald-500"
+                    />
+
+                    <h3 className="text-[11px] font-bold text-slate-700">
+                      Emergency Contact
+                    </h3>
+
+                  </div>
+
+                  <div className="grid gap-4 sm:grid-cols-2">
+
+                    {/* CONTACT NAME */}
+
+                    <div>
+
+                      <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                        Contact Name
+                      </label>
+
+                      <input
+                        type="text"
+                        name="emergencyContactName"
+                        value={
+                          formData.emergencyContactName
+                        }
+                        onChange={handleChange}
+                        placeholder="Enter contact name"
+                        maxLength={50}
+                        className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                      />
+
+                    </div>
+
+                    {/* RELATIONSHIP */}
+
+                    <div>
+
+                      <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                        Relationship
+                      </label>
+
+                      <input
+                        type="text"
+                        name="emergencyContactRelationship"
+                        value={
+                          formData.emergencyContactRelationship
+                        }
+                        onChange={handleChange}
+                        placeholder="e.g. Father, Mother"
+                        maxLength={50}
+                        className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                      />
+
+                    </div>
+
+                  </div>
+
+                </div>
+
+                {/* FAMILY DETAILS */}
+
+                <div>
+
+                  <label className="mb-1.5 flex items-center gap-2 text-[10px] font-bold text-slate-600">
+
+                    <Users
+                      size={14}
+                      className="text-slate-400"
+                    />
+
+                    Family / Tenant Details
+
+                  </label>
+
+                  <textarea
+                    name="familyDetails"
+                    value={formData.familyDetails}
+                    onChange={handleChange}
+                    placeholder="Enter family member or tenant details"
+                    maxLength={500}
+                    rows={4}
+                    className="w-full resize-none rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                  />
+
+                  <p className="mt-1 text-right text-[9px] font-medium text-slate-400">
+                    {formData.familyDetails.length}/500
+                  </p>
+
+                </div>
+
+              </div>
+
+              {/* SAVE */}
+
+              <div className="flex justify-end border-t border-slate-100 pt-5">
+
+                <button
+                  type="submit"
+                  disabled={saving}
+                  className="flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+
+                  <Save size={14} />
+
+                  {saving
+                    ? "Saving..."
+                    : "Save Changes"}
+
+                </button>
+
+              </div>
+
+            </form>
+
+          </section>
+
+        </div>
+
       </div>
     </DashboardLayout>
   );
