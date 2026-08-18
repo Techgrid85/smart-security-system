@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 import {
   ArrowRight,
   ArrowUp,
@@ -25,8 +24,9 @@ import {
   ChevronUp,
   HelpCircle,
   Clock,
-  Zap,
   UserCog,
+  Zap,
+  Gem,
 } from "lucide-react";
 
 function LandingPage() {
@@ -36,7 +36,7 @@ function LandingPage() {
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 40);
     };
 
     window.addEventListener("scroll", handleScroll);
@@ -46,17 +46,15 @@ function LandingPage() {
 
   const navLinks = [
     { name: "Home", href: "#home" },
-    { name: "About", href: "#about" },
+    { name: "About Us", href: "#about" },
     { name: "Portals", href: "#portals" },
     { name: "Features", href: "#features" },
     { name: "Amenities", href: "#amenities" },
     { name: "FAQ", href: "#faq" },
-    { name: "Contact", href: "#contact" },
+    { name: "Contact Us", href: "#contact" },
   ];
 
-  // ==========================================
-  // PORTALS
-  // ==========================================
+  // YOUR EXISTING INFORMATION
   const portals = [
     {
       icon: ShieldCheck,
@@ -70,6 +68,8 @@ function LandingPage() {
         "Complaint monitoring",
         "Maintenance oversight",
       ],
+      image:
+        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85",
     },
     {
       icon: Home,
@@ -83,6 +83,8 @@ function LandingPage() {
         "Maintenance bills",
         "Events, notices & polls",
       ],
+      image:
+        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
     },
     {
       icon: UserRoundCheck,
@@ -96,6 +98,8 @@ function LandingPage() {
         "Active visitor tracking",
         "Security monitoring",
       ],
+      image:
+        "https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=1200&q=85",
     },
     {
       icon: Wrench,
@@ -109,12 +113,11 @@ function LandingPage() {
         "Completed work history",
         "Profile management",
       ],
+      image:
+        "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=85",
     },
   ];
 
-  // ==========================================
-  // MODULES
-  // ==========================================
   const modules = [
     {
       icon: Building2,
@@ -166,39 +169,6 @@ function LandingPage() {
     },
   ];
 
-  // ==========================================
-  // HOW IT WORKS
-  // ==========================================
-  const steps = [
-    {
-      number: "01",
-      title: "Secure Access",
-      description:
-        "Users access the system through secure authentication based on their assigned role.",
-    },
-    {
-      number: "02",
-      title: "Role-Based Portal",
-      description:
-        "Each user gets a dedicated dashboard with features relevant to their responsibilities.",
-    },
-    {
-      number: "03",
-      title: "Connected Operations",
-      description:
-        "Residents, guards, staff and administrators work together through one connected system.",
-    },
-    {
-      number: "04",
-      title: "Better Management",
-      description:
-        "Track activities, manage records and improve daily society operations efficiently.",
-    },
-  ];
-
-  // ==========================================
-  // AMENITIES / SYSTEM FEATURES
-  // ==========================================
   const facilityCategories = [
     {
       category: "Security & Access",
@@ -222,7 +192,7 @@ function LandingPage() {
         {
           name: "Active Visitor Tracking",
           desc: "Monitor visitors currently inside the society more efficiently.",
-          icon: Users,
+          icon: UserRoundCheck,
         },
       ],
     },
@@ -280,9 +250,33 @@ function LandingPage() {
     },
   ];
 
-  // ==========================================
-  // FAQ
-  // ==========================================
+  const steps = [
+    {
+      number: "01",
+      title: "Secure Access",
+      description:
+        "Users access the system through secure authentication based on their assigned role.",
+    },
+    {
+      number: "02",
+      title: "Role-Based Portal",
+      description:
+        "Each user gets a dedicated dashboard with features relevant to their responsibilities.",
+    },
+    {
+      number: "03",
+      title: "Connected Operations",
+      description:
+        "Residents, guards, staff and administrators work together through one connected system.",
+    },
+    {
+      number: "04",
+      title: "Better Management",
+      description:
+        "Track activities, manage records and improve daily society operations efficiently.",
+    },
+  ];
+
   const faqData = [
     {
       question: "What is SmartSociety?",
@@ -316,9 +310,6 @@ function LandingPage() {
     },
   ];
 
-  // ==========================================
-  // SMOOTH SCROLL
-  // ==========================================
   const handleNavClick = (href) => {
     setIsMobileMenuOpen(false);
 
@@ -339,153 +330,145 @@ function LandingPage() {
     });
   };
 
-  return (
-    <div className="min-h-screen overflow-x-hidden bg-white font-[Plus_Jakarta_Sans] text-plum-950">
+  const allAmenities = facilityCategories.flatMap(
+    (category) => category.items
+  );
 
-      {/* =====================================================
+  return (
+    <div className="min-h-screen overflow-x-hidden bg-white font-sans text-[#241228]">
+
+      {/* =========================================================
           NAVBAR
-      ===================================================== */}
+      ========================================================= */}
+
       <header
-        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-300 ${
+        className={`fixed left-0 right-0 top-0 z-50 transition-all duration-500 ${
           isScrolled
-            ? "border-b border-plum-100 bg-white/85 py-3 shadow-sm shadow-plum-900/5 backdrop-blur-md"
-            : "bg-transparent py-5"
+            ? "border-b border-[#e8e1e8] bg-white/95 shadow-sm backdrop-blur-xl"
+            : "bg-transparent"
         }`}
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between">
+        <div className="mx-auto flex h-[82px] max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
 
-            {/* LOGO */}
-            <button
-              onClick={scrollToTop}
-              className="group flex items-center space-x-2.5"
+          {/* LOGO */}
+
+          <button
+            onClick={scrollToTop}
+            className="group flex items-center gap-3"
+          >
+            <div
+              className={`flex h-11 w-11 items-center justify-center rounded-full border transition ${
+                isScrolled
+                  ? "border-[#e4dce5] bg-white"
+                  : "border-white/30 bg-white/10 backdrop-blur-md"
+              }`}
             >
-              <div className="relative">
-                <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-plum-800 via-lavender-400 to-sand-400 opacity-60 blur transition duration-300 group-hover:opacity-100" />
-
-                <div className="relative flex items-center justify-center rounded-xl border border-plum-100 bg-white p-2 shadow-sm">
-                  <img
-                    src="/SmartSociety_Logo.svg"
-                    alt="SmartSociety"
-                    className="h-5 w-5 object-contain"
-                  />
-                </div>
-              </div>
-
-              <div className="flex flex-col text-left">
-                <span
-                  className={`text-lg font-extrabold leading-none tracking-tight transition-colors ${
-                    isScrolled ? "text-plum-900" : "text-white"
-                  }`}
-                >
-                  Smart
-                  <span className="font-light text-sand-400">
-                    Society
-                  </span>
-                </span>
-
-                <span
-                  className={`mt-0.5 text-[9px] font-semibold uppercase tracking-[0.2em] transition-colors ${
-                    isScrolled
-                      ? "text-lavender-600"
-                      : "text-lavender-200"
-                  }`}
-                >
-                  Smart Society Management
-                </span>
-              </div>
-            </button>
-
-            {/* DESKTOP NAV */}
-            <nav className="hidden items-center justify-center gap-2 lg:flex">
-              {navLinks.map((link) => (
-                <button
-                  key={link.name}
-                  onClick={() => handleNavClick(link.href)}
-                  className={`whitespace-nowrap rounded-full px-5 py-2.5 text-sm font-semibold transition-all duration-200 ${
-                    isScrolled
-                      ? "text-plum-700 hover:bg-lavender-100 hover:text-plum-950"
-                      : "text-white/90 hover:bg-white/10 hover:text-white"
-                  }`}
-                >
-                  {link.name}
-                </button>
-              ))}
-            </nav>
-
-            {/* ACTIONS */}
-            <div className="hidden items-center gap-2 lg:flex">
-              <Link
-                to="/login"
-                className={`rounded-full px-5 py-2.5 text-sm font-semibold transition ${
-                  isScrolled
-                    ? "text-plum-700 hover:bg-lavender-100"
-                    : "text-white/90 hover:bg-white/10"
-                }`}
-              >
-                Login
-              </Link>
-
-              <Link
-                to="/register"
-                className="rounded-full bg-sand-400 px-5 py-2.5 text-sm font-bold text-plum-950 shadow-lg shadow-sand-400/20 transition hover:bg-sand-300"
-              >
-                Get Started
-              </Link>
+              <img
+                src="/SmartSociety_Logo.svg"
+                alt="SmartSociety"
+                className="h-7 w-7 object-contain"
+              />
             </div>
 
-            {/* MOBILE BUTTON */}
-            <button
-              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`rounded-lg p-2 transition-colors lg:hidden ${
-                isScrolled
-                  ? "text-plum-800 hover:bg-lavender-100"
-                  : "text-white hover:bg-white/10"
-              }`}
-              aria-label="Toggle menu"
-            >
-              {isMobileMenuOpen ? (
-                <X className="h-6 w-6" />
-              ) : (
-                <Menu className="h-6 w-6" />
-              )}
-            </button>
-          </div>
-        </div>
+            <div className="text-left">
+              <div
+                className={`text-lg font-extrabold leading-none tracking-tight ${
+                  isScrolled ? "text-[#32143b]" : "text-white"
+                }`}
+              >
+                Smart
+                <span className="font-light text-[#d9be82]">
+                  Society
+                </span>
+              </div>
 
-        {/* MOBILE MENU */}
-        <div
-          className={`absolute left-0 right-0 top-full border-b border-plum-100 bg-white/97 backdrop-blur-lg transition-all duration-300 lg:hidden ${
-            isMobileMenuOpen
-              ? "pointer-events-auto translate-y-0 opacity-100"
-              : "pointer-events-none -translate-y-4 opacity-0"
-          }`}
-        >
-          <div className="space-y-1 px-4 pb-6 pt-4">
+              <div
+                className={`mt-1 text-[8px] font-semibold uppercase tracking-[0.2em] ${
+                  isScrolled ? "text-[#806d82]" : "text-white/65"
+                }`}
+              >
+                Smart Society Management
+              </div>
+            </div>
+          </button>
 
+          {/* DESKTOP NAV */}
+
+          <nav className="hidden items-center gap-7 lg:flex">
             {navLinks.map((link) => (
               <button
                 key={link.name}
                 onClick={() => handleNavClick(link.href)}
-                className="block w-full rounded-xl px-4 py-3 text-left text-base font-semibold text-plum-800 transition-colors hover:bg-lavender-100 hover:text-plum-950"
+                className={`relative text-[13px] font-semibold transition-colors ${
+                  isScrolled
+                    ? "text-[#4d3853] hover:text-[#9b7740]"
+                    : "text-white/90 hover:text-[#d9be82]"
+                }`}
+              >
+                {link.name}
+              </button>
+            ))}
+          </nav>
+
+          {/* DESKTOP CTA */}
+
+          <div className="hidden lg:block">
+            <Link
+              to="/register"
+              className="inline-flex items-center gap-2 bg-[#d9be82] px-6 py-3 text-[12px] font-bold text-[#32143b] transition-all hover:bg-white hover:shadow-lg"
+            >
+              Get Started
+              <ArrowRight size={15} />
+            </Link>
+          </div>
+
+          {/* MOBILE */}
+
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className={`rounded-full p-2 lg:hidden ${
+              isScrolled ? "text-[#32143b]" : "text-white"
+            }`}
+          >
+            {isMobileMenuOpen ? (
+              <X size={25} />
+            ) : (
+              <Menu size={25} />
+            )}
+          </button>
+        </div>
+
+        {/* MOBILE MENU */}
+
+        <div
+          className={`border-t border-[#e8e1e8] bg-white transition-all duration-300 lg:hidden ${
+            isMobileMenuOpen
+              ? "max-h-[600px] opacity-100"
+              : "pointer-events-none max-h-0 overflow-hidden opacity-0"
+          }`}
+        >
+          <div className="space-y-1 px-5 py-5">
+            {navLinks.map((link) => (
+              <button
+                key={link.name}
+                onClick={() => handleNavClick(link.href)}
+                className="block w-full border-b border-[#eee9ee] py-4 text-left text-sm font-semibold text-[#32143b]"
               >
                 {link.name}
               </button>
             ))}
 
-            <div className="mt-3 grid grid-cols-2 gap-3 border-t border-plum-100 pt-4">
+            <div className="grid grid-cols-2 gap-3 pt-4">
               <Link
                 to="/login"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="rounded-xl border border-plum-200 py-3 text-center text-sm font-semibold text-plum-800 transition hover:bg-lavender-50"
+                className="border border-[#dcd2df] py-3 text-center text-sm font-semibold text-[#32143b]"
               >
                 Login
               </Link>
 
               <Link
                 to="/register"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="rounded-xl bg-sand-400 py-3 text-center text-sm font-bold text-plum-950 transition hover:bg-sand-300"
+                className="bg-[#32143b] py-3 text-center text-sm font-bold text-white"
               >
                 Get Started
               </Link>
@@ -494,49 +477,59 @@ function LandingPage() {
         </div>
       </header>
 
-      {/* =====================================================
+      {/* =========================================================
           HERO
-      ===================================================== */}
+      ========================================================= */}
+
       <section
         id="home"
-        className="relative min-h-screen overflow-hidden bg-plum-950 pt-32"
+        className="relative min-h-[760px] overflow-hidden bg-[#241228]"
       >
-        {/* GRID */}
-        <div className="absolute inset-0 bg-grid-dark opacity-60" />
+        {/* HERO IMAGE */}
 
-        {/* GLOW */}
-        <div className="absolute -right-20 -top-32 h-[520px] w-[520px] rounded-full bg-plum-700/30 blur-[130px]" />
+        <img
+          src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=2200&q=90"
+          alt="SmartSociety"
+          className="absolute inset-0 h-full w-full object-cover"
+        />
 
-        <div className="absolute -bottom-32 -left-20 h-[450px] w-[450px] rounded-full bg-lavender-400/10 blur-[120px]" />
+        {/* OVERLAYS */}
 
-        <div className="relative mx-auto grid min-h-[calc(100vh-100px)] max-w-7xl items-center gap-16 px-4 py-16 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div className="absolute inset-0 bg-gradient-to-r from-[#210c28]/95 via-[#32143b]/70 to-[#32143b]/20" />
 
-          {/* LEFT */}
-          <div className="animate-fade-in">
+        <div className="absolute inset-0 bg-gradient-to-t from-[#210c28]/80 via-transparent to-[#210c28]/20" />
 
-            <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-sand-400/30 bg-sand-400/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.15em] text-sand-300">
-              <Sparkles size={13} />
+        {/* HERO CONTENT */}
+
+        <div className="relative z-10 mx-auto flex min-h-[760px] max-w-7xl items-center px-5 pt-20 sm:px-6 lg:px-8">
+
+          <div className="max-w-3xl">
+
+            <div className="mb-7 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.22em] text-[#d9be82]">
+              <span className="h-px w-10 bg-[#d9be82]" />
               Complete Society Management Platform
             </div>
 
-            <h1 className="max-w-3xl text-[43px] font-extrabold leading-[1.04] tracking-tight text-white sm:text-[57px] lg:text-[68px]">
+            <h1 className="text-[48px] font-black leading-[1.02] tracking-[-0.04em] text-white sm:text-[64px] lg:text-[78px]">
               Smarter Society.
               <br />
-              <span className="text-gradient-gold">
+              <span className="font-normal text-[#d9be82]">
                 Better Living.
               </span>
             </h1>
 
-            <p className="mt-7 max-w-xl text-[15px] leading-relaxed text-lavender-200 sm:text-[17px]">
-              SmartSociety brings residents, administration, security and
-              maintenance together through one connected system designed for
-              better daily society management.
+            <p className="mt-7 max-w-2xl text-[15px] leading-8 text-white/80 sm:text-[17px]">
+              SmartSociety brings residents, administration,
+              security and maintenance together through one
+              connected system designed for better daily
+              society management.
             </p>
 
             <div className="mt-9 flex flex-wrap gap-3">
+
               <Link
                 to="/register"
-                className="inline-flex items-center gap-2 rounded-xl bg-sand-400 px-6 py-3.5 text-[12px] font-bold text-plum-950 shadow-lg shadow-sand-400/20 transition hover:bg-sand-300"
+                className="inline-flex items-center gap-3 bg-[#d9be82] px-7 py-4 text-[12px] font-bold text-[#32143b] transition hover:bg-white"
               >
                 Get Started
                 <ArrowRight size={16} />
@@ -544,253 +537,185 @@ function LandingPage() {
 
               <button
                 onClick={() => handleNavClick("#about")}
-                className="rounded-xl border border-lavender-400/20 bg-white/5 px-6 py-3.5 text-[12px] font-bold text-white transition hover:bg-white/10"
+                className="inline-flex items-center gap-3 border border-white/35 bg-white/10 px-7 py-4 text-[12px] font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#32143b]"
               >
                 Explore Platform
+                <ArrowRight size={16} />
               </button>
+
             </div>
 
-            {/* STATS */}
-            <div className="mt-12 grid max-w-xl grid-cols-2 gap-4 sm:grid-cols-4">
-              {[
-                ["4", "Dedicated Portals"],
-                ["8+", "Core Modules"],
-                ["1", "Connected System"],
-                ["24/7", "Organized Access"],
-              ].map(([value, label]) => (
-                <div
-                  key={label}
-                  className="border-l border-lavender-400/20 pl-4"
-                >
-                  <p className="text-[24px] font-extrabold text-white">
-                    {value}
-                  </p>
-
-                  <p className="mt-1 text-[9px] font-bold uppercase tracking-wide text-lavender-400">
-                    {label}
-                  </p>
-                </div>
-              ))}
-            </div>
           </div>
+        </div>
 
-          {/* RIGHT */}
-          <div className="relative animate-float">
+        {/* HERO BOTTOM INFO */}
 
-            <div className="absolute -inset-8 rounded-[40px] bg-lavender-400/10 blur-3xl" />
+        <div className="absolute bottom-0 left-0 right-0 z-10 border-t border-white/15 bg-[#210c28]/60 backdrop-blur-md">
 
-            <div className="relative overflow-hidden rounded-[28px] border border-plum-700 bg-plum-900/80 shadow-2xl backdrop-blur-sm">
+          <div className="mx-auto grid max-w-7xl grid-cols-2 sm:grid-cols-4">
 
-              {/* HEADER */}
-              <div className="flex items-center justify-between border-b border-plum-700 px-6 py-5">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-plum-700 to-plum-800 text-sand-400">
-                    <Building2 size={20} />
-                  </div>
-
-                  <div>
-                    <p className="text-[12px] font-bold text-white">
-                      SmartSociety Overview
-                    </p>
-
-                    <p className="text-[9px] text-lavender-400">
-                      Connected management platform
-                    </p>
-                  </div>
+            {[
+              ["4", "Dedicated Portals"],
+              ["8+", "Core Modules"],
+              ["1", "Connected System"],
+              ["24/7", "Organized Access"],
+            ].map(([value, label], index) => (
+              <div
+                key={label}
+                className={`px-5 py-6 sm:px-7 ${
+                  index !== 0
+                    ? "border-l border-white/10"
+                    : ""
+                }`}
+              >
+                <div className="text-2xl font-black text-white">
+                  {value}
                 </div>
 
-                <div className="flex gap-1.5">
-                  <span className="h-2.5 w-2.5 rounded-full bg-plum-500" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-sand-400" />
-                  <span className="h-2.5 w-2.5 rounded-full bg-lavender-400" />
+                <div className="mt-1 text-[9px] font-bold uppercase tracking-[0.12em] text-[#d9be82]">
+                  {label}
                 </div>
               </div>
+            ))}
 
-              {/* GRID */}
-              <div className="grid grid-cols-2">
-                {[
-                  ["Residents", Users],
-                  ["Security", ShieldCheck],
-                  ["Maintenance", Wrench],
-                  ["Management", ClipboardCheck],
-                ].map(([label, Icon], index) => (
-                  <div
-                    key={label}
-                    className={`border-plum-700 p-6 ${
-                      index < 2 ? "border-b" : ""
-                    } ${index % 2 === 0 ? "border-r" : ""}`}
-                  >
-                    <Icon
-                      size={21}
-                      className="text-sand-400"
-                    />
-
-                    <p className="mt-5 text-[12px] font-bold text-white">
-                      {label}
-                    </p>
-
-                    <p className="mt-2 text-[9px] leading-relaxed text-lavender-400">
-                      Connected and managed from one system.
-                    </p>
-                  </div>
-                ))}
-              </div>
-
-              {/* STATUS */}
-              <div className="flex items-center justify-between border-t border-plum-700 px-6 py-5">
-                <div>
-                  <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-lavender-500">
-                    System Status
-                  </p>
-
-                  <p className="mt-2 flex items-center gap-2 text-[11px] font-bold text-sand-400">
-                    <span className="h-2 w-2 rounded-full bg-sand-400" />
-                    All modules connected
-                  </p>
-                </div>
-
-                <LockKeyhole
-                  size={23}
-                  className="text-plum-500"
-                />
-              </div>
-            </div>
           </div>
         </div>
       </section>
 
-      {/* =====================================================
+      {/* =========================================================
           ABOUT
-      ===================================================== */}
+      ========================================================= */}
+
       <section
         id="about"
-        className="scroll-mt-24 bg-white py-24"
+        className="scroll-mt-20 bg-[#f7f3ed] py-24 sm:py-28"
       >
-        <div className="mx-auto grid max-w-7xl items-center gap-16 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
+        <div className="mx-auto grid max-w-7xl items-center gap-16 px-5 sm:px-6 lg:grid-cols-2 lg:px-8">
 
-          {/* VISUAL */}
+          {/* IMAGE */}
+
           <div className="relative">
 
-            <div className="absolute -inset-5 rounded-[35px] bg-lavender-100 blur-2xl" />
+            <div className="overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90"
+                alt="Modern society"
+                className="h-[480px] w-full object-cover sm:h-[570px]"
+              />
+            </div>
 
-            <div className="relative rounded-[28px] border border-plum-100 bg-lavender-50 p-3 shadow-xl">
+            <div className="absolute bottom-0 left-0 bg-[#32143b] px-7 py-6 text-white sm:px-9">
+              <div className="text-3xl font-black text-[#d9be82]">
+                1
+              </div>
 
-              <div className="rounded-[23px] bg-plum-950 p-7">
-
-                <div className="flex items-center gap-4">
-                  <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-plum-700 to-plum-800 text-sand-400">
-                    <Building2 size={25} />
-                  </div>
-
-                  <div>
-                    <p className="text-[18px] font-extrabold text-white">
-                      One Connected Platform
-                    </p>
-
-                    <p className="mt-1 text-[11px] text-lavender-400">
-                      Built for modern society operations
-                    </p>
-                  </div>
-                </div>
-
-                <div className="mt-8 grid grid-cols-2 gap-3">
-                  {[
-                    "Administration",
-                    "Residents",
-                    "Security",
-                    "Maintenance",
-                  ].map((item) => (
-                    <div
-                      key={item}
-                      className="rounded-xl border border-plum-700 bg-plum-900/70 p-4"
-                    >
-                      <CheckCircle2
-                        size={17}
-                        className="text-sand-400"
-                      />
-
-                      <p className="mt-3 text-[11px] font-bold text-white">
-                        {item}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-
+              <div className="mt-1 text-xs uppercase tracking-wider text-white/70">
+                Connected Platform
               </div>
             </div>
           </div>
 
           {/* CONTENT */}
+
           <div>
 
-            <div className="inline-flex items-center gap-2 rounded-full border border-plum-100 bg-lavender-50 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-plum-700">
-              <Sparkles size={13} />
+            <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#9b7740]">
+              <span className="h-px w-8 bg-[#9b7740]" />
               About SmartSociety
             </div>
 
-            <h2 className="mt-6 text-[36px] font-extrabold leading-tight tracking-tight text-plum-950 sm:text-[49px]">
+            <h2 className="mt-5 text-[39px] font-black leading-[1.08] tracking-tight text-[#32143b] sm:text-[52px]">
               One platform for your
-              <span className="block text-gradient-plum">
+              <span className="block font-normal text-[#63366f]">
                 entire society.
               </span>
             </h2>
 
-            <p className="mt-6 text-[15px] leading-relaxed text-plum-700/70">
-              SmartSociety brings essential society operations into one
-              connected system. Instead of managing residents, visitors,
-              complaints, maintenance and communication separately, everything
-              can be organized through dedicated role-based portals.
+            <p className="mt-7 text-[15px] leading-8 text-[#756b78]">
+              SmartSociety brings essential society operations
+              into one connected system. Instead of managing
+              residents, visitors, complaints, maintenance and
+              communication separately, everything can be
+              organized through dedicated role-based portals.
             </p>
 
-            <p className="mt-4 text-[15px] leading-relaxed text-plum-700/70">
-              Administration, residents, guards and maintenance staff can work
-              together through clear workflows and access the features relevant
-              to their responsibilities.
+            <p className="mt-5 text-[15px] leading-8 text-[#756b78]">
+              Administration, residents, guards and maintenance
+              staff can work together through clear workflows
+              and access the features relevant to their
+              responsibilities.
             </p>
+
+            <div className="mt-8 grid gap-3 sm:grid-cols-2">
+
+              {[
+                "Administration",
+                "Residents",
+                "Security",
+                "Maintenance",
+              ].map((item) => (
+                <div
+                  key={item}
+                  className="flex items-center gap-3 border-b border-[#ddd4d9] pb-3"
+                >
+                  <CheckCircle2
+                    size={17}
+                    className="text-[#9b7740]"
+                  />
+
+                  <span className="text-sm font-bold text-[#32143b]">
+                    {item}
+                  </span>
+                </div>
+              ))}
+
+            </div>
 
             <button
               onClick={() => handleNavClick("#portals")}
-              className="mt-8 inline-flex items-center gap-2 text-[12px] font-bold text-plum-700 transition hover:text-plum-950"
+              className="mt-9 inline-flex items-center gap-3 border-b border-[#32143b] pb-2 text-sm font-bold text-[#32143b] transition hover:text-[#9b7740]"
             >
               Explore the portals
               <ArrowRight size={16} />
             </button>
+
           </div>
         </div>
       </section>
 
-      {/* =====================================================
+      {/* =========================================================
           PORTALS
-      ===================================================== */}
+      ========================================================= */}
+
       <section
         id="portals"
-        className="scroll-mt-24 relative overflow-hidden bg-lavender-50 py-24"
+        className="scroll-mt-20 bg-white py-24 sm:py-28"
       >
-        <div className="absolute inset-0 bg-grid-light opacity-70" />
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
 
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-
-            <div className="inline-flex items-center gap-2 rounded-full border border-plum-100 bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-plum-700 shadow-sm">
-              <Users size={13} />
+            <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#9b7740]">
+              <span className="h-px w-8 bg-[#9b7740]" />
               Role-Based Access
             </div>
 
-            <h2 className="mt-5 text-[35px] font-extrabold tracking-tight text-plum-950 sm:text-[48px]">
+            <h2 className="mt-5 text-[39px] font-black leading-tight text-[#32143b] sm:text-[52px]">
               A portal designed for
-              <span className="block text-gradient-plum">
+              <span className="block font-normal text-[#63366f]">
                 every role.
               </span>
             </h2>
 
-            <p className="mt-5 text-[15px] leading-relaxed text-plum-700/65">
-              Every user gets a dedicated workspace with the tools and
-              information relevant to their responsibilities.
+            <p className="mt-5 max-w-xl text-[15px] leading-8 text-[#756b78]">
+              Every user gets a dedicated workspace with the
+              tools and information relevant to their
+              responsibilities.
             </p>
+
           </div>
 
-          <div className="grid gap-6 md:grid-cols-2">
+          <div className="mt-16 grid gap-6 md:grid-cols-2">
 
             {portals.map((portal) => {
               const Icon = portal.icon;
@@ -798,86 +723,106 @@ function LandingPage() {
               return (
                 <div
                   key={portal.title}
-                  className="group rounded-[24px] border border-plum-100 bg-white p-7 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-lavender-300 hover:shadow-xl hover:shadow-plum-900/10"
+                  className="group grid overflow-hidden border border-[#e4dce5] bg-white transition hover:border-[#bca9c0] md:grid-cols-2"
                 >
-                  <div className="flex items-start justify-between gap-5">
 
-                    <div className="flex h-14 w-14 items-center justify-center rounded-2xl border border-plum-100 bg-lavender-50 text-plum-800 transition duration-300 group-hover:bg-plum-800 group-hover:text-sand-300">
-                      <Icon size={25} />
+                  {/* IMAGE */}
+
+                  <div className="relative min-h-[320px] overflow-hidden">
+
+                    <img
+                      src={portal.image}
+                      alt={portal.title}
+                      className="absolute inset-0 h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-[#210c28]/80 to-transparent" />
+
+                    <div className="absolute bottom-7 left-7">
+                      <Icon
+                        size={42}
+                        strokeWidth={1.3}
+                        className="text-[#d9be82]"
+                      />
                     </div>
 
-                    <span className="rounded-full bg-lavender-50 px-3 py-1.5 text-[9px] font-bold uppercase tracking-wide text-lavender-700">
-                      Portal
-                    </span>
                   </div>
 
-                  <p className="mt-7 text-[10px] font-bold uppercase tracking-[0.1em] text-sand-600">
-                    {portal.subtitle}
-                  </p>
+                  {/* CONTENT */}
 
-                  <h3 className="mt-2 text-[22px] font-extrabold text-plum-950">
-                    {portal.title}
-                  </h3>
+                  <div className="flex flex-col justify-center p-7 sm:p-8">
 
-                  <p className="mt-4 text-[13px] leading-relaxed text-plum-700/65">
-                    {portal.description}
-                  </p>
+                    <div className="text-[9px] font-bold uppercase tracking-[0.18em] text-[#9b7740]">
+                      {portal.subtitle}
+                    </div>
 
-                  <div className="mt-6 grid gap-2 sm:grid-cols-2">
-                    {portal.features.map((feature) => (
-                      <div
-                        key={feature}
-                        className="flex items-center gap-2 text-[11px] font-semibold text-plum-700"
-                      >
-                        <CheckCircle2
-                          size={14}
-                          className="shrink-0 text-sand-600"
-                        />
+                    <h3 className="mt-3 text-[25px] font-black text-[#32143b]">
+                      {portal.title}
+                    </h3>
 
-                        {feature}
-                      </div>
-                    ))}
+                    <p className="mt-4 text-[13px] leading-7 text-[#756b78]">
+                      {portal.description}
+                    </p>
+
+                    <div className="mt-6 space-y-2.5">
+                      {portal.features.map((feature) => (
+                        <div
+                          key={feature}
+                          className="flex items-center gap-2 text-[11px] font-semibold text-[#49394d]"
+                        >
+                          <span className="h-1.5 w-1.5 shrink-0 rounded-full bg-[#d9be82]" />
+                          {feature}
+                        </div>
+                      ))}
+                    </div>
+
                   </div>
+
                 </div>
               );
             })}
+
           </div>
         </div>
       </section>
 
-      {/* =====================================================
+      {/* =========================================================
           FEATURES
-      ===================================================== */}
+      ========================================================= */}
+
       <section
         id="features"
-        className="scroll-mt-24 bg-white py-24"
+        className="scroll-mt-20 bg-[#32143b] py-24 sm:py-28"
       >
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
-          <div className="mb-16 flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
+          <div className="grid gap-8 lg:grid-cols-[1fr_420px] lg:items-end">
 
-            <div className="max-w-2xl">
+            <div>
 
-              <div className="inline-flex items-center gap-2 rounded-full border border-plum-100 bg-lavender-50 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-plum-700">
-                <Zap size={13} />
+              <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#d9be82]">
+                <span className="h-px w-8 bg-[#d9be82]" />
                 Core Modules
               </div>
 
-              <h2 className="mt-5 text-[35px] font-extrabold tracking-tight text-plum-950 sm:text-[48px]">
+              <h2 className="mt-5 text-[39px] font-black leading-tight text-white sm:text-[52px]">
                 Everything your society
-                <span className="block text-gradient-plum">
+                <span className="block font-normal text-[#d9be82]">
                   needs in one system.
                 </span>
               </h2>
+
             </div>
 
-            <p className="max-w-md text-[14px] leading-relaxed text-plum-700/65">
-              Manage essential society operations through connected modules
-              built around everyday administrative and community workflows.
+            <p className="text-[14px] leading-7 text-white/60">
+              Manage essential society operations through
+              connected modules built around everyday
+              administrative and community workflows.
             </p>
+
           </div>
 
-          <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid border-l border-t border-white/10 sm:grid-cols-2 lg:grid-cols-4">
 
             {modules.map((module) => {
               const Icon = module.icon;
@@ -885,124 +830,121 @@ function LandingPage() {
               return (
                 <div
                   key={module.title}
-                  className="group rounded-[20px] border border-plum-100 bg-lavender-50 p-6 transition-all duration-300 hover:-translate-y-1 hover:border-lavender-300 hover:bg-white hover:shadow-lg hover:shadow-plum-900/10"
+                  className="group border-b border-r border-white/10 p-7 transition hover:bg-white/[0.04]"
                 >
-                  <div className="flex h-12 w-12 items-center justify-center rounded-xl border border-plum-100 bg-white text-plum-800 shadow-sm transition group-hover:bg-plum-800 group-hover:text-sand-300">
-                    <Icon size={21} />
+
+                  <div className="flex h-12 w-12 items-center justify-center border border-white/15 text-[#d9be82]">
+                    <Icon size={21} strokeWidth={1.5} />
                   </div>
 
-                  <h3 className="mt-6 text-[15px] font-extrabold text-plum-950">
+                  <h3 className="mt-7 text-[15px] font-bold text-white">
                     {module.title}
                   </h3>
 
-                  <p className="mt-3 text-[11px] leading-relaxed text-plum-700/65">
+                  <p className="mt-3 text-[11px] leading-6 text-white/50">
                     {module.description}
                   </p>
+
                 </div>
               );
             })}
+
           </div>
+
         </div>
       </section>
 
-      {/* =====================================================
+      {/* =========================================================
           AMENITIES
-      ===================================================== */}
+      ========================================================= */}
+
       <section
         id="amenities"
-        className="scroll-mt-24 relative overflow-hidden bg-lavender-50 py-24"
+        className="scroll-mt-20 bg-[#f7f3ed] py-24 sm:py-28"
       >
-        <div className="absolute inset-0 bg-grid-light opacity-60" />
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="flex flex-col justify-between gap-6 lg:flex-row lg:items-end">
 
-          <div className="mx-auto mb-16 max-w-3xl text-center">
+            <div>
 
-            <div className="inline-flex items-center gap-2 rounded-full border border-plum-100 bg-white px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-plum-700 shadow-sm">
-              <Sparkles size={13} />
-              Connected Society Features
+              <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#9b7740]">
+                <span className="h-px w-8 bg-[#9b7740]" />
+                Connected Society Features
+              </div>
+
+              <h2 className="mt-5 text-[39px] font-black leading-tight text-[#32143b] sm:text-[52px]">
+                Everything needed for
+                <span className="block font-normal text-[#63366f]">
+                  smarter society living.
+                </span>
+              </h2>
+
             </div>
 
-            <h2 className="mt-5 text-[35px] font-extrabold tracking-tight text-plum-950 sm:text-[48px]">
-              Everything needed for
-              <span className="block text-gradient-plum">
-                smarter society living.
-              </span>
-            </h2>
-
-            <p className="mt-5 text-[15px] leading-relaxed text-plum-700/65">
-              From visitor control and maintenance workflows to resident
-              communication and community activities, SmartSociety keeps
-              important operations connected.
+            <p className="max-w-md text-[14px] leading-7 text-[#756b78]">
+              From visitor control and maintenance workflows
+              to resident communication and community
+              activities, SmartSociety keeps important
+              operations connected.
             </p>
+
           </div>
 
-          <div className="space-y-16">
+          <div className="mt-16 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
 
-            {facilityCategories.map((category) => {
-              const CategoryIcon = category.icon;
+            {allAmenities.map((item, index) => {
+              const Icon = item.icon;
 
               return (
-                <div key={category.category}>
+                <div
+                  key={item.name}
+                  className="group overflow-hidden border border-[#e2d9df] bg-white"
+                >
 
-                  <div className="mb-6 flex items-center gap-3">
+                  <div className="relative flex h-52 items-center justify-center overflow-hidden bg-[#32143b]">
 
-                    <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-plum-100 bg-white text-plum-800 shadow-sm">
-                      <CategoryIcon size={20} />
+                    <div className="absolute inset-0 bg-gradient-to-br from-[#63366f] via-[#32143b] to-[#210c28]" />
+
+                    <div className="relative flex h-20 w-20 items-center justify-center border border-[#d9be82]/30 text-[#d9be82] transition duration-500 group-hover:scale-110">
+                      <Icon
+                        size={32}
+                        strokeWidth={1.2}
+                      />
                     </div>
 
-                    <h3 className="text-[20px] font-extrabold text-plum-950">
-                      {category.category}
-                    </h3>
+                    <span className="absolute right-5 top-5 text-[9px] font-bold text-white/35">
+                      {String(index + 1).padStart(2, "0")}
+                    </span>
 
-                    <div className="ml-2 h-px flex-1 bg-gradient-to-r from-lavender-300 to-transparent" />
                   </div>
 
-                  <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+                  <div className="p-6">
 
-                    {category.items.map((item) => {
-                      const ItemIcon = item.icon;
+                    <h3 className="text-[14px] font-black text-[#32143b]">
+                      {item.name}
+                    </h3>
 
-                      return (
-                        <div
-                          key={item.name}
-                          className="group overflow-hidden rounded-[20px] border border-plum-100 bg-white shadow-sm transition-all duration-300 hover:-translate-y-1 hover:border-lavender-300 hover:shadow-xl hover:shadow-plum-900/10"
-                        >
+                    <p className="mt-2 text-[11px] leading-6 text-[#756b78]">
+                      {item.desc}
+                    </p>
 
-                          <div className="flex h-36 items-center justify-center bg-gradient-to-br from-lavender-50 via-white to-sand-50">
-
-                            <div className="flex h-16 w-16 items-center justify-center rounded-full border border-plum-100 bg-white text-plum-800 shadow-sm transition duration-300 group-hover:scale-110 group-hover:bg-plum-800 group-hover:text-sand-300">
-                              <ItemIcon size={25} />
-                            </div>
-                          </div>
-
-                          <div className="p-5">
-
-                            <h4 className="text-[13px] font-extrabold text-plum-950">
-                              {item.name}
-                            </h4>
-
-                            <p className="mt-2 text-[11px] leading-relaxed text-plum-700/65">
-                              {item.desc}
-                            </p>
-                          </div>
-                        </div>
-                      );
-                    })}
                   </div>
                 </div>
               );
             })}
+
           </div>
 
-          {/* FEATURE SUMMARY */}
-          <div className="mt-20 rounded-[28px] border border-plum-100 bg-white p-8 shadow-sm sm:p-12">
+          {/* FEATURE LIST */}
 
-            <h3 className="text-center text-[24px] font-extrabold text-plum-950">
+          <div className="mt-16 border border-[#dfd5dc] bg-white p-7 sm:p-10">
+
+            <h3 className="text-center text-2xl font-black text-[#32143b]">
               One Connected SmartSociety Experience
             </h3>
 
-            <div className="mx-auto mt-8 grid max-w-4xl grid-cols-2 gap-x-6 gap-y-4 md:grid-cols-3 lg:grid-cols-4">
+            <div className="mx-auto mt-8 grid max-w-5xl grid-cols-2 gap-x-8 gap-y-4 md:grid-cols-3 lg:grid-cols-4">
 
               {[
                 "Role-Based Access",
@@ -1022,379 +964,395 @@ function LandingPage() {
                   key={item}
                   className="flex items-center gap-2"
                 >
-                  <div className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-sand-100 text-sand-700">
-                    <CheckCircle2 size={12} />
-                  </div>
+                  <CheckCircle2
+                    size={14}
+                    className="shrink-0 text-[#9b7740]"
+                  />
 
-                  <span className="text-[11px] font-semibold text-plum-700">
+                  <span className="text-[11px] font-semibold text-[#5b4a5f]">
                     {item}
                   </span>
                 </div>
               ))}
+
             </div>
+
           </div>
+
         </div>
       </section>
 
-      {/* =====================================================
+      {/* =========================================================
           HOW IT WORKS
-      ===================================================== */}
-      <section className="relative overflow-hidden bg-plum-950 py-24">
+      ========================================================= */}
 
-        <div className="absolute inset-0 bg-grid-dark opacity-60" />
+      <section className="bg-white py-24 sm:py-28">
 
-        <div className="absolute -right-20 top-0 h-96 w-96 rounded-full bg-plum-700/20 blur-[120px]" />
+        <div className="mx-auto max-w-7xl px-5 sm:px-6 lg:px-8">
 
-        <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
 
-          <div className="mx-auto mb-16 max-w-3xl text-center">
-
-            <div className="inline-flex items-center gap-2 rounded-full border border-sand-400/30 bg-sand-400/10 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-sand-300">
-              <ClipboardCheck size={13} />
+            <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#9b7740]">
+              <span className="h-px w-8 bg-[#9b7740]" />
               How It Works
             </div>
 
-            <h2 className="mt-5 text-[35px] font-extrabold tracking-tight text-white sm:text-[48px]">
+            <h2 className="mt-5 text-[39px] font-black leading-tight text-[#32143b] sm:text-[52px]">
               Simple workflows.
-              <span className="block text-gradient-gold">
+              <span className="block font-normal text-[#63366f]">
                 Better management.
               </span>
             </h2>
+
           </div>
 
-          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          <div className="mt-16 grid border-l border-t border-[#e3dce3] md:grid-cols-2 lg:grid-cols-4">
 
             {steps.map((step) => (
               <div
                 key={step.number}
-                className="group relative overflow-hidden rounded-[22px] border border-plum-700 bg-plum-900/70 p-7 transition-all duration-300 hover:-translate-y-1 hover:border-lavender-500/40"
+                className="border-b border-r border-[#e3dce3] p-7 sm:p-8"
               >
-                <p className="text-[42px] font-extrabold leading-none text-sand-400/20 transition group-hover:text-sand-400/30">
-                  {step.number}
-                </p>
 
-                <h3 className="mt-7 text-[15px] font-bold text-white">
+                <div className="text-5xl font-black text-[#d9be82]/50">
+                  {step.number}
+                </div>
+
+                <h3 className="mt-7 text-[16px] font-black text-[#32143b]">
                   {step.title}
                 </h3>
 
-                <p className="mt-3 text-[11px] leading-relaxed text-lavender-300/70">
+                <p className="mt-3 text-[11px] leading-6 text-[#756b78]">
                   {step.description}
                 </p>
+
               </div>
             ))}
+
           </div>
+
         </div>
+
       </section>
 
-      {/* =====================================================
+      {/* =========================================================
           FAQ
-      ===================================================== */}
+      ========================================================= */}
+
       <section
         id="faq"
-        className="scroll-mt-24 bg-white py-24"
+        className="scroll-mt-20 bg-[#f7f3ed] py-24 sm:py-28"
       >
-        <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
 
-          <div className="mx-auto mb-14 max-w-2xl text-center">
+        <div className="mx-auto max-w-4xl px-5 sm:px-6">
 
-            <div className="inline-flex items-center gap-2 rounded-full border border-plum-100 bg-lavender-50 px-4 py-2 text-[10px] font-bold uppercase tracking-[0.12em] text-plum-700">
-              <HelpCircle size={13} />
+          <div className="mx-auto max-w-2xl text-center">
+
+            <div className="flex items-center justify-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#9b7740]">
+              <span className="h-px w-8 bg-[#9b7740]" />
               Frequently Asked Questions
+              <span className="h-px w-8 bg-[#9b7740]" />
             </div>
 
-            <h2 className="mt-5 text-[35px] font-extrabold tracking-tight text-plum-950 sm:text-[45px]">
+            <h2 className="mt-5 text-[39px] font-black leading-tight text-[#32143b] sm:text-[48px]">
               Everything you need to
-              <span className="block text-gradient-plum">
+              <span className="block font-normal text-[#63366f]">
                 know about SmartSociety.
               </span>
             </h2>
+
           </div>
 
-          <div className="space-y-3">
+          <div className="mt-14 space-y-3">
 
             {faqData.map((item, index) => {
+
               const isOpen = openFAQ === index;
 
               return (
                 <div
                   key={item.question}
-                  className={`overflow-hidden rounded-2xl border transition-all duration-300 ${
+                  className={`border bg-white transition ${
                     isOpen
-                      ? "border-lavender-300 bg-lavender-50/60 shadow-sm"
-                      : "border-plum-100 bg-white hover:border-lavender-300"
+                      ? "border-[#bda9c1]"
+                      : "border-[#e2d9df]"
                   }`}
                 >
+
                   <button
                     onClick={() =>
                       setOpenFAQ(isOpen ? null : index)
                     }
                     className="flex w-full items-center justify-between gap-5 px-6 py-5 text-left"
                   >
-                    <span className="text-[13px] font-bold text-plum-900 sm:text-[15px]">
+
+                    <span className="text-[13px] font-bold text-[#32143b] sm:text-[15px]">
                       {item.question}
                     </span>
 
                     {isOpen ? (
                       <ChevronUp
                         size={19}
-                        className="shrink-0 text-plum-700"
+                        className="shrink-0 text-[#9b7740]"
                       />
                     ) : (
                       <ChevronDown
                         size={19}
-                        className="shrink-0 text-lavender-600"
+                        className="shrink-0 text-[#8b778e]"
                       />
                     )}
+
                   </button>
 
                   <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      isOpen ? "max-h-96" : "max-h-0"
+                    className={`grid transition-all duration-300 ${
+                      isOpen
+                        ? "grid-rows-[1fr]"
+                        : "grid-rows-[0fr]"
                     }`}
                   >
-                    <p className="px-6 pb-6 text-[13px] leading-relaxed text-plum-700/65">
-                      {item.answer}
-                    </p>
+                    <div className="overflow-hidden">
+
+                      <p className="px-6 pb-6 text-[13px] leading-7 text-[#756b78]">
+                        {item.answer}
+                      </p>
+
+                    </div>
                   </div>
+
                 </div>
               );
             })}
+
           </div>
+
         </div>
+
       </section>
 
-      {/* =====================================================
+      {/* =========================================================
           CTA
-      ===================================================== */}
-      <section className="relative overflow-hidden bg-plum-800 py-20">
+      ========================================================= */}
 
-        <div className="absolute inset-0 bg-grid-dark opacity-50" />
+      <section className="relative overflow-hidden bg-[#32143b] py-24">
 
-        <div className="absolute -right-20 -top-24 h-80 w-80 rounded-full bg-lavender-400/10 blur-[100px]" />
+        <div className="absolute right-0 top-0 h-[500px] w-[500px] rounded-full bg-[#63366f]/30 blur-[130px]" />
 
-        <div className="relative mx-auto flex max-w-7xl flex-col items-start justify-between gap-8 px-4 sm:px-6 lg:flex-row lg:items-center lg:px-8">
+        <div className="relative mx-auto flex max-w-7xl flex-col justify-between gap-10 px-5 sm:px-6 lg:flex-row lg:items-center lg:px-8">
 
           <div className="max-w-2xl">
 
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl border border-sand-400/30 bg-sand-400/10 text-sand-300">
-              <ShieldCheck size={21} />
+            <div className="flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#d9be82]">
+              <span className="h-px w-8 bg-[#d9be82]" />
+              Smart Society Management
             </div>
 
-            <h2 className="mt-5 text-[32px] font-extrabold tracking-tight text-white sm:text-[42px]">
-              Ready for smarter society management?
+            <h2 className="mt-5 text-[39px] font-black leading-tight text-white sm:text-[52px]">
+              Ready for smarter
+              <span className="block font-normal text-[#d9be82]">
+                society management?
+              </span>
             </h2>
 
-            <p className="mt-3 text-[14px] leading-relaxed text-lavender-200/80">
-              Bring administration, residents, security and maintenance
-              together through one connected SmartSociety platform.
+            <p className="mt-5 max-w-xl text-[14px] leading-7 text-white/60">
+              Bring administration, residents, security and
+              maintenance together through one connected
+              SmartSociety platform.
             </p>
+
           </div>
 
           <Link
             to="/register"
-            className="inline-flex items-center gap-2 rounded-xl bg-sand-400 px-6 py-3.5 text-[12px] font-bold text-plum-950 shadow-lg transition hover:bg-sand-300"
+            className="inline-flex w-fit items-center gap-3 bg-[#d9be82] px-7 py-4 text-[12px] font-bold text-[#32143b] transition hover:bg-white"
           >
             Get Started
             <ArrowRight size={16} />
           </Link>
+
         </div>
+
       </section>
 
-      {/* =====================================================
+      {/* =========================================================
           FOOTER
-      ===================================================== */}
+      ========================================================= */}
+
       <footer
         id="contact"
-        className="relative overflow-hidden bg-plum-950 pb-8 pt-16 text-lavender-200"
+        className="bg-[#210c28] text-[#cdc4dd]"
       >
 
-        {/* TOP LINE */}
-        <div className="absolute inset-x-0 top-0 h-1 bg-gradient-to-r from-plum-800 via-sand-400 to-plum-800" />
+        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-6 lg:px-8">
 
-        {/* GRID */}
-        <div className="pointer-events-none absolute inset-0 bg-grid-dark opacity-50" />
-
-        <div className="pointer-events-none absolute -right-20 -top-20 h-96 w-96 rounded-full bg-plum-700/20 blur-[120px]" />
-
-        <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-          <div className="mb-12 grid grid-cols-1 gap-10 md:grid-cols-12">
+          <div className="grid gap-12 border-b border-white/10 pb-14 md:grid-cols-12">
 
             {/* BRAND */}
-            <div className="space-y-5 md:col-span-4">
+
+            <div className="md:col-span-5">
 
               <button
                 onClick={scrollToTop}
-                className="group flex items-center space-x-2.5"
+                className="flex items-center gap-3"
               >
-                <div className="relative">
 
-                  <div className="absolute -inset-1 rounded-xl bg-gradient-to-r from-lavender-400 to-sand-400 opacity-50 blur" />
-
-                  <div className="relative flex items-center justify-center rounded-xl border border-plum-700 bg-plum-900 p-2">
-                    <img
-                      src="/SmartSociety_Logo.svg"
-                      alt="SmartSociety"
-                      className="h-5 w-5 object-contain"
-                    />
-                  </div>
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-white">
+                  <img
+                    src="/SmartSociety_Logo.svg"
+                    alt="SmartSociety"
+                    className="h-7 w-7 object-contain"
+                  />
                 </div>
 
-                <div className="flex flex-col text-left">
+                <div className="text-left">
 
-                  <span className="text-xl font-extrabold leading-none tracking-tight text-white">
+                  <div className="text-xl font-black text-white">
                     Smart
-                    <span className="font-light text-sand-400">
+                    <span className="font-normal text-[#d9be82]">
                       Society
                     </span>
-                  </span>
+                  </div>
 
-                  <span className="mt-0.5 text-[9px] font-semibold uppercase tracking-[0.2em] text-lavender-400">
+                  <div className="mt-1 text-[8px] uppercase tracking-[0.2em] text-white/40">
                     Smart Society Management
-                  </span>
+                  </div>
+
                 </div>
+
               </button>
 
-              <p className="max-w-sm text-sm leading-relaxed text-lavender-300/75">
-                A connected platform designed to help manage residents,
-                visitors, complaints, maintenance, communication and daily
-                society operations more efficiently.
+              <p className="mt-6 max-w-md text-sm leading-7 text-white/50">
+                A connected platform designed to help manage
+                residents, visitors, complaints, maintenance,
+                communication and daily society operations more
+                efficiently.
               </p>
 
-              <div className="space-y-3 text-sm">
+              <div className="mt-6 space-y-3">
 
-                <div className="flex items-center gap-3">
-                  <Building2 className="h-4 w-4 shrink-0 text-sand-400" />
-                  <span className="text-lavender-300/75">
-                    Society Management Platform
-                  </span>
+                <div className="flex items-center gap-3 text-xs text-white/50">
+                  <Building2
+                    size={15}
+                    className="text-[#d9be82]"
+                  />
+                  Society Management Platform
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <ShieldCheck className="h-4 w-4 shrink-0 text-sand-400" />
-                  <span className="text-lavender-300/75">
-                    Role-Based Access
-                  </span>
+                <div className="flex items-center gap-3 text-xs text-white/50">
+                  <ShieldCheck
+                    size={15}
+                    className="text-[#d9be82]"
+                  />
+                  Role-Based Access
                 </div>
 
-                <div className="flex items-center gap-3">
-                  <Clock className="h-4 w-4 shrink-0 text-sand-400" />
-                  <span className="text-lavender-300/75">
-                    Connected Operations
-                  </span>
+                <div className="flex items-center gap-3 text-xs text-white/50">
+                  <Clock
+                    size={15}
+                    className="text-[#d9be82]"
+                  />
+                  Connected Operations
                 </div>
+
               </div>
+
             </div>
 
             {/* EXPLORE */}
-            <div className="space-y-4 md:col-span-2">
 
-              <span className="block text-xs font-extrabold uppercase tracking-widest text-sand-400">
+            <div className="md:col-span-2">
+
+              <h3 className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#d9be82]">
                 Explore
-              </span>
+              </h3>
 
-              <ul className="space-y-2 text-sm">
+              <div className="mt-5 space-y-3 text-xs">
 
                 {[
-                  ["About", "#about"],
+                  ["About Us", "#about"],
                   ["Portals", "#portals"],
                   ["Features", "#features"],
                   ["Amenities", "#amenities"],
                   ["FAQ", "#faq"],
                 ].map(([name, href]) => (
-                  <li key={name}>
-                    <button
-                      onClick={() => handleNavClick(href)}
-                      className="text-lavender-300/75 transition-colors hover:text-white"
-                    >
-                      {name}
-                    </button>
-                  </li>
+                  <button
+                    key={name}
+                    onClick={() => handleNavClick(href)}
+                    className="block text-white/50 transition hover:text-white"
+                  >
+                    {name}
+                  </button>
                 ))}
-              </ul>
+
+              </div>
+
             </div>
 
             {/* PORTALS */}
-            <div className="space-y-4 md:col-span-2">
 
-              <span className="block text-xs font-extrabold uppercase tracking-widest text-sand-400">
+            <div className="md:col-span-2">
+
+              <h3 className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#d9be82]">
                 Portals
-              </span>
+              </h3>
 
-              <ul className="space-y-2 text-sm">
+              <div className="mt-5 space-y-3 text-xs text-white/50">
 
-                <li className="text-lavender-300/75">
-                  Administration
-                </li>
+                <p>Administration</p>
+                <p>Resident Portal</p>
+                <p>Security Portal</p>
+                <p>Staff Portal</p>
 
-                <li className="text-lavender-300/75">
-                  Resident Portal
-                </li>
+              </div>
 
-                <li className="text-lavender-300/75">
-                  Security Portal
-                </li>
-
-                <li className="text-lavender-300/75">
-                  Staff Portal
-                </li>
-              </ul>
             </div>
 
-            {/* SMART SOCIETY */}
-            <div className="space-y-4 md:col-span-4">
+            {/* CTA */}
 
-              <span className="block text-xs font-extrabold uppercase tracking-widest text-sand-400">
+            <div className="md:col-span-3">
+
+              <h3 className="text-[10px] font-bold uppercase tracking-[0.18em] text-[#d9be82]">
                 SmartSociety
-              </span>
+              </h3>
 
-              <p className="text-sm leading-relaxed text-lavender-300/75">
-                One connected system for better society management and
-                organized daily operations.
+              <p className="mt-5 text-xs leading-6 text-white/50">
+                One connected system for better society
+                management and organized daily operations.
               </p>
 
-              <div className="rounded-2xl border border-plum-700 bg-plum-900/60 p-5">
+              <Link
+                to="/register"
+                className="mt-6 inline-flex items-center gap-2 bg-[#d9be82] px-5 py-3 text-xs font-bold text-[#32143b] transition hover:bg-white"
+              >
+                Get Started
+                <ArrowRight size={14} />
+              </Link>
 
-                <p className="text-[11px] font-bold uppercase tracking-[0.12em] text-lavender-400">
-                  System Access
-                </p>
-
-                <div className="mt-4 flex flex-wrap gap-2">
-
-                  {[
-                    "Administration",
-                    "Residents",
-                    "Security",
-                    "Maintenance",
-                  ].map((item) => (
-                    <span
-                      key={item}
-                      className="rounded-full border border-plum-700 bg-plum-800 px-3 py-1.5 text-[10px] font-semibold text-lavender-200"
-                    >
-                      {item}
-                    </span>
-                  ))}
-                </div>
-              </div>
             </div>
+
           </div>
 
           {/* BOTTOM */}
-          <div className="flex flex-col items-center justify-between gap-4 border-t border-plum-800 py-7 text-xs text-lavender-400/70 sm:flex-row">
 
-            <p>
-              © {new Date().getFullYear()} SmartSociety. All rights reserved.
+          <div className="flex flex-col items-center justify-between gap-4 pt-7 text-[10px] sm:flex-row">
+
+            <p className="text-white/30">
+              © {new Date().getFullYear()} SmartSociety.
+              All rights reserved.
             </p>
 
             <button
               onClick={scrollToTop}
-              className="flex items-center gap-1.5 rounded-lg border border-plum-700 bg-plum-900 px-3 py-1.5 text-lavender-200 transition-colors hover:bg-plum-800"
+              className="flex items-center gap-2 text-white/40 transition hover:text-white"
             >
               Back to top
-              <ArrowUp className="h-3.5 w-3.5" />
+              <ArrowUp size={13} />
             </button>
+
           </div>
+
         </div>
+
       </footer>
     </div>
   );
