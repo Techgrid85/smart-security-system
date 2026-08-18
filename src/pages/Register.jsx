@@ -246,7 +246,7 @@ useEffect(() => {
 
         setErrors({});
 
-        navigate("/");
+        navigate("/login");
       } else {
         toast.error(
           response.data.message || "Registration failed"
