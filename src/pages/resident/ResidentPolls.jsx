@@ -158,13 +158,13 @@ function ResidentPolls() {
   const getStatusStyle = (status) => {
     switch (status) {
       case "Active":
-        return "bg-emerald-50 text-emerald-600";
+        return "bg-[#f7f3ed] text-[#9b7740]";
 
       case "Closed":
-        return "bg-slate-100 text-slate-500";
+        return "bg-[#eee8ed] text-[#756b78]";
 
       default:
-        return "bg-amber-50 text-amber-600";
+        return "bg-[#f7f3ed] text-[#9b7740]";
     }
   };
 
@@ -176,7 +176,7 @@ function ResidentPolls() {
     return (
       <DashboardLayout role="resident">
         <div className="flex min-h-[400px] items-center justify-center">
-          <p className="text-sm font-medium text-slate-500">
+          <p className="text-sm font-medium text-[#756b78]">
             Loading polls...
           </p>
         </div>
@@ -198,22 +198,22 @@ function ResidentPolls() {
           <button
             type="button"
             onClick={() => navigate("/resident")}
-            className="mb-4 flex items-center gap-2 text-[11px] font-bold text-slate-400 transition hover:text-emerald-500"
+            className="mb-4 flex items-center gap-2 text-[11px] font-bold text-[#8b778e] transition hover:text-[#9b7740]"
           >
             <ArrowLeft size={14} />
             Back to Dashboard
           </button>
 
           <div>
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Resident Portal
             </p>
 
-            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+            <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
               Polls & Voting
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Participate in society polls and share your opinion.
             </p>
           </div>
@@ -221,19 +221,19 @@ function ResidentPolls() {
         </div>
 
         {/* POLLS */}
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
-            <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+            <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
               <Vote
                 size={16}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
               Available Polls
             </h2>
 
-            <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[9px] font-bold text-slate-500">
+            <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
               {polls.length}{" "}
               {polls.length === 1
                 ? "Poll"
@@ -251,13 +251,13 @@ function ResidentPolls() {
                 return (
                   <div
                     key={poll._id}
-                    className="rounded-[13px] border border-slate-200 bg-slate-50 p-4"
+                    className="rounded-[13px] border border-[#e2d9df] bg-[#f7f3ed] p-4"
                   >
 
                     <div className="flex items-start gap-3">
 
                       {/* ICON */}
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-emerald-50 text-emerald-500">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-[#f7f3ed] text-[#9b7740]">
                         <Vote size={18} />
                       </div>
 
@@ -266,7 +266,7 @@ function ResidentPolls() {
 
                         <div className="flex flex-wrap items-start justify-between gap-2">
 
-                          <h3 className="text-[12px] font-bold text-slate-800">
+                          <h3 className="text-[12px] font-bold text-[#49394d]">
                             {poll.question}
                           </h3>
 
@@ -281,14 +281,14 @@ function ResidentPolls() {
                         </div>
 
                         {poll.description && (
-                          <p className="mt-2 text-[10.5px] leading-relaxed text-slate-500">
+                          <p className="mt-2 text-[10.5px] leading-relaxed text-[#756b78]">
                             {poll.description}
                           </p>
                         )}
 
                         {/* DATE */}
                         {poll.endDate && (
-                          <div className="mt-3 flex items-center gap-1 text-[9.5px] font-semibold text-slate-400">
+                          <div className="mt-3 flex items-center gap-1 text-[9.5px] font-semibold text-[#8b778e]">
                             <Clock3 size={12} />
 
                             Ends{" "}
@@ -307,12 +307,12 @@ function ResidentPolls() {
                               onClick={() =>
                                 openVoteModal(poll)
                               }
-                              className="rounded-lg bg-emerald-500 px-3.5 py-2 text-[10px] font-bold text-white shadow-sm transition hover:bg-emerald-600"
+                              className="rounded-lg bg-[#9b7740] px-3.5 py-2 text-[10px] font-bold text-white shadow-sm transition hover:bg-[#9b7740]"
                             >
                               Vote Now
                             </button>
                           ) : (
-                            <span className="inline-flex items-center gap-1.5 rounded-lg bg-slate-100 px-3 py-2 text-[10px] font-bold text-slate-400">
+                            <span className="inline-flex items-center gap-1.5 rounded-lg bg-[#eee8ed] px-3 py-2 text-[10px] font-bold text-[#8b778e]">
                               <CheckCircle2 size={13} />
                               Poll Closed
                             </span>
@@ -326,17 +326,17 @@ function ResidentPolls() {
                 );
               })
             ) : (
-              <div className="flex min-h-[220px] flex-col items-center justify-center rounded-[13px] border border-dashed border-slate-200 bg-slate-50 px-5 text-center">
+              <div className="flex min-h-[220px] flex-col items-center justify-center rounded-[13px] border border-dashed border-[#e2d9df] bg-[#f7f3ed] px-5 text-center">
 
-                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
                   <Vote size={21} />
                 </div>
 
-                <p className="text-[12px] font-bold text-slate-700">
+                <p className="text-[12px] font-bold text-[#49394d]">
                   No polls available
                 </p>
 
-                <p className="mt-1 text-[10px] font-medium text-slate-400">
+                <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                   There are currently no active society polls.
                 </p>
 
@@ -348,19 +348,19 @@ function ResidentPolls() {
 
         {/* VOTE MODAL */}
         {showVoteModal && selectedPoll && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/50 p-4">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#210c28]/50 p-4">
 
             <div className="w-full max-w-md overflow-hidden rounded-[16px] bg-white shadow-2xl">
 
               {/* HEADER */}
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
                 <div>
-                  <h2 className="text-[14px] font-bold text-slate-900">
+                  <h2 className="text-[14px] font-bold text-[#32143b]">
                     Cast Your Vote
                   </h2>
 
-                  <p className="mt-1 text-[10px] text-slate-400">
+                  <p className="mt-1 text-[10px] text-[#8b778e]">
                     Select one option below.
                   </p>
                 </div>
@@ -370,7 +370,7 @@ function ResidentPolls() {
                   onClick={() =>
                     setShowVoteModal(false)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-700"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -383,12 +383,12 @@ function ResidentPolls() {
                 className="p-5"
               >
 
-                <h3 className="text-[12px] font-bold text-slate-800">
+                <h3 className="text-[12px] font-bold text-[#49394d]">
                   {selectedPoll.question}
                 </h3>
 
                 {selectedPoll.description && (
-                  <p className="mt-2 text-[10.5px] leading-relaxed text-slate-500">
+                  <p className="mt-2 text-[10.5px] leading-relaxed text-[#756b78]">
                     {selectedPoll.description}
                   </p>
                 )}
@@ -404,8 +404,8 @@ function ResidentPolls() {
                       <label
                         key={optionId}
                         className={`flex cursor-pointer items-center gap-3 rounded-lg border px-3 py-3 transition ${selectedOption === optionId
-                            ? "border-emerald-400 bg-emerald-50"
-                            : "border-slate-200 hover:bg-slate-50"
+                            ? "border-[#bca16a] bg-[#f7f3ed]"
+                            : "border-[#e2d9df] hover:bg-[#f7f3ed]"
                           }`}
                       >
                         <input
@@ -416,10 +416,10 @@ function ResidentPolls() {
                           onChange={(e) =>
                             setSelectedOption(e.target.value)
                           }
-                          className="accent-emerald-500"
+                          className="accent-#9b7740"
                         />
 
-                        <span className="text-[11px] font-semibold text-slate-700">
+                        <span className="text-[11px] font-semibold text-[#49394d]">
                           {optionText}
                         </span>
                       </label>
@@ -436,7 +436,7 @@ function ResidentPolls() {
                     onClick={() =>
                       setShowVoteModal(false)
                     }
-                    className="rounded-lg border border-slate-200 px-4 py-2.5 text-[10.5px] font-bold text-slate-500 hover:bg-slate-50"
+                    className="rounded-lg border border-[#e2d9df] px-4 py-2.5 text-[10.5px] font-bold text-[#756b78] hover:bg-[#f7f3ed]"
                   >
                     Cancel
                   </button>
@@ -447,7 +447,7 @@ function ResidentPolls() {
                       submitting ||
                       !selectedOption
                     }
-                    className="rounded-lg bg-emerald-500 px-4 py-2.5 text-[10.5px] font-bold text-white transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {submitting
                       ? "Submitting..."

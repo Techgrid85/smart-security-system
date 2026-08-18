@@ -55,15 +55,15 @@ function StaffCompletedWork() {
 
         {/* HEADER */}
         <div className="mb-6">
-          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
             Maintenance Portal
           </p>
 
-          <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+          <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
             Completed Work
           </h1>
 
-          <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+          <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
             View maintenance complaints that you have successfully completed.
           </p>
         </div>
@@ -77,7 +77,7 @@ function StaffCompletedWork() {
             title="Completed Work"
             value={complaints.length}
             text="Total resolved complaints"
-            color="bg-emerald-50 text-emerald-500"
+            color="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <SummaryCard
@@ -85,7 +85,7 @@ function StaffCompletedWork() {
             title="Maintenance Tasks"
             value={complaints.length}
             text="Tasks completed by you"
-            color="bg-sky-50 text-sky-500"
+            color="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <SummaryCard
@@ -97,7 +97,7 @@ function StaffCompletedWork() {
                 : "—"
             }
             text="Most recently completed"
-            color="bg-indigo-50 text-indigo-500"
+            color="bg-[#f7f3ed] text-[#63366f]"
           />
 
         </div>
@@ -112,19 +112,19 @@ function StaffCompletedWork() {
 
 
         {/* TABLE */}
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
-            <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+            <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
               <CheckCircle2
                 size={16}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
               Completed Complaints
             </h2>
 
-            <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-600">
+            <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
               {complaints.length} Completed
             </span>
 
@@ -133,25 +133,25 @@ function StaffCompletedWork() {
 
           {loading ? (
             <div className="flex min-h-[250px] items-center justify-center">
-              <p className="text-[11px] font-semibold text-slate-400">
+              <p className="text-[11px] font-semibold text-[#8b778e]">
                 Loading completed work...
               </p>
             </div>
           ) : complaints.length === 0 ? (
             <div className="flex min-h-[280px] flex-col items-center justify-center px-5 text-center">
 
-              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-slate-50">
+              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7f3ed]">
                 <CheckCircle2
                   size={22}
-                  className="text-slate-300"
+                  className="text-[#bca9c0]"
                 />
               </div>
 
-              <p className="text-[13px] font-bold text-slate-700">
+              <p className="text-[13px] font-bold text-[#49394d]">
                 No completed work yet
               </p>
 
-              <p className="mt-1 max-w-sm text-[10.5px] font-medium leading-5 text-slate-400">
+              <p className="mt-1 max-w-sm text-[10.5px] font-medium leading-5 text-[#8b778e]">
                 Complaints that you mark as Resolved will appear here.
               </p>
 
@@ -162,7 +162,7 @@ function StaffCompletedWork() {
               <table className="w-full min-w-[850px] border-collapse">
 
                 <thead>
-                  <tr className="bg-slate-50">
+                  <tr className="bg-[#f7f3ed]">
 
                     <TableHead>Complaint</TableHead>
                     <TableHead>Resident</TableHead>
@@ -180,17 +180,17 @@ function StaffCompletedWork() {
                   {complaints.map((complaint) => (
                     <tr
                       key={complaint._id}
-                      className="border-t border-slate-200 transition hover:bg-slate-50"
+                      className="border-t border-[#e2d9df] transition hover:bg-[#f7f3ed]"
                     >
 
                       {/* COMPLAINT */}
                       <td className="px-4 py-4">
 
-                        <p className="max-w-[220px] text-[11.5px] font-bold text-slate-700">
+                        <p className="max-w-[220px] text-[11.5px] font-bold text-[#49394d]">
                           {complaint.subject}
                         </p>
 
-                        <p className="mt-1 text-[9.5px] font-medium text-slate-400">
+                        <p className="mt-1 text-[9.5px] font-medium text-[#8b778e]">
                           ID: {complaint._id.slice(-8).toUpperCase()}
                         </p>
 
@@ -202,19 +202,19 @@ function StaffCompletedWork() {
 
                         <div className="flex items-center gap-2">
 
-                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-slate-100">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#eee8ed]">
                             <UserCircle
                               size={15}
-                              className="text-slate-400"
+                              className="text-[#8b778e]"
                             />
                           </div>
 
                           <div>
-                            <p className="text-[10.5px] font-bold text-slate-700">
+                            <p className="text-[10.5px] font-bold text-[#49394d]">
                               {complaint.resident?.name || "Unknown"}
                             </p>
 
-                            <p className="text-[9px] text-slate-400">
+                            <p className="text-[9px] text-[#8b778e]">
                               {complaint.resident?.phone || "—"}
                             </p>
                           </div>
@@ -227,8 +227,8 @@ function StaffCompletedWork() {
                       {/* FLAT */}
                       <td className="px-4 py-4">
 
-                        <div className="flex items-center gap-1.5 text-[10.5px] font-bold text-slate-600">
-                          <Home size={13} className="text-slate-400" />
+                        <div className="flex items-center gap-1.5 text-[10.5px] font-bold text-[#756b78]">
+                          <Home size={13} className="text-[#8b778e]" />
                           {complaint.flatNo || "—"}
                         </div>
 
@@ -238,7 +238,7 @@ function StaffCompletedWork() {
                       {/* CATEGORY */}
                       <td className="px-4 py-4">
 
-                        <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[9.5px] font-bold text-slate-600">
+                        <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-bold text-[#756b78]">
                           {complaint.category}
                         </span>
 
@@ -248,10 +248,10 @@ function StaffCompletedWork() {
                       {/* DATE */}
                       <td className="px-4 py-4">
 
-                        <div className="flex items-center gap-1.5 text-[10px] font-semibold text-slate-500">
+                        <div className="flex items-center gap-1.5 text-[10px] font-semibold text-[#756b78]">
                           <CalendarDays
                             size={12}
-                            className="text-slate-400"
+                            className="text-[#8b778e]"
                           />
 
                           {formatDate(complaint.updatedAt)}
@@ -263,9 +263,9 @@ function StaffCompletedWork() {
                       {/* STATUS */}
                       <td className="px-4 py-4">
 
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[9.5px] font-bold text-emerald-700">
+                        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#826331]">
 
-                          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+                          <span className="h-1.5 w-1.5 rounded-full bg-[#9b7740]" />
 
                           Completed
 
@@ -283,7 +283,7 @@ function StaffCompletedWork() {
                             window.location.href =
                               `/staff/assigned/${complaint._id}`
                           }
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-2.5 py-1.5 text-[9.5px] font-bold text-slate-500 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-600"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-[#e2d9df] px-2.5 py-1.5 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
                         >
                           <Eye size={12} />
                           View
@@ -319,7 +319,7 @@ function SummaryCard({
   color,
 }) {
   return (
-    <div className="rounded-[16px] border border-slate-200 bg-white p-5">
+    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-5">
 
       <div
         className={`flex h-10 w-10 items-center justify-center rounded-xl ${color}`}
@@ -327,15 +327,15 @@ function SummaryCard({
         <Icon size={18} />
       </div>
 
-      <p className="mt-4 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+      <p className="mt-4 text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
         {title}
       </p>
 
-      <p className="mt-1 text-[25px] font-extrabold tracking-tight text-slate-900">
+      <p className="mt-1 text-[25px] font-extrabold tracking-tight text-[#32143b]">
         {value}
       </p>
 
-      <p className="mt-1 text-[10px] font-medium text-slate-400">
+      <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
         {text}
       </p>
 
@@ -348,7 +348,7 @@ function SummaryCard({
 
 function TableHead({ children }) {
   return (
-    <th className="px-4 py-3 text-left text-[9.5px] font-bold uppercase tracking-[0.06em] text-slate-400">
+    <th className="px-4 py-3 text-left text-[9.5px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
       {children}
     </th>
   );

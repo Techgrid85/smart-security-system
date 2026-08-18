@@ -350,7 +350,7 @@ function StaffSettings() {
     return (
       <DashboardLayout role="staff">
         <div className="flex min-h-[400px] items-center justify-center">
-          <p className="text-sm font-medium text-slate-500">
+          <p className="text-sm font-medium text-[#756b78]">
             Loading settings...
           </p>
         </div>
@@ -372,43 +372,43 @@ function StaffSettings() {
           <button
             type="button"
             onClick={() => navigate("/staff")}
-            className="mb-4 flex items-center gap-2 text-[11px] font-bold text-slate-400 transition hover:text-emerald-500"
+            className="mb-4 flex items-center gap-2 text-[11px] font-bold text-[#8b778e] transition hover:text-[#9b7740]"
           >
             <ArrowLeft size={14} />
             Back to Dashboard
           </button>
 
-          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
             Maintenance Portal
           </p>
 
-          <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+          <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
             Settings
           </h1>
 
-          <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+          <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
             Manage your maintenance staff account information.
           </p>
         </div>
 
         {/* SETTINGS CARD */}
 
-        <section className="max-w-3xl overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="max-w-3xl overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
           {/* CARD HEADER */}
 
-          <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center gap-3 border-b border-[#e2d9df] px-5 py-4">
 
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
               <Settings size={17} />
             </div>
 
             <div>
-              <h2 className="text-[13px] font-bold text-slate-900">
+              <h2 className="text-[13px] font-bold text-[#32143b]">
                 Account Settings
               </h2>
 
-              <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
+              <p className="mt-0.5 text-[9.5px] font-medium text-[#8b778e]">
                 Update your personal information and profile picture.
               </p>
             </div>
@@ -417,9 +417,9 @@ function StaffSettings() {
 
           {/* PROFILE PICTURE */}
 
-          <div className="border-b border-slate-100 p-5">
+          <div className="border-b border-[#eee8ed] p-5">
 
-            <label className="mb-3 block text-[10px] font-bold text-slate-600">
+            <label className="mb-3 block text-[10px] font-bold text-[#756b78]">
               Profile Picture
             </label>
 
@@ -433,10 +433,10 @@ function StaffSettings() {
                   <img
                     src={formData.profilePic}
                     alt="Staff profile"
-                    className="h-20 w-20 rounded-2xl border-2 border-slate-100 object-cover shadow-sm"
+                    className="h-20 w-20 rounded-2xl border-2 border-[#eee8ed] object-cover shadow-sm"
                   />
                 ) : (
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-emerald-500 text-xl font-extrabold text-white shadow-sm">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#9b7740] text-xl font-extrabold text-white shadow-sm">
                     {formData.name
                       ? formData.name
                           .split(" ")
@@ -474,7 +474,7 @@ function StaffSettings() {
 
                 <label
                   htmlFor="staff-profile-picture"
-                  className={`inline-flex cursor-pointer items-center gap-2 rounded-lg border border-slate-200 bg-white px-3.5 py-2.5 text-[10px] font-bold text-slate-600 shadow-sm transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-600 ${
+                  className={`inline-flex cursor-pointer items-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3.5 py-2.5 text-[10px] font-bold text-[#756b78] shadow-sm transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740] ${
                     uploadingPicture
                       ? "pointer-events-none opacity-60"
                       : ""
@@ -487,7 +487,7 @@ function StaffSettings() {
                     : "Change Picture"}
                 </label>
 
-                <p className="mt-2 text-[9px] font-medium text-slate-400">
+                <p className="mt-2 text-[9px] font-medium text-[#8b778e]">
                   JPG, PNG or WEBP • Maximum 5MB
                 </p>
 
@@ -507,14 +507,14 @@ function StaffSettings() {
             {/* NAME */}
 
             <div>
-              <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+              <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                 Full Name
               </label>
 
               <div className="relative">
                 <User
                   size={15}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
                 />
 
                 <input
@@ -523,7 +523,7 @@ function StaffSettings() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your name"
-                  className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                  className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                 />
               </div>
             </div>
@@ -531,25 +531,25 @@ function StaffSettings() {
             {/* EMAIL */}
 
             <div>
-              <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+              <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                 Email Address
               </label>
 
               <div className="relative">
                 <Mail
                   size={15}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
                 />
 
                 <input
                   type="email"
                   value={formData.email}
                   disabled
-                  className="h-10 w-full cursor-not-allowed rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-3 text-[11px] text-slate-400 outline-none"
+                  className="h-10 w-full cursor-not-allowed rounded-lg border border-[#e2d9df] bg-[#f7f3ed] pl-9 pr-3 text-[11px] text-[#8b778e] outline-none"
                 />
               </div>
 
-              <p className="mt-1.5 flex items-center gap-1 text-[9px] font-medium text-slate-400">
+              <p className="mt-1.5 flex items-center gap-1 text-[9px] font-medium text-[#8b778e]">
                 <Lock size={10} />
                 Email address cannot be changed here.
               </p>
@@ -558,14 +558,14 @@ function StaffSettings() {
             {/* PHONE */}
 
             <div>
-              <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+              <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                 Phone Number
               </label>
 
               <div className="relative">
                 <Phone
                   size={15}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
                 />
 
                 <input
@@ -575,19 +575,19 @@ function StaffSettings() {
                   onChange={handleChange}
                   placeholder="Enter phone number"
                   maxLength={10}
-                  className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                  className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                 />
               </div>
             </div>
 
             {/* SAVE */}
 
-            <div className="flex justify-end border-t border-slate-100 pt-5">
+            <div className="flex justify-end border-t border-[#eee8ed] pt-5">
 
               <button
                 type="submit"
                 disabled={saving}
-                className="flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Save size={14} />
 

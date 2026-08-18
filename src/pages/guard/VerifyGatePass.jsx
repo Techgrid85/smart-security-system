@@ -325,30 +325,30 @@ function VerifyGatePass() {
 
         {/* ================= HEADER ================= */}
         <div className="mb-6">
-          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
             Security Portal
           </p>
 
-          <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+          <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
             Verify Visitor Pass
           </h1>
 
-          <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+          <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
             Scan the visitor QR code or enter the 6-digit gate key manually.
           </p>
         </div>
 
         {/* ================= SCAN QR ================= */}
-        <section className="mb-5 rounded-[16px] border border-slate-200 bg-white p-5">
+        <section className="mb-5 rounded-[16px] border border-[#e2d9df] bg-white p-5">
 
           <div className="flex flex-col items-start justify-between gap-4 sm:flex-row sm:items-center">
 
             <div>
-              <h2 className="text-[13px] font-bold text-slate-900">
+              <h2 className="text-[13px] font-bold text-[#32143b]">
                 QR Code Scanner
               </h2>
 
-              <p className="mt-1 text-[10px] font-medium text-slate-400">
+              <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                 Use the device camera to scan the visitor's digital pass.
               </p>
             </div>
@@ -357,7 +357,7 @@ function VerifyGatePass() {
               type="button"
               onClick={openScanner}
               disabled={loading || scannerOpen}
-              className="flex items-center justify-center gap-2 rounded-[10px] bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+              className="flex items-center justify-center gap-2 rounded-[10px] bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
             >
               <Camera size={16} />
               Scan QR Code
@@ -367,14 +367,14 @@ function VerifyGatePass() {
         </section>
 
         {/* ================= MANUAL VERIFY ================= */}
-        <section className="rounded-[16px] border border-slate-200 bg-white p-5">
+        <section className="rounded-[16px] border border-[#e2d9df] bg-white p-5">
 
           <div className="mb-4">
-            <h2 className="text-[13px] font-bold text-slate-900">
+            <h2 className="text-[13px] font-bold text-[#32143b]">
               Manual Verification
             </h2>
 
-            <p className="mt-1 text-[10px] font-medium text-slate-400">
+            <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
               Enter the visitor's 6-digit gate key if QR scanning is unavailable.
             </p>
           </div>
@@ -387,7 +387,7 @@ function VerifyGatePass() {
 
               <KeyRound
                 size={17}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
               />
 
               <input
@@ -403,7 +403,7 @@ function VerifyGatePass() {
                 placeholder="Enter 6-digit gate key"
                 inputMode="numeric"
                 maxLength={6}
-                className="w-full rounded-[10px] border border-slate-200 py-3 pl-10 pr-3 text-[13px] font-bold tracking-[0.15em] text-slate-700 outline-none transition placeholder:font-medium placeholder:tracking-normal placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                className="w-full rounded-[10px] border border-[#e2d9df] py-3 pl-10 pr-3 text-[13px] font-bold tracking-[0.15em] text-[#49394d] outline-none transition placeholder:font-medium placeholder:tracking-normal placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
               />
 
             </div>
@@ -411,7 +411,7 @@ function VerifyGatePass() {
             <button
               type="submit"
               disabled={loading}
-              className="flex items-center justify-center gap-2 rounded-[10px] border border-slate-200 bg-slate-900 px-5 py-3 text-[11px] font-bold text-white transition hover:bg-slate-800 disabled:cursor-not-allowed disabled:opacity-60"
+              className="flex items-center justify-center gap-2 rounded-[10px] border border-[#e2d9df] bg-[#32143b] px-5 py-3 text-[11px] font-bold text-white transition hover:bg-[#49394d] disabled:cursor-not-allowed disabled:opacity-60"
             >
               <Search size={15} />
 
@@ -423,20 +423,20 @@ function VerifyGatePass() {
 
         {/* ================= VERIFIED VISITOR ================= */}
         {visitor && (
-          <section className="mt-6 overflow-hidden rounded-[16px] border border-emerald-200 bg-white">
+          <section className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-            <div className="flex items-center gap-3 border-b border-emerald-100 bg-emerald-50 px-5 py-4">
+            <div className="flex items-center gap-3 border-b border-[#f5eee2] bg-[#f7f3ed] px-5 py-4">
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-100 text-emerald-600">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f5eee2] text-[#9b7740]">
                 <ShieldCheck size={20} />
               </div>
 
               <div>
-                <p className="text-[12px] font-bold text-emerald-700">
+                <p className="text-[12px] font-bold text-[#826331]">
                   Verified Visitor Pass
                 </p>
 
-                <p className="mt-0.5 text-[10px] font-medium text-emerald-600">
+                <p className="mt-0.5 text-[10px] font-medium text-[#9b7740]">
                   This visitor is approved for entry.
                 </p>
               </div>
@@ -487,12 +487,12 @@ function VerifyGatePass() {
 
               <div className="mt-5">
 
-                <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                   Purpose
                 </p>
 
-                <div className="mt-2 rounded-[10px] bg-slate-50 p-4">
-                  <p className="text-[11px] font-medium text-slate-600">
+                <div className="mt-2 rounded-[10px] bg-[#f7f3ed] p-4">
+                  <p className="text-[11px] font-medium text-[#756b78]">
                     {visitor.purpose}
                   </p>
                 </div>
@@ -506,7 +506,7 @@ function VerifyGatePass() {
                   loading ||
                   visitor.gateStatus !== "Not Entered"
                 }
-                className="mt-6 flex w-full items-center justify-center gap-2 rounded-[10px] bg-emerald-500 px-4 py-3 text-[11px] font-bold text-white transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                className="mt-6 flex w-full items-center justify-center gap-2 rounded-[10px] bg-[#9b7740] px-4 py-3 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <CheckCircle2 size={16} />
 
@@ -521,18 +521,18 @@ function VerifyGatePass() {
 
         {/* ================= QR SCANNER MODAL ================= */}
         {scannerOpen && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/60 p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/60 p-4">
 
             <div className="w-full max-w-[500px] overflow-hidden rounded-[18px] bg-white shadow-2xl">
 
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
                 <div>
-                  <h2 className="text-[14px] font-bold text-slate-900">
+                  <h2 className="text-[14px] font-bold text-[#32143b]">
                     Scan Visitor QR Code
                   </h2>
 
-                  <p className="mt-1 text-[10px] font-medium text-slate-400">
+                  <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                     Position the QR code inside the camera view.
                   </p>
                 </div>
@@ -540,7 +540,7 @@ function VerifyGatePass() {
                 <button
                   type="button"
                   onClick={stopScanner}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={18} />
                 </button>
@@ -550,7 +550,7 @@ function VerifyGatePass() {
               <div className="p-5">
 
                 {/* ================= CAMERA ================= */}
-                <div className="relative overflow-hidden rounded-[14px] bg-slate-900">
+                <div className="relative overflow-hidden rounded-[14px] bg-[#32143b]">
 
                   <div
                     id="smart-society-qr-reader"
@@ -560,7 +560,7 @@ function VerifyGatePass() {
                   {/* Scanner Overlay */}
                   <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
 
-                    <div className="h-[65%] w-[65%] rounded-[14px] border-2 border-emerald-400 shadow-[0_0_0_9999px_rgba(0,0,0,0.15)]" />
+                    <div className="h-[65%] w-[65%] rounded-[14px] border-2 border-[#bca16a] shadow-[0_0_0_9999px_rgba(0,0,0,0.15)]" />
 
                   </div>
 
@@ -568,7 +568,7 @@ function VerifyGatePass() {
 
                 {/* ================= SCANNER ERROR ================= */}
                 {scannerError && (
-                  <div className="mt-4 flex gap-2 rounded-[10px] bg-amber-50 p-3 text-amber-700">
+                  <div className="mt-4 flex gap-2 rounded-[10px] bg-[#f7f3ed] p-3 text-[#826331]">
 
                     <AlertCircle
                       size={16}
@@ -584,7 +584,7 @@ function VerifyGatePass() {
 
                 {/* ================= SCANNING MESSAGE ================= */}
                 {!scannerError && (
-                  <p className="mt-4 text-center text-[10px] font-medium text-slate-400">
+                  <p className="mt-4 text-center text-[10px] font-medium text-[#8b778e]">
                     Scanning automatically...
                   </p>
                 )}
@@ -607,16 +607,16 @@ function Info({ icon: Icon, label, value }) {
   return (
     <div className="flex items-start gap-3">
 
-      <div className="mt-0.5 text-slate-400">
+      <div className="mt-0.5 text-[#8b778e]">
         <Icon size={16} />
       </div>
 
       <div>
-        <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+        <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
           {label}
         </p>
 
-        <p className="mt-1 text-[11px] font-bold text-slate-700">
+        <p className="mt-1 text-[11px] font-bold text-[#49394d]">
           {value || "-"}
         </p>
       </div>

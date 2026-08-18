@@ -585,15 +585,15 @@ const downloadVisitorPassPDF = async (visitor) => {
         <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
 
           <div>
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Resident Portal
             </p>
 
-            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+            <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
               Visitor Passes
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Create and manage visitor passes for your guests.
             </p>
           </div>
@@ -603,7 +603,7 @@ const downloadVisitorPassPDF = async (visitor) => {
             <button
               type="button"
               onClick={fetchVisitors}
-              className="flex items-center justify-center gap-2 rounded-[10px] border border-slate-200 bg-white px-3.5 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50"
+              className="flex items-center justify-center gap-2 rounded-[10px] border border-[#e2d9df] bg-white px-3.5 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
             >
               <RefreshCw size={14} />
               Refresh
@@ -612,7 +612,7 @@ const downloadVisitorPassPDF = async (visitor) => {
             <button
               type="button"
               onClick={() => setCreating(true)}
-              className="flex items-center justify-center gap-2 rounded-[10px] bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600"
+              className="flex items-center justify-center gap-2 rounded-[10px] bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
             >
               <Plus size={15} />
               New Visitor
@@ -657,16 +657,16 @@ const downloadVisitorPassPDF = async (visitor) => {
 
         {/* ================= CREATE FORM ================= */}
         {creating && (
-          <section className="mb-6 overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+          <section className="mb-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-            <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+            <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
               <div>
-                <h2 className="text-[13px] font-bold text-slate-900">
+                <h2 className="text-[13px] font-bold text-[#32143b]">
                   Create Visitor Pass
                 </h2>
 
-                <p className="mt-1 text-[10px] font-medium text-slate-400">
+                <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                   Enter your visitor details and planned visit time.
                 </p>
               </div>
@@ -674,7 +674,7 @@ const downloadVisitorPassPDF = async (visitor) => {
               <button
                 type="button"
                 onClick={handleCloseCreate}
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
               >
                 <X size={17} />
               </button>
@@ -690,7 +690,7 @@ const downloadVisitorPassPDF = async (visitor) => {
 
                 {/* VISITOR NAME */}
                 <div>
-                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
                     Visitor Name
                   </label>
 
@@ -701,13 +701,13 @@ const downloadVisitorPassPDF = async (visitor) => {
                     onChange={handleChange}
                     placeholder="Enter visitor name"
                     required
-                    className="w-full rounded-[9px] border border-slate-200 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                    className="w-full rounded-[9px] border border-[#e2d9df] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                   />
                 </div>
 
                 {/* EMAIL */}
                 <div>
-                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
                     Visitor Email
                   </label>
 
@@ -718,13 +718,13 @@ const downloadVisitorPassPDF = async (visitor) => {
                     onChange={handleChange}
                     placeholder="Enter visitor email"
                     required
-                    className="w-full rounded-[9px] border border-slate-200 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                    className="w-full rounded-[9px] border border-[#e2d9df] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                   />
                 </div>
 
                 {/* PHONE */}
                 <div>
-                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
                     Phone Number
                   </label>
 
@@ -746,12 +746,12 @@ const downloadVisitorPassPDF = async (visitor) => {
                     inputMode="numeric"
                     maxLength={10}
                     required
-                    className="w-full rounded-[9px] border border-slate-200 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                    className="w-full rounded-[9px] border border-[#e2d9df] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                   />
                 </div>
                 {/* VISITOR TYPE */}
 <div>
-  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
     Visitor Type
   </label>
 
@@ -760,7 +760,7 @@ const downloadVisitorPassPDF = async (visitor) => {
     value={formData.visitorType}
     onChange={handleChange}
     required
-    className="w-full rounded-[9px] border border-slate-200 bg-white px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+    className="w-full rounded-[9px] border border-[#e2d9df] bg-white px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
   >
     <option value="Guest">Guest</option>
     <option value="Delivery">Delivery</option>
@@ -771,9 +771,9 @@ const downloadVisitorPassPDF = async (visitor) => {
 
 {/* VEHICLE NUMBER */}
 <div>
-  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
     Vehicle Number
-    <span className="ml-1 normal-case text-slate-400">
+    <span className="ml-1 normal-case text-[#8b778e]">
       (Optional)
     </span>
   </label>
@@ -789,13 +789,13 @@ const downloadVisitorPassPDF = async (visitor) => {
       }));
     }}
     placeholder="e.g. ABC-123"
-    className="w-full rounded-[9px] border border-slate-200 px-3 py-2.5 text-[11px] font-medium uppercase text-slate-700 outline-none transition placeholder:normal-case placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+    className="w-full rounded-[9px] border border-[#e2d9df] px-3 py-2.5 text-[11px] font-medium uppercase text-[#49394d] outline-none transition placeholder:normal-case placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
   />
 </div>
 
                 {/* PURPOSE */}
                 <div>
-                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
                     Purpose
                   </label>
 
@@ -807,13 +807,13 @@ const downloadVisitorPassPDF = async (visitor) => {
                     placeholder="Reason for visit"
                     maxLength={200}
                     required
-                    className="w-full rounded-[9px] border border-slate-200 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                    className="w-full rounded-[9px] border border-[#e2d9df] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                   />
                 </div>
 
                 {/* VISIT DATE */}
                 <div>
-                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
                     Visit Date
                   </label>
 
@@ -824,13 +824,13 @@ const downloadVisitorPassPDF = async (visitor) => {
                     onChange={handleChange}
                     min={new Date().toISOString().split("T")[0]}
                     required
-                    className="w-full rounded-[9px] border border-slate-200 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                    className="w-full rounded-[9px] border border-[#e2d9df] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                   />
                 </div>
 
                 {/* START TIME */}
                 <div>
-                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
                     Visit Start Time
                   </label>
 
@@ -840,13 +840,13 @@ const downloadVisitorPassPDF = async (visitor) => {
                     value={formData.visitStartTime}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-[9px] border border-slate-200 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                    className="w-full rounded-[9px] border border-[#e2d9df] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                   />
                 </div>
 
                 {/* END TIME */}
                 <div>
-                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
                     Visit End Time
                   </label>
 
@@ -856,18 +856,18 @@ const downloadVisitorPassPDF = async (visitor) => {
                     value={formData.visitEndTime}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-[9px] border border-slate-200 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                    className="w-full rounded-[9px] border border-[#e2d9df] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                   />
                 </div>
 
               </div>
 
-              <div className="flex justify-end gap-2 border-t border-slate-100 pt-4">
+              <div className="flex justify-end gap-2 border-t border-[#eee8ed] pt-4">
 
                 <button
                   type="button"
                   onClick={handleCloseCreate}
-                  className="rounded-[9px] border border-slate-200 px-4 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50"
+                  className="rounded-[9px] border border-[#e2d9df] px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
                 >
                   Cancel
                 </button>
@@ -875,7 +875,7 @@ const downloadVisitorPassPDF = async (visitor) => {
                 <button
                   type="submit"
                   disabled={submitting}
-                  className="flex items-center gap-2 rounded-[9px] bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="flex items-center gap-2 rounded-[9px] bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   <Send size={14} />
 
@@ -891,16 +891,16 @@ const downloadVisitorPassPDF = async (visitor) => {
         )}
 
         {/* ================= VISITORS TABLE ================= */}
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div>
-              <h2 className="text-[13px] font-bold text-slate-900">
+              <h2 className="text-[13px] font-bold text-[#32143b]">
                 Visitor History
               </h2>
 
-              <p className="mt-1 text-[10px] font-medium text-slate-400">
+              <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                 {visitors.length} visitor
                 {visitors.length !== 1 ? "s" : ""} found
               </p>
@@ -910,7 +910,7 @@ const downloadVisitorPassPDF = async (visitor) => {
 
           {loading ? (
             <div className="flex min-h-[250px] items-center justify-center">
-              <p className="text-[11px] font-medium text-slate-400">
+              <p className="text-[11px] font-medium text-[#8b778e]">
                 Loading visitors...
               </p>
             </div>
@@ -920,7 +920,7 @@ const downloadVisitorPassPDF = async (visitor) => {
               <table className="w-full min-w-[950px]">
 
                 <thead>
-                  <tr className="bg-slate-50">
+                  <tr className="bg-[#f7f3ed]">
                     <TableHead>ID</TableHead>
                     <TableHead>Visitor</TableHead>
                     <TableHead>Phone</TableHead>
@@ -937,38 +937,38 @@ const downloadVisitorPassPDF = async (visitor) => {
                   {visitors.map((visitor) => (
                     <tr
                       key={visitor._id}
-                      className="border-t border-slate-200 transition hover:bg-slate-50"
+                      className="border-t border-[#e2d9df] transition hover:bg-[#f7f3ed]"
                     >
 
-                      <td className="px-5 py-4 text-[10.5px] font-bold text-emerald-500">
+                      <td className="px-5 py-4 text-[10.5px] font-bold text-[#9b7740]">
                         #{visitor._id?.slice(-6)}
                       </td>
 
                       <td className="px-5 py-4">
-                        <p className="text-[11px] font-bold text-slate-800">
+                        <p className="text-[11px] font-bold text-[#49394d]">
                           {visitor.visitorName}
                         </p>
 
-                        <p className="mt-0.5 text-[9px] font-medium text-slate-400">
+                        <p className="mt-0.5 text-[9px] font-medium text-[#8b778e]">
                           {visitor.email}
                         </p>
                       </td>
 
-                      <td className="px-5 py-4 text-[10px] font-medium text-slate-500">
+                      <td className="px-5 py-4 text-[10px] font-medium text-[#756b78]">
                         {visitor.phone}
                       </td>
 
                       <td className="max-w-[180px] px-5 py-4">
-                        <p className="truncate text-[10px] font-medium text-slate-500">
+                        <p className="truncate text-[10px] font-medium text-[#756b78]">
                           {visitor.purpose}
                         </p>
                       </td>
 
-                      <td className="px-5 py-4 text-[10px] font-medium text-slate-400">
+                      <td className="px-5 py-4 text-[10px] font-medium text-[#8b778e]">
                         {formatDate(visitor.visitDate)}
                       </td>
 
-                      <td className="px-5 py-4 text-[10px] font-medium text-slate-500">
+                      <td className="px-5 py-4 text-[10px] font-medium text-[#756b78]">
                         {formatTime(visitor.visitStartTime)}
                         {" - "}
                         {formatTime(visitor.visitEndTime)}
@@ -984,7 +984,7 @@ const downloadVisitorPassPDF = async (visitor) => {
                         <button
                           type="button"
                           onClick={() => handleViewVisitor(visitor._id)}
-                          className="flex items-center gap-1.5 rounded-[8px] border border-slate-200 bg-white px-2.5 py-1.5 text-[9.5px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600"
+                          className="flex items-center gap-1.5 rounded-[8px] border border-[#e2d9df] bg-white px-2.5 py-1.5 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
                         >
                           <Eye size={13} />
                           View
@@ -1007,27 +1007,27 @@ const downloadVisitorPassPDF = async (visitor) => {
 
       {/* ================= VISITOR DETAIL MODAL ================= */}
 {(detailLoading || selectedVisitor) && (
-  <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4">
+  <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/40 p-4">
 
     <div className="max-h-[90vh] w-full max-w-[550px] overflow-y-auto rounded-[16px] bg-white shadow-xl">
 
       {detailLoading ? (
         <div className="flex min-h-[250px] items-center justify-center">
-          <p className="text-[11px] font-medium text-slate-400">
+          <p className="text-[11px] font-medium text-[#8b778e]">
             Loading visitor details...
           </p>
         </div>
       ) : (
         <>
           {/* ================= MODAL HEADER ================= */}
-          <div className="flex items-start justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-start justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div>
-              <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-emerald-500">
+              <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#9b7740]">
                 Visitor Details
               </p>
 
-              <h2 className="mt-1 text-[15px] font-bold text-slate-900">
+              <h2 className="mt-1 text-[15px] font-bold text-[#32143b]">
                 {selectedVisitor?.visitorName}
               </h2>
             </div>
@@ -1035,7 +1035,7 @@ const downloadVisitorPassPDF = async (visitor) => {
             <button
               type="button"
               onClick={() => setSelectedVisitor(null)}
-              className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100"
+              className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed]"
             >
               <X size={17} />
             </button>
@@ -1045,17 +1045,17 @@ const downloadVisitorPassPDF = async (visitor) => {
           <div className="space-y-5 p-5">
 
             {/* ================= DIGITAL GATE KEY ================= */}
-            <div className="rounded-[12px] border border-emerald-100 bg-emerald-50 p-4">
+            <div className="rounded-[12px] border border-[#f5eee2] bg-[#f7f3ed] p-4">
 
-              <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-emerald-600">
+              <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#9b7740]">
                 Digital Gate Key
               </p>
 
-              <p className="mt-2 break-all text-[20px] font-extrabold tracking-[0.18em] text-emerald-700">
+              <p className="mt-2 break-all text-[20px] font-extrabold tracking-[0.18em] text-[#826331]">
                 {selectedVisitor?.gateKey || "Not available"}
               </p>
 
-              <p className="mt-2 text-[10px] font-medium text-emerald-600/80">
+              <p className="mt-2 text-[10px] font-medium text-[#9b7740]/80">
                 Show this key to security personnel for visitor verification.
               </p>
 
@@ -1067,7 +1067,7 @@ const downloadVisitorPassPDF = async (visitor) => {
                           onClick={() =>
                             downloadVisitorPassPDF(selectedVisitor)
                           }
-                          className="inline-flex items-center gap-2 rounded-[9px] bg-emerald-500 px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-emerald-600"
+                          className="inline-flex items-center gap-2 rounded-[9px] bg-[#9b7740] px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-[#9b7740]"
                         >
                           <Download size={14} />
                           Download Visitor Pass PDF
@@ -1123,7 +1123,7 @@ const downloadVisitorPassPDF = async (visitor) => {
               />
 
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                   Approval Status
                 </p>
 
@@ -1138,12 +1138,12 @@ const downloadVisitorPassPDF = async (visitor) => {
 
             {/* ================= QR GATE PASS ================= */}
 {selectedVisitor?.gateKey && (
-  <div className="rounded-[14px] border border-slate-200 bg-slate-50 p-5 text-center">
-    <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-slate-400">
+  <div className="rounded-[14px] border border-[#e2d9df] bg-[#f7f3ed] p-5 text-center">
+    <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#8b778e]">
       Digital Visitor Pass
     </p>
 
-    <h3 className="mt-1 text-[13px] font-bold text-slate-800">
+    <h3 className="mt-1 text-[13px] font-bold text-[#49394d]">
       Gate Verification QR
     </h3>
 
@@ -1155,16 +1155,16 @@ const downloadVisitorPassPDF = async (visitor) => {
       />
     </div>
 
-    <p className="mt-4 text-[10px] font-medium text-slate-500">
+    <p className="mt-4 text-[10px] font-medium text-[#756b78]">
       Show this QR code to security at the gate.
     </p>
 
     <div className="mt-3">
-      <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-slate-400">
+      <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#8b778e]">
         Gate Key
       </p>
 
-      <p className="mt-1 text-[20px] font-extrabold tracking-[0.2em] text-emerald-600">
+      <p className="mt-1 text-[20px] font-extrabold tracking-[0.2em] text-[#9b7740]">
         {selectedVisitor.gateKey}
       </p>
     </div>
@@ -1173,12 +1173,12 @@ const downloadVisitorPassPDF = async (visitor) => {
 
             {/* ================= PURPOSE ================= */}
             <div>
-              <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+              <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                 Purpose
               </p>
 
-              <div className="mt-2 rounded-[10px] bg-slate-50 p-4">
-                <p className="text-[11px] leading-6 text-slate-600">
+              <div className="mt-2 rounded-[10px] bg-[#f7f3ed] p-4">
+                <p className="text-[11px] leading-6 text-[#756b78]">
                   {selectedVisitor?.purpose || "-"}
                 </p>
               </div>
@@ -1207,13 +1207,13 @@ function VisitorStat({
   tone,
 }) {
   const tones = {
-    slate: "bg-slate-100 text-slate-600",
-    amber: "bg-amber-50 text-amber-500",
-    emerald: "bg-emerald-50 text-emerald-500",
+    slate: "bg-[#eee8ed] text-[#756b78]",
+    amber: "bg-[#f7f3ed] text-[#9b7740]",
+    emerald: "bg-[#f7f3ed] text-[#9b7740]",
   };
 
   return (
-    <div className="rounded-[15px] border border-slate-200 bg-white p-5">
+    <div className="rounded-[15px] border border-[#e2d9df] bg-white p-5">
 
       <div
         className={`mb-4 flex h-10 w-10 items-center justify-center rounded-xl ${tones[tone]}`}
@@ -1221,11 +1221,11 @@ function VisitorStat({
         <Icon size={19} />
       </div>
 
-      <p className="text-[25px] font-extrabold leading-none text-slate-900">
+      <p className="text-[25px] font-extrabold leading-none text-[#32143b]">
         {value}
       </p>
 
-      <p className="mt-2 text-[11px] font-semibold text-slate-500">
+      <p className="mt-2 text-[11px] font-semibold text-[#756b78]">
         {title}
       </p>
 
@@ -1239,7 +1239,7 @@ function VisitorStat({
 function VisitorStatus({ status }) {
   if (status === "Approved") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[9px] font-bold text-emerald-600">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
         <CheckCircle2 size={11} />
         Approved
       </span>
@@ -1257,7 +1257,7 @@ function VisitorStatus({ status }) {
 
   if (status === "Completed") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-blue-50 px-2.5 py-1 text-[9px] font-bold text-blue-600">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#63366f]">
         <UserCheck size={11} />
         Completed
       </span>
@@ -1265,7 +1265,7 @@ function VisitorStatus({ status }) {
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-[9px] font-bold text-amber-600">
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
       <Clock3 size={11} />
       Pending
     </span>
@@ -1278,11 +1278,11 @@ function VisitorStatus({ status }) {
 function DetailItem({ label, value }) {
   return (
     <div>
-      <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+      <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
         {label}
       </p>
 
-      <p className="mt-1 break-words text-[11px] font-bold text-slate-700">
+      <p className="mt-1 break-words text-[11px] font-bold text-[#49394d]">
         {value || "-"}
       </p>
     </div>
@@ -1294,7 +1294,7 @@ function DetailItem({ label, value }) {
 
 function TableHead({ children }) {
   return (
-    <th className="px-5 py-3.5 text-left text-[9px] font-bold uppercase tracking-[0.08em] text-slate-400">
+    <th className="px-5 py-3.5 text-left text-[9px] font-bold uppercase tracking-[0.08em] text-[#8b778e]">
       {children}
     </th>
   );
@@ -1307,11 +1307,11 @@ function EmptyState({ text }) {
   return (
     <div className="flex min-h-[250px] flex-col items-center justify-center px-4 text-center">
 
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-400">
+      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#eee8ed] text-[#8b778e]">
         <Users size={21} />
       </div>
 
-      <p className="mt-3 text-[11px] font-medium text-slate-400">
+      <p className="mt-3 text-[11px] font-medium text-[#8b778e]">
         {text}
       </p>
 

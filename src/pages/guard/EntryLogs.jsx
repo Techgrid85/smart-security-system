@@ -165,22 +165,22 @@ function EntryLogs() {
         <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
 
           <div>
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Security Portal
             </p>
 
-            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+            <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
               Entry Logs
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               View all visitors who have entered the society.
             </p>
           </div>
 
           <Link
             to="/guard"
-            className="inline-flex w-fit items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 py-2 text-[10.5px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600"
+            className="inline-flex w-fit items-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 py-2 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
           >
             <ArrowLeft size={14} />
             Back
@@ -239,22 +239,22 @@ function EntryLogs() {
         {/* MAIN CARD */}
         {/* ========================================== */}
 
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
           {/* CARD HEADER */}
 
-          <div className="flex flex-col gap-4 border-b border-slate-200 px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-4 border-b border-[#e2d9df] px-5 py-4 lg:flex-row lg:items-center lg:justify-between">
 
             <div>
-              <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+              <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
                 <LogIn
                   size={16}
-                  className="text-emerald-500"
+                  className="text-[#9b7740]"
                 />
                 Visitor Entry History
               </h2>
 
-              <p className="mt-1 text-[10px] font-medium text-slate-400">
+              <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                 {filteredVisitors.length} visitor
                 {filteredVisitors.length !== 1 ? "s" : ""} found
               </p>
@@ -268,7 +268,7 @@ function EntryLogs() {
 
                 <Search
                   size={15}
-                  className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                  className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
                 />
 
                 <input
@@ -278,7 +278,7 @@ function EntryLogs() {
                     setSearch(e.target.value)
                   }
                   placeholder="Search visitor, resident or flat..."
-                  className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 text-[10.5px] font-medium text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-50"
+                  className="h-10 w-full rounded-xl border border-[#e2d9df] bg-white pl-10 pr-4 text-[10.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
                 />
 
               </div>
@@ -289,7 +289,7 @@ function EntryLogs() {
                 type="button"
                 onClick={() => fetchEntryLogs(true)}
                 disabled={refreshing || loading}
-                className="flex h-10 items-center justify-center gap-2 rounded-xl border border-slate-200 px-3 text-[10.5px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600 disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 items-center justify-center gap-2 rounded-xl border border-[#e2d9df] px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <RefreshCw
                   size={14}
@@ -314,11 +314,11 @@ function EntryLogs() {
           {loading && (
             <div className="flex items-center justify-center py-20">
 
-              <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-400">
+              <div className="flex items-center gap-2 text-[11px] font-semibold text-[#8b778e]">
 
                 <Loader2
                   size={18}
-                  className="animate-spin text-emerald-500"
+                  className="animate-spin text-[#9b7740]"
                 />
 
                 Loading entry logs...
@@ -336,17 +336,17 @@ function EntryLogs() {
             filteredVisitors.length === 0 && (
               <div className="px-5 py-16 text-center">
 
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-300">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#eee8ed] text-[#bca9c0]">
                   <LogIn size={22} />
                 </div>
 
-                <h3 className="mt-4 text-[13px] font-bold text-slate-600">
+                <h3 className="mt-4 text-[13px] font-bold text-[#756b78]">
                   {search
                     ? "No matching entry logs"
                     : "No entry logs yet"}
                 </h3>
 
-                <p className="mx-auto mt-1 max-w-sm text-[10.5px] leading-5 text-slate-400">
+                <p className="mx-auto mt-1 max-w-sm text-[10.5px] leading-5 text-[#8b778e]">
                   {search
                     ? "Try searching with a different visitor name, resident, phone number or flat number."
                     : "Visitor entries will appear here when they are allowed into the society."}
@@ -365,7 +365,7 @@ function EntryLogs() {
 
                 <table className="w-full min-w-[950px] text-left">
 
-                  <thead className="border-b border-slate-100 bg-slate-50">
+                  <thead className="border-b border-[#eee8ed] bg-[#f7f3ed]">
 
                     <tr>
 
@@ -407,7 +407,7 @@ function EntryLogs() {
                       (visitor) => (
                         <tr
                           key={visitor._id}
-                          className="border-b border-slate-100 last:border-0 transition hover:bg-slate-50/70"
+                          className="border-b border-[#eee8ed] last:border-0 transition hover:bg-[#f7f3ed]/70"
                         >
 
                           {/* VISITOR */}
@@ -416,16 +416,16 @@ function EntryLogs() {
 
                             <div className="flex items-center gap-3">
 
-                              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+                              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                                 <User size={15} />
                               </div>
 
                               <div>
-                                <p className="text-[11px] font-bold text-slate-700">
+                                <p className="text-[11px] font-bold text-[#49394d]">
                                   {visitor.visitorName}
                                 </p>
 
-                                <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
+                                <p className="mt-0.5 text-[9.5px] font-medium text-[#8b778e]">
                                   {visitor.phone || "No phone"}
                                 </p>
                               </div>
@@ -438,7 +438,7 @@ function EntryLogs() {
 
                           <td className="px-5 py-4">
 
-                            <p className="text-[10.5px] font-semibold text-slate-600">
+                            <p className="text-[10.5px] font-semibold text-[#756b78]">
                               {visitor.resident?.name || "—"}
                             </p>
 
@@ -448,10 +448,10 @@ function EntryLogs() {
 
                           <td className="px-5 py-4">
 
-                            <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-600">
+                            <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-[#756b78]">
                               <Home
                                 size={13}
-                                className="text-slate-400"
+                                className="text-[#8b778e]"
                               />
 
                               {visitor.flatNo ||
@@ -465,7 +465,7 @@ function EntryLogs() {
 
                           <td className="px-5 py-4">
 
-                            <p className="text-[10.5px] font-semibold text-slate-600">
+                            <p className="text-[10.5px] font-semibold text-[#756b78]">
                               {formatDate(
                                 visitor.entryTime
                               )}
@@ -477,10 +477,10 @@ function EntryLogs() {
 
                           <td className="px-5 py-4">
 
-                            <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-600">
+                            <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-[#756b78]">
                               <Clock3
                                 size={13}
-                                className="text-slate-400"
+                                className="text-[#8b778e]"
                               />
 
                               {formatTime(
@@ -494,10 +494,10 @@ function EntryLogs() {
 
                           <td className="px-5 py-4">
 
-                            <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-600">
+                            <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-[#756b78]">
                               <ShieldCheck
                                 size={13}
-                                className="text-emerald-500"
+                                className="text-[#9b7740]"
                               />
 
                               {visitor.entryGuard?.name ||
@@ -513,10 +513,10 @@ function EntryLogs() {
                             <span
                               className={`inline-flex rounded-full px-2.5 py-1 text-[9px] font-bold ${
                                 visitor.gateStatus === "Inside"
-                                  ? "bg-emerald-50 text-emerald-600"
+                                  ? "bg-[#f7f3ed] text-[#9b7740]"
                                   : visitor.gateStatus === "Exited"
-                                  ? "bg-slate-100 text-slate-500"
-                                  : "bg-amber-50 text-amber-600"
+                                  ? "bg-[#eee8ed] text-[#756b78]"
+                                  : "bg-[#f7f3ed] text-[#9b7740]"
                               }`}
                             >
                               {visitor.gateStatus}
@@ -547,23 +547,23 @@ function EntryLogs() {
                   (visitor) => (
                     <div
                       key={visitor._id}
-                      className="rounded-xl border border-slate-200 p-4"
+                      className="rounded-xl border border-[#e2d9df] p-4"
                     >
 
                       <div className="flex items-start justify-between gap-3">
 
                         <div className="flex items-center gap-3">
 
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                             <User size={16} />
                           </div>
 
                           <div>
-                            <h3 className="text-[11.5px] font-bold text-slate-800">
+                            <h3 className="text-[11.5px] font-bold text-[#49394d]">
                               {visitor.visitorName}
                             </h3>
 
-                            <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
+                            <p className="mt-0.5 text-[9.5px] font-medium text-[#8b778e]">
                               {visitor.phone || "No phone"}
                             </p>
                           </div>
@@ -573,8 +573,8 @@ function EntryLogs() {
                         <span
                           className={`shrink-0 rounded-full px-2.5 py-1 text-[9px] font-bold ${
                             visitor.gateStatus === "Inside"
-                              ? "bg-emerald-50 text-emerald-600"
-                              : "bg-slate-100 text-slate-500"
+                              ? "bg-[#f7f3ed] text-[#9b7740]"
+                              : "bg-[#eee8ed] text-[#756b78]"
                           }`}
                         >
                           {visitor.gateStatus}
@@ -582,7 +582,7 @@ function EntryLogs() {
 
                       </div>
 
-                      <div className="mt-4 grid grid-cols-2 gap-4 border-t border-slate-100 pt-4">
+                      <div className="mt-4 grid grid-cols-2 gap-4 border-t border-[#eee8ed] pt-4">
 
                         <MobileDetail
                           label="Resident"
@@ -653,21 +653,21 @@ function EntryLogs() {
 
 function StatCard({ icon, label, value }) {
   return (
-    <div className="rounded-[16px] border border-slate-200 bg-white p-4">
+    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-4">
 
       <div className="flex items-center justify-between">
 
         <div>
-          <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+          <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
             {label}
           </p>
 
-          <p className="mt-2 text-[20px] font-extrabold tracking-tight text-slate-800">
+          <p className="mt-2 text-[20px] font-extrabold tracking-tight text-[#49394d]">
             {value}
           </p>
         </div>
 
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
           {icon}
         </div>
 
@@ -683,7 +683,7 @@ function StatCard({ icon, label, value }) {
 
 function TableHead({ children }) {
   return (
-    <th className="whitespace-nowrap px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+    <th className="whitespace-nowrap px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
       {children}
     </th>
   );
@@ -696,11 +696,11 @@ function TableHead({ children }) {
 function MobileDetail({ label, value }) {
   return (
     <div>
-      <p className="text-[8.5px] font-bold uppercase tracking-wide text-slate-400">
+      <p className="text-[8.5px] font-bold uppercase tracking-wide text-[#8b778e]">
         {label}
       </p>
 
-      <p className="mt-1 text-[10.5px] font-semibold text-slate-600">
+      <p className="mt-1 text-[10.5px] font-semibold text-[#756b78]">
         {value}
       </p>
     </div>

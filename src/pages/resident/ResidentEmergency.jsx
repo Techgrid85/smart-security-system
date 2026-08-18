@@ -132,11 +132,11 @@ function ResidentEmergency() {
             Resident Portal
           </p>
 
-          <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+          <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
             Emergency Center
           </h1>
 
-          <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+          <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
             Access emergency assistance, important contacts, and society
             safety guidelines.
           </p>
@@ -205,11 +205,11 @@ function ResidentEmergency() {
                 Emergency Assistance
               </p>
 
-              <h2 className="mt-1 text-[20px] font-extrabold tracking-tight text-slate-900">
+              <h2 className="mt-1 text-[20px] font-extrabold tracking-tight text-[#32143b]">
                 Need Immediate Help?
               </h2>
 
-              <p className="mx-auto mt-2 max-w-[500px] text-[11px] font-medium leading-5 text-slate-500">
+              <p className="mx-auto mt-2 max-w-[500px] text-[11px] font-medium leading-5 text-[#756b78]">
                 Activate the emergency alert when immediate assistance
                 from society security is required.
               </p>
@@ -227,7 +227,7 @@ function ResidentEmergency() {
                   : "Activate Emergency Alert"}
               </button>
 
-              <p className="mt-3 text-[9px] font-medium text-slate-400">
+              <p className="mt-3 text-[9px] font-medium text-[#8b778e]">
                 Only use this feature for genuine emergencies.
               </p>
 
@@ -241,22 +241,22 @@ function ResidentEmergency() {
         {/* EMERGENCY CONTACTS */}
         {/* ========================================== */}
 
-        <section className="mb-6 overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="mb-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="border-b border-slate-200 px-5 py-4">
+          <div className="border-b border-[#e2d9df] px-5 py-4">
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
                 <Phone size={17} />
               </div>
 
               <div>
-                <h2 className="text-[13px] font-bold text-slate-900">
+                <h2 className="text-[13px] font-bold text-[#32143b]">
                   Emergency Contacts
                 </h2>
 
-                <p className="mt-1 text-[10px] font-medium text-slate-400">
+                <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                   Important emergency and society contacts.
                 </p>
               </div>
@@ -274,39 +274,39 @@ function ResidentEmergency() {
               return (
                 <div
                   key={contact.name}
-                  className="rounded-xl border border-slate-200 bg-white p-4 transition hover:border-slate-300 hover:shadow-sm"
+                  className="rounded-xl border border-[#e2d9df] bg-white p-4 transition hover:border-[#bca9c0] hover:shadow-sm"
                 >
 
                   <div className="flex items-start justify-between gap-3">
 
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-slate-100 text-slate-600">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#eee8ed] text-[#756b78]">
                       <Icon size={16} />
                     </div>
 
-                    <span className="rounded-full bg-slate-50 px-2 py-1 text-[8px] font-bold uppercase tracking-wide text-slate-400">
+                    <span className="rounded-full bg-[#f7f3ed] px-2 py-1 text-[8px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Emergency
                     </span>
 
                   </div>
 
-                  <h3 className="mt-4 text-[11px] font-bold text-slate-800">
+                  <h3 className="mt-4 text-[11px] font-bold text-[#49394d]">
                     {contact.name}
                   </h3>
 
-                  <p className="mt-1 min-h-[30px] text-[9.5px] font-medium leading-4 text-slate-400">
+                  <p className="mt-1 min-h-[30px] text-[9.5px] font-medium leading-4 text-[#8b778e]">
                     {contact.description}
                   </p>
 
-                  <div className="mt-4 flex items-center justify-between gap-2 border-t border-slate-100 pt-3">
+                  <div className="mt-4 flex items-center justify-between gap-2 border-t border-[#eee8ed] pt-3">
 
-                    <p className="text-[12px] font-extrabold text-slate-700">
+                    <p className="text-[12px] font-extrabold text-[#49394d]">
                       {contact.number}
                     </p>
 
                     {contact.number.match(/^\d+$/) && (
                       <a
                         href={`tel:${contact.number}`}
-                        className="inline-flex h-7 items-center gap-1 rounded-lg bg-emerald-50 px-2.5 text-[9px] font-bold text-emerald-600 transition hover:bg-emerald-100"
+                        className="inline-flex h-7 items-center gap-1 rounded-lg bg-[#f7f3ed] px-2.5 text-[9px] font-bold text-[#9b7740] transition hover:bg-[#f5eee2]"
                       >
                         <Phone size={11} />
                         Call
@@ -327,22 +327,22 @@ function ResidentEmergency() {
         {/* SOCIETY GUIDELINES */}
         {/* ========================================== */}
 
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="border-b border-slate-200 px-5 py-4">
+          <div className="border-b border-[#e2d9df] px-5 py-4">
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-blue-50 text-blue-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#63366f]">
                 <BookOpen size={17} />
               </div>
 
               <div>
-                <h2 className="text-[13px] font-bold text-slate-900">
+                <h2 className="text-[13px] font-bold text-[#32143b]">
                   Society Emergency Guidelines
                 </h2>
 
-                <p className="mt-1 text-[10px] font-medium text-slate-400">
+                <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                   Follow these guidelines during an emergency.
                 </p>
               </div>
@@ -351,7 +351,7 @@ function ResidentEmergency() {
 
           </div>
 
-          <div className="divide-y divide-slate-100">
+          <div className="divide-y divide-#eee8ed">
 
             {guidelines.map((guideline, index) => {
 
@@ -366,16 +366,16 @@ function ResidentEmergency() {
                     onClick={() =>
                       toggleGuideline(index)
                     }
-                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-slate-50"
+                    className="flex w-full items-center justify-between gap-4 px-5 py-4 text-left transition hover:bg-[#f7f3ed]"
                   >
 
                     <div className="flex items-center gap-3">
 
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-slate-100 text-slate-500">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#eee8ed] text-[#756b78]">
                         <AlertTriangle size={14} />
                       </div>
 
-                      <p className="text-[11px] font-bold text-slate-700">
+                      <p className="text-[11px] font-bold text-[#49394d]">
                         {guideline.title}
                       </p>
 
@@ -383,7 +383,7 @@ function ResidentEmergency() {
 
                     <ChevronDown
                       size={15}
-                      className={`shrink-0 text-slate-400 transition-transform ${
+                      className={`shrink-0 text-[#8b778e] transition-transform ${
                         isOpen
                           ? "rotate-180"
                           : ""
@@ -393,16 +393,16 @@ function ResidentEmergency() {
                   </button>
 
                   {isOpen && (
-                    <div className="bg-slate-50 px-5 pb-4 pt-0">
+                    <div className="bg-[#f7f3ed] px-5 pb-4 pt-0">
 
-                      <div className="flex gap-3 rounded-xl border border-slate-200 bg-white p-4">
+                      <div className="flex gap-3 rounded-xl border border-[#e2d9df] bg-white p-4">
 
                         <CheckCircle2
                           size={14}
-                          className="mt-0.5 shrink-0 text-emerald-500"
+                          className="mt-0.5 shrink-0 text-[#9b7740]"
                         />
 
-                        <p className="text-[10.5px] font-medium leading-5 text-slate-500">
+                        <p className="text-[10.5px] font-medium leading-5 text-[#756b78]">
                           {guideline.description}
                         </p>
 
@@ -424,7 +424,7 @@ function ResidentEmergency() {
         {/* ========================================== */}
 
         {showConfirm && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/50 p-4">
 
             <div className="w-full max-w-[400px] rounded-[16px] bg-white shadow-xl">
 
@@ -436,11 +436,11 @@ function ResidentEmergency() {
 
                 <div className="mt-4 text-center">
 
-                  <h3 className="text-[14px] font-extrabold text-slate-900">
+                  <h3 className="text-[14px] font-extrabold text-[#32143b]">
                     Activate Emergency Alert?
                   </h3>
 
-                  <p className="mt-2 text-[10.5px] font-medium leading-5 text-slate-400">
+                  <p className="mt-2 text-[10.5px] font-medium leading-5 text-[#8b778e]">
                     This will notify the society security team that
                     immediate assistance may be required.
                   </p>
@@ -454,7 +454,7 @@ function ResidentEmergency() {
                     onClick={() =>
                       setShowConfirm(false)
                     }
-                    className="flex-1 rounded-lg border border-slate-200 px-4 py-2.5 text-[10px] font-bold text-slate-600 transition hover:bg-slate-50"
+                    className="flex-1 rounded-lg border border-[#e2d9df] px-4 py-2.5 text-[10px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
                   >
                     Cancel
                   </button>

@@ -360,7 +360,7 @@ const GuardSettings = () => {
         <div className="flex min-h-[60vh] items-center justify-center bg-white">
           <Loader2
             size={36}
-            className="animate-spin text-green-600"
+            className="animate-spin text-[#9b7740]"
           />
         </div>
       </DashboardLayout>
@@ -381,16 +381,16 @@ const GuardSettings = () => {
           <div className="mb-8">
             <div className="flex items-center gap-3">
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-green-100 text-green-600">
+              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#f5eee2] text-[#9b7740]">
                 <Settings size={22} />
               </div>
 
               <div>
-                <h1 className="text-2xl font-bold text-slate-900 sm:text-3xl">
+                <h1 className="text-2xl font-bold text-[#32143b] sm:text-3xl">
                   Account Settings
                 </h1>
 
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-[#756b78]">
                   Manage and update your guard account information.
                 </p>
               </div>
@@ -403,18 +403,18 @@ const GuardSettings = () => {
           ====================================== */}
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
+            className="rounded-2xl border border-[#e2d9df] bg-white p-6 shadow-sm sm:p-8"
           >
 
             {/* =================================
                 PROFILE PICTURE
             ================================== */}
-            <div className="mb-8 flex flex-col items-center gap-5 border-b border-slate-200 pb-8 sm:flex-row">
+            <div className="mb-8 flex flex-col items-center gap-5 border-b border-[#e2d9df] pb-8 sm:flex-row">
 
               {/* AVATAR */}
               <div className="relative">
 
-                <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-2xl border-4 border-white bg-green-100 text-3xl font-bold text-green-700 shadow-md">
+                <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-2xl border-4 border-white bg-[#f5eee2] text-3xl font-bold text-[#826331] shadow-md">
 
                   {profilePic ? (
                     <img
@@ -431,7 +431,7 @@ const GuardSettings = () => {
                 {/* CAMERA BUTTON */}
                 <label
                   htmlFor="profilePic"
-                  className="absolute bottom-1 right-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-white bg-green-600 text-white shadow-md transition hover:bg-green-700"
+                  className="absolute bottom-1 right-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-white bg-[#9b7740] text-white shadow-md transition hover:bg-[#826331]"
                 >
                   <Camera size={16} />
 
@@ -449,15 +449,15 @@ const GuardSettings = () => {
               {/* TEXT */}
               <div className="text-center sm:text-left">
 
-                <h3 className="text-base font-semibold text-slate-900">
+                <h3 className="text-base font-semibold text-[#32143b]">
                   Profile Picture
                 </h3>
 
-                <p className="mt-1 text-sm text-slate-500">
+                <p className="mt-1 text-sm text-[#756b78]">
                   Upload a new profile picture.
                 </p>
 
-                <p className="mt-1 text-xs text-slate-400">
+                <p className="mt-1 text-xs text-[#8b778e]">
                   JPG, PNG or WEBP • Maximum 5MB
                 </p>
 
@@ -467,7 +467,7 @@ const GuardSettings = () => {
                     type="button"
                     onClick={uploadProfilePicture}
                     disabled={uploadingPicture}
-                    className="mt-3 inline-flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="mt-3 inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#826331] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {uploadingPicture ? (
                       <>
@@ -493,11 +493,11 @@ const GuardSettings = () => {
                 PERSONAL INFORMATION
             ================================== */}
             <div className="mb-7">
-              <h2 className="text-lg font-semibold text-slate-900">
+              <h2 className="text-lg font-semibold text-[#32143b]">
                 Personal Information
               </h2>
 
-              <p className="mt-1 text-sm text-slate-500">
+              <p className="mt-1 text-sm text-[#756b78]">
                 Update your account details below.
               </p>
             </div>
@@ -506,7 +506,7 @@ const GuardSettings = () => {
 
               {/* NAME */}
               <div className="md:col-span-2">
-                <label className="mb-2 block text-sm font-medium text-slate-700">
+                <label className="mb-2 block text-sm font-medium text-[#49394d]">
                   Full Name
                 </label>
 
@@ -514,7 +514,7 @@ const GuardSettings = () => {
 
                   <User
                     size={18}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8b778e]"
                   />
 
                   <input
@@ -523,7 +523,7 @@ const GuardSettings = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Enter your full name"
-                    className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-11 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-green-500 focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-xl border border-[#bca9c0] bg-white py-3 pl-11 pr-4 text-sm text-[#32143b] outline-none transition placeholder:text-[#8b778e] focus:border-[#9b7740] focus:ring-2 focus:ring-[#f5eee2]"
                     required
                   />
 
@@ -532,7 +532,7 @@ const GuardSettings = () => {
 
               {/* EMAIL */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700">
+                <label className="mb-2 block text-sm font-medium text-[#49394d]">
                   Email Address
                 </label>
 
@@ -540,7 +540,7 @@ const GuardSettings = () => {
 
                   <Mail
                     size={18}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8b778e]"
                   />
 
                   <input
@@ -549,7 +549,7 @@ const GuardSettings = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter email address"
-                    className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-11 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-green-500 focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-xl border border-[#bca9c0] bg-white py-3 pl-11 pr-4 text-sm text-[#32143b] outline-none transition placeholder:text-[#8b778e] focus:border-[#9b7740] focus:ring-2 focus:ring-[#f5eee2]"
                     required
                   />
 
@@ -558,7 +558,7 @@ const GuardSettings = () => {
 
               {/* PHONE */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700">
+                <label className="mb-2 block text-sm font-medium text-[#49394d]">
                   Phone Number
                 </label>
 
@@ -566,7 +566,7 @@ const GuardSettings = () => {
 
                   <Phone
                     size={18}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8b778e]"
                   />
 
                   <input
@@ -576,7 +576,7 @@ const GuardSettings = () => {
                     onChange={handleChange}
                     placeholder="Enter 10 digit phone number"
                     maxLength={10}
-                    className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-11 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-green-500 focus:ring-2 focus:ring-green-100"
+                    className="w-full rounded-xl border border-[#bca9c0] bg-white py-3 pl-11 pr-4 text-sm text-[#32143b] outline-none transition placeholder:text-[#8b778e] focus:border-[#9b7740] focus:ring-2 focus:ring-[#f5eee2]"
                     required
                   />
 
@@ -585,7 +585,7 @@ const GuardSettings = () => {
 
               {/* FLAT NUMBER */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700">
+                <label className="mb-2 block text-sm font-medium text-[#49394d]">
                   Assigned Flat
                 </label>
 
@@ -593,7 +593,7 @@ const GuardSettings = () => {
 
                   <Building2
                     size={18}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-slate-400"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-[#8b778e]"
                   />
 
                   <input
@@ -601,19 +601,19 @@ const GuardSettings = () => {
                     name="flatNo"
                     value={formData.flatNo}
                     disabled
-                    className="w-full cursor-not-allowed rounded-xl border border-slate-300 bg-slate-50 py-3 pl-11 pr-4 text-sm text-slate-500 outline-none"
+                    className="w-full cursor-not-allowed rounded-xl border border-[#bca9c0] bg-[#f7f3ed] py-3 pl-11 pr-4 text-sm text-[#756b78] outline-none"
                   />
 
                 </div>
 
-                <p className="mt-1.5 text-xs text-slate-400">
+                <p className="mt-1.5 text-xs text-[#8b778e]">
                   Flat assignment can only be changed by the administrator.
                 </p>
               </div>
 
               {/* ROLE */}
               <div>
-                <label className="mb-2 block text-sm font-medium text-slate-700">
+                <label className="mb-2 block text-sm font-medium text-[#49394d]">
                   Account Role
                 </label>
 
@@ -621,14 +621,14 @@ const GuardSettings = () => {
 
                   <ShieldCheck
                     size={18}
-                    className="absolute left-4 top-1/2 -translate-y-1/2 text-green-600"
+                    className="absolute left-4 top-1/2 -translate-y-1/2 text-[#9b7740]"
                   />
 
                   <input
                     type="text"
                     value="Security Guard"
                     disabled
-                    className="w-full cursor-not-allowed rounded-xl border border-green-200 bg-green-50 py-3 pl-11 pr-4 text-sm text-green-700"
+                    className="w-full cursor-not-allowed rounded-xl border border-[#e2d9df] bg-[#f7f3ed] py-3 pl-11 pr-4 text-sm text-[#826331]"
                   />
 
                 </div>
@@ -639,12 +639,12 @@ const GuardSettings = () => {
             {/* =================================
                 SAVE BUTTON
             ================================== */}
-            <div className="mt-8 flex justify-end border-t border-slate-200 pt-6">
+            <div className="mt-8 flex justify-end border-t border-[#e2d9df] pt-6">
 
               <button
                 type="submit"
                 disabled={saving}
-                className="flex items-center gap-2 rounded-xl bg-green-600 px-6 py-3 text-sm font-semibold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex items-center gap-2 rounded-xl bg-[#9b7740] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#826331] disabled:cursor-not-allowed disabled:opacity-60"
               >
 
                 {saving ? (

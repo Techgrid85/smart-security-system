@@ -106,13 +106,13 @@ function ResidentGuidelines() {
   ];
 
   const toneStyles = {
-    emerald: "bg-emerald-50 text-emerald-500",
-    blue: "bg-blue-50 text-blue-500",
-    violet: "bg-violet-50 text-violet-500",
-    amber: "bg-amber-50 text-amber-500",
-    green: "bg-green-50 text-green-500",
-    cyan: "bg-cyan-50 text-cyan-500",
-    orange: "bg-orange-50 text-orange-500",
+    emerald: "bg-[#f7f3ed] text-[#9b7740]",
+    blue: "bg-[#f7f3ed] text-[#63366f]",
+    violet: "bg-[#f7f3ed] text-[#63366f]",
+    amber: "bg-[#f7f3ed] text-[#9b7740]",
+    green: "bg-[#f7f3ed] text-[#9b7740]",
+    cyan: "bg-[#f7f3ed] text-[#9b7740]",
+    orange: "bg-[#f7f3ed] text-[#9b7740]",
     red: "bg-red-50 text-red-500",
   };
 
@@ -124,15 +124,15 @@ function ResidentGuidelines() {
 
         <div className="mb-6">
 
-          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
             Resident Portal
           </p>
 
-          <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+          <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
             Society Guidelines
           </h1>
 
-          <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+          <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
             Important rules and guidelines for residents, visitors, and
             community facilities.
           </p>
@@ -141,18 +141,18 @@ function ResidentGuidelines() {
 
         {/* ================= INFORMATION BANNER ================= */}
 
-        <div className="mb-6 flex items-start gap-4 rounded-[16px] border border-emerald-100 bg-emerald-50 p-5">
+        <div className="mb-6 flex items-start gap-4 rounded-[16px] border border-[#f5eee2] bg-[#f7f3ed] p-5">
 
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-emerald-500">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#9b7740]">
             <BookOpen size={19} />
           </div>
 
           <div>
-            <h2 className="text-[12.5px] font-bold text-emerald-700">
+            <h2 className="text-[12.5px] font-bold text-[#826331]">
               Please follow society guidelines
             </h2>
 
-            <p className="mt-1 text-[10.5px] font-medium leading-5 text-emerald-600/80">
+            <p className="mt-1 text-[10.5px] font-medium leading-5 text-[#9b7740]/80">
               These guidelines help maintain a safe, clean, and
               comfortable environment for everyone in the society.
             </p>
@@ -166,11 +166,11 @@ function ResidentGuidelines() {
 
           <div className="mb-4">
 
-            <h2 className="text-[13px] font-bold text-slate-900">
+            <h2 className="text-[13px] font-bold text-[#32143b]">
               Community Rules
             </h2>
 
-            <p className="mt-1 text-[10px] font-medium text-slate-400">
+            <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
               Please review the following society guidelines.
             </p>
 
@@ -185,12 +185,12 @@ function ResidentGuidelines() {
               return (
                 <div
                   key={guideline.title}
-                  className="overflow-hidden rounded-[16px] border border-slate-200 bg-white"
+                  className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white"
                 >
 
                   {/* CARD HEADER */}
 
-                  <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+                  <div className="flex items-center justify-between border-b border-[#eee8ed] px-5 py-4">
 
                     <div className="flex items-center gap-3">
 
@@ -200,7 +200,7 @@ function ResidentGuidelines() {
                         <Icon size={17} />
                       </div>
 
-                      <h3 className="text-[12px] font-bold text-slate-800">
+                      <h3 className="text-[12px] font-bold text-[#49394d]">
                         {guideline.title}
                       </h3>
 
@@ -208,7 +208,7 @@ function ResidentGuidelines() {
 
                     <ChevronDown
                       size={15}
-                      className="text-slate-300"
+                      className="text-[#bca9c0]"
                     />
 
                   </div>
@@ -226,9 +226,9 @@ function ResidentGuidelines() {
                           className="flex items-start gap-2.5"
                         >
 
-                          <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-emerald-400" />
+                          <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#bca16a]" />
 
-                          <p className="text-[10.5px] font-medium leading-5 text-slate-500">
+                          <p className="text-[10.5px] font-medium leading-5 text-[#756b78]">
                             {point}
                           </p>
 
@@ -250,20 +250,20 @@ function ResidentGuidelines() {
 
         {/* ================= IMPORTANT NOTICE ================= */}
 
-        <div className="mt-6 flex items-start gap-3 rounded-[14px] border border-amber-100 bg-amber-50 p-4">
+        <div className="mt-6 flex items-start gap-3 rounded-[14px] border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
           <AlertTriangle
             size={17}
-            className="mt-0.5 shrink-0 text-amber-500"
+            className="mt-0.5 shrink-0 text-[#9b7740]"
           />
 
           <div>
 
-            <p className="text-[10.5px] font-bold text-amber-700">
+            <p className="text-[10.5px] font-bold text-[#826331]">
               Important
             </p>
 
-            <p className="mt-1 text-[10px] font-medium leading-5 text-amber-600/80">
+            <p className="mt-1 text-[10px] font-medium leading-5 text-[#9b7740]/80">
               Society management may update rules and regulations when
               necessary. Residents should follow the latest official
               notices issued through the Resident Portal.

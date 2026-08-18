@@ -280,11 +280,11 @@ function OverstayAlerts() {
 
             </div>
 
-            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+            <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
               Security Alerts
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Monitor overstaying visitors and delivery alerts inside the society.
             </p>
 
@@ -294,7 +294,7 @@ function OverstayAlerts() {
             type="button"
             onClick={fetchAlerts}
             disabled={loading}
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-[10.5px] font-bold text-slate-600 transition hover:border-rose-300 hover:text-rose-600 disabled:opacity-60"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-rose-300 hover:text-rose-600 disabled:opacity-60"
           >
 
             <RefreshCw
@@ -349,7 +349,7 @@ function OverstayAlerts() {
                   Overstay Alerts
                 </p>
 
-                <h2 className="mt-2 text-[24px] font-extrabold tracking-tight text-slate-900">
+                <h2 className="mt-2 text-[24px] font-extrabold tracking-tight text-[#32143b]">
                   {overstayVisitors.length}
                 </h2>
 
@@ -369,27 +369,27 @@ function OverstayAlerts() {
 
           {/* DELIVERY */}
 
-          <div className="rounded-[16px] border border-amber-100 bg-amber-50 p-4">
+          <div className="rounded-[16px] border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
             <div className="flex items-center justify-between">
 
               <div>
 
-                <p className="text-[9px] font-bold uppercase tracking-wide text-amber-600">
+                <p className="text-[9px] font-bold uppercase tracking-wide text-[#9b7740]">
                   Delivery Alerts
                 </p>
 
-                <h2 className="mt-2 text-[24px] font-extrabold tracking-tight text-slate-900">
+                <h2 className="mt-2 text-[24px] font-extrabold tracking-tight text-[#32143b]">
                   {deliveryVisitors.length}
                 </h2>
 
-                <p className="mt-1 text-[9px] font-medium text-amber-400">
+                <p className="mt-1 text-[9px] font-medium text-[#bca16a]">
                   Delivery visitors overstaying
                 </p>
 
               </div>
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-amber-500">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#9b7740]">
                 <Package size={19} />
               </div>
 
@@ -399,27 +399,27 @@ function OverstayAlerts() {
 
           {/* TOTAL */}
 
-          <div className="rounded-[16px] border border-slate-200 bg-white p-4">
+          <div className="rounded-[16px] border border-[#e2d9df] bg-white p-4">
 
             <div className="flex items-center justify-between">
 
               <div>
 
-                <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                   Active Alerts
                 </p>
 
-                <h2 className="mt-2 text-[24px] font-extrabold tracking-tight text-slate-900">
+                <h2 className="mt-2 text-[24px] font-extrabold tracking-tight text-[#32143b]">
                   {overstayVisitors.length}
                 </h2>
 
-                <p className="mt-1 text-[9px] font-medium text-slate-400">
+                <p className="mt-1 text-[9px] font-medium text-[#8b778e]">
                   Require guard attention
                 </p>
 
               </div>
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-slate-50 text-slate-500">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#756b78]">
                 <AlertTriangle size={19} />
               </div>
 
@@ -433,13 +433,13 @@ function OverstayAlerts() {
         {/* TABS + SEARCH */}
         {/* ================================================= */}
 
-        <section className="mb-5 rounded-[16px] border border-slate-200 bg-white p-4">
+        <section className="mb-5 rounded-[16px] border border-[#e2d9df] bg-white p-4">
 
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
 
             {/* TABS */}
 
-            <div className="flex rounded-xl bg-slate-50 p-1">
+            <div className="flex rounded-xl bg-[#f7f3ed] p-1">
 
               <button
                 type="button"
@@ -449,7 +449,7 @@ function OverstayAlerts() {
                 className={`flex items-center gap-2 rounded-lg px-4 py-2 text-[10px] font-bold transition ${
                   activeTab === "overstay"
                     ? "bg-white text-rose-600 shadow-sm"
-                    : "text-slate-400 hover:text-slate-600"
+                    : "text-[#8b778e] hover:text-[#756b78]"
                 }`}
               >
 
@@ -470,8 +470,8 @@ function OverstayAlerts() {
                 }
                 className={`flex items-center gap-2 rounded-lg px-4 py-2 text-[10px] font-bold transition ${
                   activeTab === "delivery"
-                    ? "bg-white text-amber-600 shadow-sm"
-                    : "text-slate-400 hover:text-slate-600"
+                    ? "bg-white text-[#9b7740] shadow-sm"
+                    : "text-[#8b778e] hover:text-[#756b78]"
                 }`}
               >
 
@@ -479,7 +479,7 @@ function OverstayAlerts() {
 
                 Delivery
 
-                <span className="rounded-full bg-amber-50 px-1.5 py-0.5 text-[8px] text-amber-600">
+                <span className="rounded-full bg-[#f7f3ed] px-1.5 py-0.5 text-[8px] text-[#9b7740]">
                   {deliveryVisitors.length}
                 </span>
 
@@ -493,7 +493,7 @@ function OverstayAlerts() {
 
               <Search
                 size={15}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
               />
 
               <input
@@ -503,7 +503,7 @@ function OverstayAlerts() {
                   setSearch(e.target.value)
                 }
                 placeholder="Search visitor, resident, flat or phone..."
-                className="h-10 w-full rounded-xl border border-slate-200 bg-white pl-9 pr-4 text-[11px] font-medium text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-rose-400 focus:ring-2 focus:ring-rose-50"
+                className="h-10 w-full rounded-xl border border-[#e2d9df] bg-white pl-9 pr-4 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-rose-400 focus:ring-2 focus:ring-rose-50"
               />
 
             </div>
@@ -516,13 +516,13 @@ function OverstayAlerts() {
         {/* ALERT TABLE */}
         {/* ================================================= */}
 
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div>
 
-              <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+              <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
 
                 {activeTab === "overstay" ? (
                   <AlertTriangle
@@ -532,7 +532,7 @@ function OverstayAlerts() {
                 ) : (
                   <Package
                     size={15}
-                    className="text-amber-500"
+                    className="text-[#9b7740]"
                   />
                 )}
 
@@ -542,7 +542,7 @@ function OverstayAlerts() {
 
               </h2>
 
-              <p className="mt-1 text-[10px] font-medium text-slate-400">
+              <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
 
                 {currentVisitors.length} visitor
                 {currentVisitors.length !== 1
@@ -564,7 +564,7 @@ function OverstayAlerts() {
 
             <div className="flex items-center justify-center py-16">
 
-              <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-400">
+              <div className="flex items-center gap-2 text-[11px] font-semibold text-[#8b778e]">
 
                 <Loader2
                   size={17}
@@ -585,13 +585,13 @@ function OverstayAlerts() {
 
             <div className="px-5 py-16 text-center">
 
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
 
                 <CheckCircle2 size={22} />
 
               </div>
 
-              <h3 className="mt-4 text-[13px] font-bold text-slate-700">
+              <h3 className="mt-4 text-[13px] font-bold text-[#49394d]">
 
                 {activeTab === "overstay"
                   ? "No overstay alerts"
@@ -599,7 +599,7 @@ function OverstayAlerts() {
 
               </h3>
 
-              <p className="mt-1 text-[10.5px] text-slate-400">
+              <p className="mt-1 text-[10.5px] text-[#8b778e]">
 
                 {activeTab === "overstay"
                   ? "All visitors currently inside are within their allowed visit duration."
@@ -619,39 +619,39 @@ function OverstayAlerts() {
 
               <table className="w-full min-w-[1100px] text-left">
 
-                <thead className="border-b border-slate-100 bg-slate-50/70">
+                <thead className="border-b border-[#eee8ed] bg-[#f7f3ed]/70">
 
                   <tr>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Visitor
                     </th>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Resident
                     </th>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Flat
                     </th>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Phone
                     </th>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Entry Time
                     </th>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Time Inside
                     </th>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Overstay
                     </th>
 
-                    <th className="px-5 py-3 text-right text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-right text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Action
                     </th>
 
@@ -666,7 +666,7 @@ function OverstayAlerts() {
 
                       <tr
                         key={visitor._id}
-                        className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50"
+                        className="border-b border-[#eee8ed] last:border-0 hover:bg-[#f7f3ed]/50"
                       >
 
                         {/* VISITOR */}
@@ -680,7 +680,7 @@ function OverstayAlerts() {
                                 activeTab ===
                                 "overstay"
                                   ? "bg-rose-50 text-rose-500"
-                                  : "bg-amber-50 text-amber-500"
+                                  : "bg-[#f7f3ed] text-[#9b7740]"
                               }`}
                             >
 
@@ -695,11 +695,11 @@ function OverstayAlerts() {
 
                             <div>
 
-                              <p className="text-[11px] font-bold text-slate-700">
+                              <p className="text-[11px] font-bold text-[#49394d]">
                                 {visitor.visitorName}
                               </p>
 
-                              <p className="mt-0.5 text-[9.5px] text-slate-400">
+                              <p className="mt-0.5 text-[9.5px] text-[#8b778e]">
 
                                 {visitor.isWalkIn
                                   ? "Walk-in Visitor"
@@ -717,7 +717,7 @@ function OverstayAlerts() {
 
                         <td className="px-5 py-4">
 
-                          <p className="text-[10.5px] font-semibold text-slate-600">
+                          <p className="text-[10.5px] font-semibold text-[#756b78]">
                             {visitor.resident?.name ||
                               "—"}
                           </p>
@@ -728,11 +728,11 @@ function OverstayAlerts() {
 
                         <td className="px-5 py-4">
 
-                          <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-600">
+                          <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-[#756b78]">
 
                             <Home
                               size={13}
-                              className="text-slate-400"
+                              className="text-[#8b778e]"
                             />
 
                             {visitor.flatNo ||
@@ -748,11 +748,11 @@ function OverstayAlerts() {
 
                         <td className="px-5 py-4">
 
-                          <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-600">
+                          <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-[#756b78]">
 
                             <Phone
                               size={13}
-                              className="text-slate-400"
+                              className="text-[#8b778e]"
                             />
 
                             {visitor.phone ||
@@ -766,7 +766,7 @@ function OverstayAlerts() {
 
                         <td className="px-5 py-4">
 
-                          <p className="text-[10px] font-semibold text-slate-600">
+                          <p className="text-[10px] font-semibold text-[#756b78]">
                             {formatDateTime(
                               visitor.entryTime
                             )}
@@ -778,7 +778,7 @@ function OverstayAlerts() {
 
                         <td className="px-5 py-4">
 
-                          <div className="inline-flex items-center gap-1.5 rounded-lg bg-slate-50 px-2.5 py-1.5 text-[9.5px] font-bold text-slate-600">
+                          <div className="inline-flex items-center gap-1.5 rounded-lg bg-[#f7f3ed] px-2.5 py-1.5 text-[9.5px] font-bold text-[#756b78]">
 
                             <Clock3 size={12} />
 

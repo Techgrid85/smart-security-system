@@ -425,7 +425,7 @@ function ResidentSettings() {
     return (
       <DashboardLayout role="resident">
         <div className="flex min-h-[400px] items-center justify-center">
-          <p className="text-sm font-medium text-slate-500">
+          <p className="text-sm font-medium text-[#756b78]">
             Loading settings...
           </p>
         </div>
@@ -447,21 +447,21 @@ function ResidentSettings() {
           <button
             type="button"
             onClick={() => navigate("/resident")}
-            className="mb-4 flex items-center gap-2 text-[11px] font-bold text-slate-400 transition hover:text-emerald-500"
+            className="mb-4 flex items-center gap-2 text-[11px] font-bold text-[#8b778e] transition hover:text-[#9b7740]"
           >
             <ArrowLeft size={14} />
             Back to Dashboard
           </button>
 
-          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
             Resident Portal
           </p>
 
-          <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+          <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
             Settings
           </h1>
 
-          <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+          <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
             Manage your resident account information.
           </p>
 
@@ -473,20 +473,20 @@ function ResidentSettings() {
               PROFILE PICTURE
           ========================================== */}
 
-          <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+          <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-            <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4">
+            <div className="flex items-center gap-3 border-b border-[#e2d9df] px-5 py-4">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                 <Camera size={17} />
               </div>
 
               <div>
-                <h2 className="text-[13px] font-bold text-slate-900">
+                <h2 className="text-[13px] font-bold text-[#32143b]">
                   Profile Picture
                 </h2>
 
-                <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
+                <p className="mt-0.5 text-[9.5px] font-medium text-[#8b778e]">
                   Update your resident profile picture.
                 </p>
               </div>
@@ -497,7 +497,7 @@ function ResidentSettings() {
 
               {/* AVATAR */}
 
-              <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-emerald-500 text-2xl font-extrabold text-white">
+              <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#9b7740] text-2xl font-extrabold text-white">
 
                 {previewImage ||
                 formData.profilePic ? (
@@ -517,7 +517,7 @@ function ResidentSettings() {
 
               <div className="flex flex-col gap-3">
 
-                <label className="inline-flex w-fit cursor-pointer items-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-[10.5px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600">
+                <label className="inline-flex w-fit cursor-pointer items-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]">
 
                   <Upload size={14} />
 
@@ -537,7 +537,7 @@ function ResidentSettings() {
                     type="button"
                     onClick={handleProfilePictureUpload}
                     disabled={uploadingPicture}
-                    className="flex w-fit items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="flex w-fit items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     <Save size={14} />
 
@@ -547,7 +547,7 @@ function ResidentSettings() {
                   </button>
                 )}
 
-                <p className="text-[9px] font-medium text-slate-400">
+                <p className="text-[9px] font-medium text-[#8b778e]">
                   JPG, PNG or WEBP. Maximum size 5MB.
                 </p>
 
@@ -561,20 +561,20 @@ function ResidentSettings() {
               PERSONAL INFORMATION
           ========================================== */}
 
-          <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+          <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-            <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4">
+            <div className="flex items-center gap-3 border-b border-[#e2d9df] px-5 py-4">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                 <Settings size={17} />
               </div>
 
               <div>
-                <h2 className="text-[13px] font-bold text-slate-900">
+                <h2 className="text-[13px] font-bold text-[#32143b]">
                   Personal Information
                 </h2>
 
-                <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
+                <p className="mt-0.5 text-[9.5px] font-medium text-[#8b778e]">
                   Update your personal account details.
                 </p>
               </div>
@@ -589,7 +589,7 @@ function ResidentSettings() {
               {/* NAME */}
 
               <div>
-                <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                   Full Name
                 </label>
 
@@ -597,7 +597,7 @@ function ResidentSettings() {
 
                   <User
                     size={15}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
                   />
 
                   <input
@@ -606,7 +606,7 @@ function ResidentSettings() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Enter your name"
-                    className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                    className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                   />
 
                 </div>
@@ -615,7 +615,7 @@ function ResidentSettings() {
               {/* EMAIL */}
 
               <div>
-                <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                   Email Address
                 </label>
 
@@ -623,19 +623,19 @@ function ResidentSettings() {
 
                   <Mail
                     size={15}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
                   />
 
                   <input
                     type="email"
                     value={formData.email}
                     disabled
-                    className="h-10 w-full cursor-not-allowed rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-3 text-[11px] text-slate-400 outline-none"
+                    className="h-10 w-full cursor-not-allowed rounded-lg border border-[#e2d9df] bg-[#f7f3ed] pl-9 pr-3 text-[11px] text-[#8b778e] outline-none"
                   />
 
                 </div>
 
-                <p className="mt-1.5 flex items-center gap-1 text-[9px] font-medium text-slate-400">
+                <p className="mt-1.5 flex items-center gap-1 text-[9px] font-medium text-[#8b778e]">
                   <Lock size={10} />
                   Email address cannot be changed here.
                 </p>
@@ -644,7 +644,7 @@ function ResidentSettings() {
               {/* PHONE */}
 
               <div>
-                <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                   Phone Number
                 </label>
 
@@ -652,7 +652,7 @@ function ResidentSettings() {
 
                   <Phone
                     size={15}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
                   />
 
                   <input
@@ -662,7 +662,7 @@ function ResidentSettings() {
                     onChange={handleChange}
                     placeholder="Enter 10 digit phone number"
                     maxLength={10}
-                    className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                    className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                   />
 
                 </div>
@@ -671,7 +671,7 @@ function ResidentSettings() {
               {/* FLAT */}
 
               <div>
-                <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                   Flat Number
                 </label>
 
@@ -679,19 +679,19 @@ function ResidentSettings() {
 
                   <Home
                     size={15}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
                   />
 
                   <input
                     type="text"
                     value={formData.flatNo}
                     disabled
-                    className="h-10 w-full cursor-not-allowed rounded-lg border border-slate-200 bg-slate-50 pl-9 pr-3 text-[11px] text-slate-400 outline-none"
+                    className="h-10 w-full cursor-not-allowed rounded-lg border border-[#e2d9df] bg-[#f7f3ed] pl-9 pr-3 text-[11px] text-[#8b778e] outline-none"
                   />
 
                 </div>
 
-                <p className="mt-1.5 text-[9px] font-medium text-slate-400">
+                <p className="mt-1.5 text-[9px] font-medium text-[#8b778e]">
                   Flat assignment can only be changed by the administrator.
                 </p>
               </div>
@@ -700,15 +700,15 @@ function ResidentSettings() {
                   OTHER INFORMATION
               ========================================== */}
 
-              <div className="border-t border-slate-100 pt-5">
+              <div className="border-t border-[#eee8ed] pt-5">
 
                 <div className="mb-5">
 
-                  <h3 className="text-[12px] font-bold text-slate-900">
+                  <h3 className="text-[12px] font-bold text-[#32143b]">
                     Other Information
                   </h3>
 
-                  <p className="mt-1 text-[9.5px] font-medium text-slate-400">
+                  <p className="mt-1 text-[9.5px] font-medium text-[#8b778e]">
                     Add additional information used by the society.
                   </p>
 
@@ -718,7 +718,7 @@ function ResidentSettings() {
 
                 <div className="mb-5">
 
-                  <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                  <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                     Vehicle Registration
                   </label>
 
@@ -726,7 +726,7 @@ function ResidentSettings() {
 
                     <Car
                       size={15}
-                      className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                      className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
                     />
 
                     <input
@@ -738,7 +738,7 @@ function ResidentSettings() {
                       onChange={handleChange}
                       placeholder="e.g. ABC-123"
                       maxLength={30}
-                      className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 uppercase outline-none transition focus:border-emerald-400"
+                      className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] uppercase outline-none transition focus:border-[#bca16a]"
                     />
 
                   </div>
@@ -753,10 +753,10 @@ function ResidentSettings() {
 
                     <UserRound
                       size={14}
-                      className="text-emerald-500"
+                      className="text-[#9b7740]"
                     />
 
-                    <h3 className="text-[11px] font-bold text-slate-700">
+                    <h3 className="text-[11px] font-bold text-[#49394d]">
                       Emergency Contact
                     </h3>
 
@@ -768,7 +768,7 @@ function ResidentSettings() {
 
                     <div>
 
-                      <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                      <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                         Contact Name
                       </label>
 
@@ -781,7 +781,7 @@ function ResidentSettings() {
                         onChange={handleChange}
                         placeholder="Enter contact name"
                         maxLength={50}
-                        className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                        className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white px-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                       />
 
                     </div>
@@ -790,7 +790,7 @@ function ResidentSettings() {
 
                     <div>
 
-                      <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                      <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                         Relationship
                       </label>
 
@@ -803,7 +803,7 @@ function ResidentSettings() {
                         onChange={handleChange}
                         placeholder="e.g. Father, Mother"
                         maxLength={50}
-                        className="h-10 w-full rounded-lg border border-slate-200 bg-white px-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                        className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white px-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                       />
 
                     </div>
@@ -816,11 +816,11 @@ function ResidentSettings() {
 
                 <div>
 
-                  <label className="mb-1.5 flex items-center gap-2 text-[10px] font-bold text-slate-600">
+                  <label className="mb-1.5 flex items-center gap-2 text-[10px] font-bold text-[#756b78]">
 
                     <Users
                       size={14}
-                      className="text-slate-400"
+                      className="text-[#8b778e]"
                     />
 
                     Family / Tenant Details
@@ -834,10 +834,10 @@ function ResidentSettings() {
                     placeholder="Enter family member or tenant details"
                     maxLength={500}
                     rows={4}
-                    className="w-full resize-none rounded-lg border border-slate-200 bg-white px-3 py-2.5 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                    className="w-full resize-none rounded-lg border border-[#e2d9df] bg-white px-3 py-2.5 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                   />
 
-                  <p className="mt-1 text-right text-[9px] font-medium text-slate-400">
+                  <p className="mt-1 text-right text-[9px] font-medium text-[#8b778e]">
                     {formData.familyDetails.length}/500
                   </p>
 
@@ -847,12 +847,12 @@ function ResidentSettings() {
 
               {/* SAVE */}
 
-              <div className="flex justify-end border-t border-slate-100 pt-5">
+              <div className="flex justify-end border-t border-[#eee8ed] pt-5">
 
                 <button
                   type="submit"
                   disabled={saving}
-                  className="flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                 >
 
                   <Save size={14} />

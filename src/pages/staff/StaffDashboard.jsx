@@ -146,8 +146,8 @@ function StaffDashboard() {
   const StatusBadge = ({ status }) => {
     if (status === "Resolved") {
       return (
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[9.5px] font-bold text-emerald-600">
-          <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#9b7740]" />
           Resolved
         </span>
       );
@@ -155,8 +155,8 @@ function StaffDashboard() {
 
     if (status === "In Progress") {
       return (
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-[9.5px] font-bold text-amber-600">
-          <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
+          <span className="h-1.5 w-1.5 rounded-full bg-[#9b7740]" />
           In Progress
         </span>
       );
@@ -176,9 +176,9 @@ function StaffDashboard() {
 
   const PriorityBadge = ({ priority }) => {
     const styles = {
-      Normal: "bg-slate-100 text-slate-500",
-      Medium: "bg-amber-50 text-amber-500",
-      High: "bg-orange-50 text-orange-500",
+      Normal: "bg-[#eee8ed] text-[#756b78]",
+      Medium: "bg-[#f7f3ed] text-[#9b7740]",
+      High: "bg-[#f7f3ed] text-[#9b7740]",
     };
 
     return (
@@ -203,15 +203,15 @@ function StaffDashboard() {
         <div className="mb-6 flex items-end justify-between gap-4">
 
           <div>
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Maintenance Portal
             </p>
 
-            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+            <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
               Maintenance Dashboard
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Manage assigned complaints, ongoing work and maintenance tasks.
             </p>
           </div>
@@ -222,7 +222,7 @@ function StaffDashboard() {
               type="button"
               onClick={fetchDashboardData}
               disabled={loading}
-              className="inline-flex h-9 items-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-[10px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600 disabled:opacity-60"
+              className="inline-flex h-9 items-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 text-[10px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
             >
               <RefreshCw
                 size={13}
@@ -234,19 +234,19 @@ function StaffDashboard() {
               Refresh
             </button>
 
-            <div className="hidden items-center gap-2 rounded-[10px] border border-slate-200 bg-white px-3 py-2 sm:flex">
+            <div className="hidden items-center gap-2 rounded-[10px] border border-[#e2d9df] bg-white px-3 py-2 sm:flex">
 
               <UserCircle
                 size={15}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
 
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                   Department
                 </p>
 
-                <p className="text-[11px] font-bold text-slate-800">
+                <p className="text-[11px] font-bold text-[#49394d]">
                   Society Maintenance
                 </p>
               </div>
@@ -313,12 +313,12 @@ function StaffDashboard() {
         {/* QUICK ACTIONS */}
         {/* ========================================== */}
 
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center border-b border-[#e2d9df] px-5 py-4">
 
-            <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
-              <span className="text-amber-500">
+            <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
+              <span className="text-[#9b7740]">
                 ⚡
               </span>
 
@@ -385,31 +385,31 @@ function StaffDashboard() {
 
         <section
           id="assigned-complaints"
-          className="mt-6 overflow-hidden rounded-[16px] border border-slate-200 bg-white"
+          className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white"
         >
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div>
 
-              <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+              <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
 
                 <ClipboardList
                   size={16}
-                  className="text-emerald-500"
+                  className="text-[#9b7740]"
                 />
 
                 My Assigned Complaints
 
               </h2>
 
-              <p className="mt-1 text-[10px] font-medium text-slate-400">
+              <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                 Complaints assigned to you by administration
               </p>
 
             </div>
 
-            <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[9px] font-bold text-emerald-600">
+            <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
               {complaints.length} Total
             </span>
 
@@ -419,7 +419,7 @@ function StaffDashboard() {
 
             <div className="flex items-center justify-center py-16">
 
-              <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-400">
+              <div className="flex items-center gap-2 text-[11px] font-semibold text-[#8b778e]">
 
                 <Loader2
                   size={17}
@@ -436,15 +436,15 @@ function StaffDashboard() {
 
             <div className="px-5 py-16 text-center">
 
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
                 <CheckCircle2 size={22} />
               </div>
 
-              <h3 className="mt-4 text-[13px] font-bold text-slate-700">
+              <h3 className="mt-4 text-[13px] font-bold text-[#49394d]">
                 No complaints assigned
               </h3>
 
-              <p className="mt-1 text-[10.5px] text-slate-400">
+              <p className="mt-1 text-[10.5px] text-[#8b778e]">
                 You currently have no maintenance complaints assigned to you.
               </p>
 
@@ -458,7 +458,7 @@ function StaffDashboard() {
 
                 <thead>
 
-                  <tr className="border-b border-slate-100 bg-slate-50">
+                  <tr className="border-b border-[#eee8ed] bg-[#f7f3ed]">
 
                     <TableHead>
                       Complaint
@@ -503,18 +503,18 @@ function StaffDashboard() {
                       return (
                         <tr
                           key={complaint._id}
-                          className="border-b border-slate-100 last:border-0 transition hover:bg-slate-50"
+                          className="border-b border-[#eee8ed] last:border-0 transition hover:bg-[#f7f3ed]"
                         >
 
                           {/* COMPLAINT */}
 
                           <td className="px-4 py-4">
 
-                            <p className="max-w-[220px] text-[11.5px] font-bold text-slate-700">
+                            <p className="max-w-[220px] text-[11.5px] font-bold text-[#49394d]">
                               {complaint.subject}
                             </p>
 
-                            <p className="mt-1 text-[9.5px] text-slate-400">
+                            <p className="mt-1 text-[9.5px] text-[#8b778e]">
                               Submitted{" "}
                               {formatDate(
                                 complaint.createdAt
@@ -527,12 +527,12 @@ function StaffDashboard() {
 
                           <td className="px-4 py-4">
 
-                            <p className="text-[10.5px] font-semibold text-slate-600">
+                            <p className="text-[10.5px] font-semibold text-[#756b78]">
                               {complaint.resident?.name ||
                                 "—"}
                             </p>
 
-                            <p className="mt-1 text-[9px] text-slate-400">
+                            <p className="mt-1 text-[9px] text-[#8b778e]">
                               {complaint.resident?.phone ||
                                 "No phone"}
                             </p>
@@ -543,11 +543,11 @@ function StaffDashboard() {
 
                           <td className="px-4 py-4">
 
-                            <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-600">
+                            <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-[#756b78]">
 
                               <Home
                                 size={13}
-                                className="text-slate-400"
+                                className="text-[#8b778e]"
                               />
 
                               {complaint.flatNo ||
@@ -563,7 +563,7 @@ function StaffDashboard() {
 
                           <td className="px-4 py-4">
 
-                            <span className="rounded-lg bg-slate-100 px-2.5 py-1 text-[9.5px] font-semibold text-slate-600">
+                            <span className="rounded-lg bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-semibold text-[#756b78]">
                               {complaint.category}
                             </span>
 
@@ -607,7 +607,7 @@ function StaffDashboard() {
                                       "In Progress"
                                     )
                                   }
-                                  className="rounded-lg bg-amber-500 px-3 py-1.5 text-[9px] font-bold text-white transition hover:bg-amber-600"
+                                  className="rounded-lg bg-[#9b7740] px-3 py-1.5 text-[9px] font-bold text-white transition hover:bg-[#9b7740]"
                                 >
                                   Start Work
                                 </button>
@@ -623,7 +623,7 @@ function StaffDashboard() {
                                       "Resolved"
                                     )
                                   }
-                                  className="rounded-lg bg-emerald-500 px-3 py-1.5 text-[9px] font-bold text-white transition hover:bg-emerald-600"
+                                  className="rounded-lg bg-[#9b7740] px-3 py-1.5 text-[9px] font-bold text-white transition hover:bg-[#9b7740]"
                                 >
                                   Mark Completed
                                 </button>
@@ -631,7 +631,7 @@ function StaffDashboard() {
 
                               {complaint.status ===
                                 "Resolved" && (
-                                <span className="text-[9px] font-bold text-emerald-500">
+                                <span className="text-[9px] font-bold text-[#9b7740]">
                                   Completed
                                 </span>
                               )}
@@ -666,7 +666,7 @@ function StaffDashboard() {
             title="Tasks Completed"
             value={stats.resolved}
             text="Maintenance tasks resolved"
-            color="bg-emerald-50 text-emerald-500"
+            color="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <SummaryCard
@@ -674,7 +674,7 @@ function StaffDashboard() {
             title="Active Work"
             value={stats.inProgress}
             text="Tasks currently in progress"
-            color="bg-sky-50 text-sky-500"
+            color="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <SummaryCard
@@ -695,15 +695,15 @@ function StaffDashboard() {
         {/* MAINTENANCE NOTE */}
         {/* ========================================== */}
 
-        <section className="mt-6 rounded-[16px] border border-slate-200 bg-white">
+        <section className="mt-6 rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
-            <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+            <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
 
               <Wrench
                 size={16}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
 
               Maintenance Workflow
@@ -758,28 +758,28 @@ function QuickAction({
 }) {
   const styles = {
     emerald: {
-      bg: "bg-emerald-50",
-      text: "text-emerald-500",
+      bg: "bg-[#f7f3ed]",
+      text: "text-[#9b7740]",
       hover:
-        "hover:border-emerald-400 hover:bg-emerald-50",
+        "hover:border-[#bca16a] hover:bg-[#f7f3ed]",
     },
     indigo: {
-      bg: "bg-indigo-50",
-      text: "text-indigo-500",
+      bg: "bg-[#f7f3ed]",
+      text: "text-[#63366f]",
       hover:
-        "hover:border-indigo-400 hover:bg-indigo-50",
+        "hover:border-[#806d82] hover:bg-[#f7f3ed]",
     },
     sky: {
-      bg: "bg-sky-50",
-      text: "text-sky-500",
+      bg: "bg-[#f7f3ed]",
+      text: "text-[#9b7740]",
       hover:
-        "hover:border-sky-400 hover:bg-sky-50",
+        "hover:border-[#bca16a] hover:bg-[#f7f3ed]",
     },
     amber: {
-      bg: "bg-amber-50",
-      text: "text-amber-500",
+      bg: "bg-[#f7f3ed]",
+      text: "text-[#9b7740]",
       hover:
-        "hover:border-amber-400 hover:bg-amber-50",
+        "hover:border-[#bca16a] hover:bg-[#f7f3ed]",
     },
   };
 
@@ -789,7 +789,7 @@ function QuickAction({
     <button
       type="button"
       onClick={onClick}
-      className={`group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[13px] border-[1.5px] border-dashed border-slate-200 bg-[#fafafa] transition ${current.hover}`}
+      className={`group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[13px] border-[1.5px] border-dashed border-[#e2d9df] bg-[#f7f3ed] transition ${current.hover}`}
     >
 
       <div
@@ -799,7 +799,7 @@ function QuickAction({
       </div>
 
       <span
-        className={`text-center text-[11.5px] font-semibold text-slate-800 group-hover:${current.text}`}
+        className={`text-center text-[11.5px] font-semibold text-[#49394d] group-hover:${current.text}`}
       >
         {title}
       </span>
@@ -824,27 +824,27 @@ function StaffStat({
 }) {
   const tones = {
     green: {
-      icon: "bg-emerald-50 text-emerald-500",
-      circle: "bg-emerald-500",
+      icon: "bg-[#f7f3ed] text-[#9b7740]",
+      circle: "bg-[#9b7740]",
     },
     yellow: {
-      icon: "bg-amber-50 text-amber-500",
-      circle: "bg-amber-500",
+      icon: "bg-[#f7f3ed] text-[#9b7740]",
+      circle: "bg-[#9b7740]",
     },
     red: {
       icon: "bg-red-50 text-red-500",
       circle: "bg-red-500",
     },
     sky: {
-      icon: "bg-sky-50 text-sky-500",
-      circle: "bg-sky-500",
+      icon: "bg-[#f7f3ed] text-[#9b7740]",
+      circle: "bg-[#9b7740]",
     },
   };
 
   const current = tones[tone];
 
   return (
-    <div className="relative overflow-hidden rounded-[16px] border border-slate-200 bg-white p-5">
+    <div className="relative overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white p-5">
 
       <div
         className={`absolute -right-5 -top-5 h-20 w-20 rounded-full opacity-[0.06] ${current.circle}`}
@@ -856,15 +856,15 @@ function StaffStat({
         <Icon size={20} />
       </div>
 
-      <div className="text-[28px] font-extrabold leading-none tracking-tight text-slate-900">
+      <div className="text-[28px] font-extrabold leading-none tracking-tight text-[#32143b]">
         {value}
       </div>
 
-      <div className="mt-1 text-[12.5px] font-semibold text-slate-600">
+      <div className="mt-1 text-[12.5px] font-semibold text-[#756b78]">
         {title}
       </div>
 
-      <div className="mt-1 text-[10.5px] font-medium text-slate-400">
+      <div className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
         {label}
       </div>
 
@@ -873,10 +873,10 @@ function StaffStat({
         <span
           className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-semibold ${
             changeType === "up"
-              ? "bg-emerald-50 text-emerald-500"
+              ? "bg-[#f7f3ed] text-[#9b7740]"
               : changeType === "down"
               ? "bg-red-50 text-red-500"
-              : "bg-slate-100 text-slate-500"
+              : "bg-[#eee8ed] text-[#756b78]"
           }`}
         >
           {changeType === "up"
@@ -900,7 +900,7 @@ function StaffStat({
 
 function TableHead({ children }) {
   return (
-    <th className="px-4 py-3 text-left text-[9.5px] font-bold uppercase tracking-[0.06em] text-slate-400">
+    <th className="px-4 py-3 text-left text-[9.5px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
       {children}
     </th>
   );
@@ -919,7 +919,7 @@ function SummaryCard({
   color,
 }) {
   return (
-    <div className="rounded-[16px] border border-slate-200 bg-white p-5">
+    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-5">
 
       <div className="flex items-start justify-between">
 
@@ -931,20 +931,20 @@ function SummaryCard({
 
         <ArrowRight
           size={15}
-          className="text-slate-300"
+          className="text-[#bca9c0]"
         />
 
       </div>
 
-      <p className="mt-4 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+      <p className="mt-4 text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
         {title}
       </p>
 
-      <p className="mt-1 text-[25px] font-extrabold tracking-tight text-slate-900">
+      <p className="mt-1 text-[25px] font-extrabold tracking-tight text-[#32143b]">
         {value}
       </p>
 
-      <p className="mt-1 text-[10px] font-medium text-slate-400">
+      <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
         {text}
       </p>
 
@@ -963,21 +963,21 @@ function WorkflowStep({
   text,
 }) {
   return (
-    <div className="rounded-[12px] border border-slate-200 bg-slate-50 p-4">
+    <div className="rounded-[12px] border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
       <div className="flex items-center gap-3">
 
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-500 text-[11px] font-extrabold text-white">
+        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#9b7740] text-[11px] font-extrabold text-white">
           {number}
         </div>
 
-        <p className="text-[11.5px] font-bold text-slate-800">
+        <p className="text-[11.5px] font-bold text-[#49394d]">
           {title}
         </p>
 
       </div>
 
-      <p className="mt-3 text-[10px] leading-5 text-slate-400">
+      <p className="mt-3 text-[10px] leading-5 text-[#8b778e]">
         {text}
       </p>
 

@@ -172,21 +172,21 @@ function AllVisitors() {
 
             <Link
               to="/guard"
-              className="mb-3 inline-flex items-center gap-1.5 text-[11px] font-semibold text-slate-400 transition hover:text-emerald-500"
+              className="mb-3 inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#8b778e] transition hover:text-[#9b7740]"
             >
               <ArrowLeft size={14} />
               Back to Dashboard
             </Link>
 
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Security Portal
             </p>
 
-            <h1 className="text-[22px] font-extrabold tracking-tight text-slate-900">
+            <h1 className="text-[22px] font-extrabold tracking-tight text-[#32143b]">
               All Visitors
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Search and monitor all resident visitor requests and gate activity.
             </p>
 
@@ -196,7 +196,7 @@ function AllVisitors() {
             type="button"
             onClick={() => fetchVisitors()}
             disabled={loading}
-            className="flex h-10 items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 text-[10.5px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600 disabled:opacity-60"
+            className="flex h-10 items-center gap-2 rounded-xl border border-[#e2d9df] bg-white px-4 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
           >
             <RefreshCw
               size={15}
@@ -261,7 +261,7 @@ function AllVisitors() {
         {/* SEARCH & FILTERS */}
         {/* ========================================== */}
 
-        <section className="mb-6 rounded-[18px] border border-slate-200 bg-white p-5">
+        <section className="mb-6 rounded-[18px] border border-[#e2d9df] bg-white p-5">
 
           <form
             onSubmit={handleSearch}
@@ -274,7 +274,7 @@ function AllVisitors() {
 
               <Search
                 size={16}
-                className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+                className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8b778e]"
               />
 
               <input
@@ -282,7 +282,7 @@ function AllVisitors() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search visitor, phone or flat number..."
-                className="h-11 w-full rounded-xl border border-slate-200 bg-slate-50 pl-10 pr-4 text-[11px] font-medium text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white focus:ring-4 focus:ring-emerald-50"
+                className="h-11 w-full rounded-xl border border-[#e2d9df] bg-[#f7f3ed] pl-10 pr-4 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#bca16a] focus:bg-white focus:ring-4 focus:ring-[#f7f3ed]"
               />
 
             </div>
@@ -294,7 +294,7 @@ function AllVisitors() {
               onChange={(e) =>
                 handleStatusChange(e.target.value)
               }
-              className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-[10.5px] font-semibold text-slate-600 outline-none focus:border-emerald-400"
+              className="h-11 rounded-xl border border-[#e2d9df] bg-white px-3 text-[10.5px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
             >
               <option value="All">
                 All Pass Status
@@ -321,7 +321,7 @@ function AllVisitors() {
               onChange={(e) =>
                 handleGateStatusChange(e.target.value)
               }
-              className="h-11 rounded-xl border border-slate-200 bg-white px-3 text-[10.5px] font-semibold text-slate-600 outline-none focus:border-emerald-400"
+              className="h-11 rounded-xl border border-[#e2d9df] bg-white px-3 text-[10.5px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
             >
               <option value="All">
                 All Gate Status
@@ -343,7 +343,7 @@ function AllVisitors() {
 
             <button
               type="submit"
-              className="flex h-11 items-center justify-center gap-2 rounded-xl bg-emerald-500 px-5 text-[10.5px] font-bold text-white transition hover:bg-emerald-600"
+              className="flex h-11 items-center justify-center gap-2 rounded-xl bg-[#9b7740] px-5 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740]"
             >
               <Search size={15} />
               Search
@@ -352,7 +352,7 @@ function AllVisitors() {
             <button
               type="button"
               onClick={handleReset}
-              className="h-11 rounded-xl border border-slate-200 px-4 text-[10.5px] font-bold text-slate-500 transition hover:bg-slate-50"
+              className="h-11 rounded-xl border border-[#e2d9df] px-4 text-[10.5px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
             >
               Reset
             </button>
@@ -365,21 +365,21 @@ function AllVisitors() {
         {/* VISITORS TABLE */}
         {/* ========================================== */}
 
-        <section className="overflow-hidden rounded-[18px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[18px] border border-[#e2d9df] bg-white">
 
-          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-slate-200 px-5 py-4">
+          <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2d9df] px-5 py-4">
 
             <div>
 
-              <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+              <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
                 <Users
                   size={16}
-                  className="text-emerald-500"
+                  className="text-[#9b7740]"
                 />
                 Visitor Records
               </h2>
 
-              <p className="mt-1 text-[10px] font-medium text-slate-400">
+              <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                 {visitors.length} visitor
                 {visitors.length !== 1 ? "s" : ""} found
               </p>
@@ -392,7 +392,7 @@ function AllVisitors() {
 
             <div className="flex min-h-[350px] items-center justify-center">
 
-              <div className="flex items-center gap-2 text-[11px] font-medium text-slate-400">
+              <div className="flex items-center gap-2 text-[11px] font-medium text-[#8b778e]">
                 <Loader2
                   size={17}
                   className="animate-spin"
@@ -406,15 +406,15 @@ function AllVisitors() {
 
             <div className="flex min-h-[350px] flex-col items-center justify-center px-5 text-center">
 
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-50 text-slate-400">
+              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f7f3ed] text-[#8b778e]">
                 <Users size={24} />
               </div>
 
-              <h3 className="mt-4 text-[12px] font-bold text-slate-700">
+              <h3 className="mt-4 text-[12px] font-bold text-[#49394d]">
                 No Visitors Found
               </h3>
 
-              <p className="mt-1 text-[10px] font-medium text-slate-400">
+              <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                 No visitor records match your current search or filters.
               </p>
 
@@ -428,7 +428,7 @@ function AllVisitors() {
 
                 <thead>
 
-                  <tr className="bg-slate-50">
+                  <tr className="bg-[#f7f3ed]">
 
                     <TableHead>Visitor</TableHead>
                     <TableHead>Phone</TableHead>
@@ -450,7 +450,7 @@ function AllVisitors() {
 
                     <tr
                       key={visitor._id}
-                      className="border-t border-slate-100 transition hover:bg-slate-50"
+                      className="border-t border-[#eee8ed] transition hover:bg-[#f7f3ed]"
                     >
 
                       {/* VISITOR */}
@@ -459,17 +459,17 @@ function AllVisitors() {
 
                         <div className="flex items-center gap-3">
 
-                          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+                          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
                             <User size={16} />
                           </div>
 
                           <div>
 
-                            <p className="text-[11px] font-bold text-slate-800">
+                            <p className="text-[11px] font-bold text-[#49394d]">
                               {visitor.visitorName || "-"}
                             </p>
 
-                            <p className="mt-0.5 text-[9px] font-medium text-slate-400">
+                            <p className="mt-0.5 text-[9px] font-medium text-[#8b778e]">
                               ID #{visitor._id?.slice(-6)}
                             </p>
 
@@ -481,7 +481,7 @@ function AllVisitors() {
 
                       {/* PHONE */}
 
-                      <td className="px-5 py-4 text-[10px] font-medium text-slate-500">
+                      <td className="px-5 py-4 text-[10px] font-medium text-[#756b78]">
                         {visitor.phone || "-"}
                       </td>
 
@@ -489,11 +489,11 @@ function AllVisitors() {
 
                       <td className="px-5 py-4">
 
-                        <div className="flex items-center gap-1.5 text-[10px] font-semibold text-slate-600">
+                        <div className="flex items-center gap-1.5 text-[10px] font-semibold text-[#756b78]">
 
                           <Home
                             size={13}
-                            className="text-slate-400"
+                            className="text-[#8b778e]"
                           />
 
                           {visitor.flatNo ||
@@ -506,7 +506,7 @@ function AllVisitors() {
 
                       {/* VISIT DATE */}
 
-                      <td className="px-5 py-4 text-[10px] font-medium text-slate-500">
+                      <td className="px-5 py-4 text-[10px] font-medium text-[#756b78]">
                         {formatDate(visitor.visitDate)}
                       </td>
 
@@ -524,13 +524,13 @@ function AllVisitors() {
 
                       {/* ENTRY */}
 
-                      <td className="px-5 py-4 text-[10px] font-medium text-slate-500">
+                      <td className="px-5 py-4 text-[10px] font-medium text-[#756b78]">
                         {formatDateTime(visitor.entryTime)}
                       </td>
 
                       {/* EXIT */}
 
-                      <td className="px-5 py-4 text-[10px] font-medium text-slate-500">
+                      <td className="px-5 py-4 text-[10px] font-medium text-[#756b78]">
                         {formatDateTime(visitor.exitTime)}
                       </td>
 
@@ -541,7 +541,7 @@ function AllVisitors() {
                         <button
                           type="button"
                           onClick={() => setSelectedVisitor(visitor)}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 px-3 py-2 text-[9.5px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600"
+                          className="inline-flex items-center gap-1.5 rounded-lg border border-[#e2d9df] px-3 py-2 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
                         >
                           <Eye size={13} />
                           View
@@ -594,14 +594,14 @@ function StatCard({
   tone,
 }) {
   const styles = {
-    emerald: "bg-emerald-50 text-emerald-500",
-    amber: "bg-amber-50 text-amber-500",
-    sky: "bg-sky-50 text-sky-500",
-    slate: "bg-slate-100 text-slate-500",
+    emerald: "bg-[#f7f3ed] text-[#9b7740]",
+    amber: "bg-[#f7f3ed] text-[#9b7740]",
+    sky: "bg-[#f7f3ed] text-[#9b7740]",
+    slate: "bg-[#eee8ed] text-[#756b78]",
   };
 
   return (
-    <div className="rounded-[16px] border border-slate-200 bg-white p-5">
+    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-5">
 
       <div
         className={`flex h-10 w-10 items-center justify-center rounded-xl ${styles[tone]}`}
@@ -609,11 +609,11 @@ function StatCard({
         <Icon size={18} />
       </div>
 
-      <p className="mt-4 text-[25px] font-extrabold leading-none tracking-tight text-slate-900">
+      <p className="mt-4 text-[25px] font-extrabold leading-none tracking-tight text-[#32143b]">
         {value}
       </p>
 
-      <p className="mt-2 text-[10.5px] font-semibold text-slate-500">
+      <p className="mt-2 text-[10.5px] font-semibold text-[#756b78]">
         {title}
       </p>
 
@@ -628,7 +628,7 @@ function StatCard({
 
 function TableHead({ children }) {
   return (
-    <th className="px-5 py-3.5 text-left text-[9px] font-bold uppercase tracking-[0.08em] text-slate-400">
+    <th className="px-5 py-3.5 text-left text-[9px] font-bold uppercase tracking-[0.08em] text-[#8b778e]">
       {children}
     </th>
   );
@@ -642,11 +642,11 @@ function TableHead({ children }) {
 function PassStatus({ status }) {
   const styles = {
     Pending:
-      "bg-amber-50 text-amber-600",
+      "bg-[#f7f3ed] text-[#9b7740]",
     Approved:
-      "bg-emerald-50 text-emerald-600",
+      "bg-[#f7f3ed] text-[#9b7740]",
     Completed:
-      "bg-slate-100 text-slate-500",
+      "bg-[#eee8ed] text-[#756b78]",
     Rejected:
       "bg-red-50 text-red-500",
   };
@@ -655,7 +655,7 @@ function PassStatus({ status }) {
     <span
       className={`inline-flex rounded-full px-2.5 py-1 text-[9px] font-bold ${
         styles[status] ||
-        "bg-slate-100 text-slate-500"
+        "bg-[#eee8ed] text-[#756b78]"
       }`}
     >
       {status || "Unknown"}
@@ -671,18 +671,18 @@ function PassStatus({ status }) {
 function GateStatus({ status }) {
   const styles = {
     "Not Entered":
-      "bg-slate-100 text-slate-500",
+      "bg-[#eee8ed] text-[#756b78]",
     Inside:
-      "bg-sky-50 text-sky-600",
+      "bg-[#f7f3ed] text-[#9b7740]",
     Exited:
-      "bg-emerald-50 text-emerald-600",
+      "bg-[#f7f3ed] text-[#9b7740]",
   };
 
   return (
     <span
       className={`inline-flex rounded-full px-2.5 py-1 text-[9px] font-bold ${
         styles[status] ||
-        "bg-slate-100 text-slate-500"
+        "bg-[#eee8ed] text-[#756b78]"
       }`}
     >
       {status || "Not Entered"}
@@ -700,19 +700,19 @@ function VisitorModal({
   onClose,
 }) {
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4">
+    <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/40 p-4">
 
       <div className="w-full max-w-[650px] overflow-hidden rounded-[20px] bg-white shadow-xl">
 
-        <div className="flex items-start justify-between border-b border-slate-200 px-5 py-4">
+        <div className="flex items-start justify-between border-b border-[#e2d9df] px-5 py-4">
 
           <div>
 
-            <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-emerald-500">
+            <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#9b7740]">
               Visitor Details
             </p>
 
-            <h2 className="mt-1 text-[17px] font-bold text-slate-900">
+            <h2 className="mt-1 text-[17px] font-bold text-[#32143b]">
               {visitor.visitorName}
             </h2>
 
@@ -721,7 +721,7 @@ function VisitorModal({
           <button
             type="button"
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100"
+            className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed]"
           >
             ×
           </button>
@@ -795,12 +795,12 @@ function VisitorModal({
 
         </div>
 
-        <div className="flex justify-end border-t border-slate-200 px-5 py-4">
+        <div className="flex justify-end border-t border-[#e2d9df] px-5 py-4">
 
           <button
             type="button"
             onClick={onClose}
-            className="h-10 rounded-xl bg-slate-900 px-5 text-[10.5px] font-bold text-white transition hover:bg-slate-800"
+            className="h-10 rounded-xl bg-[#32143b] px-5 text-[10.5px] font-bold text-white transition hover:bg-[#49394d]"
           >
             Close
           </button>
@@ -823,13 +823,13 @@ function DetailItem({
   value,
 }) {
   return (
-    <div className="border-b border-r border-slate-100 px-5 py-4">
+    <div className="border-b border-r border-[#eee8ed] px-5 py-4">
 
-      <p className="text-[9px] font-medium uppercase tracking-wide text-slate-400">
+      <p className="text-[9px] font-medium uppercase tracking-wide text-[#8b778e]">
         {label}
       </p>
 
-      <p className="mt-1.5 text-[11px] font-bold text-slate-700">
+      <p className="mt-1.5 text-[11px] font-bold text-[#49394d]">
         {value || "-"}
       </p>
 

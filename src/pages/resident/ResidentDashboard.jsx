@@ -85,7 +85,7 @@ function ResidentDashboard() {
     return (
       <DashboardLayout role="resident">
         <div className="flex min-h-[400px] items-center justify-center">
-          <p className="text-sm font-medium text-slate-500">
+          <p className="text-sm font-medium text-[#756b78]">
             Loading dashboard...
           </p>
         </div>
@@ -105,8 +105,8 @@ function ResidentDashboard() {
     {
       title: "Visitor Pass",
       icon: QrCode,
-      bg: "bg-emerald-50",
-      color: "text-emerald-500",
+      bg: "bg-[#f7f3ed]",
+      color: "text-[#9b7740]",
       path: "/resident/visitor-passes",
     },
     {
@@ -119,15 +119,15 @@ function ResidentDashboard() {
     {
       title: "Maintenance",
       icon: ReceiptText,
-      bg: "bg-amber-50",
-      color: "text-amber-500",
+      bg: "bg-[#f7f3ed]",
+      color: "text-[#9b7740]",
       path: "/resident/bills",
     },
     {
       title: "Society Events",
       icon: CalendarDays,
-      bg: "bg-sky-50",
-      color: "text-sky-500",
+      bg: "bg-[#f7f3ed]",
+      color: "text-[#9b7740]",
       path: "/resident/events",
     },
   ];
@@ -139,28 +139,28 @@ function ResidentDashboard() {
         {/* ================= HEADER ================= */}
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Resident Portal
             </p>
 
-            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+            <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
               Welcome back, {resident?.name || "Resident"}
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Manage your society activities from one place.
             </p>
           </div>
 
-          <div className="hidden items-center gap-2 rounded-[1px] border border-slate-200 bg-white px-3 py-2 sm:flex">
-            <Home size={15} className="text-emerald-500" />
+          <div className="hidden items-center gap-2 rounded-[1px] border border-[#e2d9df] bg-white px-3 py-2 sm:flex">
+            <Home size={15} className="text-[#9b7740]" />
 
             <div>
-              <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+              <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                 My Flat
               </p>
 
-              <p className="text-[11px] font-bold text-slate-800">
+              <p className="text-[11px] font-bold text-[#49394d]">
                 {resident?.flatNo || "Not assigned"}
               </p>
             </div>
@@ -197,11 +197,11 @@ function ResidentDashboard() {
         </div>
 
         {/* ================= QUICK ACTIONS ================= */}
-        <section className="mt-6 overflow-hidden rounded-[1px] border border-slate-200 bg-white">
+        <section className="mt-6 overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white">
 
-          <div className="border-b border-slate-200 px-5 py-4">
-            <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
-              <span className="text-amber-500">⚡</span>
+          <div className="border-b border-[#e2d9df] px-5 py-4">
+            <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
+              <span className="text-[#9b7740]">⚡</span>
               Quick Actions
             </h2>
           </div>
@@ -216,7 +216,7 @@ function ResidentDashboard() {
                   type="button"
                   key={action.title}
                   onClick={() => navigate(action.path)}
-                  className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[1px] border-[1.5px] border-dashed border-slate-200 bg-[#fafafa] transition hover:border-emerald-400 hover:bg-emerald-50"
+                  className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[1px] border-[1.5px] border-dashed border-[#e2d9df] bg-[#f7f3ed] transition hover:border-[#bca16a] hover:bg-[#f7f3ed]"
                 >
                   <div
                     className={`flex h-11 w-11 items-center justify-center rounded-xl ${action.bg} ${action.color} transition group-hover:scale-110`}
@@ -224,7 +224,7 @@ function ResidentDashboard() {
                     <Icon size={20} />
                   </div>
 
-                  <span className="text-[11.5px] font-semibold text-slate-800 group-hover:text-emerald-600">
+                  <span className="text-[11.5px] font-semibold text-[#49394d] group-hover:text-[#9b7740]">
                     {action.title}
                   </span>
                 </button>
@@ -238,13 +238,13 @@ function ResidentDashboard() {
         <div className="mt-6 grid gap-5 xl:grid-cols-2">
 
           {/* RECENT VISITORS */}
-          <section className="overflow-hidden rounded-[1px] border border-slate-200 bg-white">
+          <section className="overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white">
 
-            <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
-              <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+            <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
+              <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
                 <ShieldCheck
                   size={16}
-                  className="text-emerald-500"
+                  className="text-[#9b7740]"
                 />
                 Recent Visitor Passes
               </h2>
@@ -252,7 +252,7 @@ function ResidentDashboard() {
               <button
                 type="button"
                 onClick={() => navigate("/resident/visitor-passes")}
-                className="text-[10px] font-bold text-emerald-500 hover:text-emerald-600"
+                className="text-[10px] font-bold text-[#9b7740] hover:text-[#9b7740]"
               >
                 View All
               </button>
@@ -264,26 +264,26 @@ function ResidentDashboard() {
                 recentVisitors.map((visitor) => (
                   <div
                     key={visitor._id}
-                    className="flex items-center gap-3 rounded-[1px] border border-slate-200 bg-slate-50 p-3.5"
+                    className="flex items-center gap-3 rounded-[1px] border border-[#e2d9df] bg-[#f7f3ed] p-3.5"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[1px] bg-emerald-50 text-emerald-500">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[1px] bg-[#f7f3ed] text-[#9b7740]">
                       <QrCode size={18} />
                     </div>
 
                     <div className="min-w-0 flex-1">
                       <div className="flex items-center gap-2">
-                        <p className="truncate text-[11.5px] font-bold text-slate-800">
+                        <p className="truncate text-[11.5px] font-bold text-[#49394d]">
                           {visitor.visitorName}
                         </p>
 
                         <StatusSmall status={visitor.status} />
                       </div>
 
-                      <p className="mt-1 text-[10px] font-medium text-slate-400">
+                      <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                         {visitor.purpose}
                       </p>
 
-                      <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
+                      <p className="mt-0.5 text-[9.5px] font-medium text-[#8b778e]">
                         {visitor.visitDate
                           ? new Date(visitor.visitDate).toLocaleDateString()
                           : "-"}
@@ -298,7 +298,7 @@ function ResidentDashboard() {
               <button
                 type="button"
                 onClick={() => navigate("/resident/visitor-passes")}
-                className="flex w-full items-center justify-center gap-2 rounded-[1px] border border-emerald-200 bg-emerald-50 py-2.5 text-[11px] font-bold text-emerald-600 transition hover:bg-emerald-100"
+                className="flex w-full items-center justify-center gap-2 rounded-[1px] border border-[#e2d9df] bg-[#f7f3ed] py-2.5 text-[11px] font-bold text-[#9b7740] transition hover:bg-[#f5eee2]"
               >
                 <QrCode size={14} />
                 Manage Visitor Passes
@@ -307,13 +307,13 @@ function ResidentDashboard() {
           </section>
 
           {/* UPCOMING EVENTS */}
-          <section className="overflow-hidden rounded-[1px] border border-slate-200 bg-white">
+          <section className="overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white">
 
-            <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
-              <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+            <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
+              <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
                 <CalendarDays
                   size={16}
-                  className="text-sky-500"
+                  className="text-[#9b7740]"
                 />
                 Upcoming Events
               </h2>
@@ -321,7 +321,7 @@ function ResidentDashboard() {
               <button
                 type="button"
                 onClick={() => navigate("/resident/events")}
-                className="text-[10px] font-bold text-emerald-500 hover:text-emerald-600"
+                className="text-[10px] font-bold text-[#9b7740] hover:text-[#9b7740]"
               >
                 View All
               </button>
@@ -333,22 +333,22 @@ function ResidentDashboard() {
                 upcomingEvents.map((event) => (
                   <div
                     key={event._id}
-                    className="flex items-center gap-3 rounded-[1px] border border-slate-200 bg-slate-50 p-3.5"
+                    className="flex items-center gap-3 rounded-[1px] border border-[#e2d9df] bg-[#f7f3ed] p-3.5"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[1px] bg-sky-50 text-sky-500">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[1px] bg-[#f7f3ed] text-[#9b7740]">
                       <CalendarDays size={18} />
                     </div>
 
                     <div className="min-w-0 flex-1">
-                      <p className="truncate text-[11.5px] font-bold text-slate-800">
+                      <p className="truncate text-[11.5px] font-bold text-[#49394d]">
                         {event.title}
                       </p>
 
-                      <p className="mt-1 truncate text-[10px] font-medium text-slate-400">
+                      <p className="mt-1 truncate text-[10px] font-medium text-[#8b778e]">
                         {event.location || "Society"}
                       </p>
 
-                      <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
+                      <p className="mt-0.5 text-[9.5px] font-medium text-[#8b778e]">
                         {event.eventDate
                           ? new Date(event.eventDate).toLocaleDateString()
                           : "-"}
@@ -363,7 +363,7 @@ function ResidentDashboard() {
               <button
                 type="button"
                 onClick={() => navigate("/resident/events")}
-                className="flex w-full items-center justify-center gap-1.5 rounded-[9px] border border-slate-200 bg-white py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50"
+                className="flex w-full items-center justify-center gap-1.5 rounded-[9px] border border-[#e2d9df] bg-white py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
               >
                 View Events
                 <ArrowRight size={13} />
@@ -374,13 +374,13 @@ function ResidentDashboard() {
         </div>
 
         {/* ================= NOTICES ================= */}
-        <section className="mt-6 overflow-hidden rounded-[1px] border border-slate-200 bg-white">
+        <section className="mt-6 overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
-            <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
+            <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
               <Bell
                 size={16}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
               Recent Society Notices
             </h2>
@@ -388,7 +388,7 @@ function ResidentDashboard() {
             <button
               type="button"
               onClick={() => navigate("/resident/notices")}
-              className="text-[10px] font-bold text-emerald-500 hover:text-emerald-600"
+              className="text-[10px] font-bold text-[#9b7740] hover:text-[#9b7740]"
             >
               View All
             </button>
@@ -400,30 +400,30 @@ function ResidentDashboard() {
               recentNotices.map((notice) => (
                 <div
                   key={notice._id}
-                  className="flex items-start gap-3 rounded-[1px] border border-slate-200 bg-slate-50 p-4"
+                  className="flex items-start gap-3 rounded-[1px] border border-[#e2d9df] bg-[#f7f3ed] p-4"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[1px] bg-emerald-50 text-emerald-500">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[1px] bg-[#f7f3ed] text-[#9b7740]">
                     <Bell size={17} />
                   </div>
 
                   <div className="min-w-0 flex-1">
                     <div className="flex items-start justify-between gap-3">
-                      <p className="text-[11.5px] font-bold text-slate-800">
+                      <p className="text-[11.5px] font-bold text-[#49394d]">
                         {notice.title}
                       </p>
 
                       {notice.priority && (
-                        <span className="rounded-full bg-slate-200 px-2 py-1 text-[8.5px] font-bold text-slate-600">
+                        <span className="rounded-full bg-[#e2d9df] px-2 py-1 text-[8.5px] font-bold text-[#756b78]">
                           {notice.priority}
                         </span>
                       )}
                     </div>
 
-                    <p className="mt-1 text-[10.5px] leading-5 text-slate-500">
+                    <p className="mt-1 text-[10.5px] leading-5 text-[#756b78]">
                       {notice.description}
                     </p>
 
-                    <p className="mt-2 text-[9.5px] font-semibold text-slate-400">
+                    <p className="mt-2 text-[9.5px] font-semibold text-[#8b778e]">
                       {notice.createdAt
                         ? new Date(notice.createdAt).toLocaleDateString()
                         : ""}
@@ -439,10 +439,10 @@ function ResidentDashboard() {
         </section>
 
         {/* ================= COMPLAINT SECTION ================= */}
-        <section className="mt-6 overflow-hidden rounded-[1px] border border-slate-200 bg-white">
+        <section className="mt-6 overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
-            <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
+            <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
               <MessageSquareWarning
                 size={16}
                 className="text-red-500"
@@ -456,40 +456,40 @@ function ResidentDashboard() {
             <button
               type="button"
               onClick={() => navigate("/resident/complaints")}
-              className="group flex items-center justify-between rounded-[1px] border border-slate-200 bg-slate-50 p-4 text-left transition hover:border-emerald-300 hover:bg-emerald-50"
+              className="group flex items-center justify-between rounded-[1px] border border-[#e2d9df] bg-[#f7f3ed] p-4 text-left transition hover:border-[#d9be82] hover:bg-[#f7f3ed]"
             >
               <div>
-                <p className="text-[11.5px] font-bold text-slate-800">
+                <p className="text-[11.5px] font-bold text-[#49394d]">
                   View My Complaints
                 </p>
 
-                <p className="mt-1 text-[10px] text-slate-400">
+                <p className="mt-1 text-[10px] text-[#8b778e]">
                   Check all submitted complaints and their status.
                 </p>
               </div>
 
               <ArrowRight
                 size={18}
-                className="text-slate-400 transition group-hover:translate-x-1 group-hover:text-emerald-500"
+                className="text-[#8b778e] transition group-hover:translate-x-1 group-hover:text-[#9b7740]"
               />
             </button>
 
             <button
               type="button"
               onClick={() => navigate("/resident/complaints")}
-              className="group flex items-center justify-between rounded-[1px] border border-emerald-200 bg-emerald-50 p-4 text-left transition hover:bg-emerald-100"
+              className="group flex items-center justify-between rounded-[1px] border border-[#e2d9df] bg-[#f7f3ed] p-4 text-left transition hover:bg-[#f5eee2]"
             >
               <div>
-                <p className="text-[11.5px] font-bold text-emerald-700">
+                <p className="text-[11.5px] font-bold text-[#826331]">
                   Create New Complaint
                 </p>
 
-                <p className="mt-1 text-[10px] text-emerald-600">
+                <p className="mt-1 text-[10px] text-[#9b7740]">
                   Report an issue to society management.
                 </p>
               </div>
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-emerald-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-white text-[#9b7740]">
                 <Plus size={17} />
               </div>
             </button>
@@ -513,13 +513,13 @@ function ResidentStat({
 }) {
   const tones = {
     green: {
-      icon: "bg-emerald-50 text-emerald-500",
-      circle: "bg-emerald-500",
+      icon: "bg-[#f7f3ed] text-[#9b7740]",
+      circle: "bg-[#9b7740]",
     },
 
     yellow: {
-      icon: "bg-amber-50 text-amber-500",
-      circle: "bg-amber-500",
+      icon: "bg-[#f7f3ed] text-[#9b7740]",
+      circle: "bg-[#9b7740]",
     },
 
     red: {
@@ -531,7 +531,7 @@ function ResidentStat({
   const current = tones[tone] || tones.green;
 
   return (
-    <div className="relative overflow-hidden rounded-[1px] border border-slate-200 bg-white p-5">
+    <div className="relative overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white p-5">
 
       <div
         className={`absolute -right-5 -top-5 h-20 w-20 rounded-full opacity-[0.06] ${current.circle}`}
@@ -543,15 +543,15 @@ function ResidentStat({
         <Icon size={20} />
       </div>
 
-      <div className="text-[26px] font-extrabold leading-none tracking-tight text-slate-900">
+      <div className="text-[26px] font-extrabold leading-none tracking-tight text-[#32143b]">
         {value}
       </div>
 
-      <div className="mt-1 text-[12.5px] font-semibold text-slate-600">
+      <div className="mt-1 text-[12.5px] font-semibold text-[#756b78]">
         {title}
       </div>
 
-      <div className="mt-1 text-[10.5px] font-medium text-slate-400">
+      <div className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
         {label}
       </div>
 
@@ -564,7 +564,7 @@ function ResidentStat({
 function StatusSmall({ status }) {
   if (status === "Active" || status === "Approved") {
     return (
-      <span className="rounded-[1px] bg-emerald-50 px-1.5 py-0.5 text-[8px] font-bold text-emerald-600">
+      <span className="rounded-[1px] bg-[#f7f3ed] px-1.5 py-0.5 text-[8px] font-bold text-[#9b7740]">
         {status}
       </span>
     );
@@ -579,7 +579,7 @@ function StatusSmall({ status }) {
   }
 
   return (
-    <span className="rounded-[1px] bg-slate-100 px-1.5 py-0.5 text-[8px] font-bold text-slate-500">
+    <span className="rounded-[1px] bg-[#eee8ed] px-1.5 py-0.5 text-[8px] font-bold text-[#756b78]">
       {status || "Pending"}
     </span>
   );
@@ -589,8 +589,8 @@ function StatusSmall({ status }) {
 
 function EmptyState({ text }) {
   return (
-    <div className="flex min-h-[100px] items-center justify-center rounded-[1px] border border-dashed border-slate-200 bg-slate-50 px-4 text-center">
-      <p className="text-[11px] font-medium text-slate-400">
+    <div className="flex min-h-[100px] items-center justify-center rounded-[1px] border border-dashed border-[#e2d9df] bg-[#f7f3ed] px-4 text-center">
+      <p className="text-[11px] font-medium text-[#8b778e]">
         {text}
       </p>
     </div>

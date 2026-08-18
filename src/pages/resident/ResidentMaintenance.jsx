@@ -525,7 +525,7 @@ function ResidentMaintenance() {
     return (
       <DashboardLayout role="resident">
         <div className="flex min-h-[400px] items-center justify-center">
-          <p className="text-sm font-medium text-slate-500">
+          <p className="text-sm font-medium text-[#756b78]">
             Loading maintenance records...
           </p>
         </div>
@@ -540,15 +540,15 @@ function ResidentMaintenance() {
         {/* ================= HEADER ================= */}
 
         <div className="mb-6">
-          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
             Resident Portal
           </p>
 
-          <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+          <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
             Maintenance
           </h1>
 
-          <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+          <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
             View your maintenance bills and payment status.
           </p>
         </div>
@@ -593,26 +593,26 @@ function ResidentMaintenance() {
 
         {/* ================= PENDING AMOUNT ================= */}
 
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-emerald-200 bg-emerald-50">
+        <section className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-[#f7f3ed]">
 
           <div className="flex items-center justify-between gap-4 p-5">
 
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-wide text-emerald-600">
+              <p className="text-[10px] font-bold uppercase tracking-wide text-[#9b7740]">
                 Outstanding Maintenance
               </p>
 
-              <p className="mt-1 text-[24px] font-extrabold text-emerald-700">
+              <p className="mt-1 text-[24px] font-extrabold text-[#826331]">
                 Rs.{" "}
                 {pendingAmount.toLocaleString()}
               </p>
 
-              <p className="mt-1 text-[10.5px] font-medium text-emerald-600">
+              <p className="mt-1 text-[10.5px] font-medium text-[#9b7740]">
                 Pending and overdue maintenance
               </p>
             </div>
 
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-emerald-500">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-[#9b7740]">
               <ReceiptText size={22} />
             </div>
 
@@ -622,23 +622,23 @@ function ResidentMaintenance() {
 
         {/* ================= MAINTENANCE LIST ================= */}
 
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div>
-              <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+              <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
 
                 <ReceiptText
                   size={16}
-                  className="text-emerald-500"
+                  className="text-[#9b7740]"
                 />
 
                 Maintenance Records
 
               </h2>
 
-              <p className="mt-1 text-[10px] text-slate-400">
+              <p className="mt-1 text-[10px] text-[#8b778e]">
                 Your maintenance bills and payment history
               </p>
             </div>
@@ -649,20 +649,20 @@ function ResidentMaintenance() {
 
             {maintenance.length === 0 ? (
 
-              <div className="flex min-h-[180px] items-center justify-center rounded-[12px] border border-dashed border-slate-200 bg-slate-50">
+              <div className="flex min-h-[180px] items-center justify-center rounded-[12px] border border-dashed border-[#e2d9df] bg-[#f7f3ed]">
 
                 <div className="text-center">
 
                   <ReceiptText
                     size={28}
-                    className="mx-auto mb-2 text-slate-300"
+                    className="mx-auto mb-2 text-[#bca9c0]"
                   />
 
-                  <p className="text-[11px] font-semibold text-slate-500">
+                  <p className="text-[11px] font-semibold text-[#756b78]">
                     No maintenance records found
                   </p>
 
-                  <p className="mt-1 text-[10px] text-slate-400">
+                  <p className="mt-1 text-[10px] text-[#8b778e]">
                     Your maintenance bills will appear here.
                   </p>
 
@@ -678,25 +678,25 @@ function ResidentMaintenance() {
 
                   <thead>
 
-                    <tr className="border-b border-slate-200">
+                    <tr className="border-b border-[#e2d9df]">
 
-                      <th className="px-4 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                      <th className="px-4 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                         Month
                       </th>
 
-                      <th className="px-4 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                      <th className="px-4 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                         Amount
                       </th>
 
-                      <th className="px-4 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                      <th className="px-4 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                         Due Date
                       </th>
 
-                      <th className="px-4 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                      <th className="px-4 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                         Status
                       </th>
 
-                      <th className="px-4 py-3 text-right text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                      <th className="px-4 py-3 text-right text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                         Actions
                       </th>
 
@@ -710,7 +710,7 @@ function ResidentMaintenance() {
 
                       <tr
                         key={item._id}
-                        className="border-b border-slate-100 last:border-0 hover:bg-slate-50"
+                        className="border-b border-[#eee8ed] last:border-0 hover:bg-[#f7f3ed]"
                       >
 
                         {/* MONTH */}
@@ -719,13 +719,13 @@ function ResidentMaintenance() {
 
                           <div className="flex items-center gap-2.5">
 
-                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
 
                               <ReceiptText size={16} />
 
                             </div>
 
-                            <span className="text-[11px] font-bold text-slate-800">
+                            <span className="text-[11px] font-bold text-[#49394d]">
                               {item.month}
                             </span>
 
@@ -737,7 +737,7 @@ function ResidentMaintenance() {
 
                         <td className="px-4 py-4">
 
-                          <span className="text-[11px] font-bold text-slate-800">
+                          <span className="text-[11px] font-bold text-[#49394d]">
 
                             Rs.{" "}
 
@@ -753,7 +753,7 @@ function ResidentMaintenance() {
 
                         <td className="px-4 py-4">
 
-                          <div className="flex items-center gap-1.5 text-[10px] font-medium text-slate-500">
+                          <div className="flex items-center gap-1.5 text-[10px] font-medium text-[#756b78]">
 
                             <CalendarDays size={13} />
 
@@ -793,7 +793,7 @@ function ResidentMaintenance() {
                                 )
                               }
                               title="View Details"
-                              className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 text-[10px] font-bold text-slate-600 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-600"
+                              className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-[#e2d9df] bg-white px-3 text-[10px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
                             >
 
                               <Eye size={13} />
@@ -812,7 +812,7 @@ function ResidentMaintenance() {
                                 )
                               }
                               title="View Voucher"
-                              className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-violet-50 px-3 text-[10px] font-bold text-violet-600 transition hover:bg-violet-100"
+                              className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-[#f7f3ed] px-3 text-[10px] font-bold text-[#63366f] transition hover:bg-[#f1eaf3]"
                             >
 
                               <FileText size={13} />
@@ -831,7 +831,7 @@ function ResidentMaintenance() {
                                 )
                               }
                               title="Download Voucher PDF"
-                              className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-slate-100 px-3 text-[10px] font-bold text-slate-600 transition hover:bg-slate-200"
+                              className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-[#eee8ed] px-3 text-[10px] font-bold text-[#756b78] transition hover:bg-[#e2d9df]"
                             >
 
                               <Download size={13} />
@@ -864,19 +864,19 @@ function ResidentMaintenance() {
 
         {selectedMaintenance && (
 
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/50 p-4">
 
             <div className="w-full max-w-md overflow-hidden rounded-[16px] bg-white shadow-2xl">
 
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
                 <div>
 
-                  <p className="text-[9px] font-bold uppercase tracking-wide text-emerald-500">
+                  <p className="text-[9px] font-bold uppercase tracking-wide text-[#9b7740]">
                     Maintenance Details
                   </p>
 
-                  <h2 className="mt-1 text-[16px] font-extrabold text-slate-900">
+                  <h2 className="mt-1 text-[16px] font-extrabold text-[#32143b]">
                     {selectedMaintenance.month}
                   </h2>
 
@@ -887,7 +887,7 @@ function ResidentMaintenance() {
                   onClick={() =>
                     setSelectedMaintenance(null)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
 
                   <X size={17} />
@@ -964,14 +964,14 @@ function ResidentMaintenance() {
 
               </div>
 
-              <div className="flex gap-2 border-t border-slate-200 px-5 py-4">
+              <div className="flex gap-2 border-t border-[#e2d9df] px-5 py-4">
 
                 <button
                   type="button"
                   onClick={() =>
                     setSelectedMaintenance(null)
                   }
-                  className="flex-1 rounded-lg border border-slate-200 bg-white py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50"
+                  className="flex-1 rounded-lg border border-[#e2d9df] bg-white py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
                 >
                   Close
                 </button>
@@ -984,7 +984,7 @@ function ResidentMaintenance() {
                       selectedMaintenance
                     );
                   }}
-                  className="flex-1 rounded-lg bg-violet-500 py-2.5 text-[11px] font-bold text-white transition hover:bg-violet-600"
+                  className="flex-1 rounded-lg bg-[#63366f] py-2.5 text-[11px] font-bold text-white transition hover:bg-[#63366f]"
                 >
                   View Voucher
                 </button>
@@ -1001,17 +1001,17 @@ function ResidentMaintenance() {
 
         {voucherMaintenance && (
 
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/50 p-4">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#32143b]/50 p-4">
 
             <div className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-[18px] bg-white shadow-2xl">
 
               {/* VOUCHER HEADER */}
 
-              <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
+              <div className="flex items-center justify-between border-b border-[#e2d9df] px-6 py-4">
 
                 <div className="flex items-center gap-3">
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-violet-50 text-violet-600">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#63366f]">
 
                     <FileText size={18} />
 
@@ -1019,11 +1019,11 @@ function ResidentMaintenance() {
 
                   <div>
 
-                    <h2 className="text-[15px] font-bold text-slate-900">
+                    <h2 className="text-[15px] font-bold text-[#32143b]">
                       Maintenance Voucher
                     </h2>
 
-                    <p className="text-[10.5px] font-medium text-slate-400">
+                    <p className="text-[10.5px] font-medium text-[#8b778e]">
                       SmartSociety Maintenance Voucher
                     </p>
 
@@ -1036,7 +1036,7 @@ function ResidentMaintenance() {
                   onClick={() =>
                     setVoucherMaintenance(null)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
 
                   <X size={18} />
@@ -1051,15 +1051,15 @@ function ResidentMaintenance() {
 
                 {/* TOP */}
 
-                <div className="flex items-start justify-between border-b border-slate-200 pb-5">
+                <div className="flex items-start justify-between border-b border-[#e2d9df] pb-5">
 
                   <div>
 
-                    <h1 className="text-[22px] font-extrabold text-slate-900">
+                    <h1 className="text-[22px] font-extrabold text-[#32143b]">
                       SmartSociety
                     </h1>
 
-                    <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+                    <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                       Society Management System
                     </p>
 
@@ -1067,18 +1067,18 @@ function ResidentMaintenance() {
 
                   <div className="text-right">
 
-                    <p className="text-[18px] font-extrabold text-slate-900">
+                    <p className="text-[18px] font-extrabold text-[#32143b]">
                       MAINTENANCE VOUCHER
                     </p>
 
-                    <p className="mt-1 text-[10px] font-semibold text-slate-400">
+                    <p className="mt-1 text-[10px] font-semibold text-[#8b778e]">
                       INV-
                       {voucherMaintenance._id
                         ?.slice(-8)
                         .toUpperCase()}
                     </p>
 
-                    <p className="mt-1 text-[10px] font-semibold text-slate-400">
+                    <p className="mt-1 text-[10px] font-semibold text-[#8b778e]">
                       {voucherMaintenance.createdAt
                         ? new Date(
                             voucherMaintenance.createdAt
@@ -1098,23 +1098,23 @@ function ResidentMaintenance() {
 
                   <div>
 
-                    <p className="mb-2 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="mb-2 text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Resident Information
                     </p>
 
-                    <p className="text-[12px] font-bold text-slate-800">
+                    <p className="text-[12px] font-bold text-[#49394d]">
                       Flat:{" "}
                       {voucherMaintenance.flatNo ||
                         "-"}
                     </p>
 
-                    <p className="mt-1 text-[10.5px] text-slate-500">
+                    <p className="mt-1 text-[10.5px] text-[#756b78]">
                       Month:{" "}
                       {voucherMaintenance.month ||
                         "-"}
                     </p>
 
-                    <p className="mt-1 text-[10.5px] text-slate-500">
+                    <p className="mt-1 text-[10.5px] text-[#756b78]">
                       Due Date:{" "}
                       {voucherMaintenance.dueDate
                         ? new Date(
@@ -1129,7 +1129,7 @@ function ResidentMaintenance() {
 
                   <div className="sm:text-right">
 
-                    <p className="mb-2 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="mb-2 text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Payment Information
                     </p>
 
@@ -1141,7 +1141,7 @@ function ResidentMaintenance() {
 
                     {voucherMaintenance.paidAt && (
 
-                      <p className="mt-2 text-[10.5px] text-slate-500">
+                      <p className="mt-2 text-[10.5px] text-[#756b78]">
                         Paid:{" "}
                         {new Date(
                           voucherMaintenance.paidAt
@@ -1152,7 +1152,7 @@ function ResidentMaintenance() {
 
                     {voucherMaintenance.transactionId && (
 
-                      <p className="mt-1 break-all text-[10px] text-slate-500">
+                      <p className="mt-1 break-all text-[10px] text-[#756b78]">
                         Transaction:{" "}
                         {voucherMaintenance.transactionId}
                       </p>
@@ -1165,15 +1165,15 @@ function ResidentMaintenance() {
 
                 {/* TABLE */}
 
-                <div className="overflow-hidden rounded-xl border border-slate-200">
+                <div className="overflow-hidden rounded-xl border border-[#e2d9df]">
 
-                  <div className="grid grid-cols-[1fr_auto] bg-slate-50 px-4 py-3">
+                  <div className="grid grid-cols-[1fr_auto] bg-[#f7f3ed] px-4 py-3">
 
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Description
                     </span>
 
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Amount
                     </span>
 
@@ -1183,7 +1183,7 @@ function ResidentMaintenance() {
 
                     <div>
 
-                      <p className="text-[11px] font-bold text-slate-700">
+                      <p className="text-[11px] font-bold text-[#49394d]">
                         {voucherMaintenance.source ===
                         "Complaint"
                           ? "Complaint / Maintenance Charges"
@@ -1194,7 +1194,7 @@ function ResidentMaintenance() {
                         "Complaint" &&
                         voucherMaintenance.complaint && (
 
-                          <p className="mt-1 text-[9.5px] text-slate-400">
+                          <p className="mt-1 text-[9.5px] text-[#8b778e]">
                             {voucherMaintenance
                               .complaint
                               .subject ||
@@ -1205,7 +1205,7 @@ function ResidentMaintenance() {
 
                     </div>
 
-                    <span className="text-[11px] font-bold text-slate-800">
+                    <span className="text-[11px] font-bold text-[#49394d]">
                       Rs.{" "}
                       {Number(
                         voucherMaintenance.amount ||
@@ -1223,13 +1223,13 @@ function ResidentMaintenance() {
 
                   <div className="w-full max-w-[240px]">
 
-                    <div className="flex items-center justify-between border-t border-slate-200 pt-3">
+                    <div className="flex items-center justify-between border-t border-[#e2d9df] pt-3">
 
-                      <span className="text-[12px] font-bold text-slate-600">
+                      <span className="text-[12px] font-bold text-[#756b78]">
                         Total
                       </span>
 
-                      <span className="text-[17px] font-extrabold text-emerald-600">
+                      <span className="text-[17px] font-extrabold text-[#9b7740]">
                         Rs.{" "}
                         {Number(
                           voucherMaintenance.amount ||
@@ -1249,19 +1249,19 @@ function ResidentMaintenance() {
                   "Complaint" &&
                   voucherMaintenance.complaint && (
 
-                    <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <div className="mt-6 rounded-xl border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
-                      <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                         Complaint Information
                       </p>
 
                       <div className="mt-3 grid gap-2 sm:grid-cols-2">
 
-                        <p className="text-[10.5px] text-slate-600">
+                        <p className="text-[10.5px] text-[#756b78]">
 
                           Subject:{" "}
 
-                          <span className="font-semibold text-slate-800">
+                          <span className="font-semibold text-[#49394d]">
 
                             {voucherMaintenance
                               .complaint
@@ -1272,11 +1272,11 @@ function ResidentMaintenance() {
 
                         </p>
 
-                        <p className="text-[10.5px] text-slate-600">
+                        <p className="text-[10.5px] text-[#756b78]">
 
                           Category:{" "}
 
-                          <span className="font-semibold text-slate-800">
+                          <span className="font-semibold text-[#49394d]">
 
                             {voucherMaintenance
                               .complaint
@@ -1295,13 +1295,13 @@ function ResidentMaintenance() {
 
                 {/* FOOTER */}
 
-                <div className="mt-8 border-t border-slate-200 pt-4">
+                <div className="mt-8 border-t border-[#e2d9df] pt-4">
 
-                  <p className="text-center text-[9.5px] font-medium text-slate-400">
+                  <p className="text-center text-[9.5px] font-medium text-[#8b778e]">
                     This is a computer-generated maintenance voucher.
                   </p>
 
-                  <p className="mt-1 text-center text-[9.5px] font-medium text-slate-400">
+                  <p className="mt-1 text-center text-[9.5px] font-medium text-[#8b778e]">
                     SmartSociety Management System
                   </p>
 
@@ -1311,14 +1311,14 @@ function ResidentMaintenance() {
 
               {/* ACTIONS */}
 
-              <div className="flex justify-end gap-3 border-t border-slate-200 bg-slate-50 px-6 py-4">
+              <div className="flex justify-end gap-3 border-t border-[#e2d9df] bg-[#f7f3ed] px-6 py-4">
 
                 <button
                   type="button"
                   onClick={() =>
                     setVoucherMaintenance(null)
                   }
-                  className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-100"
+                  className="rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#eee8ed]"
                 >
                   Close
                 </button>
@@ -1330,7 +1330,7 @@ function ResidentMaintenance() {
                       voucherMaintenance
                     )
                   }
-                  className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
                 >
 
                   <Download size={14} />
@@ -1351,11 +1351,11 @@ function ResidentMaintenance() {
 
         {detailsLoading && (
 
-          <div className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-900/30">
+          <div className="fixed inset-0 z-[110] flex items-center justify-center bg-[#32143b]/30">
 
             <div className="rounded-lg bg-white px-5 py-3 shadow-lg">
 
-              <p className="text-[11px] font-semibold text-slate-600">
+              <p className="text-[11px] font-semibold text-[#756b78]">
                 Loading details...
               </p>
 
@@ -1381,27 +1381,27 @@ function MaintenanceStat({
 }) {
   const tones = {
     green: {
-      icon: "bg-emerald-50 text-emerald-500",
-      circle: "bg-emerald-500",
+      icon: "bg-[#f7f3ed] text-[#9b7740]",
+      circle: "bg-[#9b7740]",
     },
     yellow: {
-      icon: "bg-amber-50 text-amber-500",
-      circle: "bg-amber-500",
+      icon: "bg-[#f7f3ed] text-[#9b7740]",
+      circle: "bg-[#9b7740]",
     },
     red: {
       icon: "bg-red-50 text-red-500",
       circle: "bg-red-500",
     },
     blue: {
-      icon: "bg-sky-50 text-sky-500",
-      circle: "bg-sky-500",
+      icon: "bg-[#f7f3ed] text-[#9b7740]",
+      circle: "bg-[#9b7740]",
     },
   };
 
   const current = tones[tone] || tones.green;
 
   return (
-    <div className="relative overflow-hidden rounded-[16px] border border-slate-200 bg-white p-5">
+    <div className="relative overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white p-5">
 
       <div
         className={`absolute -right-5 -top-5 h-20 w-20 rounded-full opacity-[0.06] ${current.circle}`}
@@ -1413,15 +1413,15 @@ function MaintenanceStat({
         <Icon size={20} />
       </div>
 
-      <div className="text-[26px] font-extrabold leading-none tracking-tight text-slate-900">
+      <div className="text-[26px] font-extrabold leading-none tracking-tight text-[#32143b]">
         {value}
       </div>
 
-      <div className="mt-1 text-[12.5px] font-semibold text-slate-600">
+      <div className="mt-1 text-[12.5px] font-semibold text-[#756b78]">
         {title}
       </div>
 
-      <div className="mt-1 text-[10.5px] font-medium text-slate-400">
+      <div className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
         {label}
       </div>
 
@@ -1434,7 +1434,7 @@ function MaintenanceStat({
 function MaintenanceStatus({ status }) {
   if (status === "Paid") {
     return (
-      <span className="inline-flex rounded-full bg-emerald-50 px-2 py-1 text-[8.5px] font-bold text-emerald-600">
+      <span className="inline-flex rounded-full bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
         Paid
       </span>
     );
@@ -1449,7 +1449,7 @@ function MaintenanceStatus({ status }) {
   }
 
   return (
-    <span className="inline-flex rounded-full bg-amber-50 px-2 py-1 text-[8.5px] font-bold text-amber-600">
+    <span className="inline-flex rounded-full bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
       Pending
     </span>
   );
@@ -1459,13 +1459,13 @@ function MaintenanceStatus({ status }) {
 
 function MaintenanceDetail({ label, value }) {
   return (
-    <div className="flex items-center justify-between gap-4 rounded-lg bg-slate-50 px-3 py-2.5">
+    <div className="flex items-center justify-between gap-4 rounded-lg bg-[#f7f3ed] px-3 py-2.5">
 
-      <span className="text-[10px] font-semibold text-slate-400">
+      <span className="text-[10px] font-semibold text-[#8b778e]">
         {label}
       </span>
 
-      <span className="break-all text-right text-[10.5px] font-bold text-slate-700">
+      <span className="break-all text-right text-[10.5px] font-bold text-[#49394d]">
         {value}
       </span>
 

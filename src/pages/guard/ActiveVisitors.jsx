@@ -172,15 +172,15 @@ function ActiveVisitors() {
         <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-start">
 
           <div>
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Security Portal
             </p>
 
-            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+            <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
               Active Visitors
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Monitor visitors currently inside the society and record their exit.
             </p>
           </div>
@@ -189,7 +189,7 @@ function ActiveVisitors() {
             type="button"
             onClick={fetchActiveVisitors}
             disabled={loading}
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-3 text-[10.5px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600 disabled:opacity-60"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
           >
             <RefreshCw
               size={14}
@@ -223,21 +223,21 @@ function ActiveVisitors() {
 
         <div className="mb-5 grid gap-4 lg:grid-cols-[180px_1fr]">
 
-          <div className="rounded-[16px] border border-emerald-100 bg-emerald-50 p-4">
+          <div className="rounded-[16px] border border-[#f5eee2] bg-[#f7f3ed] p-4">
 
             <div className="flex items-center justify-between">
 
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-wide text-emerald-600">
+                <p className="text-[9px] font-bold uppercase tracking-wide text-[#9b7740]">
                   Currently Inside
                 </p>
 
-                <h2 className="mt-2 text-[24px] font-extrabold tracking-tight text-slate-900">
+                <h2 className="mt-2 text-[24px] font-extrabold tracking-tight text-[#32143b]">
                   {visitors.length}
                 </h2>
               </div>
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-emerald-500">
+              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#9b7740]">
                 <Users size={19} />
               </div>
 
@@ -245,13 +245,13 @@ function ActiveVisitors() {
 
           </div>
 
-          <div className="flex items-center rounded-[16px] border border-slate-200 bg-white p-4">
+          <div className="flex items-center rounded-[16px] border border-[#e2d9df] bg-white p-4">
 
             <div className="relative w-full">
 
               <Search
                 size={16}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
               />
 
               <input
@@ -259,7 +259,7 @@ function ActiveVisitors() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by visitor, resident, flat number or phone..."
-                className="h-11 w-full rounded-xl border border-slate-200 bg-white pl-10 pr-4 text-[11.5px] font-medium text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-50"
+                className="h-11 w-full rounded-xl border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
               />
 
             </div>
@@ -272,16 +272,16 @@ function ActiveVisitors() {
         {/* VISITORS TABLE */}
         {/* ========================================== */}
 
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div>
-              <h2 className="text-[13px] font-bold text-slate-900">
+              <h2 className="text-[13px] font-bold text-[#32143b]">
                 Visitors Inside
               </h2>
 
-              <p className="mt-1 text-[10px] font-medium text-slate-400">
+              <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                 {filteredVisitors.length} visitor
                 {filteredVisitors.length !== 1 ? "s" : ""} shown
               </p>
@@ -292,7 +292,7 @@ function ActiveVisitors() {
           {loading ? (
             <div className="flex items-center justify-center py-16">
 
-              <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-400">
+              <div className="flex items-center gap-2 text-[11px] font-semibold text-[#8b778e]">
                 <Loader2
                   size={17}
                   className="animate-spin"
@@ -305,17 +305,17 @@ function ActiveVisitors() {
           ) : filteredVisitors.length === 0 ? (
             <div className="px-5 py-16 text-center">
 
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-400">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#eee8ed] text-[#8b778e]">
                 <Users size={22} />
               </div>
 
-              <h3 className="mt-4 text-[13px] font-bold text-slate-700">
+              <h3 className="mt-4 text-[13px] font-bold text-[#49394d]">
                 {visitors.length === 0
                   ? "No visitors currently inside"
                   : "No matching visitors found"}
               </h3>
 
-              <p className="mt-1 text-[10.5px] text-slate-400">
+              <p className="mt-1 text-[10.5px] text-[#8b778e]">
                 {visitors.length === 0
                   ? "Visitors who enter the society will appear here."
                   : "Try searching with different information."}
@@ -327,35 +327,35 @@ function ActiveVisitors() {
 
               <table className="w-full min-w-[950px] text-left">
 
-                <thead className="border-b border-slate-100 bg-slate-50/70">
+                <thead className="border-b border-[#eee8ed] bg-[#f7f3ed]/70">
 
                   <tr>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Visitor
                     </th>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Resident
                     </th>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Flat
                     </th>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Phone
                     </th>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Entry Time
                     </th>
 
-                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Time Inside
                     </th>
 
-                    <th className="px-5 py-3 text-right text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-right text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Action
                     </th>
 
@@ -369,7 +369,7 @@ function ActiveVisitors() {
 
                     <tr
                       key={visitor._id}
-                      className="border-b border-slate-100 last:border-0 hover:bg-slate-50/50"
+                      className="border-b border-[#eee8ed] last:border-0 hover:bg-[#f7f3ed]/50"
                     >
 
                       {/* VISITOR */}
@@ -378,17 +378,17 @@ function ActiveVisitors() {
 
                         <div className="flex items-center gap-3">
 
-                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                             <User size={14} />
                           </div>
 
                           <div>
 
-                            <p className="text-[11px] font-bold text-slate-700">
+                            <p className="text-[11px] font-bold text-[#49394d]">
                               {visitor.visitorName}
                             </p>
 
-                            <p className="mt-0.5 text-[9.5px] text-slate-400">
+                            <p className="mt-0.5 text-[9.5px] text-[#8b778e]">
                               {visitor.isWalkIn
                                 ? "Walk-in Visitor"
                                 : "Pre-approved Pass"}
@@ -404,7 +404,7 @@ function ActiveVisitors() {
 
                       <td className="px-5 py-4">
 
-                        <p className="text-[10.5px] font-semibold text-slate-600">
+                        <p className="text-[10.5px] font-semibold text-[#756b78]">
                           {visitor.resident?.name || "—"}
                         </p>
 
@@ -414,11 +414,11 @@ function ActiveVisitors() {
 
                       <td className="px-5 py-4">
 
-                        <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-600">
+                        <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-[#756b78]">
 
                           <Home
                             size={13}
-                            className="text-slate-400"
+                            className="text-[#8b778e]"
                           />
 
                           {visitor.flatNo ||
@@ -433,11 +433,11 @@ function ActiveVisitors() {
 
                       <td className="px-5 py-4">
 
-                        <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-600">
+                        <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-[#756b78]">
 
                           <Phone
                             size={13}
-                            className="text-slate-400"
+                            className="text-[#8b778e]"
                           />
 
                           {visitor.phone || "—"}
@@ -450,7 +450,7 @@ function ActiveVisitors() {
 
                       <td className="px-5 py-4">
 
-                        <p className="text-[10px] font-semibold text-slate-600">
+                        <p className="text-[10px] font-semibold text-[#756b78]">
                           {formatDateTime(visitor.entryTime)}
                         </p>
 
@@ -460,7 +460,7 @@ function ActiveVisitors() {
 
                       <td className="px-5 py-4">
 
-                        <div className="inline-flex items-center gap-1.5 rounded-lg bg-amber-50 px-2.5 py-1.5 text-[9.5px] font-bold text-amber-600">
+                        <div className="inline-flex items-center gap-1.5 rounded-lg bg-[#f7f3ed] px-2.5 py-1.5 text-[9.5px] font-bold text-[#9b7740]">
 
                           <Clock3 size={12} />
 

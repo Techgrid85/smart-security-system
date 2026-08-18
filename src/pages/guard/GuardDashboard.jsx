@@ -28,29 +28,29 @@ const quickActions = [
   {
     title: "Verify Gate Pass",
     icon: QrCode,
-    bg: "bg-emerald-50",
-    color: "text-emerald-500",
+    bg: "bg-[#f7f3ed]",
+    color: "text-[#9b7740]",
     path: "/guard/verify-pass",
   },
   {
     title: "Walk-in Visitor",
     icon: UserPlus,
-    bg: "bg-indigo-50",
-    color: "text-indigo-500",
+    bg: "bg-[#f7f3ed]",
+    color: "text-[#63366f]",
     path: "/guard/walk-in",
   },
   {
     title: "Search Visitor",
     icon: Search,
-    bg: "bg-sky-50",
-    color: "text-sky-500",
+    bg: "bg-[#f7f3ed]",
+    color: "text-[#9b7740]",
     path: "/guard/all-visitors",
   },
   {
     title: "Gate Logs",
     icon: ClipboardList,
-    bg: "bg-amber-50",
-    color: "text-amber-500",
+    bg: "bg-[#f7f3ed]",
+    color: "text-[#9b7740]",
     path: "/guard/entry-logs",
   },
 ];
@@ -212,10 +212,10 @@ function GuardDashboard() {
           <div className="flex flex-col items-center gap-3">
             <Loader2
               size={32}
-              className="animate-spin text-emerald-500"
+              className="animate-spin text-[#9b7740]"
             />
 
-            <p className="text-sm font-medium text-slate-400">
+            <p className="text-sm font-medium text-[#8b778e]">
               Loading security dashboard...
             </p>
           </div>
@@ -232,31 +232,31 @@ function GuardDashboard() {
 
         <div className="mb-6 flex items-end justify-between gap-4">
           <div>
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Security Portal
             </p>
 
-            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+            <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
               Gate Management
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Monitor visitor passes and manage society gate activity.
             </p>
           </div>
 
-          <div className="hidden items-center gap-2 rounded-[10px] border border-emerald-200 bg-emerald-50 px-3 py-2 sm:flex">
+          <div className="hidden items-center gap-2 rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2 sm:flex">
             <ShieldCheck
               size={15}
-              className="text-emerald-500"
+              className="text-[#9b7740]"
             />
 
             <div>
-              <p className="text-[9px] font-bold uppercase tracking-wide text-emerald-500">
+              <p className="text-[9px] font-bold uppercase tracking-wide text-[#9b7740]">
                 Gate Status
               </p>
 
-              <p className="text-[11px] font-bold text-emerald-700">
+              <p className="text-[11px] font-bold text-[#826331]">
                 Gate 1 · Active
               </p>
             </div>
@@ -329,11 +329,11 @@ function GuardDashboard() {
 
         {/* ================= QUICK ACTIONS ================= */}
 
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center border-b border-slate-200 px-5 py-4">
-            <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
-              <span className="text-amber-500">
+          <div className="flex items-center border-b border-[#e2d9df] px-5 py-4">
+            <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
+              <span className="text-[#9b7740]">
                 ⚡
               </span>
 
@@ -350,7 +350,7 @@ function GuardDashboard() {
                 <Link
                   to={action.path}
                   key={action.title}
-                  className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[13px] border-[1.5px] border-dashed border-slate-200 bg-[#fafafa] transition hover:border-emerald-400 hover:bg-emerald-50"
+                  className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[13px] border-[1.5px] border-dashed border-[#e2d9df] bg-[#f7f3ed] transition hover:border-[#bca16a] hover:bg-[#f7f3ed]"
                 >
                   <div
                     className={`flex h-11 w-11 items-center justify-center rounded-xl ${action.bg} ${action.color} transition group-hover:scale-110`}
@@ -358,7 +358,7 @@ function GuardDashboard() {
                     <Icon size={20} />
                   </div>
 
-                  <span className="text-center text-[11.5px] font-semibold text-slate-800 group-hover:text-emerald-600">
+                  <span className="text-center text-[11.5px] font-semibold text-[#49394d] group-hover:text-[#9b7740]">
                     {action.title}
                   </span>
                 </Link>
@@ -370,25 +370,25 @@ function GuardDashboard() {
 
         {/* ================= APPROVED VISITOR PASSES ================= */}
 
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div>
-              <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+              <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
                 <QrCode
                   size={16}
-                  className="text-emerald-500"
+                  className="text-[#9b7740]"
                 />
                 Pending Visitor Passes
               </h2>
 
-              <p className="mt-1 text-[10px] font-medium text-slate-400">
+              <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                 Visitor passes created by residents and waiting for guard approval.
               </p>
             </div>
 
-            <span className="rounded-full bg-emerald-50 px-3 py-1.5 text-[9.5px] font-bold text-emerald-600">
+            <span className="rounded-full bg-[#f7f3ed] px-3 py-1.5 text-[9.5px] font-bold text-[#9b7740]">
               {pendingVisitors.length} Pending
             </span>
 
@@ -400,7 +400,7 @@ function GuardDashboard() {
               <table className="w-full min-w-[700px]">
 
                 <thead>
-                  <tr className="bg-slate-50">
+                  <tr className="bg-[#f7f3ed]">
                     <TableHead>Visitor</TableHead>
                     <TableHead>Flat</TableHead>
                     <TableHead>Phone</TableHead>
@@ -415,27 +415,27 @@ function GuardDashboard() {
                   {pendingVisitors.map((visitor) => (
                     <tr
                       key={visitor._id}
-                      className="border-t border-slate-200 hover:bg-slate-50"
+                      className="border-t border-[#e2d9df] hover:bg-[#f7f3ed]"
                     >
                       <td className="px-4 py-3.5">
-                        <p className="text-[11.5px] font-bold text-slate-800">
+                        <p className="text-[11.5px] font-bold text-[#49394d]">
                           {visitor.visitorName}
                         </p>
 
-                        <p className="mt-1 text-[9.5px] text-slate-400">
+                        <p className="mt-1 text-[9.5px] text-[#8b778e]">
                           ID: {visitor._id}
                         </p>
                       </td>
 
-                      <td className="px-4 py-3.5 text-[11px] font-semibold text-slate-600">
+                      <td className="px-4 py-3.5 text-[11px] font-semibold text-[#756b78]">
                         {visitor.flatNo || "-"}
                       </td>
 
-                      <td className="px-4 py-3.5 text-[11px] text-slate-500">
+                      <td className="px-4 py-3.5 text-[11px] text-[#756b78]">
                         {visitor.phone || "-"}
                       </td>
 
-                      <td className="px-4 py-3.5 text-[10.5px] text-slate-500">
+                      <td className="px-4 py-3.5 text-[10.5px] text-[#756b78]">
                         {visitor.visitDate
                           ? new Date(
                               visitor.visitDate
@@ -443,7 +443,7 @@ function GuardDashboard() {
                           : "-"}
                       </td>
 
-                      <td className="px-4 py-3.5 text-[10.5px] text-slate-500">
+                      <td className="px-4 py-3.5 text-[10.5px] text-[#756b78]">
                         {visitor.purpose || "-"}
                       </td>
 
@@ -468,7 +468,7 @@ function GuardDashboard() {
                               );
                             }
                           }}
-                          className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500 px-3 py-2 text-[9.5px] font-bold text-white transition hover:bg-emerald-600"
+                          className="inline-flex items-center gap-1.5 rounded-lg bg-[#9b7740] px-3 py-2 text-[9.5px] font-bold text-white transition hover:bg-[#9b7740]"
                         >
                           <ShieldCheck size={13} />
                           Approve
@@ -485,15 +485,15 @@ function GuardDashboard() {
           ) : (
             <div className="flex min-h-[160px] flex-col items-center justify-center text-center">
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-slate-50 text-slate-400">
+              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f7f3ed] text-[#8b778e]">
                 <QrCode size={20} />
               </div>
 
-              <p className="mt-3 text-[11px] font-bold text-slate-700">
+              <p className="mt-3 text-[11px] font-bold text-[#49394d]">
                 No visitor passes waiting
               </p>
 
-              <p className="mt-1 text-[9.5px] text-slate-400">
+              <p className="mt-1 text-[9.5px] text-[#8b778e]">
                 New passes created by residents will appear here.
               </p>
 
@@ -506,21 +506,21 @@ function GuardDashboard() {
 
         <div className="mt-6 grid gap-5 xl:grid-cols-[1.45fr_0.95fr]">
 
-          <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+          <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-            <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+            <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
-              <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+              <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
                 <ShieldCheck
                   size={16}
-                  className="text-emerald-500"
+                  className="text-[#9b7740]"
                 />
                 Recent Gate Activity
               </h2>
 
               <Link
                 to="/guard/entry-logs"
-                className="text-[11.5px] font-semibold text-emerald-500"
+                className="text-[11.5px] font-semibold text-[#9b7740]"
               >
                 View All →
               </Link>
@@ -532,7 +532,7 @@ function GuardDashboard() {
               <table className="w-full min-w-[600px]">
 
                 <thead>
-                  <tr className="bg-slate-50">
+                  <tr className="bg-[#f7f3ed]">
                     <TableHead>Visitor</TableHead>
                     <TableHead>Flat</TableHead>
                     <TableHead>Phone</TableHead>
@@ -547,31 +547,31 @@ function GuardDashboard() {
                     recentVisitors.map((visitor) => (
                       <tr
                         key={visitor._id}
-                        className="border-t border-slate-200 hover:bg-slate-50"
+                        className="border-t border-[#e2d9df] hover:bg-[#f7f3ed]"
                       >
                         <td className="px-4 py-3.5">
                           <div className="flex items-center gap-2.5">
 
-                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                               <Users size={14} />
                             </div>
 
-                            <span className="text-[11.5px] font-bold text-slate-800">
+                            <span className="text-[11.5px] font-bold text-[#49394d]">
                               {visitor.visitorName}
                             </span>
 
                           </div>
                         </td>
 
-                        <td className="px-4 py-3.5 text-[11px] font-semibold text-slate-600">
+                        <td className="px-4 py-3.5 text-[11px] font-semibold text-[#756b78]">
                           {visitor.flatNo || "-"}
                         </td>
 
-                        <td className="px-4 py-3.5 text-[10.5px] text-slate-500">
+                        <td className="px-4 py-3.5 text-[10.5px] text-[#756b78]">
                           {visitor.phone || "-"}
                         </td>
 
-                        <td className="px-4 py-3.5 text-[10.5px] text-slate-400">
+                        <td className="px-4 py-3.5 text-[10.5px] text-[#8b778e]">
                           {visitor.entryTime
                             ? new Date(
                                 visitor.entryTime
@@ -597,7 +597,7 @@ function GuardDashboard() {
                     <tr>
                       <td
                         colSpan="5"
-                        className="px-4 py-10 text-center text-[11px] font-medium text-slate-400"
+                        className="px-4 py-10 text-center text-[11px] font-medium text-[#8b778e]"
                       >
                         No visitor activity found
                       </td>
@@ -614,19 +614,19 @@ function GuardDashboard() {
 
           {/* ================= ACTIVE VISITORS ================= */}
 
-          <section className="rounded-[16px] border border-slate-200 bg-white">
+          <section className="rounded-[16px] border border-[#e2d9df] bg-white">
 
-            <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+            <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
-              <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+              <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
                 <Users
                   size={16}
-                  className="text-sky-500"
+                  className="text-[#9b7740]"
                 />
                 Currently Inside
               </h2>
 
-              <span className="rounded-full bg-sky-50 px-2 py-1 text-[9.5px] font-bold text-sky-600">
+              <span className="rounded-full bg-[#f7f3ed] px-2 py-1 text-[9.5px] font-bold text-[#9b7740]">
                 {activeVisitors.length}
               </span>
 
@@ -639,22 +639,22 @@ function GuardDashboard() {
                   (visitor) => (
                     <div
                       key={visitor._id}
-                      className="rounded-[12px] border border-slate-100 p-3"
+                      className="rounded-[12px] border border-[#eee8ed] p-3"
                     >
 
                       <div className="flex items-center gap-3">
 
-                        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-sky-50 text-sky-500">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                           <Users size={16} />
                         </div>
 
                         <div className="min-w-0 flex-1">
 
-                          <p className="truncate text-[11px] font-bold text-slate-800">
+                          <p className="truncate text-[11px] font-bold text-[#49394d]">
                             {visitor.visitorName}
                           </p>
 
-                          <p className="mt-0.5 text-[9.5px] text-slate-400">
+                          <p className="mt-0.5 text-[9.5px] text-[#8b778e]">
                             Flat {visitor.flatNo || "-"} ·{" "}
                             {visitor.purpose || "Visitor"}
                           </p>
@@ -665,7 +665,7 @@ function GuardDashboard() {
 
                       <div className="mt-3 flex items-center justify-between">
 
-                        <span className="text-[9px] text-slate-400">
+                        <span className="text-[9px] text-[#8b778e]">
                           Entered{" "}
                           {visitor.entryTime
                             ? new Date(
@@ -680,7 +680,7 @@ function GuardDashboard() {
                             : "-"}
                         </span>
 
-                        <span className="rounded-full bg-emerald-50 px-2 py-1 text-[8.5px] font-bold text-emerald-600">
+                        <span className="rounded-full bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
                           Inside
                         </span>
 
@@ -692,15 +692,15 @@ function GuardDashboard() {
               ) : (
                 <div className="flex min-h-[200px] flex-col items-center justify-center text-center">
 
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-emerald-50 text-emerald-500">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
                     <ShieldCheck size={20} />
                   </div>
 
-                  <p className="mt-3 text-[11px] font-bold text-slate-700">
+                  <p className="mt-3 text-[11px] font-bold text-[#49394d]">
                     No visitors inside
                   </p>
 
-                  <p className="mt-1 text-[9.5px] text-slate-400">
+                  <p className="mt-1 text-[9.5px] text-[#8b778e]">
                     The society is clear right now.
                   </p>
 
@@ -722,7 +722,7 @@ function GuardDashboard() {
             title="Today's Entries"
             value={todayEntries.length}
             text="Visitors checked in today"
-            color="bg-emerald-50 text-emerald-500"
+            color="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <SummaryCard
@@ -730,7 +730,7 @@ function GuardDashboard() {
             title="Today's Exits"
             value={todayExits.length}
             text="Visitors checked out today"
-            color="bg-sky-50 text-sky-500"
+            color="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <SummaryCard
@@ -762,27 +762,27 @@ function GuardStat({
 }) {
   const tones = {
     green: {
-      icon: "bg-emerald-50 text-emerald-500",
-      circle: "bg-emerald-500",
+      icon: "bg-[#f7f3ed] text-[#9b7740]",
+      circle: "bg-[#9b7740]",
     },
     yellow: {
-      icon: "bg-amber-50 text-amber-500",
-      circle: "bg-amber-500",
+      icon: "bg-[#f7f3ed] text-[#9b7740]",
+      circle: "bg-[#9b7740]",
     },
     red: {
       icon: "bg-red-50 text-red-500",
       circle: "bg-red-500",
     },
     sky: {
-      icon: "bg-sky-50 text-sky-500",
-      circle: "bg-sky-500",
+      icon: "bg-[#f7f3ed] text-[#9b7740]",
+      circle: "bg-[#9b7740]",
     },
   };
 
   const current = tones[tone];
 
   return (
-    <div className="relative overflow-hidden rounded-[16px] border border-slate-200 bg-white p-5">
+    <div className="relative overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white p-5">
 
       <div
         className={`absolute -right-5 -top-5 h-20 w-20 rounded-full opacity-[0.06] ${current.circle}`}
@@ -794,15 +794,15 @@ function GuardStat({
         <Icon size={20} />
       </div>
 
-      <div className="text-[28px] font-extrabold leading-none tracking-tight text-slate-900">
+      <div className="text-[28px] font-extrabold leading-none tracking-tight text-[#32143b]">
         {value}
       </div>
 
-      <div className="mt-1 text-[12.5px] font-semibold text-slate-600">
+      <div className="mt-1 text-[12.5px] font-semibold text-[#756b78]">
         {title}
       </div>
 
-      <div className="mt-1 text-[10.5px] font-medium text-slate-400">
+      <div className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
         {label}
       </div>
 
@@ -823,7 +823,7 @@ function GuardStat({
 function ChangeBadge({ type, text }) {
   if (type === "up") {
     return (
-      <span className="inline-flex rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-semibold text-emerald-500">
+      <span className="inline-flex rounded-full bg-[#f7f3ed] px-2 py-1 text-[10px] font-semibold text-[#9b7740]">
         ↑ {text}
       </span>
     );
@@ -838,7 +838,7 @@ function ChangeBadge({ type, text }) {
   }
 
   return (
-    <span className="inline-flex rounded-full bg-slate-100 px-2 py-1 text-[10px] font-semibold text-slate-500">
+    <span className="inline-flex rounded-full bg-[#eee8ed] px-2 py-1 text-[10px] font-semibold text-[#756b78]">
       • {text}
     </span>
   );
@@ -847,7 +847,7 @@ function ChangeBadge({ type, text }) {
 
 function TableHead({ children }) {
   return (
-    <th className="px-4 py-3 text-left text-[9.5px] font-bold uppercase tracking-[0.06em] text-slate-400">
+    <th className="px-4 py-3 text-left text-[9.5px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
       {children}
     </th>
   );
@@ -857,8 +857,8 @@ function TableHead({ children }) {
 function VisitorStatus({ status }) {
   if (status === "Inside") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[9.5px] font-bold text-emerald-700">
-        <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#826331]">
+        <span className="h-1.5 w-1.5 rounded-full bg-[#9b7740]" />
         Inside
       </span>
     );
@@ -866,16 +866,16 @@ function VisitorStatus({ status }) {
 
   if (status === "Exited") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-[9.5px] font-bold text-slate-500">
-        <span className="h-1.5 w-1.5 rounded-full bg-slate-400" />
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-bold text-[#756b78]">
+        <span className="h-1.5 w-1.5 rounded-full bg-[#8b778e]" />
         Exited
       </span>
     );
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-[9.5px] font-bold text-amber-600">
-      <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
+      <span className="h-1.5 w-1.5 rounded-full bg-[#9b7740]" />
       Waiting
     </span>
   );
@@ -890,7 +890,7 @@ function SummaryCard({
   color,
 }) {
   return (
-    <div className="rounded-[16px] border border-slate-200 bg-white p-5">
+    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-5">
 
       <div className="flex items-start justify-between">
 
@@ -902,20 +902,20 @@ function SummaryCard({
 
         <ArrowRight
           size={15}
-          className="text-slate-300"
+          className="text-[#bca9c0]"
         />
 
       </div>
 
-      <p className="mt-4 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+      <p className="mt-4 text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
         {title}
       </p>
 
-      <p className="mt-1 text-[25px] font-extrabold tracking-tight text-slate-900">
+      <p className="mt-1 text-[25px] font-extrabold tracking-tight text-[#32143b]">
         {value}
       </p>
 
-      <p className="mt-1 text-[10px] font-medium text-slate-400">
+      <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
         {text}
       </p>
 

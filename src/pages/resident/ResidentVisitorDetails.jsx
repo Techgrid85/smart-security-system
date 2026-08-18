@@ -167,21 +167,21 @@ function ResidentVisitorDetails() {
               margin: 0;
               padding: 30px;
               font-family: Arial, sans-serif;
-              background: #f8fafc;
-              color: #0f172a;
+              background: #f7f3ed;
+              color: #32143b;
             }
 
             .pass {
               max-width: 700px;
               margin: auto;
               background: white;
-              border: 2px solid #10b981;
+              border: 2px solid #9b7740;
               border-radius: 16px;
               overflow: hidden;
             }
 
             .header {
-              background: #10b981;
+              background: #9b7740;
               color: white;
               padding: 25px;
             }
@@ -209,14 +209,14 @@ function ResidentVisitorDetails() {
 
             .item {
               padding: 12px;
-              background: #f8fafc;
+              background: #f7f3ed;
               border-radius: 10px;
             }
 
             .label {
               font-size: 11px;
               font-weight: bold;
-              color: #64748b;
+              color: #756b78;
               text-transform: uppercase;
               margin-bottom: 6px;
             }
@@ -224,7 +224,7 @@ function ResidentVisitorDetails() {
             .value {
               font-size: 15px;
               font-weight: bold;
-              color: #0f172a;
+              color: #32143b;
             }
 
             .status {
@@ -232,16 +232,16 @@ function ResidentVisitorDetails() {
               margin-top: 20px;
               padding: 8px 14px;
               border-radius: 20px;
-              background: #ecfdf5;
-              color: #059669;
+              background: #f7f3ed;
+              color: #9b7740;
               font-size: 13px;
               font-weight: bold;
             }
 
             .footer {
               padding: 18px 25px;
-              border-top: 1px solid #e2e8f0;
-              color: #64748b;
+              border-top: 1px solid #e2d9df;
+              color: #756b78;
               font-size: 12px;
             }
 
@@ -252,7 +252,7 @@ function ResidentVisitorDetails() {
               }
 
               .pass {
-                border: 1px solid #10b981;
+                border: 1px solid #9b7740;
               }
             }
           </style>
@@ -364,15 +364,15 @@ function ResidentVisitorDetails() {
         <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
 
           <div>
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Resident Portal
             </p>
 
-            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+            <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
               Visitor Details
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               View your visitor passes and download authorized passes.
             </p>
           </div>
@@ -381,7 +381,7 @@ function ResidentVisitorDetails() {
             type="button"
             onClick={fetchVisitors}
             disabled={loading}
-            className="flex items-center justify-center gap-2 rounded-[10px] border border-slate-200 bg-white px-3.5 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50 disabled:opacity-60"
+            className="flex items-center justify-center gap-2 rounded-[10px] border border-[#e2d9df] bg-white px-3.5 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-60"
           >
             <RefreshCw
               size={14}
@@ -393,14 +393,14 @@ function ResidentVisitorDetails() {
         </div>
 
         {/* ================= VISITORS TABLE ================= */}
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="border-b border-slate-200 px-5 py-4">
-            <h2 className="text-[13px] font-bold text-slate-900">
+          <div className="border-b border-[#e2d9df] px-5 py-4">
+            <h2 className="text-[13px] font-bold text-[#32143b]">
               My Visitors
             </h2>
 
-            <p className="mt-1 text-[10px] font-medium text-slate-400">
+            <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
               {visitors.length} visitor
               {visitors.length !== 1 ? "s" : ""} found
             </p>
@@ -408,7 +408,7 @@ function ResidentVisitorDetails() {
 
           {loading ? (
             <div className="flex min-h-[280px] items-center justify-center">
-              <p className="text-[11px] font-medium text-slate-400">
+              <p className="text-[11px] font-medium text-[#8b778e]">
                 Loading visitors...
               </p>
             </div>
@@ -418,7 +418,7 @@ function ResidentVisitorDetails() {
               <table className="w-full min-w-[850px]">
 
                 <thead>
-                  <tr className="bg-slate-50">
+                  <tr className="bg-[#f7f3ed]">
                     <TableHead>Pass ID</TableHead>
                     <TableHead>Visitor</TableHead>
                     <TableHead>Phone</TableHead>
@@ -433,32 +433,32 @@ function ResidentVisitorDetails() {
                   {visitors.map((visitor) => (
                     <tr
                       key={visitor._id}
-                      className="border-t border-slate-200 transition hover:bg-slate-50"
+                      className="border-t border-[#e2d9df] transition hover:bg-[#f7f3ed]"
                     >
-                      <td className="px-5 py-4 text-[10px] font-bold text-emerald-500">
+                      <td className="px-5 py-4 text-[10px] font-bold text-[#9b7740]">
                         #{visitor._id?.slice(-6)}
                       </td>
 
                       <td className="px-5 py-4">
-                        <p className="text-[11px] font-bold text-slate-800">
+                        <p className="text-[11px] font-bold text-[#49394d]">
                           {visitor.visitorName}
                         </p>
 
-                        <p className="mt-1 text-[9px] font-medium text-slate-400">
+                        <p className="mt-1 text-[9px] font-medium text-[#8b778e]">
                           Flat {visitor.flatNo}
                         </p>
                       </td>
 
-                      <td className="px-5 py-4 text-[10px] font-medium text-slate-500">
+                      <td className="px-5 py-4 text-[10px] font-medium text-[#756b78]">
                         {visitor.phone}
                       </td>
 
-                      <td className="px-5 py-4 text-[10px] font-medium text-slate-500">
+                      <td className="px-5 py-4 text-[10px] font-medium text-[#756b78]">
                         {formatDate(visitor.visitDate)}
                       </td>
 
                       <td className="max-w-[180px] px-5 py-4">
-                        <p className="truncate text-[10px] font-medium text-slate-500">
+                        <p className="truncate text-[10px] font-medium text-[#756b78]">
                           {visitor.purpose}
                         </p>
                       </td>
@@ -473,7 +473,7 @@ function ResidentVisitorDetails() {
                           onClick={() =>
                             handleViewVisitor(visitor._id)
                           }
-                          className="flex items-center gap-1.5 rounded-[8px] border border-slate-200 bg-white px-3 py-2 text-[9.5px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600"
+                          className="flex items-center gap-1.5 rounded-[8px] border border-[#e2d9df] bg-white px-3 py-2 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
                         >
                           <Eye size={13} />
                           View Details
@@ -494,31 +494,31 @@ function ResidentVisitorDetails() {
 
         {/* ================= DETAILS MODAL ================= */}
         {(detailLoading || selectedVisitor) && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/40 p-4">
 
             <div className="max-h-[90vh] w-full max-w-[600px] overflow-y-auto rounded-[18px] bg-white shadow-2xl">
 
               {detailLoading ? (
                 <div className="flex min-h-[300px] items-center justify-center">
-                  <p className="text-[11px] font-medium text-slate-400">
+                  <p className="text-[11px] font-medium text-[#8b778e]">
                     Loading visitor details...
                   </p>
                 </div>
               ) : (
                 <>
                   {/* MODAL HEADER */}
-                  <div className="flex items-start justify-between border-b border-slate-200 px-6 py-5">
+                  <div className="flex items-start justify-between border-b border-[#e2d9df] px-6 py-5">
 
                     <div>
-                      <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+                      <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
                         Visitor Pass Details
                       </p>
 
-                      <h2 className="mt-1 text-[18px] font-extrabold text-slate-900">
+                      <h2 className="mt-1 text-[18px] font-extrabold text-[#32143b]">
                         {selectedVisitor?.visitorName}
                       </h2>
 
-                      <p className="mt-1 text-[10px] text-slate-400">
+                      <p className="mt-1 text-[10px] text-[#8b778e]">
                         Pass #{selectedVisitor?._id?.slice(-6)}
                       </p>
                     </div>
@@ -526,7 +526,7 @@ function ResidentVisitorDetails() {
                     <button
                       type="button"
                       onClick={() => setSelectedVisitor(null)}
-                      className="flex h-9 w-9 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                      className="flex h-9 w-9 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                     >
                       <X size={18} />
                     </button>
@@ -585,24 +585,24 @@ function ResidentVisitorDetails() {
                       <div className="flex items-center gap-2">
                         <FileText
                           size={14}
-                          className="text-slate-400"
+                          className="text-[#8b778e]"
                         />
 
-                        <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                        <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                           Purpose of Visit
                         </p>
                       </div>
 
-                      <div className="mt-2 rounded-[10px] bg-slate-50 p-4">
-                        <p className="text-[11px] leading-6 font-medium text-slate-600">
+                      <div className="mt-2 rounded-[10px] bg-[#f7f3ed] p-4">
+                        <p className="text-[11px] leading-6 font-medium text-[#756b78]">
                           {selectedVisitor?.purpose || "-"}
                         </p>
                       </div>
                     </div>
 
                     {/* STATUS */}
-                    <div className="rounded-[12px] border border-slate-100 bg-slate-50 p-4">
-                      <p className="mb-2 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <div className="rounded-[12px] border border-[#eee8ed] bg-[#f7f3ed] p-4">
+                      <p className="mb-2 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                         Approval Status
                       </p>
 
@@ -614,12 +614,12 @@ function ResidentVisitorDetails() {
                   </div>
 
                   {/* MODAL FOOTER */}
-                  <div className="flex flex-col-reverse gap-2 border-t border-slate-200 px-6 py-4 sm:flex-row sm:justify-end">
+                  <div className="flex flex-col-reverse gap-2 border-t border-[#e2d9df] px-6 py-4 sm:flex-row sm:justify-end">
 
                     <button
                       type="button"
                       onClick={() => setSelectedVisitor(null)}
-                      className="rounded-[9px] border border-slate-200 px-4 py-2.5 text-[10px] font-bold text-slate-600 transition hover:bg-slate-50"
+                      className="rounded-[9px] border border-[#e2d9df] px-4 py-2.5 text-[10px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
                     >
                       Close
                     </button>
@@ -627,7 +627,7 @@ function ResidentVisitorDetails() {
                     <button
                       type="button"
                       onClick={handleDownloadPass}
-                      className="flex items-center justify-center gap-2 rounded-[9px] bg-emerald-500 px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-emerald-600"
+                      className="flex items-center justify-center gap-2 rounded-[9px] bg-[#9b7740] px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-[#9b7740]"
                     >
                       <Download size={14} />
                       Download Pass
@@ -652,16 +652,16 @@ function ResidentVisitorDetails() {
 function VisitorStatus({ status }) {
   const styles = {
     Approved:
-      "bg-emerald-50 text-emerald-600",
+      "bg-[#f7f3ed] text-[#9b7740]",
 
     Rejected:
       "bg-red-50 text-red-600",
 
     Completed:
-      "bg-blue-50 text-blue-600",
+      "bg-[#f7f3ed] text-[#63366f]",
 
     Pending:
-      "bg-amber-50 text-amber-600",
+      "bg-[#f7f3ed] text-[#9b7740]",
   };
 
   const icons = {
@@ -690,17 +690,17 @@ function VisitorStatus({ status }) {
 
 function DetailItem({ icon: Icon, label, value }) {
   return (
-    <div className="rounded-[10px] border border-slate-100 p-3">
+    <div className="rounded-[10px] border border-[#eee8ed] p-3">
 
       <div className="flex items-center gap-2">
-        <Icon size={13} className="text-emerald-500" />
+        <Icon size={13} className="text-[#9b7740]" />
 
-        <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+        <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
           {label}
         </p>
       </div>
 
-      <p className="mt-2 break-all text-[11px] font-bold text-slate-700">
+      <p className="mt-2 break-all text-[11px] font-bold text-[#49394d]">
         {value || "-"}
       </p>
 
@@ -713,7 +713,7 @@ function DetailItem({ icon: Icon, label, value }) {
 
 function TableHead({ children }) {
   return (
-    <th className="px-5 py-3.5 text-left text-[9px] font-bold uppercase tracking-[0.08em] text-slate-400">
+    <th className="px-5 py-3.5 text-left text-[9px] font-bold uppercase tracking-[0.08em] text-[#8b778e]">
       {children}
     </th>
   );
@@ -726,15 +726,15 @@ function EmptyState() {
   return (
     <div className="flex min-h-[280px] flex-col items-center justify-center px-4 text-center">
 
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-slate-100 text-slate-400">
+      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#eee8ed] text-[#8b778e]">
         <Users size={24} />
       </div>
 
-      <h3 className="mt-4 text-[13px] font-bold text-slate-700">
+      <h3 className="mt-4 text-[13px] font-bold text-[#49394d]">
         No Visitors Found
       </h3>
 
-      <p className="mt-1 text-[10px] font-medium text-slate-400">
+      <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
         You have not created any visitor passes yet.
       </p>
 

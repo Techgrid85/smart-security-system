@@ -115,7 +115,7 @@ function ResidentEvents() {
     return (
       <DashboardLayout role="resident">
         <div className="flex min-h-[400px] items-center justify-center">
-          <p className="text-sm font-medium text-slate-500">
+          <p className="text-sm font-medium text-[#756b78]">
             Loading events...
           </p>
         </div>
@@ -129,38 +129,38 @@ function ResidentEvents() {
 
         {/* ================= HEADER ================= */}
         <div className="mb-6">
-          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
             Resident Portal
           </p>
 
-          <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+          <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
             Society Events
           </h1>
 
-          <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+          <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
             View upcoming events and activities in your society.
           </p>
         </div>
 
         {/* ================= EVENT COUNT ================= */}
-        <div className="mb-6 rounded-[16px] border border-sky-200 bg-sky-50 p-5">
+        <div className="mb-6 rounded-[16px] border border-[#e2d9df] bg-[#f7f3ed] p-5">
           <div className="flex items-center justify-between gap-4">
 
             <div>
-              <p className="text-[10px] font-bold uppercase tracking-wide text-sky-600">
+              <p className="text-[10px] font-bold uppercase tracking-wide text-[#9b7740]">
                 Upcoming Events
               </p>
 
-              <p className="mt-1 text-[26px] font-extrabold text-sky-700">
+              <p className="mt-1 text-[26px] font-extrabold text-[#826331]">
                 {events.length}
               </p>
 
-              <p className="mt-1 text-[10.5px] font-medium text-sky-600">
+              <p className="mt-1 text-[10.5px] font-medium text-[#9b7740]">
                 Events currently scheduled
               </p>
             </div>
 
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-sky-500">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-[#9b7740]">
               <CalendarDays size={22} />
             </div>
 
@@ -168,20 +168,20 @@ function ResidentEvents() {
         </div>
 
         {/* ================= EVENTS ================= */}
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div>
-              <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
+              <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
                 <CalendarDays
                   size={16}
-                  className="text-sky-500"
+                  className="text-[#9b7740]"
                 />
                 Upcoming Society Events
               </h2>
 
-              <p className="mt-1 text-[10px] text-slate-400">
+              <p className="mt-1 text-[10px] text-[#8b778e]">
                 Stay updated with society activities.
               </p>
             </div>
@@ -191,19 +191,19 @@ function ResidentEvents() {
           <div className="p-5">
 
             {events.length === 0 ? (
-              <div className="flex min-h-[180px] items-center justify-center rounded-[12px] border border-dashed border-slate-200 bg-slate-50">
+              <div className="flex min-h-[180px] items-center justify-center rounded-[12px] border border-dashed border-[#e2d9df] bg-[#f7f3ed]">
                 <div className="text-center">
 
                   <CalendarDays
                     size={28}
-                    className="mx-auto mb-2 text-slate-300"
+                    className="mx-auto mb-2 text-[#bca9c0]"
                   />
 
-                  <p className="text-[11px] font-semibold text-slate-500">
+                  <p className="text-[11px] font-semibold text-[#756b78]">
                     No upcoming events
                   </p>
 
-                  <p className="mt-1 text-[10px] text-slate-400">
+                  <p className="mt-1 text-[10px] text-[#8b778e]">
                     New society events will appear here.
                   </p>
 
@@ -215,17 +215,17 @@ function ResidentEvents() {
                 {events.map((event) => (
                   <div
                     key={event._id}
-                    className="group overflow-hidden rounded-[14px] border border-slate-200 bg-white transition hover:border-sky-300 hover:shadow-sm"
+                    className="group overflow-hidden rounded-[14px] border border-[#e2d9df] bg-white transition hover:border-[#d9be82] hover:shadow-sm"
                   >
 
                     {/* EVENT HEADER */}
-                    <div className="flex items-center justify-between border-b border-slate-100 bg-slate-50 px-4 py-3">
+                    <div className="flex items-center justify-between border-b border-[#eee8ed] bg-[#f7f3ed] px-4 py-3">
 
-                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-sky-50 text-sky-500">
+                      <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
                         <CalendarDays size={19} />
                       </div>
 
-                      <span className="rounded-full bg-sky-50 px-2 py-1 text-[8.5px] font-bold text-sky-600">
+                      <span className="rounded-full bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
                         Upcoming
                       </span>
 
@@ -234,20 +234,20 @@ function ResidentEvents() {
                     {/* EVENT CONTENT */}
                     <div className="p-4">
 
-                      <h3 className="line-clamp-2 text-[12.5px] font-bold text-slate-800">
+                      <h3 className="line-clamp-2 text-[12.5px] font-bold text-[#49394d]">
                         {event.title}
                       </h3>
 
-                      <p className="mt-2 line-clamp-3 text-[10.5px] leading-5 text-slate-500">
+                      <p className="mt-2 line-clamp-3 text-[10.5px] leading-5 text-[#756b78]">
                         {event.description}
                       </p>
 
                       <div className="mt-4 space-y-2">
 
-                        <div className="flex items-center gap-2 text-[9.5px] font-semibold text-slate-500">
+                        <div className="flex items-center gap-2 text-[9.5px] font-semibold text-[#756b78]">
                           <Clock3
                             size={13}
-                            className="shrink-0 text-sky-500"
+                            className="shrink-0 text-[#9b7740]"
                           />
 
                           {event.eventDate
@@ -257,10 +257,10 @@ function ResidentEvents() {
                             : "-"}
                         </div>
 
-                        <div className="flex items-center gap-2 text-[9.5px] font-semibold text-slate-500">
+                        <div className="flex items-center gap-2 text-[9.5px] font-semibold text-[#756b78]">
                           <MapPin
                             size={13}
-                            className="shrink-0 text-sky-500"
+                            className="shrink-0 text-[#9b7740]"
                           />
 
                           <span className="truncate">
@@ -275,7 +275,7 @@ function ResidentEvents() {
                         onClick={() =>
                           handleViewEvent(event._id)
                         }
-                        className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-sky-200 bg-sky-50 py-2.5 text-[10px] font-bold text-sky-600 transition hover:bg-sky-100"
+                        className="mt-4 flex w-full items-center justify-center gap-1.5 rounded-lg border border-[#e2d9df] bg-[#f7f3ed] py-2.5 text-[10px] font-bold text-[#9b7740] transition hover:bg-[#f5eee2]"
                       >
                         <Eye size={13} />
                         View Details
@@ -293,19 +293,19 @@ function ResidentEvents() {
 
         {/* ================= DETAILS MODAL ================= */}
         {selectedEvent && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/50 p-4">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/50 p-4">
 
             <div className="w-full max-w-md overflow-hidden rounded-[16px] bg-white shadow-2xl">
 
               {/* HEADER */}
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
                 <div>
-                  <p className="text-[9px] font-bold uppercase tracking-wide text-sky-500">
+                  <p className="text-[9px] font-bold uppercase tracking-wide text-[#9b7740]">
                     Event Details
                   </p>
 
-                  <h2 className="mt-1 text-[16px] font-extrabold text-slate-900">
+                  <h2 className="mt-1 text-[16px] font-extrabold text-[#32143b]">
                     {selectedEvent.title}
                   </h2>
                 </div>
@@ -315,7 +315,7 @@ function ResidentEvents() {
                   onClick={() =>
                     setSelectedEvent(null)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -353,13 +353,13 @@ function ResidentEvents() {
                   }
                 />
 
-                <div className="rounded-lg bg-slate-50 px-3 py-3">
+                <div className="rounded-lg bg-[#f7f3ed] px-3 py-3">
 
-                  <p className="mb-1 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                  <p className="mb-1 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                     Description
                   </p>
 
-                  <p className="text-[10.5px] leading-5 text-slate-600">
+                  <p className="text-[10.5px] leading-5 text-[#756b78]">
                     {selectedEvent.description ||
                       "-"}
                   </p>
@@ -369,14 +369,14 @@ function ResidentEvents() {
               </div>
 
               {/* FOOTER */}
-              <div className="border-t border-slate-200 px-5 py-4">
+              <div className="border-t border-[#e2d9df] px-5 py-4">
 
                 <button
                   type="button"
                   onClick={() =>
                     setSelectedEvent(null)
                   }
-                  className="flex w-full items-center justify-center gap-1.5 rounded-lg bg-slate-900 py-2.5 text-[11px] font-bold text-white transition hover:bg-slate-800"
+                  className="flex w-full items-center justify-center gap-1.5 rounded-lg bg-[#32143b] py-2.5 text-[11px] font-bold text-white transition hover:bg-[#49394d]"
                 >
                   Close
                   <ArrowRight size={13} />
@@ -391,9 +391,9 @@ function ResidentEvents() {
 
         {/* ================= LOADING DETAILS ================= */}
         {detailsLoading && (
-          <div className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/30">
+          <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#32143b]/30">
             <div className="rounded-lg bg-white px-5 py-3 shadow-lg">
-              <p className="text-[11px] font-semibold text-slate-600">
+              <p className="text-[11px] font-semibold text-[#756b78]">
                 Loading event details...
               </p>
             </div>
@@ -413,18 +413,18 @@ function EventDetail({
   value,
 }) {
   return (
-    <div className="flex items-center gap-3 rounded-lg bg-slate-50 px-3 py-2.5">
+    <div className="flex items-center gap-3 rounded-lg bg-[#f7f3ed] px-3 py-2.5">
 
-      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-sky-50 text-sky-500">
+      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
         <Icon size={14} />
       </div>
 
       <div className="min-w-0">
-        <p className="text-[9px] font-semibold text-slate-400">
+        <p className="text-[9px] font-semibold text-[#8b778e]">
           {label}
         </p>
 
-        <p className="break-words text-[10.5px] font-bold text-slate-700">
+        <p className="break-words text-[10.5px] font-bold text-[#49394d]">
           {value}
         </p>
       </div>

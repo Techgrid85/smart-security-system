@@ -328,15 +328,15 @@ function Complaints() {
         <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-end">
 
           <div>
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Resident Portal
             </p>
 
-            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+            <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
               Helpdesk & Complaints
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Report maintenance and society issues and
               track their progress.
             </p>
@@ -347,7 +347,7 @@ function Complaints() {
             <button
               type="button"
               onClick={fetchComplaints}
-              className="flex items-center justify-center gap-2 rounded-[1px] border border-slate-200 bg-white px-3.5 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50"
+              className="flex items-center justify-center gap-2 rounded-[1px] border border-[#e2d9df] bg-white px-3.5 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
             >
               <RefreshCw size={14} />
               Refresh
@@ -356,7 +356,7 @@ function Complaints() {
             <button
               type="button"
               onClick={openCreateModal}
-              className="flex items-center justify-center gap-2 rounded-[1px] bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600"
+              className="flex items-center justify-center gap-2 rounded-[1px] bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
             >
               <Plus size={15} />
               New Complaint
@@ -408,16 +408,16 @@ function Complaints() {
             COMPLAINT TABLE
         ========================================== */}
 
-        <section className="overflow-hidden rounded-[1px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div>
-              <h2 className="text-[13px] font-bold text-slate-900">
+              <h2 className="text-[13px] font-bold text-[#32143b]">
                 Complaint History
               </h2>
 
-              <p className="mt-1 text-[10px] font-medium text-slate-400">
+              <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
                 {complaints.length} complaint
                 {complaints.length !== 1
                   ? "s"
@@ -430,7 +430,7 @@ function Complaints() {
 
           {loading ? (
             <div className="flex min-h-[250px] items-center justify-center">
-              <p className="text-[11px] font-medium text-slate-400">
+              <p className="text-[11px] font-medium text-[#8b778e]">
                 Loading complaints...
               </p>
             </div>
@@ -440,7 +440,7 @@ function Complaints() {
               <table className="w-full min-w-[800px]">
 
                 <thead>
-                  <tr className="bg-slate-50">
+                  <tr className="bg-[#f7f3ed]">
                     <TableHead>ID</TableHead>
                     <TableHead>Subject</TableHead>
                     <TableHead>Category</TableHead>
@@ -455,10 +455,10 @@ function Complaints() {
                   {complaints.map((complaint) => (
                     <tr
                       key={complaint._id}
-                      className="border-t border-slate-200 transition hover:bg-slate-50"
+                      className="border-t border-[#e2d9df] transition hover:bg-[#f7f3ed]"
                     >
 
-                      <td className="px-5 py-4 text-[10.5px] font-bold text-emerald-500">
+                      <td className="px-5 py-4 text-[10.5px] font-bold text-[#9b7740]">
                         #{complaint._id?.slice(-6)}
                       </td>
 
@@ -467,7 +467,7 @@ function Complaints() {
                         <div className="flex items-center gap-2">
 
                           {complaint.photo && (
-                            <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-[1px] border border-slate-200">
+                            <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-[1px] border border-[#e2d9df]">
                               <img
                                 src={complaint.photo}
                                 alt="Complaint"
@@ -478,11 +478,11 @@ function Complaints() {
 
                           <div className="min-w-0">
 
-                            <p className="truncate text-[11px] font-bold text-slate-800">
+                            <p className="truncate text-[11px] font-bold text-[#49394d]">
                               {complaint.subject}
                             </p>
 
-                            <p className="mt-1 truncate text-[9.5px] text-slate-400">
+                            <p className="mt-1 truncate text-[9.5px] text-[#8b778e]">
                               {complaint.description}
                             </p>
 
@@ -494,13 +494,13 @@ function Complaints() {
 
                       <td className="px-5 py-4">
 
-                        <span className="rounded-[1px] bg-slate-100 px-2.5 py-1 text-[9px] font-bold text-slate-600">
+                        <span className="rounded-[1px] bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
                           {complaint.category}
                         </span>
 
                       </td>
 
-                      <td className="px-5 py-4 text-[10px] font-medium text-slate-400">
+                      <td className="px-5 py-4 text-[10px] font-medium text-[#8b778e]">
                         {complaint.createdAt
                           ? new Date(
                               complaint.createdAt
@@ -525,7 +525,7 @@ function Complaints() {
                               complaint._id
                             )
                           }
-                          className="flex items-center gap-1.5 rounded-[1px] border border-slate-200 bg-white px-2.5 py-1.5 text-[9.5px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600"
+                          className="flex items-center gap-1.5 rounded-[1px] border border-[#e2d9df] bg-white px-2.5 py-1.5 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
                         >
                           <Eye size={13} />
                           View
@@ -555,30 +555,30 @@ function Complaints() {
 
         {creating && (
           <div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/55 p-4"
+            className="fixed inset-0 z-[100] flex items-center justify-center bg-[#210c28]/55 p-4"
             onClick={closeCreateModal}
           >
 
             <div
-              className="max-h-[92vh] w-full max-w-[760px] overflow-y-auto rounded-[1px] border border-slate-200 bg-white shadow-2xl"
+              className="max-h-[92vh] w-full max-w-[760px] overflow-y-auto rounded-[1px] border border-[#e2d9df] bg-white shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
 
               {/* MODAL HEADER */}
 
-              <div className="sticky top-0 z-10 flex items-center justify-between border-b border-slate-200 bg-white px-6 py-5">
+              <div className="sticky top-0 z-10 flex items-center justify-between border-b border-[#e2d9df] bg-white px-6 py-5">
 
                 <div>
 
-                  <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+                  <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
                     Helpdesk
                   </p>
 
-                  <h2 className="mt-1 text-[18px] font-extrabold text-slate-900">
+                  <h2 className="mt-1 text-[18px] font-extrabold text-[#32143b]">
                     Submit New Complaint
                   </h2>
 
-                  <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+                  <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                     Report an issue to society management.
                   </p>
 
@@ -587,7 +587,7 @@ function Complaints() {
                 <button
                   type="button"
                   onClick={closeCreateModal}
-                  className="flex h-9 w-9 items-center justify-center rounded-[1px] border border-slate-200 text-slate-400 transition hover:bg-slate-50 hover:text-slate-700"
+                  className="flex h-9 w-9 items-center justify-center rounded-[1px] border border-[#e2d9df] text-[#8b778e] transition hover:bg-[#f7f3ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -607,7 +607,7 @@ function Complaints() {
 
                   <div>
 
-                    <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+                    <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
                       Subject
                     </label>
 
@@ -618,10 +618,10 @@ function Complaints() {
                       onChange={handleChange}
                       maxLength={100}
                       placeholder="e.g. Water leakage in bathroom"
-                      className="w-full rounded-[1px] border border-slate-200 px-3 py-3 text-[11px] font-medium text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                      className="w-full rounded-[1px] border border-[#e2d9df] px-3 py-3 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                     />
 
-                    <p className="mt-1 text-right text-[9px] text-slate-400">
+                    <p className="mt-1 text-right text-[9px] text-[#8b778e]">
                       {formData.subject.length}/100
                     </p>
 
@@ -629,7 +629,7 @@ function Complaints() {
 
                   <div>
 
-                    <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+                    <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
                       Category
                     </label>
 
@@ -637,7 +637,7 @@ function Complaints() {
                       name="category"
                       value={formData.category}
                       onChange={handleChange}
-                      className="w-full rounded-[1px] border border-slate-200 bg-white px-3 py-3 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                      className="w-full rounded-[1px] border border-[#e2d9df] bg-white px-3 py-3 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                     >
 
                       <option value="">
@@ -665,7 +665,7 @@ function Complaints() {
 
                 <div>
 
-                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
                     Description
                   </label>
 
@@ -676,10 +676,10 @@ function Complaints() {
                     rows={7}
                     maxLength={1000}
                     placeholder="Describe the issue clearly so management can understand and resolve it..."
-                    className="w-full resize-none rounded-[1px] border border-slate-200 px-3 py-3 text-[11px] font-medium leading-5 text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                    className="w-full resize-none rounded-[1px] border border-[#e2d9df] px-3 py-3 text-[11px] font-medium leading-5 text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                   />
 
-                  <p className="mt-1 text-right text-[9px] text-slate-400">
+                  <p className="mt-1 text-right text-[9px] text-[#8b778e]">
                     {formData.description.length}/1000
                   </p>
 
@@ -689,9 +689,9 @@ function Complaints() {
 
                 <div>
 
-                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-slate-500">
+                  <label className="mb-1.5 block text-[10px] font-bold uppercase tracking-wide text-[#756b78]">
                     Photo Evidence
-                    <span className="ml-1 font-medium normal-case text-slate-400">
+                    <span className="ml-1 font-medium normal-case text-[#8b778e]">
                       (Optional)
                     </span>
                   </label>
@@ -703,18 +703,18 @@ function Complaints() {
                       onClick={() =>
                         fileInputRef.current?.click()
                       }
-                      className="flex min-h-[150px] w-full flex-col items-center justify-center border border-dashed border-slate-300 bg-slate-50 px-5 py-8 text-center transition hover:border-emerald-400 hover:bg-emerald-50/30"
+                      className="flex min-h-[150px] w-full flex-col items-center justify-center border border-dashed border-[#bca9c0] bg-[#f7f3ed] px-5 py-8 text-center transition hover:border-[#bca16a] hover:bg-[#f7f3ed]/30"
                     >
 
-                      <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-[1px] bg-white text-slate-400 shadow-sm">
+                      <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-[1px] bg-white text-[#8b778e] shadow-sm">
                         <Upload size={19} />
                       </div>
 
-                      <p className="text-[11px] font-bold text-slate-600">
+                      <p className="text-[11px] font-bold text-[#756b78]">
                         Upload a photo
                       </p>
 
-                      <p className="mt-1 text-[9.5px] text-slate-400">
+                      <p className="mt-1 text-[9.5px] text-[#8b778e]">
                         JPG, PNG or WEBP · Maximum 5MB
                       </p>
 
@@ -722,9 +722,9 @@ function Complaints() {
 
                   ) : (
 
-                    <div className="relative border border-slate-200 bg-slate-50 p-3">
+                    <div className="relative border border-[#e2d9df] bg-[#f7f3ed] p-3">
 
-                      <div className="relative overflow-hidden border border-slate-200 bg-white">
+                      <div className="relative overflow-hidden border border-[#e2d9df] bg-white">
 
                         <img
                           src={photoPreview}
@@ -740,10 +740,10 @@ function Complaints() {
 
                           <ImageIcon
                             size={14}
-                            className="shrink-0 text-emerald-500"
+                            className="shrink-0 text-[#9b7740]"
                           />
 
-                          <p className="truncate text-[10px] font-semibold text-slate-600">
+                          <p className="truncate text-[10px] font-semibold text-[#756b78]">
                             {photo?.name}
                           </p>
 
@@ -752,7 +752,7 @@ function Complaints() {
                         <button
                           type="button"
                           onClick={removePhoto}
-                          className="flex shrink-0 items-center gap-1 rounded-[1px] border border-slate-200 bg-white px-2.5 py-1.5 text-[9px] font-bold text-red-500 transition hover:bg-red-50"
+                          className="flex shrink-0 items-center gap-1 rounded-[1px] border border-[#e2d9df] bg-white px-2.5 py-1.5 text-[9px] font-bold text-red-500 transition hover:bg-red-50"
                         >
                           <X size={12} />
                           Remove
@@ -776,13 +776,13 @@ function Complaints() {
 
                 {/* INFO */}
 
-                <div className="border border-emerald-100 bg-emerald-50/50 px-4 py-3">
+                <div className="border border-[#f5eee2] bg-[#f7f3ed]/50 px-4 py-3">
 
-                  <p className="text-[10px] font-semibold text-emerald-700">
+                  <p className="text-[10px] font-semibold text-[#826331]">
                     Helpdesk tip
                   </p>
 
-                  <p className="mt-1 text-[9.5px] leading-5 text-emerald-600">
+                  <p className="mt-1 text-[9.5px] leading-5 text-[#9b7740]">
                     Adding a clear photo can help society
                     management understand the issue and
                     assign it to the appropriate staff member
@@ -793,13 +793,13 @@ function Complaints() {
 
                 {/* ACTIONS */}
 
-                <div className="flex justify-end gap-2 border-t border-slate-100 pt-5">
+                <div className="flex justify-end gap-2 border-t border-[#eee8ed] pt-5">
 
                   <button
                     type="button"
                     onClick={closeCreateModal}
                     disabled={submitting}
-                    className="rounded-[1px] border border-slate-200 px-5 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50 disabled:opacity-50"
+                    className="rounded-[1px] border border-[#e2d9df] px-5 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -807,7 +807,7 @@ function Complaints() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="flex items-center gap-2 rounded-[1px] bg-emerald-500 px-5 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="flex items-center gap-2 rounded-[1px] bg-[#9b7740] px-5 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                   >
 
                     <Send size={14} />
@@ -833,7 +833,7 @@ function Complaints() {
 
         {(detailLoading || selectedComplaint) && (
           <div
-            className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-950/55 p-4"
+            className="fixed inset-0 z-[110] flex items-center justify-center bg-[#210c28]/55 p-4"
             onClick={() => {
               if (!detailLoading) {
                 setSelectedComplaint(null);
@@ -842,7 +842,7 @@ function Complaints() {
           >
 
             <div
-              className="max-h-[90vh] w-full max-w-[650px] overflow-y-auto rounded-[1px] border border-slate-200 bg-white shadow-2xl"
+              className="max-h-[90vh] w-full max-w-[650px] overflow-y-auto rounded-[1px] border border-[#e2d9df] bg-white shadow-2xl"
               onClick={(e) =>
                 e.stopPropagation()
               }
@@ -851,7 +851,7 @@ function Complaints() {
               {detailLoading ? (
 
                 <div className="flex min-h-[300px] items-center justify-center">
-                  <p className="text-[11px] font-medium text-slate-400">
+                  <p className="text-[11px] font-medium text-[#8b778e]">
                     Loading complaint details...
                   </p>
                 </div>
@@ -862,15 +862,15 @@ function Complaints() {
 
                   {/* HEADER */}
 
-                  <div className="flex items-start justify-between border-b border-slate-200 px-6 py-5">
+                  <div className="flex items-start justify-between border-b border-[#e2d9df] px-6 py-5">
 
                     <div>
 
-                      <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-emerald-500">
+                      <p className="text-[9px] font-bold uppercase tracking-[0.12em] text-[#9b7740]">
                         Complaint Details
                       </p>
 
-                      <h2 className="mt-1 text-[17px] font-extrabold text-slate-900">
+                      <h2 className="mt-1 text-[17px] font-extrabold text-[#32143b]">
                         {selectedComplaint?.subject}
                       </h2>
 
@@ -881,7 +881,7 @@ function Complaints() {
                       onClick={() =>
                         setSelectedComplaint(null)
                       }
-                      className="flex h-9 w-9 items-center justify-center rounded-[1px] border border-slate-200 text-slate-400 transition hover:bg-slate-50"
+                      className="flex h-9 w-9 items-center justify-center rounded-[1px] border border-[#e2d9df] text-[#8b778e] transition hover:bg-[#f7f3ed]"
                     >
                       <X size={17} />
                     </button>
@@ -903,7 +903,7 @@ function Complaints() {
 
                       <div>
 
-                        <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                        <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                           Status
                         </p>
 
@@ -942,13 +942,13 @@ function Complaints() {
 
                     <div>
 
-                      <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                      <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                         Description
                       </p>
 
-                      <div className="mt-2 border border-slate-200 bg-slate-50 p-4">
+                      <div className="mt-2 border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
-                        <p className="text-[11px] leading-6 text-slate-600">
+                        <p className="text-[11px] leading-6 text-[#756b78]">
                           {
                             selectedComplaint?.description
                           }
@@ -963,11 +963,11 @@ function Complaints() {
                     {selectedComplaint?.photo && (
                       <div>
 
-                        <p className="mb-2 text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                        <p className="mb-2 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                           Attached Photo
                         </p>
 
-                        <div className="overflow-hidden border border-slate-200 bg-slate-50">
+                        <div className="overflow-hidden border border-[#e2d9df] bg-[#f7f3ed]">
 
                           <img
                             src={
@@ -987,13 +987,13 @@ function Complaints() {
                     {selectedComplaint?.adminRemark && (
                       <div>
 
-                        <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                        <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                           Management Remark
                         </p>
 
-                        <div className="mt-2 border border-slate-200 bg-slate-50 p-4">
+                        <div className="mt-2 border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
-                          <p className="text-[11px] leading-6 text-slate-600">
+                          <p className="text-[11px] leading-6 text-[#756b78]">
                             {
                               selectedComplaint.adminRemark
                             }
@@ -1030,13 +1030,13 @@ function ComplaintStat({
   tone,
 }) {
   const tones = {
-    slate: "bg-slate-100 text-slate-600",
-    amber: "bg-amber-50 text-amber-500",
-    emerald: "bg-emerald-50 text-emerald-500",
+    slate: "bg-[#eee8ed] text-[#756b78]",
+    amber: "bg-[#f7f3ed] text-[#9b7740]",
+    emerald: "bg-[#f7f3ed] text-[#9b7740]",
   };
 
   return (
-    <div className="rounded-[1px] border border-slate-200 bg-white p-5">
+    <div className="rounded-[1px] border border-[#e2d9df] bg-white p-5">
 
       <div
         className={`mb-4 flex h-10 w-10 items-center justify-center rounded-[1px] ${tones[tone]}`}
@@ -1044,11 +1044,11 @@ function ComplaintStat({
         <Icon size={19} />
       </div>
 
-      <p className="text-[25px] font-extrabold leading-none text-slate-900">
+      <p className="text-[25px] font-extrabold leading-none text-[#32143b]">
         {value}
       </p>
 
-      <p className="mt-2 text-[11px] font-semibold text-slate-500">
+      <p className="mt-2 text-[11px] font-semibold text-[#756b78]">
         {title}
       </p>
 
@@ -1063,7 +1063,7 @@ function ComplaintStat({
 function ComplaintStatus({ status }) {
   if (status === "Resolved") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-emerald-50 px-2.5 py-1 text-[9px] font-bold text-emerald-600">
+      <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
         <CheckCircle2 size={11} />
         Resolved
       </span>
@@ -1072,7 +1072,7 @@ function ComplaintStatus({ status }) {
 
   if (status === "In Progress") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-amber-50 px-2.5 py-1 text-[9px] font-bold text-amber-600">
+      <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
         <Clock3 size={11} />
         In Progress
       </span>
@@ -1089,7 +1089,7 @@ function ComplaintStatus({ status }) {
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-slate-100 px-2.5 py-1 text-[9px] font-bold text-slate-600">
+    <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
       <AlertCircle size={11} />
       {status || "Pending"}
     </span>
@@ -1104,11 +1104,11 @@ function DetailItem({ label, value }) {
   return (
     <div>
 
-      <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+      <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
         {label}
       </p>
 
-      <p className="mt-1 text-[11px] font-bold text-slate-700">
+      <p className="mt-1 text-[11px] font-bold text-[#49394d]">
         {value || "-"}
       </p>
 
@@ -1122,7 +1122,7 @@ function DetailItem({ label, value }) {
 
 function TableHead({ children }) {
   return (
-    <th className="px-5 py-3.5 text-left text-[9px] font-bold uppercase tracking-[0.08em] text-slate-400">
+    <th className="px-5 py-3.5 text-left text-[9px] font-bold uppercase tracking-[0.08em] text-[#8b778e]">
       {children}
     </th>
   );
@@ -1136,11 +1136,11 @@ function EmptyState({ text }) {
   return (
     <div className="flex min-h-[250px] flex-col items-center justify-center px-4 text-center">
 
-      <div className="flex h-12 w-12 items-center justify-center rounded-[1px] bg-slate-100 text-slate-400">
+      <div className="flex h-12 w-12 items-center justify-center rounded-[1px] bg-[#eee8ed] text-[#8b778e]">
         <MessageSquareWarning size={21} />
       </div>
 
-      <p className="mt-3 text-[11px] font-medium text-slate-400">
+      <p className="mt-3 text-[11px] font-medium text-[#8b778e]">
         {text}
       </p>
 
