@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 
@@ -19,6 +19,10 @@ import DashboardLayout from "../../components/dashboard/DashboardLayout";
 const GuardSettings = () => {
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [uploadingPicture, setUploadingPicture] = useState(false);
+
+  const [profilePic, setProfilePic] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -27,18 +31,12 @@ const GuardSettings = () => {
     flatNo: "",
   });
 
-  const [profilePic, setProfilePic] = useState("");
-  const [previewPic, setPreviewPic] = useState("");
-
-  const fileInputRef = useRef(null);
-
   const API_BASE_URL =
     "https://smart-society-backend-delta.vercel.app/guard";
 
   // ==========================================
   // GET GUARD PROFILE
   // ==========================================
-
   useEffect(() => {
     fetchGuardProfile();
   }, []);
@@ -74,7 +72,11 @@ const GuardSettings = () => {
         });
 
         setProfilePic(guard.profilePic || "");
-        setPreviewPic(guard.profilePic || "");
+      } else {
+        toast.error(
+          response.data.message ||
+            "Failed to load profile"
+        );
       }
     } catch (error) {
       console.error(
@@ -94,7 +96,6 @@ const GuardSettings = () => {
   // ==========================================
   // HANDLE INPUT CHANGE
   // ==========================================
-
   const handleChange = (e) => {
     const { name, value } = e.target;
 
@@ -105,41 +106,71 @@ const GuardSettings = () => {
   };
 
   // ==========================================
-  // HANDLE PROFILE PICTURE
+  // PROFILE INITIALS
   // ==========================================
+  const getInitials = (name) => {
+    if (!name) return "G";
 
-  const handleProfilePicChange = (e) => {
+    return name
+      .trim()
+      .split(/\s+/)
+      .map((word) => word[0])
+      .join("")
+      .slice(0, 2)
+      .toUpperCase();
+  };
+
+  // ==========================================
+  // SELECT PROFILE PICTURE
+  // ==========================================
+  const handlePictureChange = (e) => {
     const file = e.target.files?.[0];
 
     if (!file) return;
 
-    // File type validation
-    if (!file.type.startsWith("image/")) {
-      toast.error("Please select a valid image");
+    const allowedTypes = [
+      "image/jpeg",
+      "image/jpg",
+      "image/png",
+      "image/webp",
+    ];
+
+    if (!allowedTypes.includes(file.type)) {
+      toast.error(
+        "Only JPG, JPEG, PNG and WEBP images are allowed"
+      );
+
+      e.target.value = "";
       return;
     }
 
-    // 5MB limit
     if (file.size > 5 * 1024 * 1024) {
-      toast.error("Profile picture must be less than 5MB");
+      toast.error(
+        "Profile picture must be less than 5MB"
+      );
+
+      e.target.value = "";
       return;
     }
 
-    // Create preview
-    const previewUrl = URL.createObjectURL(file);
+    setSelectedFile(file);
 
-    setPreviewPic(previewUrl);
+    // Instant preview
+    const previewUrl = URL.createObjectURL(file);
+    setProfilePic(previewUrl);
   };
 
   // ==========================================
-  // UPDATE GUARD PROFILE
+  // UPLOAD PROFILE PICTURE
   // ==========================================
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const uploadProfilePicture = async () => {
+    if (!selectedFile) {
+      toast.error("Please select a picture first");
+      return;
+    }
 
     try {
-      setSaving(true);
+      setUploadingPicture(true);
 
       const token = localStorage.getItem("token");
 
@@ -148,48 +179,28 @@ const GuardSettings = () => {
         return;
       }
 
-      // ==========================================
-      // CREATE FORMDATA
-      // ==========================================
-
       const data = new FormData();
 
-      data.append("name", formData.name);
-      data.append("email", formData.email);
-      data.append("phone", formData.phone);
-      data.append("flatNo", formData.flatNo);
-
-      // Add selected profile picture
-      const selectedFile =
-        fileInputRef.current?.files?.[0];
-
-      if (selectedFile) {
-        data.append("profilePic", selectedFile);
-      }
+      data.append("profilePic", selectedFile);
 
       const response = await axios.put(
-        `${API_BASE_URL}/profile`,
+        `${API_BASE_URL}/profile/picture`,
         data,
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
           },
         }
       );
 
       if (response.data.success) {
-        toast.success(
-          response.data.message ||
-            "Profile updated successfully"
-        );
+        const updatedProfilePic =
+          response.data.data?.profilePic || "";
 
-        const updatedGuard = response.data.data;
+        setProfilePic(updatedProfilePic);
+        setSelectedFile(null);
 
-        // ==========================================
-        // UPDATE LOCAL STORAGE
-        // ==========================================
-
+        // Update localStorage
         const storedUser =
           localStorage.getItem("user");
 
@@ -199,14 +210,7 @@ const GuardSettings = () => {
 
             const updatedUser = {
               ...user,
-              name: updatedGuard.name,
-              email: updatedGuard.email,
-              phone: updatedGuard.phone,
-              flatNo: updatedGuard.flatNo,
-              profilePic:
-                updatedGuard.profilePic ||
-                user.profilePic ||
-                "",
+              profilePic: updatedProfilePic,
             };
 
             localStorage.setItem(
@@ -221,29 +225,116 @@ const GuardSettings = () => {
           }
         }
 
-        // ==========================================
-        // UPDATE FORM
-        // ==========================================
-
-        setFormData({
-          name: updatedGuard.name || "",
-          email: updatedGuard.email || "",
-          phone: updatedGuard.phone || "",
-          flatNo: updatedGuard.flatNo || "",
-        });
-
-        setProfilePic(
-          updatedGuard.profilePic || ""
+        toast.success(
+          response.data.message ||
+            "Profile picture updated successfully"
         );
-
-        setPreviewPic(
-          updatedGuard.profilePic || ""
+      } else {
+        toast.error(
+          response.data.message ||
+            "Failed to upload profile picture"
         );
+      }
+    } catch (error) {
+      console.error(
+        "Upload Profile Picture Error:",
+        error.response?.data || error.message
+      );
 
-        // Clear selected file
-        if (fileInputRef.current) {
-          fileInputRef.current.value = "";
+      toast.error(
+        error.response?.data?.message ||
+          "Failed to upload profile picture"
+      );
+    } finally {
+      setUploadingPicture(false);
+    }
+  };
+
+  // ==========================================
+  // UPDATE PROFILE INFORMATION
+  // ==========================================
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      setSaving(true);
+
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        toast.error("Please login again");
+        return;
+      }
+
+      const response = await axios.put(
+        `${API_BASE_URL}/profile`,
+        {
+          name: formData.name,
+          email: formData.email,
+          phone: formData.phone,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
         }
+      );
+
+      if (response.data.success) {
+        toast.success(
+          response.data.message ||
+            "Profile updated successfully"
+        );
+
+        const updatedData = response.data.data;
+
+        setFormData((prev) => ({
+          ...prev,
+          name: updatedData?.name || prev.name,
+          email: updatedData?.email || prev.email,
+          phone: updatedData?.phone || prev.phone,
+          flatNo: updatedData?.flatNo || prev.flatNo,
+        }));
+
+        // Update localStorage
+        const storedUser =
+          localStorage.getItem("user");
+
+        if (storedUser) {
+          try {
+            const user = JSON.parse(storedUser);
+
+            const updatedUser = {
+              ...user,
+              name:
+                updatedData?.name || user.name,
+              email:
+                updatedData?.email || user.email,
+              phone:
+                updatedData?.phone || user.phone,
+              flatNo:
+                updatedData?.flatNo || user.flatNo,
+              profilePic:
+                updatedData?.profilePic ||
+                user.profilePic,
+            };
+
+            localStorage.setItem(
+              "user",
+              JSON.stringify(updatedUser)
+            );
+          } catch (error) {
+            console.error(
+              "Local user update error:",
+              error
+            );
+          }
+        }
+      } else {
+        toast.error(
+          response.data.message ||
+            "Failed to update profile"
+        );
       }
     } catch (error) {
       console.error(
@@ -263,7 +354,6 @@ const GuardSettings = () => {
   // ==========================================
   // LOADING
   // ==========================================
-
   if (loading) {
     return (
       <DashboardLayout role="guard">
@@ -280,13 +370,14 @@ const GuardSettings = () => {
   // ==========================================
   // PAGE
   // ==========================================
-
   return (
     <DashboardLayout role="guard">
       <div className="min-h-full bg-white px-1 py-2">
         <div className="mx-auto w-full max-w-4xl">
 
-          {/* HEADER */}
+          {/* =====================================
+              HEADER
+          ====================================== */}
           <div className="mb-8">
             <div className="flex items-center gap-3">
 
@@ -307,98 +398,101 @@ const GuardSettings = () => {
             </div>
           </div>
 
-          {/* SETTINGS FORM */}
+          {/* =====================================
+              SETTINGS FORM
+          ====================================== */}
           <form
             onSubmit={handleSubmit}
             className="rounded-2xl border border-slate-200 bg-white p-6 shadow-sm sm:p-8"
           >
 
-            {/* ==========================================
+            {/* =================================
                 PROFILE PICTURE
-            ========================================== */}
-
-            <div className="mb-8 flex flex-col items-center border-b border-slate-200 pb-8 sm:flex-row sm:items-center sm:gap-6">
+            ================================== */}
+            <div className="mb-8 flex flex-col items-center gap-5 border-b border-slate-200 pb-8 sm:flex-row">
 
               {/* AVATAR */}
               <div className="relative">
 
-                <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-2xl border-4 border-green-100 bg-green-600 text-3xl font-bold text-white shadow-sm">
+                <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-2xl border-4 border-white bg-green-100 text-3xl font-bold text-green-700 shadow-md">
 
-                  {previewPic ? (
+                  {profilePic ? (
                     <img
-                      src={previewPic}
-                      alt="Guard profile"
+                      src={profilePic}
+                      alt={formData.name || "Guard"}
                       className="h-full w-full object-cover"
                     />
                   ) : (
-                    formData.name
-                      ?.split(" ")
-                      .map((word) => word[0])
-                      .join("")
-                      .slice(0, 2)
-                      .toUpperCase() || "G"
+                    getInitials(formData.name)
                   )}
 
                 </div>
 
                 {/* CAMERA BUTTON */}
-                <button
-                  type="button"
-                  onClick={() =>
-                    fileInputRef.current?.click()
-                  }
-                  className="absolute bottom-1 right-1 flex h-9 w-9 items-center justify-center rounded-full border-2 border-white bg-green-600 text-white shadow-md transition hover:bg-green-700"
-                  title="Change profile picture"
+                <label
+                  htmlFor="profilePic"
+                  className="absolute bottom-1 right-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-white bg-green-600 text-white shadow-md transition hover:bg-green-700"
                 >
                   <Camera size={16} />
-                </button>
+
+                  <input
+                    id="profilePic"
+                    type="file"
+                    accept="image/jpeg,image/jpg,image/png,image/webp"
+                    onChange={handlePictureChange}
+                    className="hidden"
+                  />
+                </label>
 
               </div>
 
-              {/* PROFILE INFO */}
-              <div className="mt-4 text-center sm:mt-0 sm:text-left">
+              {/* TEXT */}
+              <div className="text-center sm:text-left">
 
-                <h2 className="text-lg font-semibold text-slate-900">
+                <h3 className="text-base font-semibold text-slate-900">
                   Profile Picture
-                </h2>
+                </h3>
 
                 <p className="mt-1 text-sm text-slate-500">
-                  Upload a photo that will appear on your profile and dashboard.
+                  Upload a new profile picture.
                 </p>
 
-                <button
-                  type="button"
-                  onClick={() =>
-                    fileInputRef.current?.click()
-                  }
-                  className="mt-3 rounded-lg border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-green-500 hover:bg-green-50 hover:text-green-600"
-                >
-                  Choose Photo
-                </button>
-
-                <p className="mt-2 text-xs text-slate-400">
+                <p className="mt-1 text-xs text-slate-400">
                   JPG, PNG or WEBP • Maximum 5MB
                 </p>
 
+                {/* UPLOAD BUTTON */}
+                {selectedFile && (
+                  <button
+                    type="button"
+                    onClick={uploadProfilePicture}
+                    disabled={uploadingPicture}
+                    className="mt-3 inline-flex items-center gap-2 rounded-lg bg-green-600 px-4 py-2 text-xs font-semibold text-white transition hover:bg-green-700 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    {uploadingPicture ? (
+                      <>
+                        <Loader2
+                          size={14}
+                          className="animate-spin"
+                        />
+                        Uploading...
+                      </>
+                    ) : (
+                      <>
+                        <Save size={14} />
+                        Upload Picture
+                      </>
+                    )}
+                  </button>
+                )}
+
               </div>
-
-              {/* HIDDEN FILE INPUT */}
-              <input
-                ref={fileInputRef}
-                type="file"
-                accept="image/png,image/jpeg,image/jpg,image/webp"
-                onChange={handleProfilePicChange}
-                className="hidden"
-              />
-
             </div>
 
-            {/* ==========================================
+            {/* =================================
                 PERSONAL INFORMATION
-            ========================================== */}
-
+            ================================== */}
             <div className="mb-7">
-
               <h2 className="text-lg font-semibold text-slate-900">
                 Personal Information
               </h2>
@@ -406,14 +500,12 @@ const GuardSettings = () => {
               <p className="mt-1 text-sm text-slate-500">
                 Update your account details below.
               </p>
-
             </div>
 
             <div className="grid gap-5 md:grid-cols-2">
 
               {/* NAME */}
               <div className="md:col-span-2">
-
                 <label className="mb-2 block text-sm font-medium text-slate-700">
                   Full Name
                 </label>
@@ -436,12 +528,10 @@ const GuardSettings = () => {
                   />
 
                 </div>
-
               </div>
 
               {/* EMAIL */}
               <div>
-
                 <label className="mb-2 block text-sm font-medium text-slate-700">
                   Email Address
                 </label>
@@ -464,12 +554,10 @@ const GuardSettings = () => {
                   />
 
                 </div>
-
               </div>
 
               {/* PHONE */}
               <div>
-
                 <label className="mb-2 block text-sm font-medium text-slate-700">
                   Phone Number
                 </label>
@@ -486,19 +574,17 @@ const GuardSettings = () => {
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    placeholder="Enter phone number"
-                    maxLength="10"
+                    placeholder="Enter 10 digit phone number"
+                    maxLength={10}
                     className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-11 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-green-500 focus:ring-2 focus:ring-green-100"
                     required
                   />
 
                 </div>
-
               </div>
 
               {/* FLAT NUMBER */}
               <div>
-
                 <label className="mb-2 block text-sm font-medium text-slate-700">
                   Assigned Flat
                 </label>
@@ -514,19 +600,19 @@ const GuardSettings = () => {
                     type="text"
                     name="flatNo"
                     value={formData.flatNo}
-                    onChange={handleChange}
-                    placeholder="Enter flat number"
-                    className="w-full rounded-xl border border-slate-300 bg-white py-3 pl-11 pr-4 text-sm text-slate-900 outline-none transition placeholder:text-slate-400 focus:border-green-500 focus:ring-2 focus:ring-green-100"
-                    required
+                    disabled
+                    className="w-full cursor-not-allowed rounded-xl border border-slate-300 bg-slate-50 py-3 pl-11 pr-4 text-sm text-slate-500 outline-none"
                   />
 
                 </div>
 
+                <p className="mt-1.5 text-xs text-slate-400">
+                  Flat assignment can only be changed by the administrator.
+                </p>
               </div>
 
               {/* ROLE */}
               <div>
-
                 <label className="mb-2 block text-sm font-medium text-slate-700">
                   Account Role
                 </label>
@@ -546,12 +632,13 @@ const GuardSettings = () => {
                   />
 
                 </div>
-
               </div>
 
             </div>
 
-            {/* BUTTON */}
+            {/* =================================
+                SAVE BUTTON
+            ================================== */}
             <div className="mt-8 flex justify-end border-t border-slate-200 pt-6">
 
               <button
@@ -580,7 +667,6 @@ const GuardSettings = () => {
             </div>
 
           </form>
-
         </div>
       </div>
     </DashboardLayout>
