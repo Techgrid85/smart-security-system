@@ -3,6 +3,7 @@ import staffDash from "../assets/staff-dash.png";
 import adminDash from "../assets/admin-dash.png";
 import residentDash from "../assets/res-dash.png";
 import guardDash from "../assets/guard-dash.png";
+import ssbanner from "../assets/ssbanner.png";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -602,7 +603,7 @@ function LandingPage() {
 
             <div className="overflow-hidden">
               <img
-                src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1400&q=90"
+                src={ssbanner}
                 alt="Modern society"
                 className="h-[480px] w-full object-cover sm:h-[570px]"
               />
