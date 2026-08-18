@@ -365,6 +365,7 @@ const login = async (e) => {
           </p>
           <br />
           <p className="text-center text-sm text-slate-500">
+            Don't want to Login?{" "}
             <Link
               to="/"
               className="font-semibold text-emerald-600 hover:text-emerald-700"

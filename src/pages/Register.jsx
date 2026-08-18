@@ -591,6 +591,16 @@ useEffect(() => {
               Sign in
             </Link>
           </p>
+          <br />
+          <p className="text-center text-sm text-slate-500">
+            Don't want to Register?{" "}
+            <Link
+              to="/"
+              className="font-semibold text-emerald-600 hover:text-emerald-700"
+            >
+              Go back to Home Page...
+            </Link>
+          </p>
         </div>
       </div>
     </div>
