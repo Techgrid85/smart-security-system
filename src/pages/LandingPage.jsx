@@ -841,7 +841,7 @@ function LandingPage() {
                 >
 
                   <div className="flex h-12 w-12 items-center justify-center border border-white/15 text-[#d9be82]">
-                    <Icon size={21} strokeWidth={1.5} />
+                    <img src={module.image} alt={module.title} />
                   </div>
 
                   <h3 className="mt-7 text-[15px] font-bold text-white">
