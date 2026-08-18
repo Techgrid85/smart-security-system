@@ -1,5 +1,8 @@
 import { useState, useEffect } from "react";
 import staffDash from "../assets/staff-dash.png";
+import adminDash from "../assets/admin-dash.png";
+import residentDash from "../assets/res-dash.png";
+import guardDash from "../assets/guard-dash.png";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -70,7 +73,7 @@ function LandingPage() {
         "Maintenance oversight",
       ],
       image:
-        "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1200&q=85",
+        adminDash,
     },
     {
       icon: Home,
@@ -85,7 +88,7 @@ function LandingPage() {
         "Events, notices & polls",
       ],
       image:
-        "https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=85",
+        residentDash,
     },
     {
       icon: UserRoundCheck,
@@ -100,7 +103,7 @@ function LandingPage() {
         "Security monitoring",
       ],
       image:
-        "https://images.unsplash.com/photo-1558008258-3256797b43f3?auto=format&fit=crop&w=1200&q=85",
+        guardDash,
     },
     {
       icon: Wrench,
