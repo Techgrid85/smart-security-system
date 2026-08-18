@@ -364,12 +364,15 @@ const login = async (e) => {
             </Link>
           </p>
           <br />
-          <Link
+          <p className="text-center text-sm text-slate-500">
+            <Link
               to="/"
               className="font-semibold text-emerald-600 hover:text-emerald-700"
             >
-              Go back to Home Page
+              Go back to Home Page...
             </Link>
+          </p>
+          
 
         </div>
       </div>
