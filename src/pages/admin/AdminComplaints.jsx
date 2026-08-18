@@ -15,6 +15,7 @@ import {
   Clock3,
   AlertCircle,
   Wrench,
+  Image as ImageIcon,
 } from "lucide-react";
 
 import DashboardLayout from "../../components/dashboard/DashboardLayout";
@@ -571,6 +572,27 @@ function AdminComplaints() {
                   </p>
 
                 </div>
+
+                {/* Complaint Image */}
+                {selectedComplaint.image && (
+                  <div>
+                    <div className="mb-2 flex items-center gap-2">
+                      <ImageIcon size={14} className="text-emerald-500" />
+
+                      <p className="text-[11px] font-bold text-slate-700">
+                        Complaint Image
+                      </p>
+                    </div>
+
+                    <div className="overflow-hidden rounded-[12px] border border-slate-200 bg-slate-50">
+                      <img
+                        src={selectedComplaint.image}
+                        alt="Complaint"
+                        className="max-h-[300px] w-full object-contain"
+                      />
+                    </div>
+                  </div>
+                )}
 
                 {/* Staff Select */}
                 <div>
