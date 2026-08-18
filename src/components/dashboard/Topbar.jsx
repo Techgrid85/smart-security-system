@@ -127,13 +127,13 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
       <div className="ml-auto flex items-center gap-2">
 
         {/* ROLE */}
-        <div className="hidden h-[36px] items-center gap-1.5 rounded-[9px] border border-emerald-200 bg-emerald-50 px-3 text-[10.5px] font-bold text-emerald-600 lg:flex">
+        <div className="hidden h-[36px] items-center gap-1.5 rounded-[1px] border border-emerald-200 bg-emerald-50 px-3 text-[10.5px] font-bold text-emerald-600 lg:flex">
           <ShieldCheck size={14} />
           {config?.roleLabel || role}
         </div>
 
         {/* DATE */}
-        <div className="hidden h-[36px] items-center gap-1.5 rounded-[9px] border border-slate-200 px-3 text-[10.5px] font-semibold text-slate-500 md:flex">
+        <div className="hidden h-[36px] items-center gap-1.5 rounded-[1px] border border-slate-200 px-3 text-[10.5px] font-semibold text-slate-500 md:flex">
           <CalendarDays size={14} />
           {formattedDate}
         </div>
@@ -143,7 +143,7 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
         {/* SEARCH */}
         <button
           type="button"
-          className="flex h-[36px] w-[36px] items-center justify-center rounded-[9px] text-slate-500 transition hover:bg-slate-50 hover:text-slate-900"
+          className="flex h-[36px] w-[36px] items-center justify-center rounded-[1px] text-slate-500 transition hover:bg-slate-50 hover:text-slate-900"
           aria-label="Search"
         >
           <Search size={17} />
@@ -152,12 +152,12 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
         {/* NOTIFICATIONS */}
         <button
           type="button"
-          className="relative flex h-[36px] w-[36px] items-center justify-center rounded-[9px] text-slate-500 transition hover:bg-slate-50 hover:text-slate-900"
+          className="relative flex h-[36px] w-[36px] items-center justify-center rounded-[1px] text-slate-500 transition hover:bg-slate-50 hover:text-slate-900"
           aria-label="Notifications"
         >
           <Bell size={17} />
 
-          <span className="absolute right-[8px] top-[7px] h-[5px] w-[5px] rounded-full bg-red-500 ring-2 ring-white" />
+          <span className="absolute right-[8px] top-[7px] h-[5px] w-[5px] rounded-[1px] bg-red-500 ring-2 ring-white" />
         </button>
 
         <div className="mx-1 h-6 w-px bg-slate-200" />
@@ -170,11 +170,11 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
           <button
             type="button"
             onClick={() => setProfileOpen(!profileOpen)}
-            className="flex h-[40px] items-center gap-2 rounded-[9px] px-1.5 transition hover:bg-slate-50"
+            className="flex h-[40px] items-center gap-2 rounded-[1px] px-1.5 transition hover:bg-slate-50"
           >
             {/* AVATAR */}
             
-            <div className="flex h-[34px] w-[34px] shrink-0 items-center justify-center overflow-hidden rounded-[9px] bg-emerald-500 text-[10px] font-extrabold text-white">
+            <div className="flex h-[34px] w-[34px] shrink-0 items-center justify-center overflow-hidden rounded-[1px] bg-emerald-500 text-[10px] font-extrabold text-white">
               {user?.profilePic ? (
                 <img
                   src={user.profilePic}
