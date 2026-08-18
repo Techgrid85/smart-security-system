@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import staffDash from "../assets/staff-dash.png";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -114,7 +115,7 @@ function LandingPage() {
         "Profile management",
       ],
       image:
-        "./assets/staff-dash.png",
+         staffDash,
     },
   ];
 
