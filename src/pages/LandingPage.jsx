@@ -114,7 +114,7 @@ function LandingPage() {
         "Profile management",
       ],
       image:
-        "../assets/staff-dash.png",
+        "./assets/staff-dash.png",
     },
   ];
 
