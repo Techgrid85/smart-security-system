@@ -185,12 +185,12 @@ function AdminSecurity() {
 
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
           <div>
-            <h1 className="flex items-center gap-2 text-[22px] font-extrabold text-slate-900">
-              <ShieldCheck size={23} className="text-emerald-500" />
+            <h1 className="flex items-center gap-2 text-[22px] font-extrabold text-[#32143b]">
+              <ShieldCheck size={23} className="text-[#9b7740]" />
               Security
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Monitor visitors, entries, exits and security alerts.
             </p>
           </div>
@@ -198,7 +198,7 @@ function AdminSecurity() {
           <button
             type="button"
             onClick={fetchSecurityData}
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
           >
             <RefreshCw size={14} />
             Refresh
@@ -213,21 +213,21 @@ function AdminSecurity() {
             icon={<Users size={17} />}
             label="Visitors Inside"
             value={totalActive}
-            iconClass="bg-emerald-50 text-emerald-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
             icon={<LogIn size={17} />}
             label="Entry Logs"
             value={totalEntries}
-            iconClass="bg-sky-50 text-sky-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
             icon={<LogOut size={17} />}
             label="Exit Logs"
             value={totalExits}
-            iconClass="bg-amber-50 text-amber-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
@@ -241,17 +241,17 @@ function AdminSecurity() {
 
         {/* ================= SEARCH ================= */}
 
-        <div className="mb-5 rounded-[16px] border border-slate-200 bg-white p-4">
+        <div className="mb-5 rounded-[16px] border border-[#e2d9df] bg-white p-4">
 
           <div className="mb-4 flex items-center gap-2">
-            <Search size={17} className="text-emerald-500" />
+            <Search size={17} className="text-[#9b7740]" />
 
             <div>
-              <h2 className="text-[13px] font-bold text-slate-900">
+              <h2 className="text-[13px] font-bold text-[#32143b]">
                 Search Visitors
               </h2>
 
-              <p className="mt-0.5 text-[10.5px] font-medium text-slate-400">
+              <p className="mt-0.5 text-[10.5px] font-medium text-[#8b778e]">
                 Search by visitor name, phone or flat number.
               </p>
             </div>
@@ -260,7 +260,7 @@ function AdminSecurity() {
           <div className="relative">
             <Search
               size={16}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
             />
 
             <input
@@ -268,13 +268,13 @@ function AdminSecurity() {
               value={search}
               onChange={(e) => handleSearch(e.target.value)}
               placeholder="Search visitor, phone or flat..."
-              className="w-full rounded-[10px] border border-slate-200 bg-slate-50 py-2.5 pl-10 pr-10 text-[12px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white"
+              className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-10 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
             />
 
             {searching && (
               <Loader2
                 size={15}
-                className="absolute right-3 top-1/2 -translate-y-1/2 animate-spin text-emerald-500"
+                className="absolute right-3 top-1/2 -translate-y-1/2 animate-spin text-[#9b7740]"
               />
             )}
           </div>
@@ -282,10 +282,10 @@ function AdminSecurity() {
           {/* SEARCH RESULTS */}
 
           {search.trim() && (
-            <div className="mt-4 overflow-hidden rounded-[12px] border border-slate-200">
+            <div className="mt-4 overflow-hidden rounded-[12px] border border-[#e2d9df]">
 
-              <div className="border-b border-slate-200 bg-slate-50 px-4 py-3">
-                <p className="text-[10.5px] font-bold uppercase tracking-wide text-slate-400">
+              <div className="border-b border-[#e2d9df] bg-[#f7f3ed] px-4 py-3">
+                <p className="text-[10.5px] font-bold uppercase tracking-wide text-[#8b778e]">
                   Search Results
                 </p>
               </div>
@@ -298,23 +298,23 @@ function AdminSecurity() {
                     <thead>
                       <tr className="bg-white">
 
-                        <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                        <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                           Visitor
                         </th>
 
-                        <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                        <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                           Phone
                         </th>
 
-                        <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                        <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                           Flat
                         </th>
 
-                        <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                        <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                           Status
                         </th>
 
-                        <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                        <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                           Gate
                         </th>
 
@@ -326,22 +326,22 @@ function AdminSecurity() {
                       {searchResults.map((visitor) => (
                         <tr
                           key={visitor._id}
-                          className="border-t border-slate-200 transition hover:bg-slate-50"
+                          className="border-t border-[#e2d9df] transition hover:bg-[#f7f3ed]"
                         >
 
                           <td className="px-4 py-3">
                             <div className="flex items-center gap-2">
 
-                              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-sky-50 text-sky-600">
+                              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
                                 <User size={13} />
                               </div>
 
                               <div>
-                                <p className="text-[11px] font-bold text-slate-700">
+                                <p className="text-[11px] font-bold text-[#49394d]">
                                   {visitor.visitorName}
                                 </p>
 
-                                <p className="text-[9.5px] font-medium text-slate-400">
+                                <p className="text-[9.5px] font-medium text-[#8b778e]">
                                   {visitor.purpose || "-"}
                                 </p>
                               </div>
@@ -349,12 +349,12 @@ function AdminSecurity() {
                             </div>
                           </td>
 
-                          <td className="px-4 py-3 text-[11px] font-semibold text-slate-600">
+                          <td className="px-4 py-3 text-[11px] font-semibold text-[#756b78]">
                             {visitor.phone}
                           </td>
 
                           <td className="px-4 py-3">
-                            <span className="text-[11px] font-semibold text-slate-700">
+                            <span className="text-[11px] font-semibold text-[#49394d]">
                               {visitor.flatNo}
                             </span>
                           </td>
@@ -383,14 +383,14 @@ function AdminSecurity() {
                 <div className="px-5 py-10 text-center">
                   <Search
                     size={28}
-                    className="mx-auto mb-3 text-slate-300"
+                    className="mx-auto mb-3 text-[#bca9c0]"
                   />
 
-                  <p className="text-[12px] font-bold text-slate-600">
+                  <p className="text-[12px] font-bold text-[#756b78]">
                     No visitors found
                   </p>
 
-                  <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+                  <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                     Try another visitor name, phone or flat number.
                   </p>
                 </div>
@@ -434,11 +434,11 @@ function AdminSecurity() {
               </div>
 
               <div>
-                <h2 className="text-[13px] font-bold text-slate-900">
+                <h2 className="text-[13px] font-bold text-[#32143b]">
                   Overstay Alerts
                 </h2>
 
-                <p className="mt-0.5 text-[10.5px] font-medium text-slate-400">
+                <p className="mt-0.5 text-[10.5px] font-medium text-[#8b778e]">
                   Visitors inside for more than 8 hours.
                 </p>
               </div>
@@ -457,21 +457,21 @@ function AdminSecurity() {
               <table className="w-full min-w-[700px] border-collapse">
 
                 <thead>
-                  <tr className="bg-slate-50">
+                  <tr className="bg-[#f7f3ed]">
 
-                    <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Visitor
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Flat
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Entry Time
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Guard
                     </th>
 
@@ -483,7 +483,7 @@ function AdminSecurity() {
                   {overstayAlerts.map((visitor) => (
                     <tr
                       key={visitor._id}
-                      className="border-t border-slate-200 transition hover:bg-slate-50"
+                      className="border-t border-[#e2d9df] transition hover:bg-[#f7f3ed]"
                     >
 
                       <td className="px-5 py-4">
@@ -495,11 +495,11 @@ function AdminSecurity() {
                           </div>
 
                           <div>
-                            <p className="text-[11px] font-bold text-slate-700">
+                            <p className="text-[11px] font-bold text-[#49394d]">
                               {visitor.visitorName}
                             </p>
 
-                            <p className="text-[9.5px] font-medium text-slate-400">
+                            <p className="text-[9.5px] font-medium text-[#8b778e]">
                               {visitor.phone}
                             </p>
                           </div>
@@ -509,20 +509,20 @@ function AdminSecurity() {
                       </td>
 
                       <td className="px-4 py-4">
-                        <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-slate-700">
-                          <Home size={13} className="text-slate-400" />
+                        <span className="inline-flex items-center gap-1.5 text-[11px] font-semibold text-[#49394d]">
+                          <Home size={13} className="text-[#8b778e]" />
                           {visitor.flatNo}
                         </span>
                       </td>
 
                       <td className="px-4 py-4">
-                        <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-600">
+                        <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#756b78]">
                           <Clock size={13} className="text-red-400" />
                           {formatDate(visitor.entryTime)}
                         </div>
                       </td>
 
-                      <td className="px-4 py-4 text-[11px] font-semibold text-slate-600">
+                      <td className="px-4 py-4 text-[11px] font-semibold text-[#756b78]">
                         {visitor.entryGuard?.name || "-"}
                       </td>
 
@@ -539,14 +539,14 @@ function AdminSecurity() {
 
               <ShieldCheck
                 size={30}
-                className="mx-auto mb-3 text-emerald-300"
+                className="mx-auto mb-3 text-[#d9be82]"
               />
 
-              <p className="text-[12px] font-bold text-slate-600">
+              <p className="text-[12px] font-bold text-[#756b78]">
                 No overstay alerts
               </p>
 
-              <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+              <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                 All current visitors are within the allowed time.
               </p>
 
@@ -557,29 +557,29 @@ function AdminSecurity() {
 
         {/* ================= ACTIVE VISITORS ================= */}
 
-        <section className="mb-5 overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="mb-5 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
                 <Users size={17} />
               </div>
 
               <div>
-                <h2 className="text-[13px] font-bold text-slate-900">
+                <h2 className="text-[13px] font-bold text-[#32143b]">
                   Visitors Currently Inside
                 </h2>
 
-                <p className="mt-0.5 text-[10.5px] font-medium text-slate-400">
+                <p className="mt-0.5 text-[10.5px] font-medium text-[#8b778e]">
                   Live visitor presence in the society.
                 </p>
               </div>
 
             </div>
 
-            <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-600">
+            <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
               {activeVisitors.length} Inside
             </span>
 
@@ -591,36 +591,36 @@ function AdminSecurity() {
               {activeVisitors.map((visitor) => (
                 <div
                   key={visitor._id}
-                  className="rounded-[13px] border border-slate-200 bg-slate-50 p-4 transition hover:border-emerald-200"
+                  className="rounded-[13px] border border-[#e2d9df] bg-[#f7f3ed] p-4 transition hover:border-[#e2d9df]"
                 >
 
                   <div className="flex items-start justify-between">
 
                     <div className="flex items-center gap-2">
 
-                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
                         <User size={15} />
                       </div>
 
                       <div>
-                        <p className="text-[12px] font-bold text-slate-800">
+                        <p className="text-[12px] font-bold text-[#49394d]">
                           {visitor.visitorName}
                         </p>
 
-                        <p className="text-[9.5px] font-medium text-slate-400">
+                        <p className="text-[9.5px] font-medium text-[#8b778e]">
                           Flat {visitor.flatNo}
                         </p>
                       </div>
 
                     </div>
 
-                    <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[9.5px] font-bold text-emerald-600">
+                    <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
                       Inside
                     </span>
 
                   </div>
 
-                  <div className="mt-4 space-y-2 border-t border-slate-200 pt-3">
+                  <div className="mt-4 space-y-2 border-t border-[#e2d9df] pt-3">
 
                     <InfoRow
                       label="Phone"
@@ -648,14 +648,14 @@ function AdminSecurity() {
 
               <Users
                 size={30}
-                className="mx-auto mb-3 text-slate-300"
+                className="mx-auto mb-3 text-[#bca9c0]"
               />
 
-              <p className="text-[12px] font-bold text-slate-600">
+              <p className="text-[12px] font-bold text-[#756b78]">
                 No visitors currently inside
               </p>
 
-              <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+              <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                 There are currently no active visitors.
               </p>
 
@@ -674,7 +674,7 @@ function AdminSecurity() {
             title="Recent Entry Logs"
             description="Latest visitor entries."
             icon={<LogIn size={17} />}
-            iconClass="bg-emerald-50 text-emerald-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
             logs={entryLogs}
             timeKey="entryTime"
             guardKey="entryGuard"
@@ -687,7 +687,7 @@ function AdminSecurity() {
             title="Recent Exit Logs"
             description="Latest visitor exits."
             icon={<LogOut size={17} />}
-            iconClass="bg-amber-50 text-amber-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
             logs={exitLogs}
             timeKey="exitTime"
             guardKey="exitGuard"
@@ -701,9 +701,9 @@ function AdminSecurity() {
         {loading && (
           <div className="flex min-h-[60vh] items-center justify-center">
           <div className="text-center">
-            <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-emerald-500 border-t-transparent" />
+            <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-[#9b7740] border-t-transparent" />
 
-            <p className="mt-4 text-sm font-medium text-slate-500">
+            <p className="mt-4 text-sm font-medium text-[#756b78]">
               Loading Security...
             </p>
           </div>
@@ -726,14 +726,14 @@ function StatCard({
   iconClass,
 }) {
   return (
-    <div className="flex items-center justify-between rounded-[16px] border border-slate-200 bg-white p-4">
+    <div className="flex items-center justify-between rounded-[16px] border border-[#e2d9df] bg-white p-4">
 
       <div>
-        <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+        <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
           {label}
         </p>
 
-        <p className="mt-1 text-[20px] font-extrabold text-slate-900">
+        <p className="mt-1 text-[20px] font-extrabold text-[#32143b]">
           {value}
         </p>
       </div>
@@ -756,11 +756,11 @@ function InfoRow({ label, value }) {
   return (
     <div className="flex items-center justify-between gap-3">
 
-      <span className="text-[10px] font-semibold text-slate-400">
+      <span className="text-[10px] font-semibold text-[#8b778e]">
         {label}
       </span>
 
-      <span className="text-right text-[10.5px] font-semibold text-slate-600">
+      <span className="text-right text-[10.5px] font-semibold text-[#756b78]">
         {value || "-"}
       </span>
 
@@ -775,7 +775,7 @@ function InfoRow({ label, value }) {
 function SecurityStatusBadge({ status }) {
   if (status === "Approved") {
     return (
-      <span className="inline-flex rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-600">
+      <span className="inline-flex rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         Approved
       </span>
     );
@@ -783,7 +783,7 @@ function SecurityStatusBadge({ status }) {
 
   if (status === "Completed") {
     return (
-      <span className="inline-flex rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold text-slate-600">
+      <span className="inline-flex rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
         Completed
       </span>
     );
@@ -798,7 +798,7 @@ function SecurityStatusBadge({ status }) {
   }
 
   return (
-    <span className="inline-flex rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-600">
+    <span className="inline-flex rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
       Pending
     </span>
   );
@@ -811,7 +811,7 @@ function SecurityStatusBadge({ status }) {
 function GateStatusBadge({ status }) {
   if (status === "Inside") {
     return (
-      <span className="inline-flex rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-600">
+      <span className="inline-flex rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         Inside
       </span>
     );
@@ -819,14 +819,14 @@ function GateStatusBadge({ status }) {
 
   if (status === "Exited") {
     return (
-      <span className="inline-flex rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold text-slate-600">
+      <span className="inline-flex rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
         Exited
       </span>
     );
   }
 
   return (
-    <span className="inline-flex rounded-full bg-sky-50 px-2.5 py-1 text-[10px] font-bold text-sky-600">
+    <span className="inline-flex rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
       Not Entered
     </span>
   );
@@ -847,9 +847,9 @@ function LogSection({
   emptyText,
 }) {
   return (
-    <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+    <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-      <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+      <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
         <div className="flex items-center gap-3">
 
@@ -860,18 +860,18 @@ function LogSection({
           </div>
 
           <div>
-            <h2 className="text-[13px] font-bold text-slate-900">
+            <h2 className="text-[13px] font-bold text-[#32143b]">
               {title}
             </h2>
 
-            <p className="mt-0.5 text-[10.5px] font-medium text-slate-400">
+            <p className="mt-0.5 text-[10.5px] font-medium text-[#8b778e]">
               {description}
             </p>
           </div>
 
         </div>
 
-        <span className="text-[10px] font-bold text-slate-400">
+        <span className="text-[10px] font-bold text-[#8b778e]">
           {logs.length} Logs
         </span>
 
@@ -883,22 +883,22 @@ function LogSection({
           {logs.slice(0, 8).map((visitor) => (
             <div
               key={visitor._id}
-              className="flex items-center justify-between gap-3 rounded-[11px] border border-slate-200 bg-slate-50 p-3 transition hover:bg-white"
+              className="flex items-center justify-between gap-3 rounded-[11px] border border-[#e2d9df] bg-[#f7f3ed] p-3 transition hover:bg-white"
             >
 
               <div className="flex min-w-0 items-center gap-2">
 
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-slate-500">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-[#756b78]">
                   <User size={14} />
                 </div>
 
                 <div className="min-w-0">
 
-                  <p className="truncate text-[11px] font-bold text-slate-700">
+                  <p className="truncate text-[11px] font-bold text-[#49394d]">
                     {visitor.visitorName}
                   </p>
 
-                  <p className="text-[9.5px] font-medium text-slate-400">
+                  <p className="text-[9.5px] font-medium text-[#8b778e]">
                     Flat {visitor.flatNo}
                   </p>
 
@@ -908,11 +908,11 @@ function LogSection({
 
               <div className="shrink-0 text-right">
 
-                <p className="text-[10px] font-semibold text-slate-600">
+                <p className="text-[10px] font-semibold text-[#756b78]">
                   {formatLogDate(visitor[timeKey])}
                 </p>
 
-                <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
+                <p className="mt-0.5 text-[9.5px] font-medium text-[#8b778e]">
                   {visitor[guardKey]?.name || "-"}
                 </p>
 
@@ -927,14 +927,14 @@ function LogSection({
 
           <Clock
             size={28}
-            className="mx-auto mb-3 text-slate-300"
+            className="mx-auto mb-3 text-[#bca9c0]"
           />
 
-          <p className="text-[12px] font-bold text-slate-600">
+          <p className="text-[12px] font-bold text-[#756b78]">
             {emptyText}
           </p>
 
-          <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+          <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
             No records are available yet.
           </p>
 

@@ -318,15 +318,15 @@ function AdminNotices() {
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
 
           <div>
-            <h1 className="flex items-center gap-2 text-[22px] font-extrabold text-slate-900">
+            <h1 className="flex items-center gap-2 text-[22px] font-extrabold text-[#32143b]">
               <Bell
                 size={23}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
               Notices
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Create and manage society announcements and notices.
             </p>
           </div>
@@ -337,7 +337,7 @@ function AdminNotices() {
               type="button"
               onClick={() => fetchNotices(true)}
               disabled={refreshing}
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50 disabled:opacity-60"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-60"
             >
               <RefreshCw
                 size={14}
@@ -351,7 +351,7 @@ function AdminNotices() {
             <button
               type="button"
               onClick={openCreateModal}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
             >
               <Plus size={15} />
               Create Notice
@@ -369,21 +369,21 @@ function AdminNotices() {
             icon={<FileText size={17} />}
             label="Total Notices"
             value={totalNotices}
-            iconClass="bg-sky-50 text-sky-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
             icon={<Info size={17} />}
             label="Normal"
             value={normalCount}
-            iconClass="bg-slate-100 text-slate-500"
+            iconClass="bg-[#eee8ed] text-[#756b78]"
           />
 
           <StatCard
             icon={<AlertCircle size={17} />}
             label="Important"
             value={importantCount}
-            iconClass="bg-amber-50 text-amber-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
@@ -397,7 +397,7 @@ function AdminNotices() {
 
         {/* ================= FILTERS ================= */}
 
-        <div className="mb-5 rounded-[16px] border border-slate-200 bg-white p-4">
+        <div className="mb-5 rounded-[16px] border border-[#e2d9df] bg-white p-4">
 
           <div className="flex flex-col gap-3 lg:flex-row">
 
@@ -405,7 +405,7 @@ function AdminNotices() {
 
               <Search
                 size={16}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
               />
 
               <input
@@ -415,7 +415,7 @@ function AdminNotices() {
                   setSearch(e.target.value)
                 }
                 placeholder="Search notices by title or description..."
-                className="w-full rounded-[10px] border border-slate-200 bg-slate-50 py-2.5 pl-10 pr-4 text-[12px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white"
+                className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-4 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
               />
 
             </div>
@@ -425,7 +425,7 @@ function AdminNotices() {
               onChange={(e) =>
                 setPriorityFilter(e.target.value)
               }
-              className="rounded-[10px] border border-slate-200 bg-slate-50 px-4 py-2.5 text-[12px] font-bold text-slate-600 outline-none focus:border-emerald-400"
+              className="rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-4 py-2.5 text-[12px] font-bold text-[#756b78] outline-none focus:border-[#bca16a]"
             >
               <option value="All">
                 All Priorities
@@ -470,29 +470,29 @@ function AdminNotices() {
 
         {/* ================= NOTICES TABLE ================= */}
 
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
                 <Bell size={17} />
               </div>
 
               <div>
-                <h2 className="text-[13px] font-bold text-slate-900">
+                <h2 className="text-[13px] font-bold text-[#32143b]">
                   All Notices
                 </h2>
 
-                <p className="mt-0.5 text-[10.5px] font-medium text-slate-400">
+                <p className="mt-0.5 text-[10.5px] font-medium text-[#8b778e]">
                   Manage announcements published for residents.
                 </p>
               </div>
 
             </div>
 
-            <span className="rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold text-slate-500">
+            <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
               {filteredNotices.length} Notices
             </span>
 
@@ -503,10 +503,10 @@ function AdminNotices() {
 
               <Loader2
                 size={19}
-                className="animate-spin text-emerald-500"
+                className="animate-spin text-[#9b7740]"
               />
 
-              <span className="text-[11px] font-bold text-slate-500">
+              <span className="text-[11px] font-bold text-[#756b78]">
                 Loading notices...
               </span>
 
@@ -517,25 +517,25 @@ function AdminNotices() {
               <table className="w-full min-w-[850px] border-collapse">
 
                 <thead>
-                  <tr className="bg-slate-50">
+                  <tr className="bg-[#f7f3ed]">
 
-                    <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Notice
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Priority
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Created By
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Date
                     </th>
 
-                    <th className="px-5 py-3 text-right text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-5 py-3 text-right text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Actions
                     </th>
 
@@ -547,7 +547,7 @@ function AdminNotices() {
                   {filteredNotices.map((notice) => (
                     <tr
                       key={notice._id}
-                      className="border-t border-slate-200 transition hover:bg-slate-50"
+                      className="border-t border-[#e2d9df] transition hover:bg-[#f7f3ed]"
                     >
 
                       {/* NOTICE */}
@@ -564,11 +564,11 @@ function AdminNotices() {
 
                           <div className="min-w-0">
 
-                            <p className="truncate text-[12px] font-bold text-slate-800">
+                            <p className="truncate text-[12px] font-bold text-[#49394d]">
                               {notice.title}
                             </p>
 
-                            <p className="mt-1 line-clamp-2 text-[10.5px] font-medium leading-5 text-slate-400">
+                            <p className="mt-1 line-clamp-2 text-[10.5px] font-medium leading-5 text-[#8b778e]">
                               {notice.description}
                             </p>
 
@@ -592,11 +592,11 @@ function AdminNotices() {
 
                         <div className="flex items-center gap-2">
 
-                          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-slate-100 text-slate-500">
+                          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#eee8ed] text-[#756b78]">
                             <User size={13} />
                           </div>
 
-                          <span className="text-[11px] font-semibold text-slate-600">
+                          <span className="text-[11px] font-semibold text-[#756b78]">
                             {notice.createdBy?.name ||
                               "Admin"}
                           </span>
@@ -609,11 +609,11 @@ function AdminNotices() {
 
                       <td className="px-4 py-4">
 
-                        <div className="flex items-center gap-1.5 text-[11px] font-semibold text-slate-500">
+                        <div className="flex items-center gap-1.5 text-[11px] font-semibold text-[#756b78]">
 
                           <CalendarDays
                             size={13}
-                            className="text-slate-400"
+                            className="text-[#8b778e]"
                           />
 
                           {formatDate(
@@ -636,7 +636,7 @@ function AdminNotices() {
                               openEditModal(notice)
                             }
                             title="Edit Notice"
-                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:border-emerald-200 hover:bg-emerald-50 hover:text-emerald-600"
+                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e2d9df] text-[#756b78] transition hover:border-[#e2d9df] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
                           >
                             <Pencil size={14} />
                           </button>
@@ -647,7 +647,7 @@ function AdminNotices() {
                               deleteNotice(notice)
                             }
                             title="Delete Notice"
-                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:border-red-200 hover:bg-red-50 hover:text-red-500"
+                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e2d9df] text-[#756b78] transition hover:border-red-200 hover:bg-red-50 hover:text-red-500"
                           >
                             <Trash2 size={14} />
                           </button>
@@ -669,14 +669,14 @@ function AdminNotices() {
 
               <Bell
                 size={32}
-                className="mx-auto mb-3 text-slate-300"
+                className="mx-auto mb-3 text-[#bca9c0]"
               />
 
-              <p className="text-[12px] font-bold text-slate-600">
+              <p className="text-[12px] font-bold text-[#756b78]">
                 No notices found
               </p>
 
-              <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+              <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                 Create a new notice or try changing your filters.
               </p>
 
@@ -685,7 +685,7 @@ function AdminNotices() {
                   <button
                     type="button"
                     onClick={openCreateModal}
-                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white hover:bg-emerald-600"
+                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white hover:bg-[#9b7740]"
                   >
                     <Plus size={14} />
                     Create First Notice
@@ -700,17 +700,17 @@ function AdminNotices() {
         {/* ================= CREATE / EDIT MODAL ================= */}
 
         {showModal && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/40 p-4 backdrop-blur-[2px]">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#32143b]/40 p-4 backdrop-blur-[2px]">
 
-            <div className="w-full max-w-[560px] overflow-hidden rounded-[18px] border border-slate-200 bg-white shadow-2xl">
+            <div className="w-full max-w-[560px] overflow-hidden rounded-[18px] border border-[#e2d9df] bg-white shadow-2xl">
 
               {/* MODAL HEADER */}
 
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
                 <div className="flex items-center gap-3">
 
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
                     {editingNotice ? (
                       <Pencil size={17} />
                     ) : (
@@ -719,13 +719,13 @@ function AdminNotices() {
                   </div>
 
                   <div>
-                    <h2 className="text-[14px] font-bold text-slate-900">
+                    <h2 className="text-[14px] font-bold text-[#32143b]">
                       {editingNotice
                         ? "Edit Notice"
                         : "Create Notice"}
                     </h2>
 
-                    <p className="mt-0.5 text-[10.5px] font-medium text-slate-400">
+                    <p className="mt-0.5 text-[10.5px] font-medium text-[#8b778e]">
                       {editingNotice
                         ? "Update the notice information."
                         : "Publish an announcement for residents."}
@@ -738,7 +738,7 @@ function AdminNotices() {
                   type="button"
                   onClick={closeModal}
                   disabled={submitting}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 disabled:opacity-50"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d] disabled:opacity-50"
                 >
                   <X size={17} />
                 </button>
@@ -758,7 +758,7 @@ function AdminNotices() {
 
                   <div>
 
-                    <label className="mb-1.5 block text-[11px] font-bold text-slate-600">
+                    <label className="mb-1.5 block text-[11px] font-bold text-[#756b78]">
                       Notice Title
                     </label>
 
@@ -769,7 +769,7 @@ function AdminNotices() {
                       onChange={handleChange}
                       maxLength={150}
                       placeholder="Enter notice title..."
-                      className="w-full rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-[12px] font-medium text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white"
+                      className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[12px] font-medium text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#bca16a] focus:bg-white"
                     />
 
                   </div>
@@ -778,7 +778,7 @@ function AdminNotices() {
 
                   <div>
 
-                    <label className="mb-1.5 block text-[11px] font-bold text-slate-600">
+                    <label className="mb-1.5 block text-[11px] font-bold text-[#756b78]">
                       Priority
                     </label>
 
@@ -786,7 +786,7 @@ function AdminNotices() {
                       name="priority"
                       value={formData.priority}
                       onChange={handleChange}
-                      className="w-full rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-[12px] font-bold text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white"
+                      className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[12px] font-bold text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
                     >
                       <option value="Normal">
                         Normal
@@ -809,11 +809,11 @@ function AdminNotices() {
 
                     <div className="mb-1.5 flex items-center justify-between">
 
-                      <label className="text-[11px] font-bold text-slate-600">
+                      <label className="text-[11px] font-bold text-[#756b78]">
                         Description
                       </label>
 
-                      <span className="text-[9.5px] font-medium text-slate-400">
+                      <span className="text-[9.5px] font-medium text-[#8b778e]">
                         {formData.description.length}/2000
                       </span>
 
@@ -826,7 +826,7 @@ function AdminNotices() {
                       maxLength={2000}
                       rows={6}
                       placeholder="Write the notice details..."
-                      className="w-full resize-none rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-3 text-[12px] font-medium leading-5 text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-emerald-400 focus:bg-white"
+                      className="w-full resize-none rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-3 text-[12px] font-medium leading-5 text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#bca16a] focus:bg-white"
                     />
 
                   </div>
@@ -835,13 +835,13 @@ function AdminNotices() {
 
                 {/* MODAL ACTIONS */}
 
-                <div className="mt-5 flex justify-end gap-2 border-t border-slate-100 pt-4">
+                <div className="mt-5 flex justify-end gap-2 border-t border-[#eee8ed] pt-4">
 
                   <button
                     type="button"
                     onClick={closeModal}
                     disabled={submitting}
-                    className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50 disabled:opacity-50"
+                    className="rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -849,7 +849,7 @@ function AdminNotices() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600 disabled:opacity-60"
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:opacity-60"
                   >
 
                     {submitting && (
@@ -891,14 +891,14 @@ function StatCard({
   iconClass,
 }) {
   return (
-    <div className="flex items-center justify-between rounded-[16px] border border-slate-200 bg-white p-4">
+    <div className="flex items-center justify-between rounded-[16px] border border-[#e2d9df] bg-white p-4">
 
       <div>
-        <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+        <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
           {label}
         </p>
 
-        <p className="mt-1 text-[20px] font-extrabold text-slate-900">
+        <p className="mt-1 text-[20px] font-extrabold text-[#32143b]">
           {value}
         </p>
       </div>
@@ -929,14 +929,14 @@ function PriorityBadge({ priority }) {
 
   if (priority === "Important") {
     return (
-      <span className="inline-flex rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-600">
+      <span className="inline-flex rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         Important
       </span>
     );
   }
 
   return (
-    <span className="inline-flex rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold text-slate-600">
+    <span className="inline-flex rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
       Normal
     </span>
   );
@@ -953,10 +953,10 @@ function getPriorityIconClass(priority) {
   }
 
   if (priority === "Important") {
-    return "bg-amber-50 text-amber-500";
+    return "bg-[#f7f3ed] text-[#9b7740]";
   }
 
-  return "bg-sky-50 text-sky-500";
+  return "bg-[#f7f3ed] text-[#9b7740]";
 }
 
 

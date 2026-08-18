@@ -165,20 +165,20 @@ const AdminAuditLogs = () => {
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
 
           <div>
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Admin Portal
             </p>
 
-            <h1 className="flex items-center gap-2 text-[22px] font-extrabold tracking-tight text-slate-900">
+            <h1 className="flex items-center gap-2 text-[22px] font-extrabold tracking-tight text-[#32143b]">
               <ShieldCheck
                 size={23}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
 
               Audit Logs
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               View visitor entry and exit activity recorded by gate staff.
             </p>
           </div>
@@ -187,7 +187,7 @@ const AdminAuditLogs = () => {
             type="button"
             onClick={fetchAuditLogs}
             disabled={loading}
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50 disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:cursor-not-allowed disabled:opacity-60"
           >
             <RefreshCw
               size={14}
@@ -209,28 +209,28 @@ const AdminAuditLogs = () => {
             icon={<Users size={17} />}
             label="Total Logs"
             value={totalLogs}
-            iconClass="bg-emerald-50 text-emerald-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
             icon={<LogIn size={17} />}
             label="Entries"
             value={totalEntries}
-            iconClass="bg-sky-50 text-sky-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
             icon={<LogOut size={17} />}
             label="Exits"
             value={totalExits}
-            iconClass="bg-violet-50 text-violet-500"
+            iconClass="bg-[#f7f3ed] text-[#63366f]"
           />
 
           <StatCard
             icon={<Clock3 size={17} />}
             label="Currently Inside"
             value={currentlyInside}
-            iconClass="bg-amber-50 text-amber-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
         </div>
@@ -239,13 +239,13 @@ const AdminAuditLogs = () => {
             SEARCH + FILTER
         ====================================== */}
 
-        <div className="mb-5 flex flex-col gap-4 rounded-[16px] border border-slate-200 bg-white p-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mb-5 flex flex-col gap-4 rounded-[16px] border border-[#e2d9df] bg-white p-4 lg:flex-row lg:items-center lg:justify-between">
 
           <div className="relative w-full lg:max-w-md">
 
             <Search
               size={17}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
             />
 
             <input
@@ -255,7 +255,7 @@ const AdminAuditLogs = () => {
                 setSearch(e.target.value)
               }
               placeholder="Search visitor, resident, flat or guard..."
-              className="w-full rounded-[10px] border border-slate-200 bg-slate-50 py-2.5 pl-10 pr-4 text-[12px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white"
+              className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-4 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
             />
 
           </div>
@@ -267,7 +267,7 @@ const AdminAuditLogs = () => {
               onChange={(e) =>
                 setTypeFilter(e.target.value)
               }
-              className="rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-[11px] font-semibold text-slate-600 outline-none focus:border-emerald-400"
+              className="rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
             >
               <option value="All">
                 All Activity
@@ -290,10 +290,10 @@ const AdminAuditLogs = () => {
               </option>
             </select>
 
-            <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-500">
+            <div className="flex items-center gap-2 text-[11px] font-semibold text-[#756b78]">
               <ShieldCheck
                 size={16}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
 
               {filteredLogs.length} Logs
@@ -307,16 +307,16 @@ const AdminAuditLogs = () => {
             TABLE
         ====================================== */}
 
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div>
-              <h2 className="text-[13px] font-bold text-slate-900">
+              <h2 className="text-[13px] font-bold text-[#32143b]">
                 Gate Activity
               </h2>
 
-              <p className="mt-0.5 text-[10.5px] font-medium text-slate-400">
+              <p className="mt-0.5 text-[10.5px] font-medium text-[#8b778e]">
                 Visitor entry and exit records created by gate staff.
               </p>
             </div>
@@ -328,7 +328,7 @@ const AdminAuditLogs = () => {
 
               <RefreshCw
                 size={28}
-                className="animate-spin text-emerald-500"
+                className="animate-spin text-[#9b7740]"
               />
 
             </div>
@@ -338,33 +338,33 @@ const AdminAuditLogs = () => {
               <table className="w-full min-w-[1100px] border-collapse">
 
                 <thead>
-                  <tr className="bg-slate-50">
+                  <tr className="bg-[#f7f3ed]">
 
-                    <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Visitor
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Resident / Flat
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Entry
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Exit
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Guards
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Status
                     </th>
 
-                    <th className="px-5 py-3 text-right text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-right text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Action
                     </th>
 
@@ -377,7 +377,7 @@ const AdminAuditLogs = () => {
                     filteredLogs.map((log) => (
                       <tr
                         key={log._id}
-                        className="border-t border-slate-200 transition hover:bg-slate-50"
+                        className="border-t border-[#e2d9df] transition hover:bg-[#f7f3ed]"
                       >
 
                         {/* VISITOR */}
@@ -386,17 +386,17 @@ const AdminAuditLogs = () => {
 
                           <div className="flex items-center gap-3">
 
-                            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
                               <UserRound size={16} />
                             </div>
 
                             <div>
 
-                              <p className="text-[12px] font-bold text-slate-800">
+                              <p className="text-[12px] font-bold text-[#49394d]">
                                 {log.visitorName || "Unknown"}
                               </p>
 
-                              <p className="mt-0.5 flex items-center gap-1 text-[10px] font-medium text-slate-400">
+                              <p className="mt-0.5 flex items-center gap-1 text-[10px] font-medium text-[#8b778e]">
                                 <Phone size={10} />
                                 {log.phone || "-"}
                               </p>
@@ -411,11 +411,11 @@ const AdminAuditLogs = () => {
 
                         <td className="px-4 py-4">
 
-                          <p className="text-[11px] font-semibold text-slate-700">
+                          <p className="text-[11px] font-semibold text-[#49394d]">
                             {log.resident?.name || "-"}
                           </p>
 
-                          <p className="mt-0.5 flex items-center gap-1 text-[10px] text-slate-400">
+                          <p className="mt-0.5 flex items-center gap-1 text-[10px] text-[#8b778e]">
                             <Home size={10} />
                             {log.flatNo ||
                               log.resident?.flatNo ||
@@ -430,10 +430,10 @@ const AdminAuditLogs = () => {
 
                           {log.entryTime ? (
                             <div>
-                              <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-700">
+                              <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-[#49394d]">
                                 <LogIn
                                   size={12}
-                                  className="text-sky-500"
+                                  className="text-[#9b7740]"
                                 />
 
                                 {formatDateTime(
@@ -441,13 +441,13 @@ const AdminAuditLogs = () => {
                                 )}
                               </div>
 
-                              <p className="mt-1 text-[9.5px] text-slate-400">
+                              <p className="mt-1 text-[9.5px] text-[#8b778e]">
                                 {log.entryGuard?.name ||
                                   "Unknown Guard"}
                               </p>
                             </div>
                           ) : (
-                            <span className="text-[10px] text-slate-400">
+                            <span className="text-[10px] text-[#8b778e]">
                               No entry
                             </span>
                           )}
@@ -460,10 +460,10 @@ const AdminAuditLogs = () => {
 
                           {log.exitTime ? (
                             <div>
-                              <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-slate-700">
+                              <div className="flex items-center gap-1.5 text-[10.5px] font-semibold text-[#49394d]">
                                 <LogOut
                                   size={12}
-                                  className="text-violet-500"
+                                  className="text-[#63366f]"
                                 />
 
                                 {formatDateTime(
@@ -471,13 +471,13 @@ const AdminAuditLogs = () => {
                                 )}
                               </div>
 
-                              <p className="mt-1 text-[9.5px] text-slate-400">
+                              <p className="mt-1 text-[9.5px] text-[#8b778e]">
                                 {log.exitGuard?.name ||
                                   "Unknown Guard"}
                               </p>
                             </div>
                           ) : (
-                            <span className="text-[10px] text-slate-400">
+                            <span className="text-[10px] text-[#8b778e]">
                               Still inside
                             </span>
                           )}
@@ -490,17 +490,17 @@ const AdminAuditLogs = () => {
 
                           <div className="space-y-1">
 
-                            <p className="text-[9.5px] text-slate-500">
+                            <p className="text-[9.5px] text-[#756b78]">
                               Entry:{" "}
-                              <span className="font-semibold text-slate-700">
+                              <span className="font-semibold text-[#49394d]">
                                 {log.entryGuard?.name ||
                                   "-"}
                               </span>
                             </p>
 
-                            <p className="text-[9.5px] text-slate-500">
+                            <p className="text-[9.5px] text-[#756b78]">
                               Exit:{" "}
-                              <span className="font-semibold text-slate-700">
+                              <span className="font-semibold text-[#49394d]">
                                 {log.exitGuard?.name ||
                                   "-"}
                               </span>
@@ -529,7 +529,7 @@ const AdminAuditLogs = () => {
                             onClick={() =>
                               setSelectedLog(log)
                             }
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-slate-200 bg-white px-3 py-2 text-[10px] font-bold text-slate-600 transition hover:border-emerald-300 hover:bg-emerald-50 hover:text-emerald-600"
+                            className="inline-flex items-center gap-1.5 rounded-lg border border-[#e2d9df] bg-white px-3 py-2 text-[10px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
                           >
                             <Eye size={13} />
                             View
@@ -549,14 +549,14 @@ const AdminAuditLogs = () => {
 
                         <ShieldCheck
                           size={32}
-                          className="mx-auto mb-3 text-slate-300"
+                          className="mx-auto mb-3 text-[#bca9c0]"
                         />
 
-                        <p className="text-[12px] font-bold text-slate-600">
+                        <p className="text-[12px] font-bold text-[#756b78]">
                           No audit logs found
                         </p>
 
-                        <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+                        <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                           No visitor entry or exit activity matches your search.
                         </p>
 
@@ -579,21 +579,21 @@ const AdminAuditLogs = () => {
         ====================================== */}
 
         {selectedLog && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/50 p-4">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#32143b]/50 p-4">
 
             <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-[18px] bg-white shadow-2xl">
 
               {/* HEADER */}
 
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
                 <div>
 
-                  <p className="text-[9px] font-bold uppercase tracking-wide text-emerald-500">
+                  <p className="text-[9px] font-bold uppercase tracking-wide text-[#9b7740]">
                     Audit Log
                   </p>
 
-                  <h2 className="mt-1 text-[16px] font-extrabold text-slate-900">
+                  <h2 className="mt-1 text-[16px] font-extrabold text-[#32143b]">
                     {selectedLog.visitorName ||
                       "Visitor"}
                   </h2>
@@ -605,7 +605,7 @@ const AdminAuditLogs = () => {
                   onClick={() =>
                     setSelectedLog(null)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -696,9 +696,9 @@ const AdminAuditLogs = () => {
                   }
                 />
 
-                <div className="flex items-center justify-between gap-4 rounded-lg bg-slate-50 px-3 py-3">
+                <div className="flex items-center justify-between gap-4 rounded-lg bg-[#f7f3ed] px-3 py-3">
 
-                  <span className="text-[10px] font-semibold text-slate-400">
+                  <span className="text-[10px] font-semibold text-[#8b778e]">
                     Current Status
                   </span>
 
@@ -711,13 +711,13 @@ const AdminAuditLogs = () => {
                 </div>
 
                 {selectedLog.isWalkIn && (
-                  <div className="rounded-lg border border-amber-100 bg-amber-50 px-3 py-3">
+                  <div className="rounded-lg border border-[#e2d9df] bg-[#f7f3ed] px-3 py-3">
 
-                    <p className="text-[10px] font-bold text-amber-700">
+                    <p className="text-[10px] font-bold text-[#826331]">
                       Walk-in Visitor
                     </p>
 
-                    <p className="mt-1 text-[9.5px] text-amber-600">
+                    <p className="mt-1 text-[9.5px] text-[#9b7740]">
                       This visitor was registered directly at the gate.
                     </p>
 
@@ -728,14 +728,14 @@ const AdminAuditLogs = () => {
 
               {/* FOOTER */}
 
-              <div className="border-t border-slate-200 px-5 py-4">
+              <div className="border-t border-[#e2d9df] px-5 py-4">
 
                 <button
                   type="button"
                   onClick={() =>
                     setSelectedLog(null)
                   }
-                  className="w-full rounded-lg bg-slate-900 py-2.5 text-[11px] font-bold text-white transition hover:bg-slate-800"
+                  className="w-full rounded-lg bg-[#32143b] py-2.5 text-[11px] font-bold text-white transition hover:bg-[#49394d]"
                 >
                   Close
                 </button>
@@ -763,14 +763,14 @@ function StatCard({
   iconClass,
 }) {
   return (
-    <div className="flex items-center justify-between rounded-[16px] border border-slate-200 bg-white p-4">
+    <div className="flex items-center justify-between rounded-[16px] border border-[#e2d9df] bg-white p-4">
 
       <div>
-        <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+        <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
           {label}
         </p>
 
-        <p className="mt-1 text-[20px] font-extrabold text-slate-900">
+        <p className="mt-1 text-[20px] font-extrabold text-[#32143b]">
           {value}
         </p>
       </div>
@@ -792,7 +792,7 @@ function StatCard({
 function StatusBadge({ status }) {
   if (status === "Inside") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-600">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         <Clock3 size={12} />
         Inside
       </span>
@@ -801,7 +801,7 @@ function StatusBadge({ status }) {
 
   if (status === "Exited") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-600">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         <CheckCircle2 size={12} />
         Exited
       </span>
@@ -809,7 +809,7 @@ function StatusBadge({ status }) {
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-slate-100 px-2.5 py-1 text-[10px] font-bold text-slate-500">
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
       <AlertCircle size={12} />
       {status || "Unknown"}
     </span>
@@ -826,9 +826,9 @@ function DetailRow({
   value,
 }) {
   return (
-    <div className="flex items-center justify-between gap-4 rounded-lg bg-slate-50 px-3 py-2.5">
+    <div className="flex items-center justify-between gap-4 rounded-lg bg-[#f7f3ed] px-3 py-2.5">
 
-      <div className="flex min-w-0 items-center gap-2 text-slate-400">
+      <div className="flex min-w-0 items-center gap-2 text-[#8b778e]">
         {icon}
 
         <span className="text-[10px] font-semibold">
@@ -836,7 +836,7 @@ function DetailRow({
         </span>
       </div>
 
-      <span className="break-all text-right text-[10.5px] font-bold text-slate-700">
+      <span className="break-all text-right text-[10.5px] font-bold text-[#49394d]">
         {value}
       </span>
 

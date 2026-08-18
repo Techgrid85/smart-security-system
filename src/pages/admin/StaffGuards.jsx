@@ -264,10 +264,10 @@ function StaffGuards() {
           <div className="text-center">
             <Loader2
               size={34}
-              className="mx-auto animate-spin text-emerald-500"
+              className="mx-auto animate-spin text-[#9b7740]"
             />
 
-            <p className="mt-4 text-sm font-medium text-slate-500">
+            <p className="mt-4 text-sm font-medium text-[#756b78]">
               Loading staff and guards...
             </p>
           </div>
@@ -291,17 +291,17 @@ function StaffGuards() {
               className="mx-auto text-red-500"
             />
 
-            <h2 className="mt-3 font-bold text-slate-900">
+            <h2 className="mt-3 font-bold text-[#32143b]">
               Failed to Load Data
             </h2>
 
-            <p className="mt-2 text-sm text-slate-500">
+            <p className="mt-2 text-sm text-[#756b78]">
               {error}
             </p>
 
             <button
               onClick={fetchUsers}
-              className="mt-5 rounded-lg bg-emerald-500 px-4 py-2 text-sm font-semibold text-white hover:bg-emerald-600"
+              className="mt-5 rounded-lg bg-[#9b7740] px-4 py-2 text-sm font-semibold text-white hover:bg-[#9b7740]"
             >
               Try Again
             </button>
@@ -322,18 +322,18 @@ function StaffGuards() {
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
 
           <div>
-            <h1 className="text-[21px] font-extrabold text-slate-900">
+            <h1 className="text-[21px] font-extrabold text-[#32143b]">
               Staff & Security
             </h1>
 
-            <p className="mt-1 text-[12px] font-medium text-slate-400">
+            <p className="mt-1 text-[12px] font-medium text-[#8b778e]">
               Manage maintenance staff and security guards.
             </p>
           </div>
 
           <button
             onClick={handleAdd}
-            className="flex items-center justify-center gap-2 rounded-[10px] bg-emerald-500 px-4 py-2.5 text-[11.5px] font-bold text-white shadow-[0_4px_14px_rgba(16,185,129,0.2)] transition hover:bg-emerald-600"
+            className="flex items-center justify-center gap-2 rounded-[10px] bg-[#9b7740] px-4 py-2.5 text-[11.5px] font-bold text-white shadow-[0_4px_14px_rgba(16,185,129,0.2)] transition hover:bg-[#9b7740]"
           >
             <Plus size={16} />
 
@@ -378,13 +378,13 @@ function StaffGuards() {
 
         {/* ================= MAIN CARD ================= */}
 
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
           {/* TABS + SEARCH */}
 
-          <div className="flex flex-col gap-4 border-b border-slate-200 p-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-4 border-b border-[#e2d9df] p-4 lg:flex-row lg:items-center lg:justify-between">
 
-            <div className="flex w-full rounded-xl bg-slate-100 p-1 lg:w-auto">
+            <div className="flex w-full rounded-xl bg-[#eee8ed] p-1 lg:w-auto">
 
               <button
                 onClick={() => {
@@ -393,8 +393,8 @@ function StaffGuards() {
                 }}
                 className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2 text-[11.5px] font-bold transition lg:flex-none ${
                   activeTab === "staff"
-                    ? "bg-white text-emerald-600 shadow-sm"
-                    : "text-slate-500 hover:text-slate-700"
+                    ? "bg-white text-[#9b7740] shadow-sm"
+                    : "text-[#756b78] hover:text-[#49394d]"
                 }`}
               >
                 <UserCog size={15} />
@@ -408,8 +408,8 @@ function StaffGuards() {
                 }}
                 className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2 text-[11.5px] font-bold transition lg:flex-none ${
                   activeTab === "guards"
-                    ? "bg-white text-emerald-600 shadow-sm"
-                    : "text-slate-500 hover:text-slate-700"
+                    ? "bg-white text-[#9b7740] shadow-sm"
+                    : "text-[#756b78] hover:text-[#49394d]"
                 }`}
               >
                 <ShieldCheck size={15} />
@@ -422,7 +422,7 @@ function StaffGuards() {
 
               <Search
                 size={16}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
               />
 
               <input
@@ -430,7 +430,7 @@ function StaffGuards() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder={`Search ${activeTab === "staff" ? "staff" : "guards"}...`}
-                className="w-full rounded-[10px] border border-slate-200 py-2.5 pl-10 pr-4 text-[11.5px] font-medium outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+                className="w-full rounded-[10px] border border-[#e2d9df] py-2.5 pl-10 pr-4 text-[11.5px] font-medium outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
               />
 
             </div>
@@ -444,25 +444,25 @@ function StaffGuards() {
             <table className="w-full min-w-[850px]">
 
               <thead>
-                <tr className="border-b border-slate-200 bg-slate-50">
+                <tr className="border-b border-[#e2d9df] bg-[#f7f3ed]">
 
-                  <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                  <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                     Name
                   </th>
 
-                  <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                  <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                     Contact
                   </th>
 
-                  <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                  <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                     Role
                   </th>
 
-                  <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                  <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                     Status
                   </th>
 
-                  <th className="px-5 py-3.5 text-right text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                  <th className="px-5 py-3.5 text-right text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                     Actions
                   </th>
 
@@ -476,7 +476,7 @@ function StaffGuards() {
 
                     <tr
                       key={user._id}
-                      className="border-b border-slate-100 transition hover:bg-slate-50"
+                      className="border-b border-[#eee8ed] transition hover:bg-[#f7f3ed]"
                     >
 
                       {/* NAME */}
@@ -488,8 +488,8 @@ function StaffGuards() {
                           <div
                             className={`flex h-10 w-10 items-center justify-center rounded-xl ${
                               activeTab === "staff"
-                                ? "bg-emerald-50 text-emerald-500"
-                                : "bg-amber-50 text-amber-500"
+                                ? "bg-[#f7f3ed] text-[#9b7740]"
+                                : "bg-[#f7f3ed] text-[#9b7740]"
                             }`}
                           >
                             {activeTab === "staff" ? (
@@ -500,11 +500,11 @@ function StaffGuards() {
                           </div>
 
                           <div>
-                            <p className="text-[12px] font-bold text-slate-800">
+                            <p className="text-[12px] font-bold text-[#49394d]">
                               {user.name}
                             </p>
 
-                            <p className="mt-0.5 text-[10px] text-slate-400">
+                            <p className="mt-0.5 text-[10px] text-[#8b778e]">
                               ID: {user._id.slice(-6).toUpperCase()}
                             </p>
                           </div>
@@ -519,13 +519,13 @@ function StaffGuards() {
 
                         <div className="space-y-1">
 
-                          <p className="flex items-center gap-2 text-[11px] font-medium text-slate-600">
-                            <Mail size={13} className="text-slate-400" />
+                          <p className="flex items-center gap-2 text-[11px] font-medium text-[#756b78]">
+                            <Mail size={13} className="text-[#8b778e]" />
                             {user.email}
                           </p>
 
-                          <p className="flex items-center gap-2 text-[11px] font-medium text-slate-500">
-                            <Phone size={13} className="text-slate-400" />
+                          <p className="flex items-center gap-2 text-[11px] font-medium text-[#756b78]">
+                            <Phone size={13} className="text-[#8b778e]" />
                             {user.phone || "N/A"}
                           </p>
 
@@ -540,8 +540,8 @@ function StaffGuards() {
                         <span
                           className={`rounded-full px-2.5 py-1 text-[10px] font-bold ${
                             activeTab === "staff"
-                              ? "bg-emerald-50 text-emerald-600"
-                              : "bg-amber-50 text-amber-600"
+                              ? "bg-[#f7f3ed] text-[#9b7740]"
+                              : "bg-[#f7f3ed] text-[#9b7740]"
                           }`}
                         >
                           {activeTab === "staff"
@@ -558,14 +558,14 @@ function StaffGuards() {
                         <span
                           className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold ${
                             user.isActive
-                              ? "bg-emerald-50 text-emerald-700"
+                              ? "bg-[#f7f3ed] text-[#826331]"
                               : "bg-red-50 text-red-600"
                           }`}
                         >
                           <span
                             className={`h-1.5 w-1.5 rounded-full ${
                               user.isActive
-                                ? "bg-emerald-500"
+                                ? "bg-[#9b7740]"
                                 : "bg-red-500"
                             }`}
                           />
@@ -585,7 +585,7 @@ function StaffGuards() {
 
                           <button
                             onClick={() => handleEdit(user)}
-                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 text-slate-500 transition hover:border-sky-200 hover:bg-sky-50 hover:text-sky-600"
+                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e2d9df] text-[#756b78] transition hover:border-[#e2d9df] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
                             title="Edit"
                           >
                             <Pencil size={14} />
@@ -597,7 +597,7 @@ function StaffGuards() {
                             className={`flex h-8 w-8 items-center justify-center rounded-lg border transition ${
                               user.isActive
                                 ? "border-red-200 text-red-500 hover:bg-red-50"
-                                : "border-emerald-200 text-emerald-500 hover:bg-emerald-50"
+                                : "border-[#e2d9df] text-[#9b7740] hover:bg-[#f7f3ed]"
                             }`}
                             title={
                               user.isActive
@@ -620,7 +620,7 @@ function StaffGuards() {
                       colSpan="5"
                       className="px-5 py-12 text-center"
                     >
-                      <div className="text-sm font-medium text-slate-400">
+                      <div className="text-sm font-medium text-[#8b778e]">
                         No {activeTab === "staff" ? "staff members" : "guards"} found
                       </div>
                     </td>
@@ -641,23 +641,23 @@ function StaffGuards() {
 
       {modalOpen && (
 
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/40 p-4">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#210c28]/40 p-4">
 
           <div className="w-full max-w-md rounded-[18px] bg-white shadow-2xl">
 
             {/* MODAL HEADER */}
 
-            <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+            <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
               <div>
 
-                <h2 className="text-[15px] font-bold text-slate-900">
+                <h2 className="text-[15px] font-bold text-[#32143b]">
                   {editingUser
                     ? `Edit ${activeTab === "staff" ? "Staff Member" : "Security Guard"}`
                     : `Add ${activeTab === "staff" ? "Staff Member" : "Security Guard"}`}
                 </h2>
 
-                <p className="mt-1 text-[10.5px] text-slate-400">
+                <p className="mt-1 text-[10.5px] text-[#8b778e]">
                   Fill in the details below.
                 </p>
 
@@ -669,7 +669,7 @@ function StaffGuards() {
                     setModalOpen(false);
                   }
                 }}
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-700"
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] hover:bg-[#eee8ed] hover:text-[#49394d]"
               >
                 <X size={18} />
               </button>
@@ -724,14 +724,14 @@ function StaffGuards() {
               />
 
               {editingUser && (
-                <label className="flex cursor-pointer items-center justify-between rounded-xl border border-slate-200 bg-slate-50 px-4 py-3">
+                <label className="flex cursor-pointer items-center justify-between rounded-xl border border-[#e2d9df] bg-[#f7f3ed] px-4 py-3">
 
                   <div>
-                    <p className="text-[11.5px] font-bold text-slate-700">
+                    <p className="text-[11.5px] font-bold text-[#49394d]">
                       Account Status
                     </p>
 
-                    <p className="mt-0.5 text-[10px] text-slate-400">
+                    <p className="mt-0.5 text-[10px] text-[#8b778e]">
                       Allow this user to access the system.
                     </p>
                   </div>
@@ -741,7 +741,7 @@ function StaffGuards() {
                     name="isActive"
                     checked={formData.isActive}
                     onChange={handleChange}
-                    className="h-4 w-4 accent-emerald-500"
+                    className="h-4 w-4 accent-#9b7740"
                   />
 
                 </label>
@@ -755,7 +755,7 @@ function StaffGuards() {
                   type="button"
                   disabled={actionLoading}
                   onClick={() => setModalOpen(false)}
-                  className="flex-1 rounded-[10px] border border-slate-200 py-2.5 text-[11.5px] font-bold text-slate-600 hover:bg-slate-50"
+                  className="flex-1 rounded-[10px] border border-[#e2d9df] py-2.5 text-[11.5px] font-bold text-[#756b78] hover:bg-[#f7f3ed]"
                 >
                   Cancel
                 </button>
@@ -763,7 +763,7 @@ function StaffGuards() {
                 <button
                   type="submit"
                   disabled={actionLoading}
-                  className="flex flex-1 items-center justify-center gap-2 rounded-[10px] bg-emerald-500 py-2.5 text-[11.5px] font-bold text-white hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-70"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-[10px] bg-[#9b7740] py-2.5 text-[11.5px] font-bold text-white hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {actionLoading && (
                     <Loader2
@@ -797,14 +797,14 @@ function StaffGuards() {
 
 function MiniStat({ title, value, icon: Icon, tone }) {
   const styles = {
-    emerald: "bg-emerald-50 text-emerald-500",
-    sky: "bg-sky-50 text-sky-500",
-    amber: "bg-amber-50 text-amber-500",
-    purple: "bg-purple-50 text-purple-500",
+    emerald: "bg-[#f7f3ed] text-[#9b7740]",
+    sky: "bg-[#f7f3ed] text-[#9b7740]",
+    amber: "bg-[#f7f3ed] text-[#9b7740]",
+    purple: "bg-[#f1eaf3] text-[#63366f]",
   };
 
   return (
-    <div className="rounded-[15px] border border-slate-200 bg-white p-4">
+    <div className="rounded-[15px] border border-[#e2d9df] bg-white p-4">
 
       <div className="flex items-center justify-between">
 
@@ -814,13 +814,13 @@ function MiniStat({ title, value, icon: Icon, tone }) {
           <Icon size={18} />
         </div>
 
-        <span className="text-[24px] font-extrabold text-slate-900">
+        <span className="text-[24px] font-extrabold text-[#32143b]">
           {value}
         </span>
 
       </div>
 
-      <p className="mt-3 text-[11px] font-semibold text-slate-500">
+      <p className="mt-3 text-[11px] font-semibold text-[#756b78]">
         {title}
       </p>
 
@@ -845,7 +845,7 @@ function FormInput({
   return (
     <div>
 
-      <label className="mb-1.5 block text-[11px] font-bold text-slate-600">
+      <label className="mb-1.5 block text-[11px] font-bold text-[#756b78]">
         {label}
       </label>
 
@@ -856,7 +856,7 @@ function FormInput({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className="w-full rounded-[10px] border border-slate-200 px-3.5 py-2.5 text-[11.5px] font-medium text-slate-700 outline-none transition placeholder:text-slate-300 focus:border-emerald-400 focus:ring-2 focus:ring-emerald-100"
+        className="w-full rounded-[10px] border border-[#e2d9df] px-3.5 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
       />
 
     </div>

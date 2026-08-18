@@ -126,22 +126,22 @@ const AdminBookings = () => {
   const getStatusClass = (status) => {
     switch (status) {
       case "Pending":
-        return "bg-amber-50 text-amber-600";
+        return "bg-[#f7f3ed] text-[#9b7740]";
 
       case "Approved":
-        return "bg-emerald-50 text-emerald-600";
+        return "bg-[#f7f3ed] text-[#9b7740]";
 
       case "Rejected":
         return "bg-red-50 text-red-600";
 
       case "Cancelled":
-        return "bg-slate-100 text-slate-500";
+        return "bg-[#eee8ed] text-[#756b78]";
 
       case "Completed":
-        return "bg-sky-50 text-sky-600";
+        return "bg-[#f7f3ed] text-[#9b7740]";
 
       default:
-        return "bg-slate-100 text-slate-500";
+        return "bg-[#eee8ed] text-[#756b78]";
     }
   };
 
@@ -309,16 +309,16 @@ const AdminBookings = () => {
 
           <div className="flex items-center gap-3">
 
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-indigo-50 text-indigo-500">
+            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#63366f]">
               <CalendarDays size={20} />
             </div>
 
             <div>
-              <h1 className="text-xl font-bold text-slate-900 sm:text-2xl">
+              <h1 className="text-xl font-bold text-[#32143b] sm:text-2xl">
                 Facility Bookings
               </h1>
 
-              <p className="mt-1 text-xs font-medium text-slate-400">
+              <p className="mt-1 text-xs font-medium text-[#8b778e]">
                 Manage resident facility booking requests.
               </p>
             </div>
@@ -329,7 +329,7 @@ const AdminBookings = () => {
             type="button"
             onClick={refreshBookings}
             disabled={refreshing}
-            className="inline-flex w-fit items-center gap-2 rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-slate-600 shadow-sm transition hover:bg-slate-50 disabled:opacity-50"
+            className="inline-flex w-fit items-center gap-2 rounded-xl border border-[#e2d9df] bg-white px-4 py-2.5 text-xs font-bold text-[#756b78] shadow-sm transition hover:bg-[#f7f3ed] disabled:opacity-50"
           >
             <RefreshCw
               size={14}
@@ -353,21 +353,21 @@ const AdminBookings = () => {
             title="Total Bookings"
             value={bookings.length}
             icon={<CalendarDays size={19} />}
-            iconClass="bg-indigo-50 text-indigo-500"
+            iconClass="bg-[#f7f3ed] text-[#63366f]"
           />
 
           <BookingStat
             title="Pending"
             value={pendingCount}
             icon={<Clock3 size={19} />}
-            iconClass="bg-amber-50 text-amber-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <BookingStat
             title="Approved"
             value={approvedCount}
             icon={<CheckCircle2 size={19} />}
-            iconClass="bg-emerald-50 text-emerald-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <BookingStat
@@ -383,20 +383,20 @@ const AdminBookings = () => {
             FILTERS
         ========================================== */}
 
-        <div className="mb-6 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+        <div className="mb-6 rounded-2xl border border-[#e2d9df] bg-white p-5 shadow-sm">
 
           <div className="mb-4 flex items-center gap-3">
 
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-500">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#63366f]">
               <Search size={17} />
             </div>
 
             <div>
-              <h2 className="text-sm font-bold text-slate-900">
+              <h2 className="text-sm font-bold text-[#32143b]">
                 Find Bookings
               </h2>
 
-              <p className="mt-0.5 text-[11px] text-slate-400">
+              <p className="mt-0.5 text-[11px] text-[#8b778e]">
                 Search residents, flats, facilities or purposes.
               </p>
             </div>
@@ -409,7 +409,7 @@ const AdminBookings = () => {
 
               <Search
                 size={16}
-                className="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-400"
+                className="absolute left-3.5 top-1/2 -translate-y-1/2 text-[#8b778e]"
               />
 
               <input
@@ -419,7 +419,7 @@ const AdminBookings = () => {
                 onChange={(e) =>
                   setSearch(e.target.value)
                 }
-                className="w-full rounded-xl border border-slate-200 bg-slate-50 py-3 pl-10 pr-4 text-xs font-medium text-slate-700 outline-none transition placeholder:text-slate-400 focus:border-indigo-400 focus:bg-white"
+                className="w-full rounded-xl border border-[#e2d9df] bg-[#f7f3ed] py-3 pl-10 pr-4 text-xs font-medium text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#806d82] focus:bg-white"
               />
 
             </div>
@@ -429,7 +429,7 @@ const AdminBookings = () => {
               onChange={(e) =>
                 setStatusFilter(e.target.value)
               }
-              className="rounded-xl border border-slate-200 bg-slate-50 px-4 py-3 text-xs font-semibold text-slate-600 outline-none focus:border-indigo-400 focus:bg-white"
+              className="rounded-xl border border-[#e2d9df] bg-[#f7f3ed] px-4 py-3 text-xs font-semibold text-[#756b78] outline-none focus:border-[#806d82] focus:bg-white"
             >
               <option value="All">
                 All Status
@@ -464,31 +464,31 @@ const AdminBookings = () => {
             BOOKINGS TABLE
         ========================================== */}
 
-        <section className="overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm">
+        <section className="overflow-hidden rounded-2xl border border-[#e2d9df] bg-white shadow-sm">
 
           {/* TABLE HEADER */}
 
-          <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#eee8ed] px-5 py-4">
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-indigo-50 text-indigo-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#63366f]">
                 <CalendarDays size={17} />
               </div>
 
               <div>
-                <h2 className="text-sm font-bold text-slate-900">
+                <h2 className="text-sm font-bold text-[#32143b]">
                   Booking Requests
                 </h2>
 
-                <p className="mt-0.5 text-[11px] text-slate-400">
+                <p className="mt-0.5 text-[11px] text-[#8b778e]">
                   Review and manage facility reservations.
                 </p>
               </div>
 
             </div>
 
-            <span className="rounded-full bg-indigo-50 px-3 py-1 text-[10px] font-bold text-indigo-600">
+            <span className="rounded-full bg-[#f7f3ed] px-3 py-1 text-[10px] font-bold text-[#63366f]">
               {filteredBookings.length} Bookings
             </span>
 
@@ -503,10 +503,10 @@ const AdminBookings = () => {
 
                 <Loader2
                   size={18}
-                  className="animate-spin text-indigo-500"
+                  className="animate-spin text-[#63366f]"
                 />
 
-                <span className="text-xs font-semibold text-slate-500">
+                <span className="text-xs font-semibold text-[#756b78]">
                   Loading bookings...
                 </span>
 
@@ -518,14 +518,14 @@ const AdminBookings = () => {
 
               <CalendarDays
                 size={34}
-                className="mx-auto mb-3 text-slate-300"
+                className="mx-auto mb-3 text-[#bca9c0]"
               />
 
-              <p className="text-xs font-bold text-slate-600">
+              <p className="text-xs font-bold text-[#756b78]">
                 No facility bookings found
               </p>
 
-              <p className="mt-1 text-[11px] text-slate-400">
+              <p className="mt-1 text-[11px] text-[#8b778e]">
                 Try changing your search or status filter.
               </p>
 
@@ -537,33 +537,33 @@ const AdminBookings = () => {
 
                 <thead>
 
-                  <tr className="border-b border-slate-100 bg-slate-50">
+                  <tr className="border-b border-[#eee8ed] bg-[#f7f3ed]">
 
-                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                       Resident
                     </th>
 
-                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                       Facility
                     </th>
 
-                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                       Date
                     </th>
 
-                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                       Time
                     </th>
 
-                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                       Purpose
                     </th>
 
-                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <th className="px-5 py-3.5 text-left text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                       Status
                     </th>
 
-                    <th className="px-5 py-3.5 text-right text-[10px] font-bold uppercase tracking-wider text-slate-400">
+                    <th className="px-5 py-3.5 text-right text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
                       Actions
                     </th>
 
@@ -576,7 +576,7 @@ const AdminBookings = () => {
                   {filteredBookings.map((booking) => (
                     <tr
                       key={booking._id}
-                      className="border-b border-slate-100 transition hover:bg-slate-50"
+                      className="border-b border-[#eee8ed] transition hover:bg-[#f7f3ed]"
                     >
 
                       {/* RESIDENT */}
@@ -585,18 +585,18 @@ const AdminBookings = () => {
 
                         <div className="flex items-center gap-3">
 
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-indigo-50 text-indigo-500">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#f7f3ed] text-[#63366f]">
                             <User size={15} />
                           </div>
 
                           <div>
 
-                            <p className="text-xs font-bold text-slate-700">
+                            <p className="text-xs font-bold text-[#49394d]">
                               {booking.resident?.name ||
                                 "Unknown"}
                             </p>
 
-                            <p className="mt-0.5 text-[10px] font-medium text-slate-400">
+                            <p className="mt-0.5 text-[10px] font-medium text-[#8b778e]">
                               Flat {booking.flatNo || "-"}
                             </p>
 
@@ -614,10 +614,10 @@ const AdminBookings = () => {
 
                           <Building2
                             size={15}
-                            className="text-indigo-400"
+                            className="text-[#806d82]"
                           />
 
-                          <span className="text-xs font-semibold text-slate-600">
+                          <span className="text-xs font-semibold text-[#756b78]">
                             {booking.facility || "-"}
                           </span>
 
@@ -633,10 +633,10 @@ const AdminBookings = () => {
 
                           <CalendarDays
                             size={14}
-                            className="text-slate-400"
+                            className="text-[#8b778e]"
                           />
 
-                          <span className="text-xs font-medium text-slate-600">
+                          <span className="text-xs font-medium text-[#756b78]">
                             {formatDate(
                               booking.bookingDate
                             )}
@@ -654,10 +654,10 @@ const AdminBookings = () => {
 
                           <Clock3
                             size={14}
-                            className="text-slate-400"
+                            className="text-[#8b778e]"
                           />
 
-                          <span className="text-xs font-medium text-slate-600">
+                          <span className="text-xs font-medium text-[#756b78]">
                             {booking.startTime || "-"}{" "}
                             -{" "}
                             {booking.endTime || "-"}
@@ -671,7 +671,7 @@ const AdminBookings = () => {
 
                       <td className="max-w-[220px] px-5 py-4">
 
-                        <p className="truncate text-xs font-medium text-slate-500">
+                        <p className="truncate text-xs font-medium text-[#756b78]">
                           {booking.purpose || "-"}
                         </p>
 
@@ -707,7 +707,7 @@ const AdminBookings = () => {
                               )
                             }
                             title="View booking"
-                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-400 transition hover:border-indigo-200 hover:bg-indigo-50 hover:text-indigo-500"
+                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e2d9df] bg-white text-[#8b778e] transition hover:border-[#e2d9df] hover:bg-[#f7f3ed] hover:text-[#63366f]"
                           >
                             <Eye size={15} />
                           </button>
@@ -725,7 +725,7 @@ const AdminBookings = () => {
                                 )
                               }
                               title="Approve"
-                              className="flex h-8 w-8 items-center justify-center rounded-lg border border-emerald-100 bg-emerald-50 text-emerald-500 transition hover:bg-emerald-100"
+                              className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#f5eee2] bg-[#f7f3ed] text-[#9b7740] transition hover:bg-[#f5eee2]"
                             >
                               <CheckCircle2
                                 size={15}
@@ -766,7 +766,7 @@ const AdminBookings = () => {
                                   )
                                 }
                                 title="Delete"
-                                className="flex h-8 w-8 items-center justify-center rounded-lg border border-slate-200 bg-white text-slate-400 transition hover:border-red-100 hover:bg-red-50 hover:text-red-500"
+                                className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e2d9df] bg-white text-[#8b778e] transition hover:border-red-100 hover:bg-red-50 hover:text-red-500"
                               >
                                 <Trash2 size={15} />
                               </button>
@@ -793,20 +793,20 @@ const AdminBookings = () => {
         ========================================== */}
 
         {selectedBooking && !showActionModal && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4 backdrop-blur-sm">
+          <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/40 p-4 backdrop-blur-sm">
 
-            <div className="w-full max-w-lg overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
+            <div className="w-full max-w-lg overflow-hidden rounded-2xl border border-[#e2d9df] bg-white shadow-2xl">
 
               {/* MODAL HEADER */}
 
-              <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-[#eee8ed] px-5 py-4">
 
                 <div>
-                  <h2 className="text-sm font-bold text-slate-900">
+                  <h2 className="text-sm font-bold text-[#32143b]">
                     Booking Details
                   </h2>
 
-                  <p className="mt-0.5 text-[11px] text-slate-400">
+                  <p className="mt-0.5 text-[11px] text-[#8b778e]">
                     Facility booking information.
                   </p>
                 </div>
@@ -816,7 +816,7 @@ const AdminBookings = () => {
                   onClick={() =>
                     setSelectedBooking(null)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -827,20 +827,20 @@ const AdminBookings = () => {
 
               <div className="space-y-5 p-5">
 
-                <div className="rounded-xl bg-indigo-50 p-4">
+                <div className="rounded-xl bg-[#f7f3ed] p-4">
 
                   <div className="flex items-center gap-3">
 
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-indigo-500">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#63366f]">
                       <Building2 size={20} />
                     </div>
 
                     <div>
-                      <p className="text-[10px] font-bold uppercase tracking-wide text-indigo-400">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-[#806d82]">
                         Facility
                       </p>
 
-                      <p className="mt-1 text-sm font-bold text-slate-800">
+                      <p className="mt-1 text-sm font-bold text-[#49394d]">
                         {selectedBooking.facility ||
                           "-"}
                       </p>
@@ -884,11 +884,11 @@ const AdminBookings = () => {
 
                 <div>
 
-                  <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                     Purpose
                   </p>
 
-                  <p className="mt-2 rounded-xl bg-slate-50 p-4 text-xs font-medium leading-6 text-slate-600">
+                  <p className="mt-2 rounded-xl bg-[#f7f3ed] p-4 text-xs font-medium leading-6 text-[#756b78]">
                     {selectedBooking.purpose || "-"}
                   </p>
 
@@ -896,7 +896,7 @@ const AdminBookings = () => {
 
                 <div>
 
-                  <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                  <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                     Status
                   </p>
 
@@ -913,11 +913,11 @@ const AdminBookings = () => {
                 {selectedBooking.remarks && (
                   <div>
 
-                    <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Admin Remarks
                     </p>
 
-                    <p className="mt-2 rounded-xl bg-slate-50 p-4 text-xs leading-6 text-slate-600">
+                    <p className="mt-2 rounded-xl bg-[#f7f3ed] p-4 text-xs leading-6 text-[#756b78]">
                       {selectedBooking.remarks}
                     </p>
 
@@ -936,21 +936,21 @@ const AdminBookings = () => {
         ========================================== */}
 
         {showActionModal && selectedBooking && (
-          <div className="fixed inset-0 z-[60] flex items-center justify-center bg-slate-900/40 p-4 backdrop-blur-sm">
+          <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#32143b]/40 p-4 backdrop-blur-sm">
 
-            <div className="w-full max-w-md overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-2xl">
+            <div className="w-full max-w-md overflow-hidden rounded-2xl border border-[#e2d9df] bg-white shadow-2xl">
 
-              <div className="flex items-center justify-between border-b border-slate-100 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-[#eee8ed] px-5 py-4">
 
                 <div>
 
-                  <h2 className="text-sm font-bold text-slate-900">
+                  <h2 className="text-sm font-bold text-[#32143b]">
                     {actionType === "Approved"
                       ? "Approve Booking"
                       : "Reject Booking"}
                   </h2>
 
-                  <p className="mt-1 text-[11px] text-slate-400">
+                  <p className="mt-1 text-[11px] text-[#8b778e]">
                     {selectedBooking.facility} • Flat{" "}
                     {selectedBooking.flatNo}
                   </p>
@@ -962,7 +962,7 @@ const AdminBookings = () => {
                   onClick={() =>
                     setShowActionModal(false)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 hover:bg-slate-100 hover:text-slate-700"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -973,7 +973,7 @@ const AdminBookings = () => {
 
                 <div>
 
-                  <label className="mb-2 block text-xs font-bold text-slate-600">
+                  <label className="mb-2 block text-xs font-bold text-[#756b78]">
                     Remarks
                   </label>
 
@@ -990,7 +990,7 @@ const AdminBookings = () => {
                         ? "Optional approval remarks..."
                         : "Reason for rejection..."
                     }
-                    className="w-full resize-none rounded-xl border border-slate-200 bg-slate-50 p-3 text-xs font-medium text-slate-700 outline-none placeholder:text-slate-400 focus:border-indigo-400 focus:bg-white"
+                    className="w-full resize-none rounded-xl border border-[#e2d9df] bg-[#f7f3ed] p-3 text-xs font-medium text-[#49394d] outline-none placeholder:text-[#8b778e] focus:border-[#806d82] focus:bg-white"
                   />
 
                 </div>
@@ -1002,7 +1002,7 @@ const AdminBookings = () => {
                     onClick={() =>
                       setShowActionModal(false)
                     }
-                    className="rounded-xl border border-slate-200 bg-white px-4 py-2.5 text-xs font-bold text-slate-500 transition hover:bg-slate-50"
+                    className="rounded-xl border border-[#e2d9df] bg-white px-4 py-2.5 text-xs font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
                   >
                     Cancel
                   </button>
@@ -1012,7 +1012,7 @@ const AdminBookings = () => {
                     onClick={updateStatus}
                     className={`rounded-xl px-4 py-2.5 text-xs font-bold text-white transition ${
                       actionType === "Approved"
-                        ? "bg-emerald-500 hover:bg-emerald-600"
+                        ? "bg-[#9b7740] hover:bg-[#9b7740]"
                         : "bg-red-500 hover:bg-red-600"
                     }`}
                   >
@@ -1049,17 +1049,17 @@ function BookingStat({
   iconClass,
 }) {
   return (
-    <div className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm transition hover:shadow-md">
+    <div className="rounded-2xl border border-[#e2d9df] bg-white p-5 shadow-sm transition hover:shadow-md">
 
       <div className="flex items-center justify-between">
 
         <div>
 
-          <p className="text-[10px] font-bold uppercase tracking-wider text-slate-400">
+          <p className="text-[10px] font-bold uppercase tracking-wider text-[#8b778e]">
             {title}
           </p>
 
-          <p className="mt-2 text-2xl font-extrabold text-slate-900">
+          <p className="mt-2 text-2xl font-extrabold text-[#32143b]">
             {value}
           </p>
 
@@ -1090,11 +1090,11 @@ function DetailItem({
   return (
     <div>
 
-      <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+      <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
         {label}
       </p>
 
-      <p className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-slate-700">
+      <p className="mt-1 flex items-center gap-1.5 text-xs font-semibold text-[#49394d]">
         {icon}
         {value || "-"}
       </p>

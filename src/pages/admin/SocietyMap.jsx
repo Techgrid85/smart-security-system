@@ -133,30 +133,30 @@ function SocietyMap() {
     switch (status) {
       case "Occupied":
         return `
-          border-emerald-300
-          bg-emerald-500
+          border-[#d9be82]
+          bg-[#9b7740]
           text-white
-          hover:bg-emerald-600
-          hover:border-emerald-400
+          hover:bg-[#9b7740]
+          hover:border-[#bca16a]
         `;
 
       case "Maintenance":
         return `
-          border-amber-300
-          bg-amber-400
-          text-slate-900
-          hover:bg-amber-500
-          hover:border-amber-400
+          border-[#d9be82]
+          bg-[#bca16a]
+          text-[#32143b]
+          hover:bg-[#9b7740]
+          hover:border-[#bca16a]
         `;
 
       case "Vacant":
       default:
         return `
-          border-slate-200
-          bg-slate-50
-          text-slate-600
-          hover:bg-slate-100
-          hover:border-slate-300
+          border-[#e2d9df]
+          bg-[#f7f3ed]
+          text-[#756b78]
+          hover:bg-[#eee8ed]
+          hover:border-[#bca9c0]
         `;
     }
   };
@@ -168,13 +168,13 @@ function SocietyMap() {
   const getStatusDot = (status) => {
     switch (status) {
       case "Occupied":
-        return "bg-emerald-500";
+        return "bg-[#9b7740]";
 
       case "Maintenance":
-        return "bg-amber-400";
+        return "bg-[#bca16a]";
 
       default:
-        return "bg-slate-300";
+        return "bg-[#bca9c0]";
     }
   };
 
@@ -187,9 +187,9 @@ function SocietyMap() {
       <DashboardLayout role="admin">
         <div className="flex min-h-[400px] items-center justify-center">
           <div className="text-center">
-            <div className="mx-auto h-9 w-9 animate-spin rounded-full border-4 border-emerald-500 border-t-transparent" />
+            <div className="mx-auto h-9 w-9 animate-spin rounded-full border-4 border-[#9b7740] border-t-transparent" />
 
-            <p className="mt-4 text-[11px] font-medium text-slate-400">
+            <p className="mt-4 text-[11px] font-medium text-[#8b778e]">
               Loading society map...
             </p>
           </div>
@@ -213,26 +213,26 @@ function SocietyMap() {
         <div className="mb-6 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
 
           <div>
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
               Society Management
             </p>
 
-            <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+            <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
               Society Map
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Visual overview of blocks, floors and flats across the society.
             </p>
           </div>
 
-          <div className="hidden items-center gap-2 rounded-[1px] border border-slate-200 bg-white px-3 py-2 sm:flex">
+          <div className="hidden items-center gap-2 rounded-[1px] border border-[#e2d9df] bg-white px-3 py-2 sm:flex">
             <MapPinned
               size={14}
-              className="text-emerald-500"
+              className="text-[#9b7740]"
             />
 
-            <span className="text-[10px] font-semibold text-slate-500">
+            <span className="text-[10px] font-semibold text-[#756b78]">
               {blocks.length} Blocks
             </span>
           </div>
@@ -247,23 +247,23 @@ function SocietyMap() {
 
           {/* TOTAL */}
 
-          <div className="relative overflow-hidden rounded-[1px] border border-slate-200 bg-white p-5">
+          <div className="relative overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white p-5">
 
-            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-slate-900 opacity-[0.04]" />
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-[#32143b] opacity-[0.04]" />
 
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-slate-600">
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#eee8ed] text-[#756b78]">
               <Building2 size={20} />
             </div>
 
-            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-slate-400">
+            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-[#8b778e]">
               Total Flats
             </p>
 
-            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-slate-900">
+            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-[#32143b]">
               {stats.total}
             </p>
 
-            <p className="mt-2 text-[10.5px] font-medium text-slate-400">
+            <p className="mt-2 text-[10.5px] font-medium text-[#8b778e]">
               All registered flats
             </p>
 
@@ -271,23 +271,23 @@ function SocietyMap() {
 
           {/* OCCUPIED */}
 
-          <div className="relative overflow-hidden rounded-[1px] border border-emerald-200 bg-white p-5">
+          <div className="relative overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white p-5">
 
-            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-emerald-500 opacity-[0.06]" />
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-[#9b7740] opacity-[0.06]" />
 
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
               <Users size={20} />
             </div>
 
-            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-emerald-600">
+            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-[#9b7740]">
               Occupied
             </p>
 
-            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-slate-900">
+            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-[#32143b]">
               {stats.occupied}
             </p>
 
-            <p className="mt-2 text-[10.5px] font-medium text-slate-400">
+            <p className="mt-2 text-[10.5px] font-medium text-[#8b778e]">
               Currently occupied
             </p>
 
@@ -295,23 +295,23 @@ function SocietyMap() {
 
           {/* VACANT */}
 
-          <div className="relative overflow-hidden rounded-[1px] border border-slate-200 bg-white p-5">
+          <div className="relative overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white p-5">
 
-            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-slate-500 opacity-[0.05]" />
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-[#756b78] opacity-[0.05]" />
 
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-slate-100 text-slate-500">
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#eee8ed] text-[#756b78]">
               <Home size={20} />
             </div>
 
-            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-slate-500">
+            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-[#756b78]">
               Vacant
             </p>
 
-            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-slate-900">
+            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-[#32143b]">
               {stats.vacant}
             </p>
 
-            <p className="mt-2 text-[10.5px] font-medium text-slate-400">
+            <p className="mt-2 text-[10.5px] font-medium text-[#8b778e]">
               Available flats
             </p>
 
@@ -319,23 +319,23 @@ function SocietyMap() {
 
           {/* MAINTENANCE */}
 
-          <div className="relative overflow-hidden rounded-[1px] border border-amber-200 bg-white p-5">
+          <div className="relative overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white p-5">
 
-            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-amber-500 opacity-[0.06]" />
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-[#9b7740] opacity-[0.06]" />
 
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-amber-50 text-amber-500">
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
               <Building2 size={20} />
             </div>
 
-            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-amber-600">
+            <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-[#9b7740]">
               Maintenance
             </p>
 
-            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-slate-900">
+            <p className="mt-1 text-[28px] font-extrabold leading-none tracking-tight text-[#32143b]">
               {stats.maintenance}
             </p>
 
-            <p className="mt-2 text-[10.5px] font-medium text-slate-400">
+            <p className="mt-2 text-[10.5px] font-medium text-[#8b778e]">
               Under maintenance
             </p>
 
@@ -347,39 +347,39 @@ function SocietyMap() {
         {/* LEGEND */}
         {/* ================================================= */}
 
-        <div className="mb-6 flex flex-wrap items-center gap-5 rounded-[1px] border border-slate-200 bg-white px-4 py-3">
+        <div className="mb-6 flex flex-wrap items-center gap-5 rounded-[1px] border border-[#e2d9df] bg-white px-4 py-3">
 
           <div className="mr-1 flex items-center gap-2">
-            <span className="text-[10px] font-bold text-slate-500">
+            <span className="text-[10px] font-bold text-[#756b78]">
               STATUS
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-[1px] bg-emerald-500" />
+            <span className="h-2.5 w-2.5 rounded-[1px] bg-[#9b7740]" />
 
-            <span className="text-[10px] font-semibold text-slate-600">
+            <span className="text-[10px] font-semibold text-[#756b78]">
               Occupied
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-[1px] bg-slate-300" />
+            <span className="h-2.5 w-2.5 rounded-[1px] bg-[#bca9c0]" />
 
-            <span className="text-[10px] font-semibold text-slate-600">
+            <span className="text-[10px] font-semibold text-[#756b78]">
               Vacant
             </span>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-[1px] bg-amber-400" />
+            <span className="h-2.5 w-2.5 rounded-[1px] bg-[#bca16a]" />
 
-            <span className="text-[10px] font-semibold text-slate-600">
+            <span className="text-[10px] font-semibold text-[#756b78]">
               Maintenance
             </span>
           </div>
 
-          <div className="ml-auto hidden text-[9px] font-medium text-slate-400 md:block">
+          <div className="ml-auto hidden text-[9px] font-medium text-[#8b778e] md:block">
             Hover for quick information • Click for full details
           </div>
 
@@ -391,17 +391,17 @@ function SocietyMap() {
 
         {blocks.length === 0 ? (
 
-          <div className="rounded-[1px] border border-slate-200 bg-white p-12 text-center">
+          <div className="rounded-[1px] border border-[#e2d9df] bg-white p-12 text-center">
 
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-slate-50 text-slate-300">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#bca9c0]">
               <MapPinned size={28} />
             </div>
 
-            <h2 className="mt-4 text-[14px] font-bold text-slate-700">
+            <h2 className="mt-4 text-[14px] font-bold text-[#49394d]">
               No flats found
             </h2>
 
-            <p className="mt-1 text-[10px] font-medium text-slate-400">
+            <p className="mt-1 text-[10px] font-medium text-[#8b778e]">
               Add flats from the Flats management section.
             </p>
 
@@ -426,26 +426,26 @@ function SocietyMap() {
               return (
                 <section
                   key={block}
-                  className="overflow-hidden rounded-[1px] border border-slate-200 bg-white"
+                  className="overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white"
                 >
 
                   {/* ================================================= */}
                   {/* BLOCK HEADER */}
                   {/* ================================================= */}
 
-                  <div className="flex items-center justify-between bg-slate-900 px-5 py-4">
+                  <div className="flex items-center justify-between bg-[#32143b] px-5 py-4">
 
                     <div className="flex items-center gap-3">
 
                       <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5">
                         <Building2
                           size={16}
-                          className="text-emerald-400"
+                          className="text-[#bca16a]"
                         />
                       </div>
 
                       <div>
-                        <p className="text-[8px] font-bold uppercase tracking-[0.14em] text-slate-500">
+                        <p className="text-[8px] font-bold uppercase tracking-[0.14em] text-[#756b78]">
                           Society Block
                         </p>
 
@@ -461,7 +461,7 @@ function SocietyMap() {
                         {blockFlats.length}
                       </p>
 
-                      <p className="text-[8px] font-medium text-slate-500">
+                      <p className="text-[8px] font-medium text-[#756b78]">
                         Flats
                       </p>
                     </div>
@@ -491,7 +491,7 @@ function SocietyMap() {
                       return (
                         <div
                           key={floor}
-                          className="border-b border-slate-200 py-4 last:border-b-0"
+                          className="border-b border-[#e2d9df] py-4 last:border-b-0"
                         >
 
                           {/* FLOOR HEADER */}
@@ -501,17 +501,17 @@ function SocietyMap() {
                             <div className="flex items-center gap-2">
                               <Layers3
                                 size={13}
-                                className="text-emerald-500"
+                                className="text-[#9b7740]"
                               />
 
-                              <span className="text-[9px] font-bold uppercase tracking-wide text-slate-500">
+                              <span className="text-[9px] font-bold uppercase tracking-wide text-[#756b78]">
                                 Floor {floor}
                               </span>
                             </div>
 
-                            <div className="h-px flex-1 bg-slate-100" />
+                            <div className="h-px flex-1 bg-[#eee8ed]" />
 
-                            <span className="text-[8px] font-semibold text-slate-400">
+                            <span className="text-[8px] font-semibold text-[#8b778e]">
                               {floorFlats.length} flats
                             </span>
 
@@ -583,8 +583,8 @@ function SocietyMap() {
                                       overflow-hidden
                                       rounded-xl
                                       border
-                                      border-slate-700
-                                      bg-slate-900
+                                      border-[#49394d]
+                                      bg-[#32143b]
                                       p-3
                                       text-left
                                       shadow-2xl
@@ -595,7 +595,7 @@ function SocietyMap() {
 
                                     <div className="border-b border-white/10 pb-2">
 
-                                      <p className="text-[8px] font-bold uppercase tracking-[0.12em] text-emerald-400">
+                                      <p className="text-[8px] font-bold uppercase tracking-[0.12em] text-[#bca16a]">
                                         Flat Information
                                       </p>
 
@@ -610,37 +610,37 @@ function SocietyMap() {
                                     <div className="mt-2 space-y-1.5">
 
                                       <div className="flex justify-between gap-3">
-                                        <span className="text-[9px] text-slate-500">
+                                        <span className="text-[9px] text-[#756b78]">
                                           Block
                                         </span>
 
-                                        <span className="text-[9px] font-bold text-slate-200">
+                                        <span className="text-[9px] font-bold text-[#e2d9df]">
                                           {flat.block}
                                         </span>
                                       </div>
 
                                       <div className="flex justify-between gap-3">
-                                        <span className="text-[9px] text-slate-500">
+                                        <span className="text-[9px] text-[#756b78]">
                                           Floor
                                         </span>
 
-                                        <span className="text-[9px] font-bold text-slate-200">
+                                        <span className="text-[9px] font-bold text-[#e2d9df]">
                                           {flat.floor}
                                         </span>
                                       </div>
 
                                       <div className="flex justify-between gap-3">
-                                        <span className="text-[9px] text-slate-500">
+                                        <span className="text-[9px] text-[#756b78]">
                                           Type
                                         </span>
 
-                                        <span className="text-[9px] font-bold text-slate-200">
+                                        <span className="text-[9px] font-bold text-[#e2d9df]">
                                           {flat.type}
                                         </span>
                                       </div>
 
                                       <div className="flex justify-between gap-3">
-                                        <span className="text-[9px] text-slate-500">
+                                        <span className="text-[9px] text-[#756b78]">
                                           Status
                                         </span>
 
@@ -651,11 +651,11 @@ function SocietyMap() {
                                             ${
                                               flat.status ===
                                               "Occupied"
-                                                ? "text-emerald-400"
+                                                ? "text-[#bca16a]"
                                                 : flat.status ===
                                                   "Maintenance"
-                                                ? "text-amber-400"
-                                                : "text-slate-300"
+                                                ? "text-[#bca16a]"
+                                                : "text-[#bca9c0]"
                                             }
                                           `}
                                         >
@@ -669,7 +669,7 @@ function SocietyMap() {
 
                                     <div className="mt-3 border-t border-white/10 pt-2">
 
-                                      <p className="text-[8px] font-bold uppercase tracking-wide text-slate-500">
+                                      <p className="text-[8px] font-bold uppercase tracking-wide text-[#756b78]">
                                         Resident
                                       </p>
 
@@ -679,12 +679,12 @@ function SocietyMap() {
                                             {flat.resident.name}
                                           </p>
 
-                                          <p className="mt-0.5 truncate text-[8px] text-slate-400">
+                                          <p className="mt-0.5 truncate text-[8px] text-[#8b778e]">
                                             {flat.resident.email}
                                           </p>
                                         </>
                                       ) : (
-                                        <p className="mt-1 text-[8px] text-slate-400">
+                                        <p className="mt-1 text-[8px] text-[#8b778e]">
                                           No resident assigned
                                         </p>
                                       )}
@@ -694,7 +694,7 @@ function SocietyMap() {
                                     {/* HINT */}
 
                                     <div className="mt-3 border-t border-white/10 pt-2">
-                                      <p className="text-[8px] font-medium text-slate-500">
+                                      <p className="text-[8px] font-medium text-[#756b78]">
                                         Click for full details
                                       </p>
                                     </div>
@@ -735,7 +735,7 @@ function SocietyMap() {
               flex
               items-end
               justify-center
-              bg-slate-950/60
+              bg-[#210c28]/60
               p-4
               md:items-center
             "
@@ -749,7 +749,7 @@ function SocietyMap() {
                 overflow-hidden
                 rounded-xl
                 border
-                border-slate-200
+                border-[#e2d9df]
                 bg-white
                 shadow-2xl
               "
@@ -762,14 +762,14 @@ function SocietyMap() {
               {/* MODAL HEADER */}
               {/* ================================================= */}
 
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
                 <div>
-                  <p className="text-[8px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+                  <p className="text-[8px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
                     Flat Details
                   </p>
 
-                  <h2 className="mt-1 text-[19px] font-extrabold text-slate-900">
+                  <h2 className="mt-1 text-[19px] font-extrabold text-[#32143b]">
                     {selectedFlat.flatNo}
                   </h2>
                 </div>
@@ -787,11 +787,11 @@ function SocietyMap() {
                     justify-center
                     rounded-lg
                     border
-                    border-slate-200
-                    text-slate-400
+                    border-[#e2d9df]
+                    text-[#8b778e]
                     transition
-                    hover:bg-slate-50
-                    hover:text-slate-700
+                    hover:bg-[#f7f3ed]
+                    hover:text-[#49394d]
                   "
                 >
                   <X size={15} />
@@ -818,21 +818,21 @@ function SocietyMap() {
                     ${
                       selectedFlat.status ===
                       "Occupied"
-                        ? "border-emerald-200 bg-emerald-50"
+                        ? "border-[#e2d9df] bg-[#f7f3ed]"
                         : selectedFlat.status ===
                           "Maintenance"
-                        ? "border-amber-200 bg-amber-50"
-                        : "border-slate-200 bg-slate-50"
+                        ? "border-[#e2d9df] bg-[#f7f3ed]"
+                        : "border-[#e2d9df] bg-[#f7f3ed]"
                     }
                   `}
                 >
 
                   <div>
-                    <p className="text-[8px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="text-[8px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Current Status
                     </p>
 
-                    <p className="mt-1 text-[12px] font-extrabold text-slate-800">
+                    <p className="mt-1 text-[12px] font-extrabold text-[#49394d]">
                       {selectedFlat.status}
                     </p>
                   </div>
@@ -880,20 +880,20 @@ function SocietyMap() {
 
                 {selectedFlat.resident ? (
 
-                  <div className="overflow-hidden rounded-[1px] border border-slate-200">
+                  <div className="overflow-hidden rounded-[1px] border border-[#e2d9df]">
 
-                    <div className="flex items-center gap-2 border-b border-slate-200 bg-slate-50 px-4 py-3">
+                    <div className="flex items-center gap-2 border-b border-[#e2d9df] bg-[#f7f3ed] px-4 py-3">
 
-                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                         <Users size={14} />
                       </div>
 
                       <div>
-                        <p className="text-[10px] font-bold text-slate-800">
+                        <p className="text-[10px] font-bold text-[#49394d]">
                           Resident Information
                         </p>
 
-                        <p className="text-[8px] text-slate-400">
+                        <p className="text-[8px] text-[#8b778e]">
                           Assigned resident
                         </p>
                       </div>
@@ -903,11 +903,11 @@ function SocietyMap() {
                     <div className="space-y-3 p-4">
 
                       <div>
-                        <p className="text-[8px] font-bold uppercase tracking-wide text-slate-400">
+                        <p className="text-[8px] font-bold uppercase tracking-wide text-[#8b778e]">
                           Name
                         </p>
 
-                        <p className="mt-1 text-[11px] font-bold text-slate-700">
+                        <p className="mt-1 text-[11px] font-bold text-[#49394d]">
                           {selectedFlat.resident.name}
                         </p>
                       </div>
@@ -916,10 +916,10 @@ function SocietyMap() {
 
                         <Mail
                           size={13}
-                          className="shrink-0 text-slate-400"
+                          className="shrink-0 text-[#8b778e]"
                         />
 
-                        <p className="break-all text-[10px] font-medium text-slate-600">
+                        <p className="break-all text-[10px] font-medium text-[#756b78]">
                           {selectedFlat.resident.email}
                         </p>
 
@@ -929,10 +929,10 @@ function SocietyMap() {
 
                         <Phone
                           size={13}
-                          className="shrink-0 text-slate-400"
+                          className="shrink-0 text-[#8b778e]"
                         />
 
-                        <p className="text-[10px] font-medium text-slate-600">
+                        <p className="text-[10px] font-medium text-[#756b78]">
                           {selectedFlat.resident.phone ||
                             "Not provided"}
                         </p>
@@ -945,9 +945,9 @@ function SocietyMap() {
 
                 ) : (
 
-                  <div className="rounded-[1px] border border-slate-200 bg-slate-50 p-4">
+                  <div className="rounded-[1px] border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
-                    <p className="text-[10px] font-medium text-slate-500">
+                    <p className="text-[10px] font-medium text-[#756b78]">
                       No resident is currently assigned to this flat.
                     </p>
 
@@ -961,7 +961,7 @@ function SocietyMap() {
               {/* MODAL FOOTER */}
               {/* ================================================= */}
 
-              <div className="flex justify-end border-t border-slate-200 px-5 py-3">
+              <div className="flex justify-end border-t border-[#e2d9df] px-5 py-3">
 
                 <button
                   type="button"
@@ -971,15 +971,15 @@ function SocietyMap() {
                   className="
                     rounded-[1px]
                     border
-                    border-slate-300
+                    border-[#bca9c0]
                     px-4
                     py-2
                     text-[10px]
                     font-bold
-                    text-slate-600
+                    text-[#756b78]
                     transition
-                    hover:bg-slate-50
-                    hover:text-slate-800
+                    hover:bg-[#f7f3ed]
+                    hover:text-[#49394d]
                   "
                 >
                   Close
@@ -1003,12 +1003,12 @@ function SocietyMap() {
 
 function InfoBox({ label, value }) {
   return (
-    <div className="rounded-[1px] border border-slate-200 bg-white p-3">
-      <p className="text-[8px] font-bold uppercase tracking-wide text-slate-400">
+    <div className="rounded-[1px] border border-[#e2d9df] bg-white p-3">
+      <p className="text-[8px] font-bold uppercase tracking-wide text-[#8b778e]">
         {label}
       </p>
 
-      <p className="mt-1 text-[11px] font-bold text-slate-700">
+      <p className="mt-1 text-[11px] font-bold text-[#49394d]">
         {value}
       </p>
     </div>

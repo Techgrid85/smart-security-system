@@ -393,15 +393,15 @@ function AdminPolls() {
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
 
           <div>
-            <h1 className="flex items-center gap-2 text-[22px] font-extrabold text-slate-900">
+            <h1 className="flex items-center gap-2 text-[22px] font-extrabold text-[#32143b]">
               <Vote
                 size={23}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
               Poll Management
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Create and manage society polls and voting.
             </p>
           </div>
@@ -411,7 +411,7 @@ function AdminPolls() {
             <button
               type="button"
               onClick={fetchPolls}
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50"
+              className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
             >
               <RefreshCw size={14} />
               Refresh
@@ -420,7 +420,7 @@ function AdminPolls() {
             <button
               type="button"
               onClick={openCreateModal}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600"
+              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
             >
               <Plus size={15} />
               Create Poll
@@ -438,28 +438,28 @@ function AdminPolls() {
             icon={<Vote size={17} />}
             label="Total Polls"
             value={totalPolls}
-            iconClass="bg-emerald-50 text-emerald-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
             icon={<CheckCircle2 size={17} />}
             label="Active Polls"
             value={activePolls}
-            iconClass="bg-sky-50 text-sky-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
             icon={<FileText size={17} />}
             label="Draft Polls"
             value={draftPolls}
-            iconClass="bg-amber-50 text-amber-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
             icon={<Clock size={17} />}
             label="Closed Polls"
             value={closedPolls}
-            iconClass="bg-slate-100 text-slate-500"
+            iconClass="bg-[#eee8ed] text-[#756b78]"
           />
 
         </div>
@@ -486,29 +486,29 @@ function AdminPolls() {
 
         {/* ================= POLLS ================= */}
 
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
                 <Vote size={17} />
               </div>
 
               <div>
-                <h2 className="text-[13px] font-bold text-slate-900">
+                <h2 className="text-[13px] font-bold text-[#32143b]">
                   Society Polls
                 </h2>
 
-                <p className="mt-0.5 text-[10.5px] font-medium text-slate-400">
+                <p className="mt-0.5 text-[10.5px] font-medium text-[#8b778e]">
                   Manage active, draft and closed polls.
                 </p>
               </div>
 
             </div>
 
-            <span className="rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-600">
+            <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
               {polls.length} Polls
             </span>
 
@@ -524,7 +524,7 @@ function AdminPolls() {
                 return (
                   <div
                     key={poll._id}
-                    className="rounded-[14px] border border-slate-200 bg-slate-50 p-4 transition hover:border-emerald-200"
+                    className="rounded-[14px] border border-[#e2d9df] bg-[#f7f3ed] p-4 transition hover:border-[#e2d9df]"
                   >
 
                     {/* POLL TOP */}
@@ -535,18 +535,18 @@ function AdminPolls() {
 
                         <div className="flex items-start gap-2">
 
-                          <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                          <div className="mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
                             <CircleDot size={15} />
                           </div>
 
                           <div className="min-w-0">
 
-                            <h3 className="text-[12px] font-bold text-slate-800">
+                            <h3 className="text-[12px] font-bold text-[#49394d]">
                               {poll.question}
                             </h3>
 
                             {poll.description && (
-                              <p className="mt-1 text-[10px] font-medium leading-relaxed text-slate-400">
+                              <p className="mt-1 text-[10px] font-medium leading-relaxed text-[#8b778e]">
                                 {poll.description}
                               </p>
                             )}
@@ -565,7 +565,7 @@ function AdminPolls() {
 
                     {/* OPTIONS */}
 
-                    <div className="mt-4 space-y-3 border-t border-slate-200 pt-4">
+                    <div className="mt-4 space-y-3 border-t border-[#e2d9df] pt-4">
 
                       {poll.options?.map((option) => {
                         const percentage =
@@ -586,21 +586,21 @@ function AdminPolls() {
 
                             <div className="mb-1.5 flex items-center justify-between gap-3">
 
-                              <span className="truncate text-[10.5px] font-semibold text-slate-700">
+                              <span className="truncate text-[10.5px] font-semibold text-[#49394d]">
                                 {option.text}
                               </span>
 
-                              <span className="shrink-0 text-[9.5px] font-bold text-slate-400">
+                              <span className="shrink-0 text-[9.5px] font-bold text-[#8b778e]">
                                 {option.votes || 0} Votes ·{" "}
                                 {percentage}%
                               </span>
 
                             </div>
 
-                            <div className="h-1.5 overflow-hidden rounded-full bg-slate-200">
+                            <div className="h-1.5 overflow-hidden rounded-full bg-[#e2d9df]">
 
                               <div
-                                className="h-full rounded-full bg-emerald-500 transition-all"
+                                className="h-full rounded-full bg-[#9b7740] transition-all"
                                 style={{
                                   width: `${percentage}%`,
                                 }}
@@ -616,20 +616,20 @@ function AdminPolls() {
 
                     {/* INFO */}
 
-                    <div className="mt-4 flex flex-wrap gap-3 border-t border-slate-200 pt-3">
+                    <div className="mt-4 flex flex-wrap gap-3 border-t border-[#e2d9df] pt-3">
 
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold text-slate-500">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold text-[#756b78]">
                         <Users
                           size={13}
-                          className="text-emerald-500"
+                          className="text-[#9b7740]"
                         />
                         {totalVotes} Total Votes
                       </span>
 
-                      <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold text-slate-500">
+                      <span className="inline-flex items-center gap-1.5 text-[10px] font-semibold text-[#756b78]">
                         <CalendarDays
                           size={13}
-                          className="text-slate-400"
+                          className="text-[#8b778e]"
                         />
                         {formatDate(poll.startDate)} -{" "}
                         {formatDate(poll.endDate)}
@@ -639,14 +639,14 @@ function AdminPolls() {
 
                     {/* ACTIONS */}
 
-                    <div className="mt-4 flex gap-2 border-t border-slate-200 pt-3">
+                    <div className="mt-4 flex gap-2 border-t border-[#e2d9df] pt-3">
 
                       <button
                         type="button"
                         onClick={() =>
                           openEditModal(poll)
                         }
-                        className="flex flex-1 items-center justify-center gap-2 rounded-[10px] border border-slate-200 bg-white py-2.5 text-[10.5px] font-bold text-slate-600 transition hover:bg-slate-100"
+                        className="flex flex-1 items-center justify-center gap-2 rounded-[10px] border border-[#e2d9df] bg-white py-2.5 text-[10.5px] font-bold text-[#756b78] transition hover:bg-[#eee8ed]"
                       >
                         <Pencil size={14} />
                         Edit Poll
@@ -677,21 +677,21 @@ function AdminPolls() {
 
               <Vote
                 size={32}
-                className="mx-auto mb-3 text-slate-300"
+                className="mx-auto mb-3 text-[#bca9c0]"
               />
 
-              <p className="text-[12px] font-bold text-slate-600">
+              <p className="text-[12px] font-bold text-[#756b78]">
                 No polls found
               </p>
 
-              <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+              <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                 Create your first society poll to start voting.
               </p>
 
               <button
                 type="button"
                 onClick={openCreateModal}
-                className="mt-4 inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[10.5px] font-bold text-white hover:bg-emerald-600"
+                className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white hover:bg-[#9b7740]"
               >
                 <Plus size={14} />
                 Create Poll
@@ -706,28 +706,28 @@ function AdminPolls() {
         {/* ================= CREATE / EDIT MODAL ================= */}
 
         {showModal && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/40 p-4">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#32143b]/40 p-4">
 
-            <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[16px] border border-slate-200 bg-white shadow-xl">
+            <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[16px] border border-[#e2d9df] bg-white shadow-xl">
 
               {/* MODAL HEADER */}
 
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
                 <div className="flex items-center gap-3">
 
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-emerald-50 text-emerald-500">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
                     <Vote size={17} />
                   </div>
 
                   <div>
-                    <h2 className="text-[13px] font-bold text-slate-900">
+                    <h2 className="text-[13px] font-bold text-[#32143b]">
                       {editingPoll
                         ? "Edit Poll"
                         : "Create Poll"}
                     </h2>
 
-                    <p className="mt-0.5 text-[10.5px] font-medium text-slate-400">
+                    <p className="mt-0.5 text-[10.5px] font-medium text-[#8b778e]">
                       Configure poll question, options and duration.
                     </p>
                   </div>
@@ -738,7 +738,7 @@ function AdminPolls() {
                   type="button"
                   onClick={closeModal}
                   disabled={submitting}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-600 disabled:opacity-50"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#756b78] disabled:opacity-50"
                 >
                   <X size={17} />
                 </button>
@@ -758,7 +758,7 @@ function AdminPolls() {
 
                   <div>
 
-                    <label className="mb-2 block text-[10.5px] font-bold text-slate-600">
+                    <label className="mb-2 block text-[10.5px] font-bold text-[#756b78]">
                       Poll Question
                     </label>
 
@@ -769,7 +769,7 @@ function AdminPolls() {
                       onChange={handleChange}
                       required
                       placeholder="Enter your poll question"
-                      className="w-full rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white"
+                      className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
                     />
 
                   </div>
@@ -778,9 +778,9 @@ function AdminPolls() {
 
                   <div>
 
-                    <label className="mb-2 block text-[10.5px] font-bold text-slate-600">
+                    <label className="mb-2 block text-[10.5px] font-bold text-[#756b78]">
                       Description
-                      <span className="ml-1 font-medium text-slate-400">
+                      <span className="ml-1 font-medium text-[#8b778e]">
                         Optional
                       </span>
                     </label>
@@ -791,7 +791,7 @@ function AdminPolls() {
                       onChange={handleChange}
                       rows="3"
                       placeholder="Add a short description..."
-                      className="w-full resize-none rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white"
+                      className="w-full resize-none rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
                     />
 
                   </div>
@@ -802,14 +802,14 @@ function AdminPolls() {
 
                     <div className="mb-2 flex items-center justify-between">
 
-                      <label className="text-[10.5px] font-bold text-slate-600">
+                      <label className="text-[10.5px] font-bold text-[#756b78]">
                         Poll Options
                       </label>
 
                       <button
                         type="button"
                         onClick={addOption}
-                        className="inline-flex items-center gap-1 text-[10px] font-bold text-emerald-600 hover:text-emerald-700"
+                        className="inline-flex items-center gap-1 text-[10px] font-bold text-[#9b7740] hover:text-[#826331]"
                       >
                         <Plus size={13} />
                         Add Option
@@ -826,7 +826,7 @@ function AdminPolls() {
                             className="flex gap-2"
                           >
 
-                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] border border-slate-200 bg-slate-50 text-[10px] font-bold text-slate-400">
+                            <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] text-[10px] font-bold text-[#8b778e]">
                               {index + 1}
                             </div>
 
@@ -843,7 +843,7 @@ function AdminPolls() {
                               placeholder={`Option ${
                                 index + 1
                               }`}
-                              className="min-w-0 flex-1 rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white"
+                              className="min-w-0 flex-1 rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
                             />
 
                             {formData.options.length >
@@ -873,7 +873,7 @@ function AdminPolls() {
 
                     <div>
 
-                      <label className="mb-2 block text-[10.5px] font-bold text-slate-600">
+                      <label className="mb-2 block text-[10.5px] font-bold text-[#756b78]">
                         Start Date
                       </label>
 
@@ -883,14 +883,14 @@ function AdminPolls() {
                         value={formData.startDate}
                         onChange={handleChange}
                         required
-                        className="w-full rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white"
+                        className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
                       />
 
                     </div>
 
                     <div>
 
-                      <label className="mb-2 block text-[10.5px] font-bold text-slate-600">
+                      <label className="mb-2 block text-[10.5px] font-bold text-[#756b78]">
                         End Date
                       </label>
 
@@ -900,7 +900,7 @@ function AdminPolls() {
                         value={formData.endDate}
                         onChange={handleChange}
                         required
-                        className="w-full rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white"
+                        className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
                       />
 
                     </div>
@@ -911,7 +911,7 @@ function AdminPolls() {
 
                   <div>
 
-                    <label className="mb-2 block text-[10.5px] font-bold text-slate-600">
+                    <label className="mb-2 block text-[10.5px] font-bold text-[#756b78]">
                       Poll Status
                     </label>
 
@@ -919,7 +919,7 @@ function AdminPolls() {
                       name="status"
                       value={formData.status}
                       onChange={handleChange}
-                      className="w-full rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-[11px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white"
+                      className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
                     >
                       <option value="Draft">
                         Draft
@@ -940,13 +940,13 @@ function AdminPolls() {
 
                 {/* BUTTONS */}
 
-                <div className="mt-5 flex justify-end gap-2 border-t border-slate-200 pt-4">
+                <div className="mt-5 flex justify-end gap-2 border-t border-[#e2d9df] pt-4">
 
                   <button
                     type="button"
                     onClick={closeModal}
                     disabled={submitting}
-                    className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-[10.5px] font-bold text-slate-600 transition hover:bg-slate-50 disabled:opacity-50"
+                    className="rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[10.5px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -954,7 +954,7 @@ function AdminPolls() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[10.5px] font-bold text-white transition hover:bg-emerald-600 disabled:opacity-60"
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:opacity-60"
                   >
 
                     {submitting && (
@@ -982,16 +982,16 @@ function AdminPolls() {
         {/* ================= LOADING ================= */}
 
         {loading && (
-          <div className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-900/20">
+          <div className="fixed inset-0 z-[110] flex items-center justify-center bg-[#32143b]/20">
 
-            <div className="flex items-center gap-3 rounded-[12px] border border-slate-200 bg-white px-5 py-3 shadow-xl">
+            <div className="flex items-center gap-3 rounded-[12px] border border-[#e2d9df] bg-white px-5 py-3 shadow-xl">
 
               <Loader2
                 size={18}
-                className="animate-spin text-emerald-500"
+                className="animate-spin text-[#9b7740]"
               />
 
-              <span className="text-[11px] font-bold text-slate-600">
+              <span className="text-[11px] font-bold text-[#756b78]">
                 Loading polls...
               </span>
 
@@ -1016,14 +1016,14 @@ function StatCard({
   iconClass,
 }) {
   return (
-    <div className="flex items-center justify-between rounded-[16px] border border-slate-200 bg-white p-4">
+    <div className="flex items-center justify-between rounded-[16px] border border-[#e2d9df] bg-white p-4">
 
       <div>
-        <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+        <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
           {label}
         </p>
 
-        <p className="mt-1 text-[20px] font-extrabold text-slate-900">
+        <p className="mt-1 text-[20px] font-extrabold text-[#32143b]">
           {value}
         </p>
       </div>
@@ -1045,7 +1045,7 @@ function StatCard({
 function PollStatusBadge({ status }) {
   if (status === "Active") {
     return (
-      <span className="inline-flex shrink-0 rounded-full bg-emerald-50 px-2.5 py-1 text-[9.5px] font-bold text-emerald-600">
+      <span className="inline-flex shrink-0 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
         Active
       </span>
     );
@@ -1053,14 +1053,14 @@ function PollStatusBadge({ status }) {
 
   if (status === "Closed") {
     return (
-      <span className="inline-flex shrink-0 rounded-full bg-slate-100 px-2.5 py-1 text-[9.5px] font-bold text-slate-600">
+      <span className="inline-flex shrink-0 rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-bold text-[#756b78]">
         Closed
       </span>
     );
   }
 
   return (
-    <span className="inline-flex shrink-0 rounded-full bg-amber-50 px-2.5 py-1 text-[9.5px] font-bold text-amber-600">
+    <span className="inline-flex shrink-0 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
       Draft
     </span>
   );

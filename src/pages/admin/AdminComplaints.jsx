@@ -207,15 +207,15 @@ function AdminComplaints() {
         {/* ================= PAGE HEADER ================= */}
         <div className="mb-6 flex flex-col justify-between gap-4 sm:flex-row sm:items-center">
           <div>
-            <h1 className="flex items-center gap-2 text-[20px] font-extrabold text-slate-900 md:text-[22px]">
+            <h1 className="flex items-center gap-2 text-[20px] font-extrabold text-[#32143b] md:text-[22px]">
               <MessageSquareWarning
                 size={22}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
               Complaints Management
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Review resident complaints and assign maintenance staff.
             </p>
           </div>
@@ -223,7 +223,7 @@ function AdminComplaints() {
           <button
             type="button"
             onClick={fetchComplaints}
-            className="inline-flex items-center justify-center gap-2 rounded-[9px] border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50"
+            className="inline-flex items-center justify-center gap-2 rounded-[9px] border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
           >
             <RefreshCw size={15} />
             Refresh
@@ -276,15 +276,15 @@ function AdminComplaints() {
         </div>
 
         {/* ================= COMPLAINTS CARD ================= */}
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
           {/* ================= TOOLBAR ================= */}
-          <div className="flex flex-col gap-4 border-b border-slate-200 p-5 lg:flex-row lg:items-center lg:justify-between">
+          <div className="flex flex-col gap-4 border-b border-[#e2d9df] p-5 lg:flex-row lg:items-center lg:justify-between">
 
             <div className="relative w-full lg:max-w-[380px]">
               <Search
                 size={16}
-                className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
               />
 
               <input
@@ -292,14 +292,14 @@ function AdminComplaints() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search complaints..."
-                className="w-full rounded-[10px] border border-slate-200 py-2.5 pl-10 pr-4 text-[11.5px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-50"
+                className="w-full rounded-[10px] border border-[#e2d9df] py-2.5 pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
               />
             </div>
 
             <div className="flex items-center gap-2">
               <Filter
                 size={15}
-                className="text-slate-400"
+                className="text-[#8b778e]"
               />
 
               <select
@@ -307,7 +307,7 @@ function AdminComplaints() {
                 onChange={(e) =>
                   setStatusFilter(e.target.value)
                 }
-                className="rounded-[9px] border border-slate-200 bg-white px-3 py-2.5 text-[11px] font-semibold text-slate-600 outline-none focus:border-emerald-400"
+                className="rounded-[9px] border border-[#e2d9df] bg-white px-3 py-2.5 text-[11px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
               >
                 <option value="All">
                   All Status
@@ -339,29 +339,29 @@ function AdminComplaints() {
             <table className="w-full min-w-[1050px] border-collapse">
 
               <thead>
-                <tr className="bg-slate-50">
+                <tr className="bg-[#f7f3ed]">
 
-                  <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                  <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                     Complaint
                   </th>
 
-                  <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                  <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                     Resident
                   </th>
 
-                  <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                  <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                     Category
                   </th>
 
-                  <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                  <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                     Status
                   </th>
 
-                  <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                  <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                     Assigned Staff
                   </th>
 
-                  <th className="px-5 py-3 text-right text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                  <th className="px-5 py-3 text-right text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                     Action
                   </th>
 
@@ -374,7 +374,7 @@ function AdminComplaints() {
                   <tr>
                     <td
                       colSpan="6"
-                      className="px-5 py-14 text-center text-[12px] font-medium text-slate-400"
+                      className="px-5 py-14 text-center text-[12px] font-medium text-[#8b778e]"
                     >
                       Loading complaints...
                     </td>
@@ -387,10 +387,10 @@ function AdminComplaints() {
                     >
                       <AlertCircle
                         size={28}
-                        className="mx-auto mb-3 text-slate-300"
+                        className="mx-auto mb-3 text-[#bca9c0]"
                       />
 
-                      <p className="text-[12px] font-semibold text-slate-500">
+                      <p className="text-[12px] font-semibold text-[#756b78]">
                         No complaints found
                       </p>
                     </td>
@@ -399,20 +399,20 @@ function AdminComplaints() {
                   filteredComplaints.map((complaint) => (
                     <tr
                       key={complaint._id}
-                      className="border-t border-slate-200 transition hover:bg-slate-50"
+                      className="border-t border-[#e2d9df] transition hover:bg-[#f7f3ed]"
                     >
 
                       {/* Complaint */}
                       <td className="max-w-[300px] px-5 py-4">
-                        <p className="truncate text-[12px] font-bold text-slate-800">
+                        <p className="truncate text-[12px] font-bold text-[#49394d]">
                           {complaint.subject}
                         </p>
 
-                        <p className="mt-1 line-clamp-1 text-[10.5px] font-medium text-slate-400">
+                        <p className="mt-1 line-clamp-1 text-[10.5px] font-medium text-[#8b778e]">
                           {complaint.description}
                         </p>
 
-                        <p className="mt-1.5 text-[9.5px] font-medium text-slate-400">
+                        <p className="mt-1.5 text-[9.5px] font-medium text-[#8b778e]">
                           {new Date(
                             complaint.createdAt
                           ).toLocaleDateString()}
@@ -423,17 +423,17 @@ function AdminComplaints() {
                       <td className="px-5 py-4">
                         <div className="flex items-center gap-2.5">
 
-                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-emerald-50 text-emerald-500">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
                             <User size={14} />
                           </div>
 
                           <div>
-                            <p className="text-[11.5px] font-bold text-slate-700">
+                            <p className="text-[11.5px] font-bold text-[#49394d]">
                               {complaint.resident?.name ||
                                 "Unknown Resident"}
                             </p>
 
-                            <p className="mt-0.5 flex items-center gap-1 text-[10px] font-medium text-slate-400">
+                            <p className="mt-0.5 flex items-center gap-1 text-[10px] font-medium text-[#8b778e]">
                               <Building2 size={10} />
                               {complaint.flatNo}
                             </p>
@@ -444,7 +444,7 @@ function AdminComplaints() {
 
                       {/* Category */}
                       <td className="px-5 py-4">
-                        <span className="rounded-full bg-sky-50 px-2.5 py-1 text-[10px] font-bold text-sky-600">
+                        <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
                           {complaint.category}
                         </span>
                       </td>
@@ -461,11 +461,11 @@ function AdminComplaints() {
 
                         {complaint.assignedStaff ? (
                           <div>
-                            <p className="text-[11.5px] font-bold text-slate-700">
+                            <p className="text-[11.5px] font-bold text-[#49394d]">
                               {complaint.assignedStaff.name}
                             </p>
 
-                            <p className="mt-0.5 text-[10px] font-medium text-emerald-500">
+                            <p className="mt-0.5 text-[10px] font-medium text-[#9b7740]">
                               Assigned
                             </p>
                           </div>
@@ -488,7 +488,7 @@ function AdminComplaints() {
                             complaint.status === "Resolved" ||
                             complaint.status === "Rejected"
                           }
-                          className="inline-flex items-center gap-2 rounded-[8px] bg-emerald-500 px-3 py-2 text-[10.5px] font-bold text-white transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-50"
+                          className="inline-flex items-center gap-2 rounded-[8px] bg-[#9b7740] px-3 py-2 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-50"
                         >
                           <UserCog size={13} />
 
@@ -510,8 +510,8 @@ function AdminComplaints() {
 
           {/* ================= FOOTER ================= */}
           {!loading && (
-            <div className="border-t border-slate-200 px-5 py-3">
-              <p className="text-[10.5px] font-medium text-slate-400">
+            <div className="border-t border-[#e2d9df] px-5 py-3">
+              <p className="text-[10.5px] font-medium text-[#8b778e]">
                 Showing {filteredComplaints.length} of{" "}
                 {complaints.length} complaints
               </p>
@@ -524,19 +524,19 @@ function AdminComplaints() {
 
       {/* ================= ASSIGN STAFF MODAL ================= */}
       {selectedComplaint && (
-        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/40 p-4 backdrop-blur-[2px]">
+        <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#210c28]/40 p-4 backdrop-blur-[2px]">
 
           <div className="w-full max-w-[500px] rounded-[18px] bg-white shadow-2xl">
 
             {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+            <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
               <div>
-                <h2 className="text-[15px] font-extrabold text-slate-900">
+                <h2 className="text-[15px] font-extrabold text-[#32143b]">
                   Assign Maintenance Staff
                 </h2>
 
-                <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+                <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                   Assign a staff member to this complaint.
                 </p>
               </div>
@@ -544,7 +544,7 @@ function AdminComplaints() {
               <button
                 type="button"
                 onClick={closeModal}
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
               >
                 <X size={17} />
               </button>
@@ -556,17 +556,17 @@ function AdminComplaints() {
               <div className="space-y-4 p-5">
 
                 {/* Complaint Info */}
-                <div className="rounded-[12px] border border-slate-200 bg-slate-50 p-4">
+                <div className="rounded-[12px] border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
-                  <p className="text-[10px] font-bold uppercase tracking-[0.05em] text-slate-400">
+                  <p className="text-[10px] font-bold uppercase tracking-[0.05em] text-[#8b778e]">
                     Complaint
                   </p>
 
-                  <p className="mt-1 text-[12px] font-bold text-slate-800">
+                  <p className="mt-1 text-[12px] font-bold text-[#49394d]">
                     {selectedComplaint.subject}
                   </p>
 
-                  <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+                  <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                     Flat {selectedComplaint.flatNo} ·{" "}
                     {selectedComplaint.category}
                   </p>
@@ -577,14 +577,14 @@ function AdminComplaints() {
                 {selectedComplaint.image && (
                   <div>
                     <div className="mb-2 flex items-center gap-2">
-                      <ImageIcon size={14} className="text-emerald-500" />
+                      <ImageIcon size={14} className="text-[#9b7740]" />
 
-                      <p className="text-[11px] font-bold text-slate-700">
+                      <p className="text-[11px] font-bold text-[#49394d]">
                         Complaint Image
                       </p>
                     </div>
 
-                    <div className="overflow-hidden rounded-[12px] border border-slate-200 bg-slate-50">
+                    <div className="overflow-hidden rounded-[12px] border border-[#e2d9df] bg-[#f7f3ed]">
                       <img
                         src={selectedComplaint.image}
                         alt="Complaint"
@@ -597,7 +597,7 @@ function AdminComplaints() {
                 {/* Staff Select */}
                 <div>
 
-                  <label className="mb-2 block text-[11px] font-bold text-slate-700">
+                  <label className="mb-2 block text-[11px] font-bold text-[#49394d]">
                     Select Staff Member
                   </label>
 
@@ -606,7 +606,7 @@ function AdminComplaints() {
                     onChange={(e) =>
                       setSelectedStaff(e.target.value)
                     }
-                    className="w-full rounded-[10px] border border-slate-200 bg-white px-3 py-3 text-[11.5px] font-medium text-slate-700 outline-none focus:border-emerald-400 focus:ring-2 focus:ring-emerald-50"
+                    className="w-full rounded-[10px] border border-[#e2d9df] bg-white px-3 py-3 text-[11.5px] font-medium text-[#49394d] outline-none focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
                   >
                     <option value="">
                       Select staff member
@@ -631,9 +631,9 @@ function AdminComplaints() {
                 {/* Admin Remark */}
                 <div>
 
-                  <label className="mb-2 block text-[11px] font-bold text-slate-700">
+                  <label className="mb-2 block text-[11px] font-bold text-[#49394d]">
                     Admin Remark
-                    <span className="ml-1 font-medium text-slate-400">
+                    <span className="ml-1 font-medium text-[#8b778e]">
                       (Optional)
                     </span>
                   </label>
@@ -645,7 +645,7 @@ function AdminComplaints() {
                     }
                     placeholder="Add instructions for the assigned staff..."
                     rows="4"
-                    className="w-full resize-none rounded-[10px] border border-slate-200 px-3 py-3 text-[11.5px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:ring-2 focus:ring-emerald-50"
+                    className="w-full resize-none rounded-[10px] border border-[#e2d9df] px-3 py-3 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
                   />
 
                 </div>
@@ -653,13 +653,13 @@ function AdminComplaints() {
               </div>
 
               {/* Modal Footer */}
-              <div className="flex justify-end gap-3 border-t border-slate-200 px-5 py-4">
+              <div className="flex justify-end gap-3 border-t border-[#e2d9df] px-5 py-4">
 
                 <button
                   type="button"
                   onClick={closeModal}
                   disabled={assignLoading}
-                  className="rounded-[9px] border border-slate-200 px-4 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50"
+                  className="rounded-[9px] border border-[#e2d9df] px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
                 >
                   Cancel
                 </button>
@@ -667,7 +667,7 @@ function AdminComplaints() {
                 <button
                   type="submit"
                   disabled={assignLoading}
-                  className="inline-flex items-center gap-2 rounded-[9px] bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex items-center gap-2 rounded-[9px] bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   <UserCog size={14} />
 
@@ -702,14 +702,14 @@ function SummaryCard({
   tone,
 }) {
   const styles = {
-    blue: "bg-sky-50 text-sky-500",
-    yellow: "bg-amber-50 text-amber-500",
-    orange: "bg-orange-50 text-orange-500",
-    green: "bg-emerald-50 text-emerald-500",
+    blue: "bg-[#f7f3ed] text-[#9b7740]",
+    yellow: "bg-[#f7f3ed] text-[#9b7740]",
+    orange: "bg-[#f7f3ed] text-[#9b7740]",
+    green: "bg-[#f7f3ed] text-[#9b7740]",
   };
 
   return (
-    <div className="rounded-[16px] border border-slate-200 bg-white p-5">
+    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-5">
 
       <div
         className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${styles[tone]}`}
@@ -717,11 +717,11 @@ function SummaryCard({
         <Icon size={20} />
       </div>
 
-      <p className="text-[25px] font-extrabold leading-none text-slate-900">
+      <p className="text-[25px] font-extrabold leading-none text-[#32143b]">
         {value}
       </p>
 
-      <p className="mt-2 text-[11.5px] font-semibold text-slate-500">
+      <p className="mt-2 text-[11.5px] font-semibold text-[#756b78]">
         {title}
       </p>
 
@@ -739,13 +739,13 @@ function StatusBadge({ status }) {
       "bg-red-50 text-red-700",
 
     "In Progress":
-      "bg-amber-50 text-amber-700",
+      "bg-[#f7f3ed] text-[#826331]",
 
     Resolved:
-      "bg-emerald-50 text-emerald-700",
+      "bg-[#f7f3ed] text-[#826331]",
 
     Rejected:
-      "bg-slate-100 text-slate-600",
+      "bg-[#eee8ed] text-[#756b78]",
   };
 
   return (

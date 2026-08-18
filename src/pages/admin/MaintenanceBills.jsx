@@ -758,16 +758,16 @@ const MaintenanceBills = () => {
         <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
 
           <div>
-            <h1 className="flex items-center gap-2 text-[22px] font-extrabold text-slate-900">
+            <h1 className="flex items-center gap-2 text-[22px] font-extrabold text-[#32143b]">
               <ReceiptText
                 size={23}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
 
               Maintenance Bills
             </h1>
 
-            <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
               Manage resident maintenance bills and payments.
             </p>
           </div>
@@ -775,7 +775,7 @@ const MaintenanceBills = () => {
           <button
             type="button"
             onClick={openCreateModal}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600"
+            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
           >
             <Plus size={14} />
             Create Bill
@@ -795,7 +795,7 @@ const MaintenanceBills = () => {
             }
             label="Total Bills"
             value={totalBills}
-            iconClass="bg-emerald-50 text-emerald-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
@@ -804,7 +804,7 @@ const MaintenanceBills = () => {
             }
             label="Pending"
             value={pendingBills}
-            iconClass="bg-amber-50 text-amber-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
@@ -813,7 +813,7 @@ const MaintenanceBills = () => {
             }
             label="Paid"
             value={paidBills}
-            iconClass="bg-sky-50 text-sky-500"
+            iconClass="bg-[#f7f3ed] text-[#9b7740]"
           />
 
           <StatCard
@@ -831,13 +831,13 @@ const MaintenanceBills = () => {
             SEARCH + FILTER
         ====================================== */}
 
-        <div className="mb-5 flex flex-col gap-4 rounded-[16px] border border-slate-200 bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-5 flex flex-col gap-4 rounded-[16px] border border-[#e2d9df] bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
 
           <div className="relative w-full sm:max-w-md">
 
             <Search
               size={17}
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+              className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
             />
 
             <input
@@ -847,7 +847,7 @@ const MaintenanceBills = () => {
                 setSearch(e.target.value)
               }
               placeholder="Search resident, flat or month..."
-              className="w-full rounded-[10px] border border-slate-200 bg-slate-50 py-2.5 pl-10 pr-4 text-[12px] font-medium text-slate-700 outline-none transition focus:border-emerald-400 focus:bg-white"
+              className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-4 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
             />
 
           </div>
@@ -861,7 +861,7 @@ const MaintenanceBills = () => {
                   e.target.value
                 )
               }
-              className="rounded-[10px] border border-slate-200 bg-slate-50 px-3 py-2.5 text-[11px] font-semibold text-slate-600 outline-none focus:border-emerald-400"
+              className="rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
             >
               <option value="All">
                 All Status
@@ -880,11 +880,11 @@ const MaintenanceBills = () => {
               </option>
             </select>
 
-            <div className="flex items-center gap-2 text-[11px] font-semibold text-slate-500">
+            <div className="flex items-center gap-2 text-[11px] font-semibold text-[#756b78]">
 
               <ReceiptText
                 size={16}
-                className="text-emerald-500"
+                className="text-[#9b7740]"
               />
 
               {filteredBills.length} Bills
@@ -913,16 +913,16 @@ const MaintenanceBills = () => {
             TABLE
         ====================================== */}
 
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
-          <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div>
-              <h2 className="text-[13px] font-bold text-slate-900">
+              <h2 className="text-[13px] font-bold text-[#32143b]">
                 All Maintenance Bills
               </h2>
 
-              <p className="mt-0.5 text-[10.5px] font-medium text-slate-400">
+              <p className="mt-0.5 text-[10.5px] font-medium text-[#8b778e]">
                 Registered resident maintenance payments
               </p>
             </div>
@@ -930,7 +930,7 @@ const MaintenanceBills = () => {
             <button
               type="button"
               onClick={fetchBills}
-              className="rounded-lg border border-slate-200 px-3 py-2 text-[10.5px] font-bold text-slate-600 transition hover:bg-slate-50"
+              className="rounded-lg border border-[#e2d9df] px-3 py-2 text-[10.5px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
             >
               Refresh
             </button>
@@ -942,7 +942,7 @@ const MaintenanceBills = () => {
 
               <Loader2
                 size={28}
-                className="animate-spin text-emerald-500"
+                className="animate-spin text-[#9b7740]"
               />
 
             </div>
@@ -952,33 +952,33 @@ const MaintenanceBills = () => {
               <table className="w-full min-w-[1200px] border-collapse">
 
                 <thead>
-                  <tr className="bg-slate-50">
+                  <tr className="bg-[#f7f3ed]">
 
-                    <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-5 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Resident
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Flat
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Month
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Amount
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Due Date
                     </th>
 
-                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-4 py-3 text-left text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Status
                     </th>
 
-                    <th className="px-5 py-3 text-right text-[10px] font-bold uppercase tracking-[0.06em] text-slate-400">
+                    <th className="px-5 py-3 text-right text-[10px] font-bold uppercase tracking-[0.06em] text-[#8b778e]">
                       Actions
                     </th>
 
@@ -992,7 +992,7 @@ const MaintenanceBills = () => {
                       (bill) => (
                         <tr
                           key={bill._id}
-                          className="border-t border-slate-200 transition hover:bg-slate-50"
+                          className="border-t border-[#e2d9df] transition hover:bg-[#f7f3ed]"
                         >
 
                           {/* RESIDENT */}
@@ -1001,7 +1001,7 @@ const MaintenanceBills = () => {
 
                             <div className="flex items-center gap-3">
 
-                              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
+                              <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
                                 <CircleDollarSign
                                   size={16}
                                 />
@@ -1009,13 +1009,13 @@ const MaintenanceBills = () => {
 
                               <div>
 
-                                <p className="text-[12px] font-bold text-slate-800">
+                                <p className="text-[12px] font-bold text-[#49394d]">
                                   {bill.resident
                                     ?.name ||
                                     "Unknown"}
                                 </p>
 
-                                <p className="mt-0.5 text-[10px] font-medium text-slate-400">
+                                <p className="mt-0.5 text-[10px] font-medium text-[#8b778e]">
                                   {bill.resident
                                     ?.email ||
                                     "-"}
@@ -1031,7 +1031,7 @@ const MaintenanceBills = () => {
 
                           <td className="px-4 py-4">
 
-                            <span className="text-[11px] font-semibold text-slate-700">
+                            <span className="text-[11px] font-semibold text-[#49394d]">
                               {bill.flatNo ||
                                 "-"}
                             </span>
@@ -1042,7 +1042,7 @@ const MaintenanceBills = () => {
 
                           <td className="px-4 py-4">
 
-                            <span className="text-[11px] font-semibold text-slate-700">
+                            <span className="text-[11px] font-semibold text-[#49394d]">
                               {bill.month ||
                                 "-"}
                             </span>
@@ -1053,7 +1053,7 @@ const MaintenanceBills = () => {
 
                           <td className="px-4 py-4">
 
-                            <span className="text-[11px] font-bold text-slate-800">
+                            <span className="text-[11px] font-bold text-[#49394d]">
                               Rs.{" "}
                               {Number(
                                 bill.amount ||
@@ -1067,7 +1067,7 @@ const MaintenanceBills = () => {
 
                           <td className="px-4 py-4">
 
-                            <span className="text-[11px] font-medium text-slate-500">
+                            <span className="text-[11px] font-medium text-[#756b78]">
                               {bill.dueDate
                                 ? new Date(
                                     bill.dueDate
@@ -1105,7 +1105,7 @@ const MaintenanceBills = () => {
                                   )
                                 }
                                 title="View Invoice"
-                                className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-50 text-violet-600 transition hover:bg-violet-100"
+                                className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#63366f] transition hover:bg-[#f1eaf3]"
                               >
                                 <Eye
                                   size={14}
@@ -1122,7 +1122,7 @@ const MaintenanceBills = () => {
                                   )
                                 }
                                 title="Download Invoice PDF"
-                                className="flex h-8 w-8 items-center justify-center rounded-lg bg-slate-100 text-slate-600 transition hover:bg-slate-200"
+                                className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#eee8ed] text-[#756b78] transition hover:bg-[#e2d9df]"
                               >
                                 <Download
                                   size={14}
@@ -1141,7 +1141,7 @@ const MaintenanceBills = () => {
                                     )
                                   }
                                   title="Mark as Paid"
-                                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-emerald-50 text-emerald-600 transition hover:bg-emerald-100"
+                                  className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740] transition hover:bg-[#f5eee2]"
                                 >
                                   <CheckCircle2
                                     size={14}
@@ -1159,7 +1159,7 @@ const MaintenanceBills = () => {
                                   )
                                 }
                                 title="Edit Bill"
-                                className="flex h-8 w-8 items-center justify-center rounded-lg bg-sky-50 text-sky-600 transition hover:bg-sky-100"
+                                className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740] transition hover:bg-[#f5eee2]"
                               >
                                 <Pencil
                                   size={14}
@@ -1200,14 +1200,14 @@ const MaintenanceBills = () => {
 
                         <ReceiptText
                           size={32}
-                          className="mx-auto mb-3 text-slate-300"
+                          className="mx-auto mb-3 text-[#bca9c0]"
                         />
 
-                        <p className="text-[12px] font-bold text-slate-600">
+                        <p className="text-[12px] font-bold text-[#756b78]">
                           No maintenance bills found
                         </p>
 
-                        <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+                        <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                           No bill matches your search
                           or filter.
                         </p>
@@ -1231,23 +1231,23 @@ const MaintenanceBills = () => {
         ====================================== */}
 
         {showModal && (
-          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-900/50 p-4">
+          <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#32143b]/50 p-4">
 
             <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-[18px] bg-white shadow-2xl">
 
               {/* HEADER */}
 
-              <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+              <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
                 <div>
 
-                  <h2 className="text-[15px] font-bold text-slate-900">
+                  <h2 className="text-[15px] font-bold text-[#32143b]">
                     {editingBill
                       ? "Edit Maintenance Bill"
                       : "Create Maintenance Bill"}
                   </h2>
 
-                  <p className="mt-0.5 text-[10.5px] font-medium text-slate-400">
+                  <p className="mt-0.5 text-[10.5px] font-medium text-[#8b778e]">
                     {editingBill
                       ? "Update bill information."
                       : "Create a new resident maintenance bill."}
@@ -1259,7 +1259,7 @@ const MaintenanceBills = () => {
                   type="button"
                   onClick={closeModal}
                   disabled={saving}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700 disabled:opacity-50"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d] disabled:opacity-50"
                 >
                   <X size={18} />
                 </button>
@@ -1277,7 +1277,7 @@ const MaintenanceBills = () => {
 
                 <div>
 
-                  <label className="mb-1.5 block text-[10.5px] font-bold text-slate-600">
+                  <label className="mb-1.5 block text-[10.5px] font-bold text-[#756b78]">
                     Resident
                   </label>
 
@@ -1290,7 +1290,7 @@ const MaintenanceBills = () => {
                       handleChange
                     }
                     required
-                    className="w-full rounded-[9px] border border-slate-200 bg-white px-3 py-2.5 text-[11.5px] font-medium text-slate-700 outline-none transition focus:border-emerald-400"
+                    className="w-full rounded-[9px] border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
                   >
 
                     <option value="">
@@ -1328,7 +1328,7 @@ const MaintenanceBills = () => {
 
                   <div>
 
-                    <label className="mb-1.5 block text-[10.5px] font-bold text-slate-600">
+                    <label className="mb-1.5 block text-[10.5px] font-bold text-[#756b78]">
                       Amount
                     </label>
 
@@ -1344,7 +1344,7 @@ const MaintenanceBills = () => {
                       }
                       required
                       placeholder="5000"
-                      className="w-full rounded-[9px] border border-slate-200 bg-white px-3 py-2.5 text-[11.5px] font-medium text-slate-700 outline-none transition focus:border-emerald-400"
+                      className="w-full rounded-[9px] border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
                     />
 
                   </div>
@@ -1353,7 +1353,7 @@ const MaintenanceBills = () => {
 
                   <div>
 
-                    <label className="mb-1.5 block text-[10.5px] font-bold text-slate-600">
+                    <label className="mb-1.5 block text-[10.5px] font-bold text-[#756b78]">
                       Month
                     </label>
 
@@ -1368,7 +1368,7 @@ const MaintenanceBills = () => {
                       }
                       required
                       placeholder="August 2026"
-                      className="w-full rounded-[9px] border border-slate-200 bg-white px-3 py-2.5 text-[11.5px] font-medium text-slate-700 outline-none transition focus:border-emerald-400"
+                      className="w-full rounded-[9px] border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
                     />
 
                   </div>
@@ -1379,7 +1379,7 @@ const MaintenanceBills = () => {
 
                 <div className="mt-4">
 
-                  <label className="mb-1.5 block text-[10.5px] font-bold text-slate-600">
+                  <label className="mb-1.5 block text-[10.5px] font-bold text-[#756b78]">
                     Due Date
                   </label>
 
@@ -1393,7 +1393,7 @@ const MaintenanceBills = () => {
                       handleChange
                     }
                     required
-                    className="w-full rounded-[9px] border border-slate-200 bg-white px-3 py-2.5 text-[11.5px] font-medium text-slate-700 outline-none transition focus:border-emerald-400"
+                    className="w-full rounded-[9px] border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
                   />
 
                 </div>
@@ -1406,7 +1406,7 @@ const MaintenanceBills = () => {
                     type="button"
                     onClick={closeModal}
                     disabled={saving}
-                    className="rounded-lg border border-slate-200 px-4 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-50 disabled:opacity-50"
+                    className="rounded-lg border border-[#e2d9df] px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -1414,7 +1414,7 @@ const MaintenanceBills = () => {
                   <button
                     type="submit"
                     disabled={saving}
-                    className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                    className="inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                   >
 
                     {saving && (
@@ -1446,17 +1446,17 @@ const MaintenanceBills = () => {
         ====================================== */}
 
         {invoiceBill && (
-          <div className="fixed inset-0 z-[110] flex items-center justify-center bg-slate-900/50 p-4">
+          <div className="fixed inset-0 z-[110] flex items-center justify-center bg-[#32143b]/50 p-4">
 
             <div className="max-h-[90vh] w-full max-w-2xl overflow-y-auto rounded-[18px] bg-white shadow-2xl">
 
               {/* INVOICE HEADER */}
 
-              <div className="flex items-center justify-between border-b border-slate-200 px-6 py-4">
+              <div className="flex items-center justify-between border-b border-[#e2d9df] px-6 py-4">
 
                 <div className="flex items-center gap-3">
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-emerald-50 text-emerald-600">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
                     <FileText
                       size={18}
                     />
@@ -1464,11 +1464,11 @@ const MaintenanceBills = () => {
 
                   <div>
 
-                    <h2 className="text-[15px] font-bold text-slate-900">
+                    <h2 className="text-[15px] font-bold text-[#32143b]">
                       Invoice
                     </h2>
 
-                    <p className="text-[10.5px] font-medium text-slate-400">
+                    <p className="text-[10.5px] font-medium text-[#8b778e]">
                       SmartSociety Maintenance Invoice
                     </p>
 
@@ -1483,7 +1483,7 @@ const MaintenanceBills = () => {
                       null
                     )
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={18} />
                 </button>
@@ -1496,15 +1496,15 @@ const MaintenanceBills = () => {
 
                 {/* TOP */}
 
-                <div className="flex items-start justify-between border-b border-slate-200 pb-5">
+                <div className="flex items-start justify-between border-b border-[#e2d9df] pb-5">
 
                   <div>
 
-                    <h1 className="text-[22px] font-extrabold text-slate-900">
+                    <h1 className="text-[22px] font-extrabold text-[#32143b]">
                       SmartSociety
                     </h1>
 
-                    <p className="mt-1 text-[10.5px] font-medium text-slate-400">
+                    <p className="mt-1 text-[10.5px] font-medium text-[#8b778e]">
                       Society Management System
                     </p>
 
@@ -1512,11 +1512,11 @@ const MaintenanceBills = () => {
 
                   <div className="text-right">
 
-                    <p className="text-[18px] font-extrabold text-slate-900">
+                    <p className="text-[18px] font-extrabold text-[#32143b]">
                       INVOICE
                     </p>
 
-                    <p className="mt-1 text-[10px] font-semibold text-slate-400">
+                    <p className="mt-1 text-[10px] font-semibold text-[#8b778e]">
                       INV-
                       {invoiceBill._id
                         ?.slice(-8)
@@ -1535,32 +1535,32 @@ const MaintenanceBills = () => {
 
                   <div>
 
-                    <p className="mb-2 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="mb-2 text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Bill To
                     </p>
 
-                    <p className="text-[12px] font-bold text-slate-800">
+                    <p className="text-[12px] font-bold text-[#49394d]">
                       {invoiceBill
                         .resident
                         ?.name ||
                         "N/A"}
                     </p>
 
-                    <p className="mt-1 text-[10.5px] text-slate-500">
+                    <p className="mt-1 text-[10.5px] text-[#756b78]">
                       {invoiceBill
                         .resident
                         ?.email ||
                         "N/A"}
                     </p>
 
-                    <p className="mt-1 text-[10.5px] text-slate-500">
+                    <p className="mt-1 text-[10.5px] text-[#756b78]">
                       {invoiceBill
                         .resident
                         ?.phone ||
                         "N/A"}
                     </p>
 
-                    <p className="mt-1 text-[10.5px] font-semibold text-slate-600">
+                    <p className="mt-1 text-[10.5px] font-semibold text-[#756b78]">
                       Flat:{" "}
                       {invoiceBill
                         .flatNo ||
@@ -1576,21 +1576,21 @@ const MaintenanceBills = () => {
 
                   <div className="sm:text-right">
 
-                    <p className="mb-2 text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="mb-2 text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Bill Information
                     </p>
 
-                    <p className="text-[10.5px] text-slate-500">
+                    <p className="text-[10.5px] text-[#756b78]">
                       Month:{" "}
-                      <span className="font-semibold text-slate-700">
+                      <span className="font-semibold text-[#49394d]">
                         {invoiceBill.month ||
                           "N/A"}
                       </span>
                     </p>
 
-                    <p className="mt-1 text-[10.5px] text-slate-500">
+                    <p className="mt-1 text-[10.5px] text-[#756b78]">
                       Due Date:{" "}
-                      <span className="font-semibold text-slate-700">
+                      <span className="font-semibold text-[#49394d]">
                         {invoiceBill.dueDate
                           ? new Date(
                               invoiceBill.dueDate
@@ -1613,15 +1613,15 @@ const MaintenanceBills = () => {
 
                 {/* INVOICE TABLE */}
 
-                <div className="overflow-hidden rounded-xl border border-slate-200">
+                <div className="overflow-hidden rounded-xl border border-[#e2d9df]">
 
-                  <div className="grid grid-cols-[1fr_auto] bg-slate-50 px-4 py-3">
+                  <div className="grid grid-cols-[1fr_auto] bg-[#f7f3ed] px-4 py-3">
 
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Description
                     </span>
 
-                    <span className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                    <span className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Amount
                     </span>
 
@@ -1631,7 +1631,7 @@ const MaintenanceBills = () => {
 
                     <div>
 
-                      <p className="text-[11px] font-bold text-slate-700">
+                      <p className="text-[11px] font-bold text-[#49394d]">
                         {invoiceBill.source ===
                         "Complaint"
                           ? "Complaint / Maintenance Charges"
@@ -1641,7 +1641,7 @@ const MaintenanceBills = () => {
                       {invoiceBill.source ===
                         "Complaint" &&
                         invoiceBill.complaint && (
-                          <p className="mt-1 text-[9.5px] text-slate-400">
+                          <p className="mt-1 text-[9.5px] text-[#8b778e]">
                             {invoiceBill
                               .complaint
                               .subject ||
@@ -1651,7 +1651,7 @@ const MaintenanceBills = () => {
 
                     </div>
 
-                    <span className="text-[11px] font-bold text-slate-800">
+                    <span className="text-[11px] font-bold text-[#49394d]">
                       Rs.{" "}
                       {Number(
                         invoiceBill.amount ||
@@ -1669,13 +1669,13 @@ const MaintenanceBills = () => {
 
                   <div className="w-full max-w-[240px]">
 
-                    <div className="flex items-center justify-between border-t border-slate-200 pt-3">
+                    <div className="flex items-center justify-between border-t border-[#e2d9df] pt-3">
 
-                      <span className="text-[12px] font-bold text-slate-600">
+                      <span className="text-[12px] font-bold text-[#756b78]">
                         Total
                       </span>
 
-                      <span className="text-[17px] font-extrabold text-emerald-600">
+                      <span className="text-[17px] font-extrabold text-[#9b7740]">
                         Rs.{" "}
                         {Number(
                           invoiceBill.amount ||
@@ -1694,17 +1694,17 @@ const MaintenanceBills = () => {
                 {invoiceBill.source ===
                   "Complaint" &&
                   invoiceBill.complaint && (
-                    <div className="mt-6 rounded-xl border border-slate-200 bg-slate-50 p-4">
+                    <div className="mt-6 rounded-xl border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
-                      <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+                      <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                         Complaint Information
                       </p>
 
                       <div className="mt-3 grid gap-2 sm:grid-cols-2">
 
-                        <p className="text-[10.5px] text-slate-600">
+                        <p className="text-[10.5px] text-[#756b78]">
                           Subject:{" "}
-                          <span className="font-semibold text-slate-800">
+                          <span className="font-semibold text-[#49394d]">
                             {invoiceBill
                               .complaint
                               .subject ||
@@ -1712,9 +1712,9 @@ const MaintenanceBills = () => {
                           </span>
                         </p>
 
-                        <p className="text-[10.5px] text-slate-600">
+                        <p className="text-[10.5px] text-[#756b78]">
                           Category:{" "}
-                          <span className="font-semibold text-slate-800">
+                          <span className="font-semibold text-[#49394d]">
                             {invoiceBill
                               .complaint
                               .category ||
@@ -1722,9 +1722,9 @@ const MaintenanceBills = () => {
                           </span>
                         </p>
 
-                        <p className="text-[10.5px] text-slate-600">
+                        <p className="text-[10.5px] text-[#756b78]">
                           Status:{" "}
-                          <span className="font-semibold text-slate-800">
+                          <span className="font-semibold text-[#49394d]">
                             {invoiceBill
                               .complaint
                               .status ||
@@ -1741,15 +1741,15 @@ const MaintenanceBills = () => {
 
                 {invoiceBill.status ===
                   "Paid" && (
-                  <div className="mt-6 rounded-xl border border-emerald-100 bg-emerald-50 p-4">
+                  <div className="mt-6 rounded-xl border border-[#f5eee2] bg-[#f7f3ed] p-4">
 
-                    <p className="text-[10px] font-bold uppercase tracking-wide text-emerald-600">
+                    <p className="text-[10px] font-bold uppercase tracking-wide text-[#9b7740]">
                       Payment Information
                     </p>
 
                     <div className="mt-2 grid gap-2 sm:grid-cols-2">
 
-                      <p className="text-[10.5px] text-slate-600">
+                      <p className="text-[10.5px] text-[#756b78]">
                         Paid Date:{" "}
                         <span className="font-semibold">
                           {invoiceBill.paidAt
@@ -1760,7 +1760,7 @@ const MaintenanceBills = () => {
                         </span>
                       </p>
 
-                      <p className="text-[10.5px] text-slate-600">
+                      <p className="text-[10.5px] text-[#756b78]">
                         Transaction ID:{" "}
                         <span className="font-semibold">
                           {invoiceBill
@@ -1776,13 +1776,13 @@ const MaintenanceBills = () => {
 
                 {/* FOOTER */}
 
-                <div className="mt-8 border-t border-slate-200 pt-4">
+                <div className="mt-8 border-t border-[#e2d9df] pt-4">
 
-                  <p className="text-center text-[9.5px] font-medium text-slate-400">
+                  <p className="text-center text-[9.5px] font-medium text-[#8b778e]">
                     This is a computer-generated invoice.
                   </p>
 
-                  <p className="mt-1 text-center text-[9.5px] font-medium text-slate-400">
+                  <p className="mt-1 text-center text-[9.5px] font-medium text-[#8b778e]">
                     SmartSociety Management System
                   </p>
 
@@ -1792,7 +1792,7 @@ const MaintenanceBills = () => {
 
               {/* MODAL ACTIONS */}
 
-              <div className="flex justify-end gap-3 border-t border-slate-200 bg-slate-50 px-6 py-4">
+              <div className="flex justify-end gap-3 border-t border-[#e2d9df] bg-[#f7f3ed] px-6 py-4">
 
                 <button
                   type="button"
@@ -1801,7 +1801,7 @@ const MaintenanceBills = () => {
                       null
                     )
                   }
-                  className="rounded-lg border border-slate-200 bg-white px-4 py-2.5 text-[11px] font-bold text-slate-600 transition hover:bg-slate-100"
+                  className="rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#eee8ed]"
                 >
                   Close
                 </button>
@@ -1813,7 +1813,7 @@ const MaintenanceBills = () => {
                       invoiceBill
                     )
                   }
-                  className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-emerald-600"
+                  className="inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
                 >
                   <Download
                     size={14}
@@ -1844,15 +1844,15 @@ function StatCard({
   iconClass,
 }) {
   return (
-    <div className="flex items-center justify-between rounded-[16px] border border-slate-200 bg-white p-4">
+    <div className="flex items-center justify-between rounded-[16px] border border-[#e2d9df] bg-white p-4">
 
       <div>
 
-        <p className="text-[10px] font-bold uppercase tracking-wide text-slate-400">
+        <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
           {label}
         </p>
 
-        <p className="mt-1 text-[20px] font-extrabold text-slate-900">
+        <p className="mt-1 text-[20px] font-extrabold text-[#32143b]">
           {value}
         </p>
 
@@ -1875,7 +1875,7 @@ function StatCard({
 function StatusBadge({ status }) {
   if (status === "Paid") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-bold text-emerald-600">
+      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
 
         <CheckCircle2 size={12} />
 
@@ -1898,7 +1898,7 @@ function StatusBadge({ status }) {
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-bold text-amber-600">
+    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
 
       <Clock3 size={12} />
 

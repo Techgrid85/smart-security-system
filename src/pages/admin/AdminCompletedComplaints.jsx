@@ -212,7 +212,7 @@ function AdminCompletedComplaints() {
     return (
       <DashboardLayout role="admin">
         <div className="flex min-h-[400px] items-center justify-center">
-          <div className="flex items-center gap-2 text-sm font-medium text-slate-500">
+          <div className="flex items-center gap-2 text-sm font-medium text-[#756b78]">
             <Loader2
               size={16}
               className="animate-spin"
@@ -238,21 +238,21 @@ function AdminCompletedComplaints() {
           <button
             type="button"
             onClick={() => navigate("/admin")}
-            className="mb-4 flex items-center gap-2 text-[11px] font-bold text-slate-400 transition hover:text-emerald-500"
+            className="mb-4 flex items-center gap-2 text-[11px] font-bold text-[#8b778e] transition hover:text-[#9b7740]"
           >
             <ArrowLeft size={14} />
             Back to Dashboard
           </button>
 
-          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-[#9b7740]">
             Administration Portal
           </p>
 
-          <h1 className="text-[20px] font-extrabold tracking-tight text-slate-900 md:text-[22px]">
+          <h1 className="text-[20px] font-extrabold tracking-tight text-[#32143b] md:text-[22px]">
             Completed Complaints
           </h1>
 
-          <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+          <p className="mt-1 text-[11.5px] font-medium text-[#8b778e]">
             Review resolved complaints and generate maintenance bills.
           </p>
 
@@ -261,19 +261,19 @@ function AdminCompletedComplaints() {
         {/* SUMMARY */}
         <div className="mb-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
 
-          <div className="rounded-[14px] border border-slate-200 bg-white p-4">
+          <div className="rounded-[14px] border border-[#e2d9df] bg-white p-4">
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                 <CheckCircle2 size={17} />
               </div>
 
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                   Completed
                 </p>
 
-                <p className="mt-1 text-[18px] font-extrabold text-slate-900">
+                <p className="mt-1 text-[18px] font-extrabold text-[#32143b]">
                   {complaints.length}
                 </p>
               </div>
@@ -281,19 +281,19 @@ function AdminCompletedComplaints() {
             </div>
           </div>
 
-          <div className="rounded-[14px] border border-slate-200 bg-white p-4">
+          <div className="rounded-[14px] border border-[#e2d9df] bg-white p-4">
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue-50 text-blue-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#63366f]">
                 <ReceiptText size={17} />
               </div>
 
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                   Bills Generated
                 </p>
 
-                <p className="mt-1 text-[18px] font-extrabold text-slate-900">
+                <p className="mt-1 text-[18px] font-extrabold text-[#32143b]">
                   {complaints.filter(hasBill).length}
                 </p>
               </div>
@@ -301,19 +301,19 @@ function AdminCompletedComplaints() {
             </div>
           </div>
 
-          <div className="rounded-[14px] border border-slate-200 bg-white p-4">
+          <div className="rounded-[14px] border border-[#e2d9df] bg-white p-4">
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-amber-50 text-amber-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                 <ClipboardList size={17} />
               </div>
 
               <div>
-                <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                <p className="text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                   Awaiting Billing
                 </p>
 
-                <p className="mt-1 text-[18px] font-extrabold text-slate-900">
+                <p className="mt-1 text-[18px] font-extrabold text-[#32143b]">
                   {complaints.filter(
                     (complaint) => !hasBill(complaint)
                   ).length}
@@ -326,21 +326,21 @@ function AdminCompletedComplaints() {
         </div>
 
         {/* TABLE */}
-        <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
 
           {/* TABLE HEADER */}
-          <div className="flex items-center gap-3 border-b border-slate-200 px-5 py-4">
+          <div className="flex items-center gap-3 border-b border-[#e2d9df] px-5 py-4">
 
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
               <CheckCircle2 size={17} />
             </div>
 
             <div>
-              <h2 className="text-[13px] font-bold text-slate-900">
+              <h2 className="text-[13px] font-bold text-[#32143b]">
                 Resolved Staff Complaints
               </h2>
 
-              <p className="mt-0.5 text-[9.5px] font-medium text-slate-400">
+              <p className="mt-0.5 text-[9.5px] font-medium text-[#8b778e]">
                 Completed complaints submitted by maintenance staff.
               </p>
             </div>
@@ -352,15 +352,15 @@ function AdminCompletedComplaints() {
             /* EMPTY */
             <div className="flex min-h-[280px] flex-col items-center justify-center px-5 text-center">
 
-              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-slate-100 text-slate-400">
+              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#eee8ed] text-[#8b778e]">
                 <ClipboardList size={22} />
               </div>
 
-              <h3 className="text-[13px] font-bold text-slate-700">
+              <h3 className="text-[13px] font-bold text-[#49394d]">
                 No completed complaints
               </h3>
 
-              <p className="mt-1 max-w-sm text-[10px] font-medium text-slate-400">
+              <p className="mt-1 max-w-sm text-[10px] font-medium text-[#8b778e]">
                 Resolved complaints from maintenance staff will appear here.
               </p>
 
@@ -374,46 +374,46 @@ function AdminCompletedComplaints() {
               <table className="w-full min-w-[900px]">
 
                 <thead>
-                  <tr className="border-b border-slate-100 bg-slate-50/70">
+                  <tr className="border-b border-[#eee8ed] bg-[#f7f3ed]/70">
 
-                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Complaint
                     </th>
 
-                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Resident
                     </th>
 
-                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Flat
                     </th>
 
-                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Category
                     </th>
 
-                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Staff
                     </th>
 
-                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-left text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Resolved
                     </th>
 
-                    <th className="px-5 py-3 text-right text-[9px] font-bold uppercase tracking-wide text-slate-400">
+                    <th className="px-5 py-3 text-right text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Action
                     </th>
 
                   </tr>
                 </thead>
 
-                <tbody className="divide-y divide-slate-100">
+                <tbody className="divide-y divide-#eee8ed">
 
                   {complaints.map((complaint) => (
 
                     <tr
                       key={complaint._id}
-                      className="transition hover:bg-slate-50/50"
+                      className="transition hover:bg-[#f7f3ed]/50"
                     >
 
                       {/* COMPLAINT */}
@@ -421,17 +421,17 @@ function AdminCompletedComplaints() {
 
                         <div className="flex items-center gap-3">
 
-                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                             <Wrench size={15} />
                           </div>
 
                           <div className="min-w-0">
 
-                            <p className="max-w-[180px] truncate text-[11px] font-bold text-slate-700">
+                            <p className="max-w-[180px] truncate text-[11px] font-bold text-[#49394d]">
                               {complaint.subject || "-"}
                             </p>
 
-                            <p className="mt-0.5 max-w-[180px] truncate text-[9px] font-medium text-slate-400">
+                            <p className="mt-0.5 max-w-[180px] truncate text-[9px] font-medium text-[#8b778e]">
                               {complaint.description || "-"}
                             </p>
 
@@ -448,16 +448,16 @@ function AdminCompletedComplaints() {
 
                           <User
                             size={14}
-                            className="shrink-0 text-slate-400"
+                            className="shrink-0 text-[#8b778e]"
                           />
 
                           <div>
 
-                            <p className="text-[10.5px] font-bold text-slate-700">
+                            <p className="text-[10.5px] font-bold text-[#49394d]">
                               {complaint.resident?.name || "-"}
                             </p>
 
-                            <p className="mt-0.5 text-[9px] text-slate-400">
+                            <p className="mt-0.5 text-[9px] text-[#8b778e]">
                               {complaint.resident?.email || ""}
                             </p>
 
@@ -474,10 +474,10 @@ function AdminCompletedComplaints() {
 
                           <Home
                             size={14}
-                            className="text-slate-400"
+                            className="text-[#8b778e]"
                           />
 
-                          <span className="text-[10.5px] font-bold text-slate-700">
+                          <span className="text-[10.5px] font-bold text-[#49394d]">
                             {complaint.flatNo ||
                               complaint.resident?.flatNo ||
                               "-"}
@@ -490,7 +490,7 @@ function AdminCompletedComplaints() {
                       {/* CATEGORY */}
                       <td className="px-5 py-4">
 
-                        <span className="inline-flex rounded-full bg-slate-100 px-2.5 py-1 text-[9px] font-bold text-slate-600">
+                        <span className="inline-flex rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
                           {complaint.category || "Other"}
                         </span>
 
@@ -499,7 +499,7 @@ function AdminCompletedComplaints() {
                       {/* STAFF */}
                       <td className="px-5 py-4">
 
-                        <p className="text-[10.5px] font-bold text-slate-700">
+                        <p className="text-[10.5px] font-bold text-[#49394d]">
                           {complaint.assignedStaff?.name || "-"}
                         </p>
 
@@ -512,10 +512,10 @@ function AdminCompletedComplaints() {
 
                           <CalendarDays
                             size={13}
-                            className="text-slate-400"
+                            className="text-[#8b778e]"
                           />
 
-                          <span className="text-[10px] font-semibold text-slate-600">
+                          <span className="text-[10px] font-semibold text-[#756b78]">
                             {formatDate(
                               complaint.updatedAt
                             )}
@@ -530,7 +530,7 @@ function AdminCompletedComplaints() {
 
                         {hasBill(complaint) ? (
 
-                          <span className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-50 px-3 py-2 text-[9px] font-bold text-emerald-600">
+                          <span className="inline-flex items-center gap-1.5 rounded-lg bg-[#f7f3ed] px-3 py-2 text-[9px] font-bold text-[#9b7740]">
                             <CheckCircle2 size={13} />
                             Bill Generated
                           </span>
@@ -542,7 +542,7 @@ function AdminCompletedComplaints() {
                             onClick={() =>
                               openBillModal(complaint)
                             }
-                            className="inline-flex items-center gap-1.5 rounded-lg bg-emerald-500 px-3 py-2 text-[9px] font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-600"
+                            className="inline-flex items-center gap-1.5 rounded-lg bg-[#9b7740] px-3 py-2 text-[9px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740]"
                           >
                             <ReceiptText size={13} />
                             Generate Bill
@@ -574,25 +574,25 @@ function AdminCompletedComplaints() {
 
       {selectedComplaint && (
 
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-slate-900/40 p-4 backdrop-blur-sm">
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/40 p-4 backdrop-blur-sm">
 
-          <div className="w-full max-w-md overflow-hidden rounded-[16px] border border-slate-200 bg-white shadow-2xl">
+          <div className="w-full max-w-md overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white shadow-2xl">
 
             {/* MODAL HEADER */}
-            <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
+            <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
               <div className="flex items-center gap-3">
 
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-emerald-50 text-emerald-500">
+                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
                   <ReceiptText size={17} />
                 </div>
 
                 <div>
-                  <h2 className="text-[13px] font-bold text-slate-900">
+                  <h2 className="text-[13px] font-bold text-[#32143b]">
                     Generate Complaint Bill
                   </h2>
 
-                  <p className="mt-0.5 text-[9.5px] text-slate-400">
+                  <p className="mt-0.5 text-[9.5px] text-[#8b778e]">
                     Create a maintenance bill for this completed work.
                   </p>
                 </div>
@@ -602,7 +602,7 @@ function AdminCompletedComplaints() {
               <button
                 type="button"
                 onClick={closeBillModal}
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-slate-400 transition hover:bg-slate-100 hover:text-slate-700"
+                className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
               >
                 <X size={17} />
               </button>
@@ -610,14 +610,14 @@ function AdminCompletedComplaints() {
             </div>
 
             {/* COMPLAINT INFO */}
-            <div className="space-y-3 border-b border-slate-100 bg-slate-50/60 p-5">
+            <div className="space-y-3 border-b border-[#eee8ed] bg-[#f7f3ed]/60 p-5">
 
               <div>
-                <p className="text-[8.5px] font-bold uppercase tracking-wide text-slate-400">
+                <p className="text-[8.5px] font-bold uppercase tracking-wide text-[#8b778e]">
                   Complaint
                 </p>
 
-                <p className="mt-1 text-[11px] font-bold text-slate-700">
+                <p className="mt-1 text-[11px] font-bold text-[#49394d]">
                   {selectedComplaint.subject}
                 </p>
               </div>
@@ -625,21 +625,21 @@ function AdminCompletedComplaints() {
               <div className="grid grid-cols-2 gap-4">
 
                 <div>
-                  <p className="text-[8.5px] font-bold uppercase tracking-wide text-slate-400">
+                  <p className="text-[8.5px] font-bold uppercase tracking-wide text-[#8b778e]">
                     Resident
                   </p>
 
-                  <p className="mt-1 text-[10.5px] font-semibold text-slate-700">
+                  <p className="mt-1 text-[10.5px] font-semibold text-[#49394d]">
                     {selectedComplaint.resident?.name || "-"}
                   </p>
                 </div>
 
                 <div>
-                  <p className="text-[8.5px] font-bold uppercase tracking-wide text-slate-400">
+                  <p className="text-[8.5px] font-bold uppercase tracking-wide text-[#8b778e]">
                     Flat
                   </p>
 
-                  <p className="mt-1 text-[10.5px] font-semibold text-slate-700">
+                  <p className="mt-1 text-[10.5px] font-semibold text-[#49394d]">
                     {selectedComplaint.flatNo ||
                       selectedComplaint.resident?.flatNo ||
                       "-"}
@@ -649,11 +649,11 @@ function AdminCompletedComplaints() {
               </div>
 
               <div>
-                <p className="text-[8.5px] font-bold uppercase tracking-wide text-slate-400">
+                <p className="text-[8.5px] font-bold uppercase tracking-wide text-[#8b778e]">
                   Category
                 </p>
 
-                <span className="mt-1 inline-flex rounded-full bg-emerald-50 px-2 py-1 text-[8.5px] font-bold text-emerald-600">
+                <span className="mt-1 inline-flex rounded-full bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
                   {selectedComplaint.category}
                 </span>
               </div>
@@ -669,7 +669,7 @@ function AdminCompletedComplaints() {
               {/* AMOUNT */}
               <div>
 
-                <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                   Bill Amount
                 </label>
 
@@ -677,7 +677,7 @@ function AdminCompletedComplaints() {
 
                   <p
                     size={14}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
                   >
                     $
                   </p>
@@ -691,7 +691,7 @@ function AdminCompletedComplaints() {
                       setAmount(e.target.value)
                     }
                     placeholder="Enter amount"
-                    className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                    className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                     required
                   />
 
@@ -702,7 +702,7 @@ function AdminCompletedComplaints() {
               {/* DUE DATE */}
               <div>
 
-                <label className="mb-1.5 block text-[10px] font-bold text-slate-600">
+                <label className="mb-1.5 block text-[10px] font-bold text-[#756b78]">
                   Due Date
                 </label>
 
@@ -710,7 +710,7 @@ function AdminCompletedComplaints() {
 
                   <CalendarDays
                     size={14}
-                    className="absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"
+                    className="absolute left-3 top-1/2 -translate-y-1/2 text-[#8b778e]"
                   />
 
                   <input
@@ -719,7 +719,7 @@ function AdminCompletedComplaints() {
                     onChange={(e) =>
                       setDueDate(e.target.value)
                     }
-                    className="h-10 w-full rounded-lg border border-slate-200 bg-white pl-9 pr-3 text-[11px] text-slate-700 outline-none transition focus:border-emerald-400"
+                    className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                     required
                   />
 
@@ -728,13 +728,13 @@ function AdminCompletedComplaints() {
               </div>
 
               {/* ACTIONS */}
-              <div className="flex justify-end gap-2 border-t border-slate-100 pt-5">
+              <div className="flex justify-end gap-2 border-t border-[#eee8ed] pt-5">
 
                 <button
                   type="button"
                   onClick={closeBillModal}
                   disabled={generating}
-                  className="rounded-lg border border-slate-200 px-4 py-2.5 text-[10px] font-bold text-slate-500 transition hover:bg-slate-50 disabled:opacity-50"
+                  className="rounded-lg border border-[#e2d9df] px-4 py-2.5 text-[10px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
                 >
                   Cancel
                 </button>
@@ -742,7 +742,7 @@ function AdminCompletedComplaints() {
                 <button
                   type="submit"
                   disabled={generating}
-                  className="flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2.5 text-[10px] font-bold text-white shadow-lg shadow-emerald-500/20 transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-60"
+                  className="flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                 >
 
                   {generating ? (
