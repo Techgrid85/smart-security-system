@@ -175,7 +175,7 @@ function AdminDashboard() {
           <button
             type="button"
             onClick={() => navigate("/admin/residents")}
-            className="hidden items-center gap-2 rounded-[9px] bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white shadow-[0_4px_14px_rgba(16,185,129,0.22)] transition hover:bg-emerald-600 sm:flex"
+            className="hidden items-center gap-2 rounded-[1px] bg-emerald-500 px-4 py-2.5 text-[11px] font-bold text-white shadow-[0_4px_14px_rgba(16,185,129,0.22)] transition hover:bg-emerald-600 sm:flex"
           >
             <UserPlus size={15} />
             Add Resident
@@ -228,7 +228,7 @@ function AdminDashboard() {
         </div>
 
         {/* ================= QUICK ACTIONS ================= */}
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="mt-6 overflow-hidden rounded-[1px] border border-slate-200 bg-white">
 
           <div className="flex items-center border-b border-slate-200 px-5 py-4">
             <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
@@ -263,7 +263,7 @@ function AdminDashboard() {
                       navigate("/admin/notices");
                     }
                   }}
-                  className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[13px] border-[1.5px] border-dashed border-slate-200 bg-[#fafafa] px-4 text-center transition duration-200 hover:border-emerald-400 hover:bg-emerald-50"
+                  className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[1px] border-[1.5px] border-dashed border-slate-200 bg-[#fafafa] px-4 text-center transition duration-200 hover:border-emerald-400 hover:bg-emerald-50"
                 >
                   <div
                     className={`flex h-11 w-11 items-center justify-center rounded-xl ${action.bg} ${action.color} transition duration-200 group-hover:scale-110`}
@@ -285,7 +285,7 @@ function AdminDashboard() {
         <div className="mt-6 grid gap-5 xl:grid-cols-[minmax(0,2.05fr)_minmax(300px,0.95fr)]">
 
           {/* Recent Complaints */}
-          <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+          <section className="overflow-hidden rounded-[1px] border border-slate-200 bg-white">
 
             <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
 
@@ -369,7 +369,7 @@ function AdminDashboard() {
                         </td>
 
                         <td className="px-4 py-3.5">
-                          <span className="rounded-full bg-slate-100 px-2 py-1 text-[10px] font-bold text-slate-600">
+                          <span className="rounded-[1px] bg-slate-100 px-2 py-1 text-[10px] font-bold text-slate-600">
                             {complaint.category}
                           </span>
                         </td>
@@ -401,7 +401,7 @@ function AdminDashboard() {
           </section>
 
           {/* Gate Activity */}
-          <section className="rounded-[16px] border border-slate-200 bg-white">
+          <section className="rounded-[1px] border border-slate-200 bg-white">
 
             <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
 
@@ -428,10 +428,10 @@ function AdminDashboard() {
                 recentVisitors.map((visitor) => (
                   <div
                     key={visitor._id}
-                    className="flex items-center gap-3 rounded-[12px] border border-slate-200 bg-slate-50 px-3 py-3"
+                    className="flex items-center gap-3 rounded-[1px] border border-slate-200 bg-slate-50 px-3 py-3"
                   >
 
-                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[10px] bg-emerald-50 text-emerald-500">
+                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-[1px] bg-emerald-50 text-emerald-500">
                       <ShieldCheck size={17} />
                     </div>
 
@@ -471,7 +471,7 @@ function AdminDashboard() {
         <div className="mt-6 grid gap-5 xl:grid-cols-[minmax(0,1.35fr)_minmax(300px,1fr)]">
 
           {/* Complaint Summary */}
-          <section className="rounded-[16px] border border-slate-200 bg-white">
+          <section className="rounded-[1px] border border-slate-200 bg-white">
 
             <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
 
@@ -526,7 +526,7 @@ function AdminDashboard() {
           </section>
 
           {/* Society Summary */}
-          <section className="rounded-[16px] border border-slate-200 bg-white">
+          <section className="rounded-[1px] border border-slate-200 bg-white">
 
             <div className="border-b border-slate-200 px-5 py-4">
               <h2 className="text-[13px] font-bold text-slate-900">
@@ -604,7 +604,7 @@ function StatCard({
   const current = styles[tone];
 
   return (
-    <div className="relative overflow-hidden rounded-[16px] border border-slate-200 bg-white p-5">
+    <div className="relative overflow-hidden rounded-[1px] border border-slate-200 bg-white p-5">
 
       <div
         className={`absolute -right-5 -top-5 h-20 w-20 rounded-full opacity-[0.06] ${current.circle}`}
@@ -645,7 +645,7 @@ function StatCard({
 function ChangeBadge({ type, text }) {
   if (type === "up") {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-emerald-50 px-2 py-1 text-[10px] font-semibold text-emerald-500">
+      <span className="inline-flex items-center gap-1 rounded-[1px] bg-emerald-50 px-2 py-1 text-[10px] font-semibold text-emerald-500">
         <ArrowUp size={11} />
         {text}
       </span>
@@ -654,7 +654,7 @@ function ChangeBadge({ type, text }) {
 
   if (type === "down") {
     return (
-      <span className="inline-flex items-center gap-1 rounded-full bg-red-50 px-2 py-1 text-[10px] font-semibold text-red-500">
+      <span className="inline-flex items-center gap-1 rounded-[1px] bg-red-50 px-2 py-1 text-[10px] font-semibold text-red-500">
         <ArrowDown size={11} />
         {text}
       </span>
@@ -662,7 +662,7 @@ function ChangeBadge({ type, text }) {
   }
 
   return (
-    <span className="inline-flex items-center gap-1 rounded-full bg-slate-100 px-2 py-1 text-[10px] font-semibold text-slate-500">
+    <span className="inline-flex items-center gap-1 rounded-[1px] bg-slate-100 px-2 py-1 text-[10px] font-semibold text-slate-500">
       <Minus size={11} />
       {text}
     </span>
@@ -675,8 +675,8 @@ function ChangeBadge({ type, text }) {
 function StatusBadge({ status }) {
   if (status === "Pending") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 px-2.5 py-1 text-[10px] font-semibold text-red-700">
-        <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+      <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-red-50 px-2.5 py-1 text-[10px] font-semibold text-red-700">
+        <span className="h-1.5 w-1.5 rounded-[1px] bg-red-500" />
         Pending
       </span>
     );
@@ -684,8 +684,8 @@ function StatusBadge({ status }) {
 
   if (status === "In Progress") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-amber-50 px-2.5 py-1 text-[10px] font-semibold text-amber-700">
-        <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+      <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-amber-50 px-2.5 py-1 text-[10px] font-semibold text-amber-700">
+        <span className="h-1.5 w-1.5 rounded-[1px] bg-amber-500" />
         In Progress
       </span>
     );
@@ -693,16 +693,16 @@ function StatusBadge({ status }) {
 
   if (status === "Rejected") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 px-2.5 py-1 text-[10px] font-semibold text-red-700">
-        <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+      <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-red-50 px-2.5 py-1 text-[10px] font-semibold text-red-700">
+        <span className="h-1.5 w-1.5 rounded-[1px] bg-red-500" />
         Rejected
       </span>
     );
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold text-emerald-700">
-      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+    <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold text-emerald-700">
+      <span className="h-1.5 w-1.5 rounded-[1px] bg-emerald-500" />
       Resolved
     </span>
   );
@@ -713,7 +713,7 @@ function StatusBadge({ status }) {
 
 function SummaryBox({ label, value }) {
   return (
-    <div className="rounded-[11px] border border-slate-200 bg-slate-50 px-4 py-3">
+    <div className="rounded-[1px] border border-slate-200 bg-slate-50 px-4 py-3">
       <p className="text-[9.5px] font-bold uppercase tracking-[0.05em] text-slate-400">
         {label}
       </p>
