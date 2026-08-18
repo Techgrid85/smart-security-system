@@ -36,6 +36,7 @@ import AdminCompletedComplaints from "./pages/admin/AdminCompletedComplaints";
 import AdminAuditLogs from "./pages/admin/AdminAuditLogs";
 import AdminSettings from "./pages/admin/AdminSettings";
 import AdminProfile from "./pages/admin/AdminProfile";
+import SocietyMap from "./pages/admin/SocietyMap";
 
 import GuardDashboard from "./pages/guard/GuardDashboard";
 import VerifyGatePass from "./pages/guard/VerifyGatePass";
@@ -84,6 +85,14 @@ function App() {
         element={
           <ProtectedRoute role="admin">
             <AdminDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/admin/society-map"
+        element={
+          <ProtectedRoute role="admin">
+            <SocietyMap />
           </ProtectedRoute>
         }
       />

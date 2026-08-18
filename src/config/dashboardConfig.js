@@ -24,6 +24,7 @@ import {
   Wrench,
   History,
   CheckCircle2,
+  MapPin,
 } from "lucide-react";
 
 const dashboardConfig = {
@@ -48,6 +49,11 @@ const dashboardConfig = {
       {
         title: "SOCIETY MANAGEMENT",
         items: [
+          {
+            label: "Society Map",
+            icon: MapPin,
+            path: "/admin/society-map",
+          },
           {
             label: "Residents",
             icon: Users,
