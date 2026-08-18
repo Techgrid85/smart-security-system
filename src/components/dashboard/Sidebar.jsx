@@ -360,15 +360,24 @@ function Sidebar({
           `}
         >
           {/* AVATAR */}
-          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-emerald-500 text-[10px] font-extrabold text-white">
-            {user?.name
-              ? user.name
+          
+          <div className="flex h-9 w-9 shrink-0 overflow-hidden items-center justify-center rounded-lg bg-emerald-500 text-[10px] font-extrabold text-white">
+            {user?.profilePic ? (
+              <img
+                src={user.profilePic}
+                alt={user?.name || "User"}
+                className="h-full w-full object-cover"
+              />
+            ) : (
+              user?.name
+                ? user.name
                   .split(" ")
                   .map((word) => word[0])
                   .join("")
                   .slice(0, 2)
                   .toUpperCase()
-              : "U"}
+                : "U"
+            )}
           </div>
 
           {/* USER INFO */}
