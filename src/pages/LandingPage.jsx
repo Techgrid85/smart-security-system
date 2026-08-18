@@ -128,7 +128,6 @@ function LandingPage() {
     {
       icon: Building2,
       title: "Flat Management",
-      image: flats,
       description:
         "Organize flats, occupancy and resident assignments efficiently.",
     },
@@ -209,6 +208,7 @@ function LandingPage() {
       items: [
         {
           name: "Flat Management",
+          image: flats,
           desc: "Organize society flats, occupancy and resident assignments.",
           icon: Building2,
         },
@@ -841,7 +841,7 @@ function LandingPage() {
                 >
 
                   <div className="flex h-12 w-12 items-center justify-center border border-white/15 text-[#d9be82]">
-                    <img src={module.image} alt={module.title} />
+                    <Icon size={21} strokeWidth={1.5} />
                   </div>
 
                   <h3 className="mt-7 text-[15px] font-bold text-white">
@@ -914,10 +914,7 @@ function LandingPage() {
                     <div className="absolute inset-0 bg-gradient-to-br from-[#63366f] via-[#32143b] to-[#210c28]" />
 
                     <div className="relative flex h-20 w-20 items-center justify-center border border-[#d9be82]/30 text-[#d9be82] transition duration-500 group-hover:scale-110">
-                      <Icon
-                        size={32}
-                        strokeWidth={1.2}
-                      />
+                     <img src={item.image} alt={item.name} />
                     </div>
 
                     <span className="absolute right-5 top-5 text-[9px] font-bold text-white/35">
