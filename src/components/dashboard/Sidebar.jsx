@@ -47,7 +47,7 @@ function Sidebar({
           background: "#0f172a",
           color: "#ffffff",
         }).then(() => {
-          window.location.href = "/";
+          window.location.href = "/login";
         });
       }
     });

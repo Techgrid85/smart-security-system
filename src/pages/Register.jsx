@@ -585,7 +585,7 @@ useEffect(() => {
           <p className="text-center text-sm text-slate-500 mt-6">
             Already have an account?{" "}
             <Link
-              to="/"
+              to="/login"
               className="font-semibold text-emerald-600 hover:text-emerald-700"
             >
               Sign in

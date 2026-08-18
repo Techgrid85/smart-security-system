@@ -93,7 +93,7 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
           background: "#0f172a",
           color: "#ffffff",
         }).then(() => {
-          navigate("/");
+          navigate("/login");
         });
       }
     });
