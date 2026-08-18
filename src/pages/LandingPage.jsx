@@ -357,16 +357,16 @@ function LandingPage() {
             className="group flex items-center gap-3"
           >
             <div
-              className={`flex h-11 w-11 items-center justify-center rounded-full border transition ${
-                isScrolled
+              className={`flex h-14 w-14 items-center justify-center overflow-hidden rounded-full border border-white/20 bg-white/10 backdrop-blur-md ${isScrolled
                   ? "border-[#e4dce5] bg-white"
                   : "border-white/30 bg-white/10 backdrop-blur-md"
-              }`}
+                }`}
             >
+
               <img
                 src="/SmartSociety_Logo.svg"
-                alt="SmartSociety"
-                className="h-7 w-7 object-contain"
+                alt="SmartSociety Logo"
+                className="h-full w-full object-cover"
               />
             </div>
 
