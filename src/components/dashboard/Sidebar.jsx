@@ -267,7 +267,7 @@ function Sidebar({
                       h-[43px]
                       w-full
                       items-center
-                      rounded-[10px]
+                      rounded-[1px]
                       text-[12.5px]
                       font-medium
                       transition-all
