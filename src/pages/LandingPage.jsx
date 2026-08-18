@@ -4,6 +4,7 @@ import adminDash from "../assets/admin-dash.png";
 import residentDash from "../assets/res-dash.png";
 import guardDash from "../assets/guard-dash.png";
 import ssbanner from "../assets/ssbanner.png";
+import flats from "../assets/flats.png";
 import { Link } from "react-router-dom";
 import {
   ArrowRight,
@@ -127,6 +128,7 @@ function LandingPage() {
     {
       icon: Building2,
       title: "Flat Management",
+      image: flats,
       description:
         "Organize flats, occupancy and resident assignments efficiently.",
     },
