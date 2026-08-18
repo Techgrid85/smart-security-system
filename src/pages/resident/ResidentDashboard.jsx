@@ -152,7 +152,7 @@ function ResidentDashboard() {
             </p>
           </div>
 
-          <div className="hidden items-center gap-2 rounded-[10px] border border-slate-200 bg-white px-3 py-2 sm:flex">
+          <div className="hidden items-center gap-2 rounded-[1px] border border-slate-200 bg-white px-3 py-2 sm:flex">
             <Home size={15} className="text-emerald-500" />
 
             <div>
@@ -197,7 +197,7 @@ function ResidentDashboard() {
         </div>
 
         {/* ================= QUICK ACTIONS ================= */}
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="mt-6 overflow-hidden rounded-[1px] border border-slate-200 bg-white">
 
           <div className="border-b border-slate-200 px-5 py-4">
             <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
@@ -216,7 +216,7 @@ function ResidentDashboard() {
                   type="button"
                   key={action.title}
                   onClick={() => navigate(action.path)}
-                  className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[13px] border-[1.5px] border-dashed border-slate-200 bg-[#fafafa] transition hover:border-emerald-400 hover:bg-emerald-50"
+                  className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[1px] border-[1.5px] border-dashed border-slate-200 bg-[#fafafa] transition hover:border-emerald-400 hover:bg-emerald-50"
                 >
                   <div
                     className={`flex h-11 w-11 items-center justify-center rounded-xl ${action.bg} ${action.color} transition group-hover:scale-110`}
@@ -238,7 +238,7 @@ function ResidentDashboard() {
         <div className="mt-6 grid gap-5 xl:grid-cols-2">
 
           {/* RECENT VISITORS */}
-          <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+          <section className="overflow-hidden rounded-[1px] border border-slate-200 bg-white">
 
             <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
               <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
@@ -264,9 +264,9 @@ function ResidentDashboard() {
                 recentVisitors.map((visitor) => (
                   <div
                     key={visitor._id}
-                    className="flex items-center gap-3 rounded-[12px] border border-slate-200 bg-slate-50 p-3.5"
+                    className="flex items-center gap-3 rounded-[1px] border border-slate-200 bg-slate-50 p-3.5"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-emerald-50 text-emerald-500">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[1px] bg-emerald-50 text-emerald-500">
                       <QrCode size={18} />
                     </div>
 
@@ -298,7 +298,7 @@ function ResidentDashboard() {
               <button
                 type="button"
                 onClick={() => navigate("/resident/visitor-passes")}
-                className="flex w-full items-center justify-center gap-2 rounded-[9px] border border-emerald-200 bg-emerald-50 py-2.5 text-[11px] font-bold text-emerald-600 transition hover:bg-emerald-100"
+                className="flex w-full items-center justify-center gap-2 rounded-[1px] border border-emerald-200 bg-emerald-50 py-2.5 text-[11px] font-bold text-emerald-600 transition hover:bg-emerald-100"
               >
                 <QrCode size={14} />
                 Manage Visitor Passes
@@ -307,7 +307,7 @@ function ResidentDashboard() {
           </section>
 
           {/* UPCOMING EVENTS */}
-          <section className="overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+          <section className="overflow-hidden rounded-[1px] border border-slate-200 bg-white">
 
             <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
               <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
@@ -333,9 +333,9 @@ function ResidentDashboard() {
                 upcomingEvents.map((event) => (
                   <div
                     key={event._id}
-                    className="flex items-center gap-3 rounded-[12px] border border-slate-200 bg-slate-50 p-3.5"
+                    className="flex items-center gap-3 rounded-[1px] border border-slate-200 bg-slate-50 p-3.5"
                   >
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-sky-50 text-sky-500">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[1px] bg-sky-50 text-sky-500">
                       <CalendarDays size={18} />
                     </div>
 
@@ -374,7 +374,7 @@ function ResidentDashboard() {
         </div>
 
         {/* ================= NOTICES ================= */}
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="mt-6 overflow-hidden rounded-[1px] border border-slate-200 bg-white">
 
           <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
             <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
@@ -400,9 +400,9 @@ function ResidentDashboard() {
               recentNotices.map((notice) => (
                 <div
                   key={notice._id}
-                  className="flex items-start gap-3 rounded-[12px] border border-slate-200 bg-slate-50 p-4"
+                  className="flex items-start gap-3 rounded-[1px] border border-slate-200 bg-slate-50 p-4"
                 >
-                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-emerald-50 text-emerald-500">
+                  <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[1px] bg-emerald-50 text-emerald-500">
                     <Bell size={17} />
                   </div>
 
@@ -439,7 +439,7 @@ function ResidentDashboard() {
         </section>
 
         {/* ================= COMPLAINT SECTION ================= */}
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-slate-200 bg-white">
+        <section className="mt-6 overflow-hidden rounded-[1px] border border-slate-200 bg-white">
 
           <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
             <h2 className="flex items-center gap-2 text-[13px] font-bold text-slate-900">
@@ -456,7 +456,7 @@ function ResidentDashboard() {
             <button
               type="button"
               onClick={() => navigate("/resident/complaints")}
-              className="group flex items-center justify-between rounded-[12px] border border-slate-200 bg-slate-50 p-4 text-left transition hover:border-emerald-300 hover:bg-emerald-50"
+              className="group flex items-center justify-between rounded-[1px] border border-slate-200 bg-slate-50 p-4 text-left transition hover:border-emerald-300 hover:bg-emerald-50"
             >
               <div>
                 <p className="text-[11.5px] font-bold text-slate-800">
@@ -477,7 +477,7 @@ function ResidentDashboard() {
             <button
               type="button"
               onClick={() => navigate("/resident/complaints")}
-              className="group flex items-center justify-between rounded-[12px] border border-emerald-200 bg-emerald-50 p-4 text-left transition hover:bg-emerald-100"
+              className="group flex items-center justify-between rounded-[1px] border border-emerald-200 bg-emerald-50 p-4 text-left transition hover:bg-emerald-100"
             >
               <div>
                 <p className="text-[11.5px] font-bold text-emerald-700">
@@ -531,7 +531,7 @@ function ResidentStat({
   const current = tones[tone] || tones.green;
 
   return (
-    <div className="relative overflow-hidden rounded-[16px] border border-slate-200 bg-white p-5">
+    <div className="relative overflow-hidden rounded-[1px] border border-slate-200 bg-white p-5">
 
       <div
         className={`absolute -right-5 -top-5 h-20 w-20 rounded-full opacity-[0.06] ${current.circle}`}
@@ -564,7 +564,7 @@ function ResidentStat({
 function StatusSmall({ status }) {
   if (status === "Active" || status === "Approved") {
     return (
-      <span className="rounded-full bg-emerald-50 px-1.5 py-0.5 text-[8px] font-bold text-emerald-600">
+      <span className="rounded-[1px] bg-emerald-50 px-1.5 py-0.5 text-[8px] font-bold text-emerald-600">
         {status}
       </span>
     );
@@ -572,14 +572,14 @@ function StatusSmall({ status }) {
 
   if (status === "Rejected") {
     return (
-      <span className="rounded-full bg-red-50 px-1.5 py-0.5 text-[8px] font-bold text-red-600">
+      <span className="rounded-[1px] bg-red-50 px-1.5 py-0.5 text-[8px] font-bold text-red-600">
         {status}
       </span>
     );
   }
 
   return (
-    <span className="rounded-full bg-slate-100 px-1.5 py-0.5 text-[8px] font-bold text-slate-500">
+    <span className="rounded-[1px] bg-slate-100 px-1.5 py-0.5 text-[8px] font-bold text-slate-500">
       {status || "Pending"}
     </span>
   );
@@ -589,7 +589,7 @@ function StatusSmall({ status }) {
 
 function EmptyState({ text }) {
   return (
-    <div className="flex min-h-[100px] items-center justify-center rounded-[12px] border border-dashed border-slate-200 bg-slate-50 px-4 text-center">
+    <div className="flex min-h-[100px] items-center justify-center rounded-[1px] border border-dashed border-slate-200 bg-slate-50 px-4 text-center">
       <p className="text-[11px] font-medium text-slate-400">
         {text}
       </p>
