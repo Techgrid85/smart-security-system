@@ -16,19 +16,26 @@ import {
 
 import dashboardConfig from "../../config/dashboardConfig";
 
-function Topbar({ role, user, setMobileSidebarOpen }) {
+function Topbar({
+  role,
+  user,
+  setMobileSidebarOpen,
+}) {
   const config = dashboardConfig[role];
   const navigate = useNavigate();
 
-  const [profileOpen, setProfileOpen] = useState(false);
+  const [profileOpen, setProfileOpen] =
+    useState(false);
+
   const dropdownRef = useRef(null);
 
-  const formattedDate = new Intl.DateTimeFormat("en-US", {
-    weekday: "short",
-    day: "2-digit",
-    month: "short",
-    year: "numeric",
-  }).format(new Date());
+  const formattedDate =
+    new Intl.DateTimeFormat("en-US", {
+      weekday: "short",
+      day: "2-digit",
+      month: "short",
+      year: "numeric",
+    }).format(new Date());
 
   const userInitials = user?.name
     ? user.name
@@ -39,7 +46,10 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
         .toUpperCase()
     : "U";
 
-  // Close dropdown when clicking outside
+  // =====================================================
+  // CLOSE DROPDOWN
+  // =====================================================
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -50,7 +60,10 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
       }
     };
 
-    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener(
+      "mousedown",
+      handleClickOutside
+    );
 
     return () => {
       document.removeEventListener(
@@ -60,10 +73,18 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
     };
   }, []);
 
+  // =====================================================
+  // NAVIGATION
+  // =====================================================
+
   const handleNavigate = (path) => {
     setProfileOpen(false);
     navigate(path);
   };
+
+  // =====================================================
+  // LOGOUT
+  // =====================================================
 
   const handleLogout = () => {
     setProfileOpen(false);
@@ -72,12 +93,16 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
       title: "Logout?",
       text: "Are you sure you want to logout?",
       icon: "warning",
+
       showCancelButton: true,
+
       confirmButtonText: "Yes, Logout",
       cancelButtonText: "Cancel",
-      confirmButtonColor: "#ef4444",
-      cancelButtonColor: "#64748b",
-      background: "#0f172a",
+
+      confirmButtonColor: "#9b7740",
+      cancelButtonColor: "#63366f",
+
+      background: "#32143b",
       color: "#ffffff",
     }).then((result) => {
       if (result.isConfirmed) {
@@ -88,10 +113,14 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
           title: "Logged Out",
           text: "You have been successfully logged out.",
           icon: "success",
+
           timer: 1000,
           showConfirmButton: false,
-          background: "#0f172a",
+
+          background: "#32143b",
           color: "#ffffff",
+
+          iconColor: "#d9be82",
         }).then(() => {
           navigate("/login");
         });
@@ -100,86 +129,332 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
   };
 
   return (
-    <header className="sticky top-0 z-40 flex h-[68px] items-center border-b border-slate-200 bg-white px-4 sm:px-5 lg:px-7">
+    <header
+      className="
+        sticky
+        top-0
+        z-40
 
-      {/* MOBILE MENU BUTTON */}
+        flex
+        h-[68px]
+        items-center
+
+        border-b
+        border-[#e2d9df]
+
+        bg-white/95
+        backdrop-blur-xl
+
+        px-4
+        sm:px-5
+        lg:px-7
+      "
+    >
+
+      {/* =================================================
+          MOBILE MENU
+      ================================================= */}
+
       <button
         type="button"
-        onClick={() => setMobileSidebarOpen(true)}
-        className="mr-3 flex h-9 w-9 shrink-0 items-center justify-center rounded-lg text-slate-600 transition hover:bg-slate-100 hover:text-slate-900 lg:hidden"
+        onClick={() =>
+          setMobileSidebarOpen(true)
+        }
+        className="
+          mr-3
+          flex
+          h-9
+          w-9
+          shrink-0
+          items-center
+          justify-center
+
+          rounded-lg
+
+          text-[#63366f]
+
+          transition
+
+          hover:bg-[#f7f3ed]
+          hover:text-[#9b7740]
+
+          lg:hidden
+        "
         aria-label="Open menu"
       >
         <Menu size={21} />
       </button>
 
-      {/* PAGE TITLE */}
+      {/* =================================================
+          PAGE TITLE
+      ================================================= */}
+
       <div className="min-w-0">
-        <h2 className="truncate text-[15px] font-bold leading-none text-slate-900 md:text-[16px]">
+
+        <h2
+          className="
+            truncate
+            text-[15px]
+            font-bold
+            leading-none
+            text-[#32143b]
+
+            md:text-[16px]
+          "
+        >
           {config?.title || "Dashboard"}
         </h2>
 
-        <p className="mt-1 hidden text-[10.5px] font-medium text-slate-400 sm:block">
+        <p
+          className="
+            mt-1
+            hidden
+            text-[10.5px]
+            font-medium
+            text-[#8b778e]
+
+            sm:block
+          "
+        >
           Welcome back, {user?.name || "User"} 👋
         </p>
+
       </div>
 
-      {/* RIGHT SIDE */}
+      {/* =================================================
+          RIGHT SIDE
+      ================================================= */}
+
       <div className="ml-auto flex items-center gap-2">
 
-        {/* ROLE */}
-        <div className="hidden h-[36px] items-center gap-1.5 rounded-[1px] border border-emerald-200 bg-emerald-50 px-3 text-[10.5px] font-bold text-emerald-600 lg:flex">
+        {/* =================================================
+            ROLE
+        ================================================= */}
+
+        <div
+          className="
+            hidden
+            h-[36px]
+            items-center
+            gap-1.5
+
+            rounded-lg
+
+            border
+            border-[#d9be82]/40
+
+            bg-[#f7f3ed]
+
+            px-3
+
+            text-[10.5px]
+            font-bold
+            text-[#9b7740]
+
+            lg:flex
+          "
+        >
           <ShieldCheck size={14} />
+
           {config?.roleLabel || role}
         </div>
 
-        {/* DATE */}
-        <div className="hidden h-[36px] items-center gap-1.5 rounded-[1px] border border-slate-200 px-3 text-[10.5px] font-semibold text-slate-500 md:flex">
-          <CalendarDays size={14} />
+        {/* =================================================
+            DATE
+        ================================================= */}
+
+        <div
+          className="
+            hidden
+            h-[36px]
+            items-center
+            gap-1.5
+
+            rounded-lg
+
+            border
+            border-[#e2d9df]
+
+            bg-white
+
+            px-3
+
+            text-[10.5px]
+            font-semibold
+            text-[#756b78]
+
+            md:flex
+          "
+        >
+          <CalendarDays
+            size={14}
+            className="text-[#9b7740]"
+          />
+
           {formattedDate}
         </div>
 
-        <div className="mx-1 hidden h-6 w-px bg-slate-200 sm:block" />
+        <div
+          className="
+            mx-1
+            hidden
+            h-6
+            w-px
+            bg-[#e2d9df]
 
-        {/* SEARCH */}
+            sm:block
+          "
+        />
+
+        {/* =================================================
+            SEARCH
+        ================================================= */}
+
         <button
           type="button"
-          className="flex h-[36px] w-[36px] items-center justify-center rounded-[1px] text-slate-500 transition hover:bg-slate-50 hover:text-slate-900"
+          className="
+            flex
+            h-[36px]
+            w-[36px]
+            items-center
+            justify-center
+
+            rounded-lg
+
+            text-[#756b78]
+
+            transition
+
+            hover:bg-[#f7f3ed]
+            hover:text-[#9b7740]
+          "
           aria-label="Search"
         >
           <Search size={17} />
         </button>
 
-        {/* NOTIFICATIONS */}
+        {/* =================================================
+            NOTIFICATIONS
+        ================================================= */}
+
         <button
           type="button"
-          className="relative flex h-[36px] w-[36px] items-center justify-center rounded-[1px] text-slate-500 transition hover:bg-slate-50 hover:text-slate-900"
+          className="
+            relative
+            flex
+            h-[36px]
+            w-[36px]
+            items-center
+            justify-center
+
+            rounded-lg
+
+            text-[#756b78]
+
+            transition
+
+            hover:bg-[#f7f3ed]
+            hover:text-[#9b7740]
+          "
           aria-label="Notifications"
         >
           <Bell size={17} />
 
-          <span className="absolute right-[8px] top-[7px] h-[5px] w-[5px] rounded-[1px] bg-red-500 ring-2 ring-white" />
+          <span
+            className="
+              absolute
+              right-[8px]
+              top-[7px]
+
+              h-[5px]
+              w-[5px]
+
+              rounded-full
+
+              bg-[#9b7740]
+
+              ring-2
+              ring-white
+            "
+          />
         </button>
 
-        <div className="mx-1 h-6 w-px bg-slate-200" />
+        <div
+          className="
+            mx-1
+            h-6
+            w-px
+            bg-[#e2d9df]
+          "
+        />
 
-        {/* USER PROFILE DROPDOWN */}
+        {/* =================================================
+            USER PROFILE
+        ================================================= */}
+
         <div
           ref={dropdownRef}
           className="relative"
         >
+
           <button
             type="button"
-            onClick={() => setProfileOpen(!profileOpen)}
-            className="flex h-[40px] items-center gap-2 rounded-[1px] px-1.5 transition hover:bg-slate-50"
+            onClick={() =>
+              setProfileOpen(!profileOpen)
+            }
+            className="
+              flex
+              h-[40px]
+              items-center
+              gap-2
+
+              rounded-lg
+
+              px-1.5
+
+              transition
+
+              hover:bg-[#f7f3ed]
+            "
           >
+
             {/* AVATAR */}
-            
-            <div className="flex h-[34px] w-[34px] shrink-0 items-center justify-center overflow-hidden rounded-[15px] bg-emerald-500 text-[10px] font-extrabold text-white">
+
+            <div
+              className="
+                flex
+                h-[34px]
+                w-[34px]
+                shrink-0
+
+                items-center
+                justify-center
+
+                overflow-hidden
+
+                rounded-full
+
+                border
+                border-[#d9be82]/40
+
+                bg-[#9b7740]
+
+                text-[10px]
+                font-extrabold
+                text-white
+              "
+            >
               {user?.profilePic ? (
                 <img
                   src={user.profilePic}
-                  alt={user?.name || "User"}
-                  className="h-full w-full object-cover"
+                  alt={
+                    user?.name || "User"
+                  }
+                  className="
+                    h-full
+                    w-full
+                    object-cover
+                  "
                 />
               ) : (
                 userInitials
@@ -187,81 +462,241 @@ function Topbar({ role, user, setMobileSidebarOpen }) {
             </div>
 
             {/* USER INFORMATION */}
+
             <div className="hidden text-left lg:block">
-              <p className="text-[10.5px] font-bold leading-none text-slate-800">
+
+              <p
+                className="
+                  text-[10.5px]
+                  font-bold
+                  leading-none
+                  text-[#32143b]
+                "
+              >
                 {user?.name || "User"}
               </p>
 
-              <p className="mt-1 text-[9px] font-medium text-slate-400">
+              <p
+                className="
+                  mt-1
+                  text-[9px]
+                  font-medium
+                  text-[#8b778e]
+                "
+              >
                 {config?.roleLabel || role}
               </p>
+
             </div>
 
             <ChevronDown
               size={13}
-              className={`hidden text-slate-400 transition-transform duration-200 lg:block ${
-                profileOpen ? "rotate-180" : ""
-              }`}
+              className={`
+                hidden
+                text-[#8b778e]
+                transition-transform
+                duration-200
+
+                lg:block
+
+                ${
+                  profileOpen
+                    ? "rotate-180"
+                    : ""
+                }
+              `}
             />
+
           </button>
 
-          {/* DROPDOWN MENU */}
+          {/* =================================================
+              DROPDOWN
+          ================================================= */}
+
           {profileOpen && (
-            <div className="absolute right-0 top-[48px] z-[60] w-[210px] overflow-hidden rounded-xl border border-slate-200 bg-white p-1.5 shadow-xl">
+            <div
+              className="
+                absolute
+                right-0
+                top-[48px]
+                z-[60]
+
+                w-[220px]
+
+                overflow-hidden
+
+                rounded-xl
+
+                border
+                border-[#e2d9df]
+
+                bg-white
+
+                p-1.5
+
+                shadow-[0_15px_40px_rgba(50,20,59,0.12)]
+              "
+            >
 
               {/* USER HEADER */}
-              <div className="border-b border-slate-100 px-3 py-3">
-                <p className="truncate text-[11px] font-bold text-slate-800">
+
+              <div
+                className="
+                  border-b
+                  border-[#eee8ed]
+
+                  px-3
+                  py-3
+                "
+              >
+                <p
+                  className="
+                    truncate
+                    text-[11px]
+                    font-bold
+                    text-[#32143b]
+                  "
+                >
                   {user?.name || "User"}
                 </p>
 
-                <p className="mt-1 truncate text-[9px] text-slate-400">
-                  {user?.email || config?.roleLabel || role}
+                <p
+                  className="
+                    mt-1
+                    truncate
+                    text-[9px]
+                    text-[#8b778e]
+                  "
+                >
+                  {user?.email ||
+                    config?.roleLabel ||
+                    role}
                 </p>
               </div>
 
               {/* PROFILE */}
+
               <button
                 type="button"
                 onClick={() =>
-                  handleNavigate(`/${role}/profile`)
+                  handleNavigate(
+                    `/${role}/profile`
+                  )
                 }
-                className="mt-1 flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-[10.5px] font-semibold text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-600"
+                className="
+                  mt-1
+                  flex
+                  w-full
+                  items-center
+                  gap-2.5
+
+                  rounded-lg
+
+                  px-3
+                  py-2.5
+
+                  text-left
+                  text-[10.5px]
+                  font-semibold
+
+                  text-[#756b78]
+
+                  transition
+
+                  hover:bg-[#f7f3ed]
+                  hover:text-[#9b7740]
+                "
               >
                 <UserCircle size={16} />
+
                 My Profile
               </button>
 
               {/* SETTINGS */}
+
               <button
-
-
                 type="button"
                 onClick={() =>
-                  handleNavigate(`/${role}/settings`)
+                  handleNavigate(
+                    `/${role}/settings`
+                  )
                 }
-                className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-[10.5px] font-semibold text-slate-600 transition hover:bg-emerald-50 hover:text-emerald-600"
+                className="
+                  flex
+                  w-full
+                  items-center
+                  gap-2.5
+
+                  rounded-lg
+
+                  px-3
+                  py-2.5
+
+                  text-left
+                  text-[10.5px]
+                  font-semibold
+
+                  text-[#756b78]
+
+                  transition
+
+                  hover:bg-[#f7f3ed]
+                  hover:text-[#9b7740]
+                "
               >
                 <Settings size={16} />
+
                 Settings
               </button>
 
               {/* DIVIDER */}
-              <div className="my-1 border-t border-slate-100" />
+
+              <div
+                className="
+                  my-1
+                  border-t
+                  border-[#eee8ed]
+                "
+              />
 
               {/* LOGOUT */}
+
               <button
                 type="button"
                 onClick={handleLogout}
-                className="flex w-full items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-[10.5px] font-semibold text-red-500 transition hover:bg-red-50 hover:text-red-600"
+                className="
+                  flex
+                  w-full
+                  items-center
+                  gap-2.5
+
+                  rounded-lg
+
+                  px-3
+                  py-2.5
+
+                  text-left
+                  text-[10.5px]
+                  font-semibold
+
+                  text-red-500
+
+                  transition
+
+                  hover:bg-red-50
+                  hover:text-red-600
+                "
               >
                 <LogOut size={16} />
+
                 Logout
               </button>
 
             </div>
           )}
+
         </div>
+
       </div>
     </header>
   );

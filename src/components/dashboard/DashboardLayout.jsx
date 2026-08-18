@@ -23,7 +23,8 @@ function DashboardLayout({ role, children }) {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-slate-100">
+    <div className="min-h-screen overflow-x-hidden bg-[#f7f3ed] text-[#32143b]">
+
       {/* MOBILE OVERLAY */}
       {mobileSidebarOpen && (
         <div
@@ -31,13 +32,11 @@ function DashboardLayout({ role, children }) {
             fixed
             inset-0
             z-40
-            bg-black/50
-            backdrop-blur-[1px]
+            bg-[#210c28]/60
+            backdrop-blur-[2px]
             lg:hidden
           "
-          onClick={() =>
-            setMobileSidebarOpen(false)
-          }
+          onClick={() => setMobileSidebarOpen(false)}
         />
       )}
 
@@ -66,34 +65,59 @@ function DashboardLayout({ role, children }) {
           }
         `}
       >
+
         {/* TOPBAR */}
         <Topbar
           role={role}
           user={user}
-          setMobileSidebarOpen={
-            setMobileSidebarOpen
-          }
+          setMobileSidebarOpen={setMobileSidebarOpen}
         />
 
+        {/* PAGE CONTENT */}
         <main
           className="
-    min-h-[calc(100vh-68px)]
-    w-full
-    min-w-0
-    max-w-full
-    overflow-x-hidden
-    p-3
-    sm:p-5
-    md:p-6
-    lg:p-7
-  "
+            min-h-[calc(100vh-68px)]
+            w-full
+            min-w-0
+            max-w-full
+            overflow-x-hidden
+
+            bg-[#f7f3ed]
+
+            p-3
+            sm:p-5
+            md:p-6
+            lg:p-7
+          "
         >
           {children}
         </main>
 
         {/* FOOTER */}
-        <footer className="border-t border-slate-200 bg-white px-4 py-4 sm:px-5 lg:px-7">
-          <div className="flex flex-col gap-1 text-[10px] font-medium text-slate-400 sm:flex-row sm:items-center sm:justify-between">
+        <footer
+          className="
+            border-t
+            border-[#e2d9df]
+            bg-white
+            px-4
+            py-4
+            sm:px-5
+            lg:px-7
+          "
+        >
+          <div
+            className="
+              flex
+              flex-col
+              gap-1
+              text-[10px]
+              font-medium
+              text-[#8b778e]
+              sm:flex-row
+              sm:items-center
+              sm:justify-between
+            "
+          >
             <p>
               © 2026 SmartSociety — All rights reserved.
             </p>
@@ -103,6 +127,7 @@ function DashboardLayout({ role, children }) {
             </p>
           </div>
         </footer>
+
       </div>
     </div>
   );
