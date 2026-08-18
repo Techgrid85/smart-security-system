@@ -114,7 +114,7 @@ function LandingPage() {
         "Profile management",
       ],
       image:
-        "https://images.unsplash.com/photo-1581578731548-c64695cc6952?auto=format&fit=crop&w=1200&q=85",
+        "./assets/images/staff-dash.png",
     },
   ];
 
