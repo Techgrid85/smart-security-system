@@ -393,13 +393,13 @@ function StaffSettings() {
 
         {/* SETTINGS CARD */}
 
-        <section className="max-w-3xl overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="max-w-3xl overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           {/* CARD HEADER */}
 
           <div className="flex items-center gap-3 border-b border-[#e2d9df] px-5 py-4">
 
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
               <Settings size={17} />
             </div>
 
@@ -433,10 +433,10 @@ function StaffSettings() {
                   <img
                     src={formData.profilePic}
                     alt="Staff profile"
-                    className="h-20 w-20 rounded-2xl border-2 border-[#eee8ed] object-cover shadow-sm"
+                    className="h-20 w-20 rounded-none border-2 border-[#eee8ed] object-cover shadow-sm"
                   />
                 ) : (
-                  <div className="flex h-20 w-20 items-center justify-center rounded-2xl bg-[#9b7740] text-xl font-extrabold text-white shadow-sm">
+                  <div className="flex h-20 w-20 items-center justify-center rounded-none bg-[#9b7740] text-xl font-extrabold text-white shadow-sm">
                     {formData.name
                       ? formData.name
                           .split(" ")
@@ -452,8 +452,8 @@ function StaffSettings() {
                 )}
 
                 {uploadingPicture && (
-                  <div className="absolute inset-0 flex items-center justify-center rounded-2xl bg-black/50">
-                    <div className="h-5 w-5 animate-spin rounded-full border-2 border-white border-t-transparent" />
+                  <div className="absolute inset-0 flex items-center justify-center rounded-none bg-black/50">
+                    <div className="h-5 w-5 animate-spin rounded-none border-2 border-white border-t-transparent" />
                   </div>
                 )}
 
@@ -474,7 +474,7 @@ function StaffSettings() {
 
                 <label
                   htmlFor="staff-profile-picture"
-                  className={`inline-flex cursor-pointer items-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3.5 py-2.5 text-[10px] font-bold text-[#756b78] shadow-sm transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740] ${
+                  className={`inline-flex cursor-pointer items-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3.5 py-2.5 text-[10px] font-bold text-[#756b78] shadow-sm transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740] ${
                     uploadingPicture
                       ? "pointer-events-none opacity-60"
                       : ""
@@ -523,7 +523,7 @@ function StaffSettings() {
                   value={formData.name}
                   onChange={handleChange}
                   placeholder="Enter your name"
-                  className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                  className="h-10 w-full rounded-none border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                 />
               </div>
             </div>
@@ -545,7 +545,7 @@ function StaffSettings() {
                   type="email"
                   value={formData.email}
                   disabled
-                  className="h-10 w-full cursor-not-allowed rounded-lg border border-[#e2d9df] bg-[#f7f3ed] pl-9 pr-3 text-[11px] text-[#8b778e] outline-none"
+                  className="h-10 w-full cursor-not-allowed rounded-none border border-[#e2d9df] bg-[#f7f3ed] pl-9 pr-3 text-[11px] text-[#8b778e] outline-none"
                 />
               </div>
 
@@ -575,7 +575,7 @@ function StaffSettings() {
                   onChange={handleChange}
                   placeholder="Enter phone number"
                   maxLength={10}
-                  className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                  className="h-10 w-full rounded-none border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                 />
               </div>
             </div>
@@ -587,7 +587,7 @@ function StaffSettings() {
               <button
                 type="submit"
                 disabled={saving}
-                className="flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Save size={14} />
 

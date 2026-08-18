@@ -155,14 +155,14 @@ function ResidentProfile() {
               PROFILE HERO
           ========================================== */}
 
-          <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+          <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
             <div className="h-24 bg-gradient-to-r from-[#9b7740] to-[#9b7740]" />
 
             <div className="px-5 pb-5">
 
               {/* AVATAR */}
-              <div className="-mt-10 flex h-20 w-20 items-center justify-center overflow-hidden rounded-2xl border-4 border-white bg-[#9b7740] text-[20px] font-extrabold text-white shadow-lg">
+              <div className="-mt-10 flex h-20 w-20 items-center justify-center overflow-hidden rounded-none border-4 border-white bg-[#9b7740] text-[20px] font-extrabold text-white shadow-lg">
                 {resident?.profilePic ? (
                   <img
                     src={resident.profilePic}
@@ -182,12 +182,12 @@ function ResidentProfile() {
 
                 <div className="mt-1 flex flex-wrap items-center gap-2">
 
-                  <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
+                  <span className="rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
                     Resident
                   </span>
 
                   {resident?.flatNo && (
-                    <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
+                    <span className="rounded-none bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
                       Flat {resident.flatNo}
                     </span>
                   )}
@@ -203,11 +203,11 @@ function ResidentProfile() {
               PERSONAL INFORMATION
           ========================================== */}
 
-          <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+          <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
             <div className="flex items-center gap-3 border-b border-[#e2d9df] px-5 py-4">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <UserCircle size={17} />
               </div>
 
@@ -262,13 +262,13 @@ function ResidentProfile() {
               OTHER INFORMATION
           ========================================== */}
 
-          <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+          <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
             <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
               <div className="flex items-center gap-3">
 
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+                <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                   <Contact size={17} />
                 </div>
 
@@ -301,7 +301,7 @@ function ResidentProfile() {
               {/* EMERGENCY CONTACT */}
               <div className="flex items-center gap-3 px-5 py-4">
 
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#8b778e]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#8b778e]">
                   <Phone size={16} />
                 </div>
 
@@ -345,7 +345,7 @@ function ResidentProfile() {
               {/* FAMILY DETAILS */}
               <div className="flex items-center gap-3 px-5 py-4">
 
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#8b778e]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#8b778e]">
                   <Users size={16} />
                 </div>
 
@@ -378,7 +378,7 @@ function ResidentProfile() {
                 onClick={() =>
                   navigate("/resident/settings")
                 }
-                className="flex items-center gap-2 rounded-[9px] bg-[#9b7740] px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-[#9b7740]"
+                className="flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-[#9b7740]"
               >
 
                 {hasOtherInformation ? (
@@ -403,9 +403,9 @@ function ResidentProfile() {
               ACCOUNT STATUS
           ========================================== */}
 
-          <section className="flex items-center gap-3 rounded-[16px] border border-[#f5eee2] bg-[#f7f3ed]/50 p-4">
+          <section className="flex items-center gap-3 rounded-none border border-[#f5eee2] bg-[#f7f3ed]/50 p-4">
 
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#9b7740] shadow-sm">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-white text-[#9b7740] shadow-sm">
               <ShieldCheck size={19} />
             </div>
 
@@ -443,7 +443,7 @@ function ProfileItem({
   return (
     <div className="flex items-center gap-3 px-5 py-4">
 
-      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#8b778e]">
+      <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#8b778e]">
         <Icon size={16} />
       </div>
 

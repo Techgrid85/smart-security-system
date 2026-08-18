@@ -284,7 +284,7 @@ function StaffGuards() {
     return (
       <DashboardLayout role="admin">
         <div className="flex min-h-[60vh] items-center justify-center">
-          <div className="max-w-md rounded-2xl border border-red-200 bg-red-50 p-6 text-center">
+          <div className="max-w-md rounded-none border border-red-200 bg-red-50 p-6 text-center">
 
             <AlertCircle
               size={34}
@@ -301,7 +301,7 @@ function StaffGuards() {
 
             <button
               onClick={fetchUsers}
-              className="mt-5 rounded-lg bg-[#9b7740] px-4 py-2 text-sm font-semibold text-white hover:bg-[#9b7740]"
+              className="mt-5 rounded-none bg-[#9b7740] px-4 py-2 text-sm font-semibold text-white hover:bg-[#9b7740]"
             >
               Try Again
             </button>
@@ -333,7 +333,7 @@ function StaffGuards() {
 
           <button
             onClick={handleAdd}
-            className="flex items-center justify-center gap-2 rounded-[10px] bg-[#9b7740] px-4 py-2.5 text-[11.5px] font-bold text-white shadow-[0_4px_14px_rgba(16,185,129,0.2)] transition hover:bg-[#9b7740]"
+            className="flex items-center justify-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[11.5px] font-bold text-white shadow-[0_4px_14px_rgba(16,185,129,0.2)] transition hover:bg-[#9b7740]"
           >
             <Plus size={16} />
 
@@ -378,20 +378,20 @@ function StaffGuards() {
 
         {/* ================= MAIN CARD ================= */}
 
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           {/* TABS + SEARCH */}
 
           <div className="flex flex-col gap-4 border-b border-[#e2d9df] p-4 lg:flex-row lg:items-center lg:justify-between">
 
-            <div className="flex w-full rounded-xl bg-[#eee8ed] p-1 lg:w-auto">
+            <div className="flex w-full rounded-none bg-[#eee8ed] p-1 lg:w-auto">
 
               <button
                 onClick={() => {
                   setActiveTab("staff");
                   setSearch("");
                 }}
-                className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2 text-[11.5px] font-bold transition lg:flex-none ${
+                className={`flex flex-1 items-center justify-center gap-2 rounded-none px-4 py-2 text-[11.5px] font-bold transition lg:flex-none ${
                   activeTab === "staff"
                     ? "bg-white text-[#9b7740] shadow-sm"
                     : "text-[#756b78] hover:text-[#49394d]"
@@ -406,7 +406,7 @@ function StaffGuards() {
                   setActiveTab("guards");
                   setSearch("");
                 }}
-                className={`flex flex-1 items-center justify-center gap-2 rounded-lg px-4 py-2 text-[11.5px] font-bold transition lg:flex-none ${
+                className={`flex flex-1 items-center justify-center gap-2 rounded-none px-4 py-2 text-[11.5px] font-bold transition lg:flex-none ${
                   activeTab === "guards"
                     ? "bg-white text-[#9b7740] shadow-sm"
                     : "text-[#756b78] hover:text-[#49394d]"
@@ -430,7 +430,7 @@ function StaffGuards() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder={`Search ${activeTab === "staff" ? "staff" : "guards"}...`}
-                className="w-full rounded-[10px] border border-[#e2d9df] py-2.5 pl-10 pr-4 text-[11.5px] font-medium outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
+                className="w-full rounded-none border border-[#e2d9df] py-2.5 pl-10 pr-4 text-[11.5px] font-medium outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
               />
 
             </div>
@@ -486,7 +486,7 @@ function StaffGuards() {
                         <div className="flex items-center gap-3">
 
                           <div
-                            className={`flex h-10 w-10 items-center justify-center rounded-xl ${
+                            className={`flex h-10 w-10 items-center justify-center rounded-none ${
                               activeTab === "staff"
                                 ? "bg-[#f7f3ed] text-[#9b7740]"
                                 : "bg-[#f7f3ed] text-[#9b7740]"
@@ -538,7 +538,7 @@ function StaffGuards() {
                       <td className="px-5 py-4">
 
                         <span
-                          className={`rounded-full px-2.5 py-1 text-[10px] font-bold ${
+                          className={`rounded-none px-2.5 py-1 text-[10px] font-bold ${
                             activeTab === "staff"
                               ? "bg-[#f7f3ed] text-[#9b7740]"
                               : "bg-[#f7f3ed] text-[#9b7740]"
@@ -556,14 +556,14 @@ function StaffGuards() {
                       <td className="px-5 py-4">
 
                         <span
-                          className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[10px] font-bold ${
+                          className={`inline-flex items-center gap-1.5 rounded-none px-2.5 py-1 text-[10px] font-bold ${
                             user.isActive
                               ? "bg-[#f7f3ed] text-[#826331]"
                               : "bg-red-50 text-red-600"
                           }`}
                         >
                           <span
-                            className={`h-1.5 w-1.5 rounded-full ${
+                            className={`h-1.5 w-1.5 rounded-none ${
                               user.isActive
                                 ? "bg-[#9b7740]"
                                 : "bg-red-500"
@@ -585,7 +585,7 @@ function StaffGuards() {
 
                           <button
                             onClick={() => handleEdit(user)}
-                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e2d9df] text-[#756b78] transition hover:border-[#e2d9df] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
+                            className="flex h-8 w-8 items-center justify-center rounded-none border border-[#e2d9df] text-[#756b78] transition hover:border-[#e2d9df] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
                             title="Edit"
                           >
                             <Pencil size={14} />
@@ -594,7 +594,7 @@ function StaffGuards() {
                           <button
                             disabled={actionLoading}
                             onClick={() => handleToggleStatus(user)}
-                            className={`flex h-8 w-8 items-center justify-center rounded-lg border transition ${
+                            className={`flex h-8 w-8 items-center justify-center rounded-none border transition ${
                               user.isActive
                                 ? "border-red-200 text-red-500 hover:bg-red-50"
                                 : "border-[#e2d9df] text-[#9b7740] hover:bg-[#f7f3ed]"
@@ -643,7 +643,7 @@ function StaffGuards() {
 
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#210c28]/40 p-4">
 
-          <div className="w-full max-w-md rounded-[18px] bg-white shadow-2xl">
+          <div className="w-full max-w-md rounded-none bg-white shadow-2xl">
 
             {/* MODAL HEADER */}
 
@@ -669,7 +669,7 @@ function StaffGuards() {
                     setModalOpen(false);
                   }
                 }}
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] hover:bg-[#eee8ed] hover:text-[#49394d]"
+                className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] hover:bg-[#eee8ed] hover:text-[#49394d]"
               >
                 <X size={18} />
               </button>
@@ -724,7 +724,7 @@ function StaffGuards() {
               />
 
               {editingUser && (
-                <label className="flex cursor-pointer items-center justify-between rounded-xl border border-[#e2d9df] bg-[#f7f3ed] px-4 py-3">
+                <label className="flex cursor-pointer items-center justify-between rounded-none border border-[#e2d9df] bg-[#f7f3ed] px-4 py-3">
 
                   <div>
                     <p className="text-[11.5px] font-bold text-[#49394d]">
@@ -755,7 +755,7 @@ function StaffGuards() {
                   type="button"
                   disabled={actionLoading}
                   onClick={() => setModalOpen(false)}
-                  className="flex-1 rounded-[10px] border border-[#e2d9df] py-2.5 text-[11.5px] font-bold text-[#756b78] hover:bg-[#f7f3ed]"
+                  className="flex-1 rounded-none border border-[#e2d9df] py-2.5 text-[11.5px] font-bold text-[#756b78] hover:bg-[#f7f3ed]"
                 >
                   Cancel
                 </button>
@@ -763,7 +763,7 @@ function StaffGuards() {
                 <button
                   type="submit"
                   disabled={actionLoading}
-                  className="flex flex-1 items-center justify-center gap-2 rounded-[10px] bg-[#9b7740] py-2.5 text-[11.5px] font-bold text-white hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-70"
+                  className="flex flex-1 items-center justify-center gap-2 rounded-none bg-[#9b7740] py-2.5 text-[11.5px] font-bold text-white hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-70"
                 >
                   {actionLoading && (
                     <Loader2
@@ -804,12 +804,12 @@ function MiniStat({ title, value, icon: Icon, tone }) {
   };
 
   return (
-    <div className="rounded-[15px] border border-[#e2d9df] bg-white p-4">
+    <div className="rounded-none border border-[#e2d9df] bg-white p-4">
 
       <div className="flex items-center justify-between">
 
         <div
-          className={`flex h-10 w-10 items-center justify-center rounded-xl ${styles[tone]}`}
+          className={`flex h-10 w-10 items-center justify-center rounded-none ${styles[tone]}`}
         >
           <Icon size={18} />
         </div>
@@ -856,7 +856,7 @@ function FormInput({
         onChange={onChange}
         placeholder={placeholder}
         required={required}
-        className="w-full rounded-[10px] border border-[#e2d9df] px-3.5 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
+        className="w-full rounded-none border border-[#e2d9df] px-3.5 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
       />
 
     </div>

@@ -473,11 +473,11 @@ function ResidentSettings() {
               PROFILE PICTURE
           ========================================== */}
 
-          <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+          <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
             <div className="flex items-center gap-3 border-b border-[#e2d9df] px-5 py-4">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <Camera size={17} />
               </div>
 
@@ -497,7 +497,7 @@ function ResidentSettings() {
 
               {/* AVATAR */}
 
-              <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-2xl bg-[#9b7740] text-2xl font-extrabold text-white">
+              <div className="flex h-24 w-24 shrink-0 items-center justify-center overflow-hidden rounded-none bg-[#9b7740] text-2xl font-extrabold text-white">
 
                 {previewImage ||
                 formData.profilePic ? (
@@ -517,7 +517,7 @@ function ResidentSettings() {
 
               <div className="flex flex-col gap-3">
 
-                <label className="inline-flex w-fit cursor-pointer items-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]">
+                <label className="inline-flex w-fit cursor-pointer items-center gap-2 rounded-none border border-[#e2d9df] bg-white px-4 py-2.5 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]">
 
                   <Upload size={14} />
 
@@ -537,7 +537,7 @@ function ResidentSettings() {
                     type="button"
                     onClick={handleProfilePictureUpload}
                     disabled={uploadingPicture}
-                    className="flex w-fit items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="flex w-fit items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     <Save size={14} />
 
@@ -561,11 +561,11 @@ function ResidentSettings() {
               PERSONAL INFORMATION
           ========================================== */}
 
-          <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+          <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
             <div className="flex items-center gap-3 border-b border-[#e2d9df] px-5 py-4">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <Settings size={17} />
               </div>
 
@@ -606,7 +606,7 @@ function ResidentSettings() {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Enter your name"
-                    className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                    className="h-10 w-full rounded-none border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                   />
 
                 </div>
@@ -630,7 +630,7 @@ function ResidentSettings() {
                     type="email"
                     value={formData.email}
                     disabled
-                    className="h-10 w-full cursor-not-allowed rounded-lg border border-[#e2d9df] bg-[#f7f3ed] pl-9 pr-3 text-[11px] text-[#8b778e] outline-none"
+                    className="h-10 w-full cursor-not-allowed rounded-none border border-[#e2d9df] bg-[#f7f3ed] pl-9 pr-3 text-[11px] text-[#8b778e] outline-none"
                   />
 
                 </div>
@@ -662,7 +662,7 @@ function ResidentSettings() {
                     onChange={handleChange}
                     placeholder="Enter 10 digit phone number"
                     maxLength={10}
-                    className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                    className="h-10 w-full rounded-none border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                   />
 
                 </div>
@@ -686,7 +686,7 @@ function ResidentSettings() {
                     type="text"
                     value={formData.flatNo}
                     disabled
-                    className="h-10 w-full cursor-not-allowed rounded-lg border border-[#e2d9df] bg-[#f7f3ed] pl-9 pr-3 text-[11px] text-[#8b778e] outline-none"
+                    className="h-10 w-full cursor-not-allowed rounded-none border border-[#e2d9df] bg-[#f7f3ed] pl-9 pr-3 text-[11px] text-[#8b778e] outline-none"
                   />
 
                 </div>
@@ -738,7 +738,7 @@ function ResidentSettings() {
                       onChange={handleChange}
                       placeholder="e.g. ABC-123"
                       maxLength={30}
-                      className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] uppercase outline-none transition focus:border-[#bca16a]"
+                      className="h-10 w-full rounded-none border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] uppercase outline-none transition focus:border-[#bca16a]"
                     />
 
                   </div>
@@ -781,7 +781,7 @@ function ResidentSettings() {
                         onChange={handleChange}
                         placeholder="Enter contact name"
                         maxLength={50}
-                        className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white px-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                        className="h-10 w-full rounded-none border border-[#e2d9df] bg-white px-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                       />
 
                     </div>
@@ -803,7 +803,7 @@ function ResidentSettings() {
                         onChange={handleChange}
                         placeholder="e.g. Father, Mother"
                         maxLength={50}
-                        className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white px-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                        className="h-10 w-full rounded-none border border-[#e2d9df] bg-white px-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                       />
 
                     </div>
@@ -834,7 +834,7 @@ function ResidentSettings() {
                     placeholder="Enter family member or tenant details"
                     maxLength={500}
                     rows={4}
-                    className="w-full resize-none rounded-lg border border-[#e2d9df] bg-white px-3 py-2.5 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                    className="w-full resize-none rounded-none border border-[#e2d9df] bg-white px-3 py-2.5 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                   />
 
                   <p className="mt-1 text-right text-[9px] font-medium text-[#8b778e]">
@@ -852,7 +852,7 @@ function ResidentSettings() {
                 <button
                   type="submit"
                   disabled={saving}
-                  className="flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                  className="flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                 >
 
                   <Save size={14} />

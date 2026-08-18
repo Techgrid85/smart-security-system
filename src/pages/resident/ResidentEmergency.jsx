@@ -148,13 +148,13 @@ function ResidentEmergency() {
         {/* ========================================== */}
 
         {alertActive && (
-          <div className="mb-6 overflow-hidden rounded-[16px] border border-red-200 bg-red-50">
+          <div className="mb-6 overflow-hidden rounded-none border border-red-200 bg-red-50">
 
             <div className="flex flex-col gap-4 p-5 sm:flex-row sm:items-center sm:justify-between">
 
               <div className="flex items-start gap-3">
 
-                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-red-500 text-white">
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-red-500 text-white">
                   <Siren size={19} />
                 </div>
 
@@ -174,7 +174,7 @@ function ResidentEmergency() {
               <button
                 type="button"
                 onClick={() => setAlertActive(false)}
-                className="inline-flex h-8 items-center justify-center gap-1.5 rounded-lg border border-red-200 bg-white px-3 text-[10px] font-bold text-red-600 transition hover:bg-red-100"
+                className="inline-flex h-8 items-center justify-center gap-1.5 rounded-none border border-red-200 bg-white px-3 text-[10px] font-bold text-red-600 transition hover:bg-red-100"
               >
                 <X size={13} />
                 Dismiss
@@ -189,13 +189,13 @@ function ResidentEmergency() {
         {/* EMERGENCY SIREN */}
         {/* ========================================== */}
 
-        <section className="mb-6 overflow-hidden rounded-[18px] border border-red-200 bg-white">
+        <section className="mb-6 overflow-hidden rounded-none border border-red-200 bg-white">
 
           <div className="bg-red-50 p-6 md:p-8">
 
             <div className="mx-auto max-w-[650px] text-center">
 
-              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-2xl bg-red-500 text-white shadow-sm">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-none bg-red-500 text-white shadow-sm">
 
                 <Siren size={30} />
 
@@ -218,7 +218,7 @@ function ResidentEmergency() {
                 type="button"
                 onClick={() => setShowConfirm(true)}
                 disabled={alertActive}
-                className="mt-5 inline-flex h-11 items-center justify-center gap-2 rounded-xl bg-red-500 px-6 text-[11px] font-extrabold text-white shadow-sm transition hover:bg-red-600 disabled:cursor-not-allowed disabled:opacity-50"
+                className="mt-5 inline-flex h-11 items-center justify-center gap-2 rounded-none bg-red-500 px-6 text-[11px] font-extrabold text-white shadow-sm transition hover:bg-red-600 disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <Siren size={16} />
 
@@ -241,13 +241,13 @@ function ResidentEmergency() {
         {/* EMERGENCY CONTACTS */}
         {/* ========================================== */}
 
-        <section className="mb-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="mb-6 overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="border-b border-[#e2d9df] px-5 py-4">
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <Phone size={17} />
               </div>
 
@@ -274,16 +274,16 @@ function ResidentEmergency() {
               return (
                 <div
                   key={contact.name}
-                  className="rounded-xl border border-[#e2d9df] bg-white p-4 transition hover:border-[#bca9c0] hover:shadow-sm"
+                  className="rounded-none border border-[#e2d9df] bg-white p-4 transition hover:border-[#bca9c0] hover:shadow-sm"
                 >
 
                   <div className="flex items-start justify-between gap-3">
 
-                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#eee8ed] text-[#756b78]">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#eee8ed] text-[#756b78]">
                       <Icon size={16} />
                     </div>
 
-                    <span className="rounded-full bg-[#f7f3ed] px-2 py-1 text-[8px] font-bold uppercase tracking-wide text-[#8b778e]">
+                    <span className="rounded-none bg-[#f7f3ed] px-2 py-1 text-[8px] font-bold uppercase tracking-wide text-[#8b778e]">
                       Emergency
                     </span>
 
@@ -306,7 +306,7 @@ function ResidentEmergency() {
                     {contact.number.match(/^\d+$/) && (
                       <a
                         href={`tel:${contact.number}`}
-                        className="inline-flex h-7 items-center gap-1 rounded-lg bg-[#f7f3ed] px-2.5 text-[9px] font-bold text-[#9b7740] transition hover:bg-[#f5eee2]"
+                        className="inline-flex h-7 items-center gap-1 rounded-none bg-[#f7f3ed] px-2.5 text-[9px] font-bold text-[#9b7740] transition hover:bg-[#f5eee2]"
                       >
                         <Phone size={11} />
                         Call
@@ -327,13 +327,13 @@ function ResidentEmergency() {
         {/* SOCIETY GUIDELINES */}
         {/* ========================================== */}
 
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="border-b border-[#e2d9df] px-5 py-4">
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#63366f]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#63366f]">
                 <BookOpen size={17} />
               </div>
 
@@ -371,7 +371,7 @@ function ResidentEmergency() {
 
                     <div className="flex items-center gap-3">
 
-                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#eee8ed] text-[#756b78]">
+                      <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-none bg-[#eee8ed] text-[#756b78]">
                         <AlertTriangle size={14} />
                       </div>
 
@@ -395,7 +395,7 @@ function ResidentEmergency() {
                   {isOpen && (
                     <div className="bg-[#f7f3ed] px-5 pb-4 pt-0">
 
-                      <div className="flex gap-3 rounded-xl border border-[#e2d9df] bg-white p-4">
+                      <div className="flex gap-3 rounded-none border border-[#e2d9df] bg-white p-4">
 
                         <CheckCircle2
                           size={14}
@@ -426,11 +426,11 @@ function ResidentEmergency() {
         {showConfirm && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/50 p-4">
 
-            <div className="w-full max-w-[400px] rounded-[16px] bg-white shadow-xl">
+            <div className="w-full max-w-[400px] rounded-none bg-white shadow-xl">
 
               <div className="p-5">
 
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-red-50 text-red-500">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-none bg-red-50 text-red-500">
                   <AlertTriangle size={23} />
                 </div>
 
@@ -454,7 +454,7 @@ function ResidentEmergency() {
                     onClick={() =>
                       setShowConfirm(false)
                     }
-                    className="flex-1 rounded-lg border border-[#e2d9df] px-4 py-2.5 text-[10px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
+                    className="flex-1 rounded-none border border-[#e2d9df] px-4 py-2.5 text-[10px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
                   >
                     Cancel
                   </button>
@@ -462,7 +462,7 @@ function ResidentEmergency() {
                   <button
                     type="button"
                     onClick={handleEmergencyAlert}
-                    className="flex-1 rounded-lg bg-red-500 px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-red-600"
+                    className="flex-1 rounded-none bg-red-500 px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-red-600"
                   >
                     Activate Alert
                   </button>

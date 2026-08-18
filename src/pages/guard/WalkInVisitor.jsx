@@ -433,7 +433,7 @@ const fetchApprovedVisitors = async () => {
                 loadingResidents ||
                 loadingApproved
               }
-              className="flex h-9 w-9 items-center justify-center rounded-lg border border-[#e2d9df] bg-white text-[#8b778e] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-50"
+              className="flex h-9 w-9 items-center justify-center rounded-none border border-[#e2d9df] bg-white text-[#8b778e] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-50"
               title="Refresh"
             >
               <RefreshCw
@@ -449,7 +449,7 @@ const fetchApprovedVisitors = async () => {
 
             <Link
               to="/guard"
-              className="inline-flex items-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 py-2 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
+              className="inline-flex items-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3 py-2 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
             >
               <ArrowLeft size={14} />
               Back
@@ -460,14 +460,14 @@ const fetchApprovedVisitors = async () => {
 
         {/* MODE TABS */}
 
-        <div className="mb-5 grid grid-cols-2 gap-2 rounded-xl border border-[#e2d9df] bg-white p-1.5">
+        <div className="mb-5 grid grid-cols-2 gap-2 rounded-none border border-[#e2d9df] bg-white p-1.5">
 
           <button
             type="button"
             onClick={() =>
               handleModeChange("walkin")
             }
-            className={`flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-[11px] font-bold transition ${
+            className={`flex items-center justify-center gap-2 rounded-none px-4 py-3 text-[11px] font-bold transition ${
               mode === "walkin"
                 ? "bg-[#9b7740] text-white shadow-sm"
                 : "text-[#756b78] hover:bg-[#f7f3ed]"
@@ -482,7 +482,7 @@ const fetchApprovedVisitors = async () => {
             onClick={() =>
               handleModeChange("approved")
             }
-            className={`flex items-center justify-center gap-2 rounded-lg px-4 py-3 text-[11px] font-bold transition ${
+            className={`flex items-center justify-center gap-2 rounded-none px-4 py-3 text-[11px] font-bold transition ${
               mode === "approved"
                 ? "bg-[#9b7740] text-white shadow-sm"
                 : "text-[#756b78] hover:bg-[#f7f3ed]"
@@ -497,7 +497,7 @@ const fetchApprovedVisitors = async () => {
         {/* ERROR */}
 
         {error && (
-          <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3">
+          <div className="mb-5 rounded-none border border-red-200 bg-red-50 px-4 py-3">
             <p className="text-[11px] font-semibold text-red-500">
               {error}
             </p>
@@ -509,7 +509,7 @@ const fetchApprovedVisitors = async () => {
         {mode === "walkin" && (
           <div className="grid gap-5 xl:grid-cols-[1fr_0.42fr]">
 
-            <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+            <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
               <div className="border-b border-[#e2d9df] px-5 py-4">
                 <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
@@ -548,7 +548,7 @@ const fetchApprovedVisitors = async () => {
                       value={formData.resident}
                       onChange={handleResidentChange}
                       disabled={loadingResidents}
-                      className="h-11 w-full appearance-none rounded-xl border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed] disabled:bg-[#f7f3ed]"
+                      className="h-11 w-full appearance-none rounded-none border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed] disabled:bg-[#f7f3ed]"
                     >
                       <option value="">
                         {loadingResidents
@@ -592,7 +592,7 @@ const fetchApprovedVisitors = async () => {
                       value={formData.flatNo}
                       readOnly
                       placeholder="Select resident first"
-                      className="h-11 w-full rounded-xl border border-[#e2d9df] bg-[#f7f3ed] pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none"
+                      className="h-11 w-full rounded-none border border-[#e2d9df] bg-[#f7f3ed] pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none"
                     />
                   </div>
                 </div>
@@ -616,7 +616,7 @@ const fetchApprovedVisitors = async () => {
                       value={formData.visitorName}
                       onChange={handleChange}
                       placeholder="Enter visitor name"
-                      className="h-11 w-full rounded-xl border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
+                      className="h-11 w-full rounded-none border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
                     />
                   </div>
                 </div>
@@ -641,7 +641,7 @@ const fetchApprovedVisitors = async () => {
                       onChange={handleChange}
                       placeholder="Enter visitor email"
                       required
-                      className="h-11 w-full rounded-xl border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
+                      className="h-11 w-full rounded-none border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
                     />
                   </div>
                 </div>
@@ -666,7 +666,7 @@ const fetchApprovedVisitors = async () => {
                       onChange={handleChange}
                       placeholder="10 digit phone number"
                       maxLength={10}
-                      className="h-11 w-full rounded-xl border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
+                      className="h-11 w-full rounded-none border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
                     />
                   </div>
                 </div>
@@ -690,7 +690,7 @@ const fetchApprovedVisitors = async () => {
                       onChange={handleChange}
                       rows={4}
                       placeholder="Why is the visitor entering the society?"
-                      className="w-full resize-none rounded-xl border border-[#e2d9df] bg-white py-3 pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
+                      className="w-full resize-none rounded-none border border-[#e2d9df] bg-white py-3 pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
                     />
                   </div>
                 </div>
@@ -702,7 +702,7 @@ const fetchApprovedVisitors = async () => {
                     loadingResidents ||
                     residents.length === 0
                   }
-                  className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#9b7740] text-[11.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                  className="flex h-11 w-full items-center justify-center gap-2 rounded-none bg-[#9b7740] text-[11.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   {submitting ? (
                     <>
@@ -742,7 +742,7 @@ const fetchApprovedVisitors = async () => {
         {mode === "approved" && (
           <div className="grid gap-5 xl:grid-cols-[1fr_0.42fr]">
 
-            <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+            <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
               <div className="border-b border-[#e2d9df] px-5 py-4">
                 <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
@@ -775,7 +775,7 @@ const fetchApprovedVisitors = async () => {
                       loadingApproved ||
                       loadingDetails
                     }
-                    className="h-11 w-full rounded-xl border border-[#e2d9df] bg-white px-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed] disabled:bg-[#f7f3ed]"
+                    className="h-11 w-full rounded-none border border-[#e2d9df] bg-white px-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed] disabled:bg-[#f7f3ed]"
                   >
                     <option value="">
                       {loadingApproved
@@ -803,7 +803,7 @@ const fetchApprovedVisitors = async () => {
                 </div>
 
                 {loadingDetails && (
-                  <div className="flex items-center justify-center rounded-xl border border-[#e2d9df] bg-[#f7f3ed] py-10">
+                  <div className="flex items-center justify-center rounded-none border border-[#e2d9df] bg-[#f7f3ed] py-10">
                     <div className="flex items-center gap-2 text-[11px] font-semibold text-[#8b778e]">
                       <Loader2
                         size={16}
@@ -816,7 +816,7 @@ const fetchApprovedVisitors = async () => {
 
                 {approvedVisitor &&
                   !loadingDetails && (
-                    <div className="overflow-hidden rounded-xl border border-[#f5eee2] bg-[#f7f3ed]/50">
+                    <div className="overflow-hidden rounded-none border border-[#f5eee2] bg-[#f7f3ed]/50">
 
                       <div className="flex items-start justify-between border-b border-[#f5eee2] px-4 py-4">
                         <div>
@@ -831,7 +831,7 @@ const fetchApprovedVisitors = async () => {
                           </h3>
                         </div>
 
-                        <span className="rounded-full bg-[#f5eee2] px-3 py-1 text-[9px] font-bold text-[#826331]">
+                        <span className="rounded-none bg-[#f5eee2] px-3 py-1 text-[9px] font-bold text-[#826331]">
                           {
                             approvedVisitor.status
                           }
@@ -910,7 +910,7 @@ const fetchApprovedVisitors = async () => {
                             handleApprovedEntry
                           }
                           disabled={submitting}
-                          className="flex h-11 w-full items-center justify-center gap-2 rounded-xl bg-[#9b7740] text-[11.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                          className="flex h-11 w-full items-center justify-center gap-2 rounded-none bg-[#9b7740] text-[11.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                         >
                           {submitting ? (
                             <>
@@ -934,7 +934,7 @@ const fetchApprovedVisitors = async () => {
 
                 {!loadingApproved &&
                   approvedVisitors.length === 0 && (
-                    <div className="rounded-xl border border-dashed border-[#e2d9df] bg-[#f7f3ed] px-5 py-10 text-center">
+                    <div className="rounded-none border border-dashed border-[#e2d9df] bg-[#f7f3ed] px-5 py-10 text-center">
 
                       <TicketCheck
                         size={28}
@@ -982,9 +982,9 @@ function InformationCard({
   steps,
 }) {
   return (
-    <section className="h-fit rounded-[16px] border border-[#f5eee2] bg-[#f7f3ed]/60 p-5">
+    <section className="h-fit rounded-none border border-[#f5eee2] bg-[#f7f3ed]/60 p-5">
 
-      <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#f5eee2] text-[#9b7740]">
+      <div className="flex h-11 w-11 items-center justify-center rounded-none bg-[#f5eee2] text-[#9b7740]">
         <CheckCircle2 size={20} />
       </div>
 
@@ -1002,7 +1002,7 @@ function InformationCard({
             key={step}
             className="flex items-center gap-3"
           >
-            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-lg bg-white text-[9px] font-bold text-[#9b7740]">
+            <span className="flex h-7 w-7 shrink-0 items-center justify-center rounded-none bg-white text-[9px] font-bold text-[#9b7740]">
               {String(index + 1).padStart(2, "0")}
             </span>
 

@@ -189,7 +189,7 @@ function ActiveVisitors() {
             type="button"
             onClick={fetchActiveVisitors}
             disabled={loading}
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
           >
             <RefreshCw
               size={14}
@@ -205,7 +205,7 @@ function ActiveVisitors() {
         {/* ========================================== */}
 
         {error && (
-          <div className="mb-5 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3">
+          <div className="mb-5 flex items-center gap-2 rounded-none border border-red-200 bg-red-50 px-4 py-3">
             <AlertCircle
               size={15}
               className="text-red-500"
@@ -223,7 +223,7 @@ function ActiveVisitors() {
 
         <div className="mb-5 grid gap-4 lg:grid-cols-[180px_1fr]">
 
-          <div className="rounded-[16px] border border-[#f5eee2] bg-[#f7f3ed] p-4">
+          <div className="rounded-none border border-[#f5eee2] bg-[#f7f3ed] p-4">
 
             <div className="flex items-center justify-between">
 
@@ -237,7 +237,7 @@ function ActiveVisitors() {
                 </h2>
               </div>
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#9b7740]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-none bg-white text-[#9b7740]">
                 <Users size={19} />
               </div>
 
@@ -245,7 +245,7 @@ function ActiveVisitors() {
 
           </div>
 
-          <div className="flex items-center rounded-[16px] border border-[#e2d9df] bg-white p-4">
+          <div className="flex items-center rounded-none border border-[#e2d9df] bg-white p-4">
 
             <div className="relative w-full">
 
@@ -259,7 +259,7 @@ function ActiveVisitors() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search by visitor, resident, flat number or phone..."
-                className="h-11 w-full rounded-xl border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
+                className="h-11 w-full rounded-none border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
               />
 
             </div>
@@ -272,7 +272,7 @@ function ActiveVisitors() {
         {/* VISITORS TABLE */}
         {/* ========================================== */}
 
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -305,7 +305,7 @@ function ActiveVisitors() {
           ) : filteredVisitors.length === 0 ? (
             <div className="px-5 py-16 text-center">
 
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#eee8ed] text-[#8b778e]">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-none bg-[#eee8ed] text-[#8b778e]">
                 <Users size={22} />
               </div>
 
@@ -378,7 +378,7 @@ function ActiveVisitors() {
 
                         <div className="flex items-center gap-3">
 
-                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                             <User size={14} />
                           </div>
 
@@ -460,7 +460,7 @@ function ActiveVisitors() {
 
                       <td className="px-5 py-4">
 
-                        <div className="inline-flex items-center gap-1.5 rounded-lg bg-[#f7f3ed] px-2.5 py-1.5 text-[9.5px] font-bold text-[#9b7740]">
+                        <div className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1.5 text-[9.5px] font-bold text-[#9b7740]">
 
                           <Clock3 size={12} />
 
@@ -478,7 +478,7 @@ function ActiveVisitors() {
                           type="button"
                           onClick={() => handleExit(visitor)}
                           disabled={exitingId === visitor._id}
-                          className="inline-flex h-8 items-center justify-center gap-1.5 rounded-lg bg-rose-500 px-3 text-[9.5px] font-bold text-white transition hover:bg-rose-600 disabled:cursor-not-allowed disabled:opacity-60"
+                          className="inline-flex h-8 items-center justify-center gap-1.5 rounded-none bg-rose-500 px-3 text-[9.5px] font-bold text-white transition hover:bg-rose-600 disabled:cursor-not-allowed disabled:opacity-60"
                         >
 
                           {exitingId === visitor._id ? (

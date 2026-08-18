@@ -197,7 +197,7 @@ function FacilityBookings() {
             <button
               type="button"
               onClick={() => setShowForm(true)}
-              className="flex items-center gap-2 rounded-[10px] bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740]"
+              className="flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740]"
             >
               <Plus size={15} />
               New Booking
@@ -206,7 +206,7 @@ function FacilityBookings() {
         </div>
 
         {/* BOOKINGS */}
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
             <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
@@ -217,7 +217,7 @@ function FacilityBookings() {
               My Bookings
             </h2>
 
-            <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
+            <span className="rounded-none bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
               {bookings.length}{" "}
               {bookings.length === 1
                 ? "Booking"
@@ -231,11 +231,11 @@ function FacilityBookings() {
               bookings.map((booking) => (
                 <div
                   key={booking._id}
-                  className="rounded-[13px] border border-[#e2d9df] bg-[#f7f3ed] p-4"
+                  className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-4"
                 >
                   <div className="flex items-start gap-3">
 
-                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-[#f7f3ed] text-[#9b7740]">
+                    <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                       <Building2 size={18} />
                     </div>
 
@@ -247,7 +247,7 @@ function FacilityBookings() {
                         </h3>
 
                         <span
-                          className={`rounded-full px-2 py-1 text-[8.5px] font-bold ${getStatusStyle(
+                          className={`rounded-none px-2 py-1 text-[8.5px] font-bold ${getStatusStyle(
                             booking.status
                           )}`}
                         >
@@ -281,7 +281,7 @@ function FacilityBookings() {
                       </div>
 
                       {booking.remarks && (
-                        <div className="mt-3 rounded-lg bg-white px-3 py-2">
+                        <div className="mt-3 rounded-none bg-white px-3 py-2">
                           <p className="text-[9px] font-bold text-[#8b778e]">
                             Remarks
                           </p>
@@ -297,9 +297,9 @@ function FacilityBookings() {
                 </div>
               ))
             ) : (
-              <div className="flex min-h-[220px] flex-col items-center justify-center rounded-[13px] border border-dashed border-[#e2d9df] bg-[#f7f3ed] px-5 text-center">
+              <div className="flex min-h-[220px] flex-col items-center justify-center rounded-none border border-dashed border-[#e2d9df] bg-[#f7f3ed] px-5 text-center">
 
-                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                   <CalendarDays size={21} />
                 </div>
 
@@ -314,7 +314,7 @@ function FacilityBookings() {
                 <button
                   type="button"
                   onClick={() => setShowForm(true)}
-                  className="mt-4 flex items-center gap-1.5 rounded-lg bg-[#9b7740] px-3 py-2 text-[10px] font-bold text-white"
+                  className="mt-4 flex items-center gap-1.5 rounded-none bg-[#9b7740] px-3 py-2 text-[10px] font-bold text-white"
                 >
                   <Plus size={13} />
                   Create Booking
@@ -330,7 +330,7 @@ function FacilityBookings() {
         {showForm && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#210c28]/50 p-4">
 
-            <div className="w-full max-w-lg overflow-hidden rounded-[16px] bg-white shadow-2xl">
+            <div className="w-full max-w-lg overflow-hidden rounded-none bg-white shadow-2xl">
 
               {/* MODAL HEADER */}
               <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
@@ -348,7 +348,7 @@ function FacilityBookings() {
                 <button
                   type="button"
                   onClick={() => setShowForm(false)}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] hover:bg-[#eee8ed] hover:text-[#49394d]"
+                  className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -371,7 +371,7 @@ function FacilityBookings() {
                     name="facility"
                     value={formData.facility}
                     onChange={handleChange}
-                    className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white px-3 text-[11px] text-[#49394d] outline-none focus:border-[#bca16a]"
+                    className="h-10 w-full rounded-none border border-[#e2d9df] bg-white px-3 text-[11px] text-[#49394d] outline-none focus:border-[#bca16a]"
                   >
                     <option value="">
                       Select facility
@@ -417,7 +417,7 @@ function FacilityBookings() {
                     min={new Date()
                       .toISOString()
                       .split("T")[0]}
-                    className="h-10 w-full rounded-lg border border-[#e2d9df] px-3 text-[11px] text-[#49394d] outline-none focus:border-[#bca16a]"
+                    className="h-10 w-full rounded-none border border-[#e2d9df] px-3 text-[11px] text-[#49394d] outline-none focus:border-[#bca16a]"
                   />
                 </div>
 
@@ -434,7 +434,7 @@ function FacilityBookings() {
                       name="startTime"
                       value={formData.startTime}
                       onChange={handleChange}
-                      className="h-10 w-full rounded-lg border border-[#e2d9df] px-3 text-[11px] text-[#49394d] outline-none focus:border-[#bca16a]"
+                      className="h-10 w-full rounded-none border border-[#e2d9df] px-3 text-[11px] text-[#49394d] outline-none focus:border-[#bca16a]"
                     />
                   </div>
 
@@ -448,7 +448,7 @@ function FacilityBookings() {
                       name="endTime"
                       value={formData.endTime}
                       onChange={handleChange}
-                      className="h-10 w-full rounded-lg border border-[#e2d9df] px-3 text-[11px] text-[#49394d] outline-none focus:border-[#bca16a]"
+                      className="h-10 w-full rounded-none border border-[#e2d9df] px-3 text-[11px] text-[#49394d] outline-none focus:border-[#bca16a]"
                     />
                   </div>
 
@@ -466,7 +466,7 @@ function FacilityBookings() {
                     onChange={handleChange}
                     rows={4}
                     placeholder="Why do you want to book this facility?"
-                    className="w-full resize-none rounded-lg border border-[#e2d9df] px-3 py-2.5 text-[11px] text-[#49394d] outline-none focus:border-[#bca16a]"
+                    className="w-full resize-none rounded-none border border-[#e2d9df] px-3 py-2.5 text-[11px] text-[#49394d] outline-none focus:border-[#bca16a]"
                   />
                 </div>
 
@@ -476,7 +476,7 @@ function FacilityBookings() {
                   <button
                     type="button"
                     onClick={() => setShowForm(false)}
-                    className="rounded-lg border border-[#e2d9df] px-4 py-2.5 text-[10.5px] font-bold text-[#756b78] hover:bg-[#f7f3ed]"
+                    className="rounded-none border border-[#e2d9df] px-4 py-2.5 text-[10.5px] font-bold text-[#756b78] hover:bg-[#f7f3ed]"
                   >
                     Cancel
                   </button>
@@ -484,7 +484,7 @@ function FacilityBookings() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="rounded-none bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {submitting
                       ? "Submitting..."

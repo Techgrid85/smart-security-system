@@ -309,7 +309,7 @@ const AdminBookings = () => {
 
           <div className="flex items-center gap-3">
 
-            <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#63366f]">
+            <div className="flex h-10 w-10 items-center justify-center rounded-none bg-[#f7f3ed] text-[#63366f]">
               <CalendarDays size={20} />
             </div>
 
@@ -329,7 +329,7 @@ const AdminBookings = () => {
             type="button"
             onClick={refreshBookings}
             disabled={refreshing}
-            className="inline-flex w-fit items-center gap-2 rounded-xl border border-[#e2d9df] bg-white px-4 py-2.5 text-xs font-bold text-[#756b78] shadow-sm transition hover:bg-[#f7f3ed] disabled:opacity-50"
+            className="inline-flex w-fit items-center gap-2 rounded-none border border-[#e2d9df] bg-white px-4 py-2.5 text-xs font-bold text-[#756b78] shadow-sm transition hover:bg-[#f7f3ed] disabled:opacity-50"
           >
             <RefreshCw
               size={14}
@@ -383,11 +383,11 @@ const AdminBookings = () => {
             FILTERS
         ========================================== */}
 
-        <div className="mb-6 rounded-2xl border border-[#e2d9df] bg-white p-5 shadow-sm">
+        <div className="mb-6 rounded-none border border-[#e2d9df] bg-white p-5 shadow-sm">
 
           <div className="mb-4 flex items-center gap-3">
 
-            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#63366f]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#63366f]">
               <Search size={17} />
             </div>
 
@@ -419,7 +419,7 @@ const AdminBookings = () => {
                 onChange={(e) =>
                   setSearch(e.target.value)
                 }
-                className="w-full rounded-xl border border-[#e2d9df] bg-[#f7f3ed] py-3 pl-10 pr-4 text-xs font-medium text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#806d82] focus:bg-white"
+                className="w-full rounded-none border border-[#e2d9df] bg-[#f7f3ed] py-3 pl-10 pr-4 text-xs font-medium text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#806d82] focus:bg-white"
               />
 
             </div>
@@ -429,7 +429,7 @@ const AdminBookings = () => {
               onChange={(e) =>
                 setStatusFilter(e.target.value)
               }
-              className="rounded-xl border border-[#e2d9df] bg-[#f7f3ed] px-4 py-3 text-xs font-semibold text-[#756b78] outline-none focus:border-[#806d82] focus:bg-white"
+              className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] px-4 py-3 text-xs font-semibold text-[#756b78] outline-none focus:border-[#806d82] focus:bg-white"
             >
               <option value="All">
                 All Status
@@ -464,7 +464,7 @@ const AdminBookings = () => {
             BOOKINGS TABLE
         ========================================== */}
 
-        <section className="overflow-hidden rounded-2xl border border-[#e2d9df] bg-white shadow-sm">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white shadow-sm">
 
           {/* TABLE HEADER */}
 
@@ -472,7 +472,7 @@ const AdminBookings = () => {
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#63366f]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#63366f]">
                 <CalendarDays size={17} />
               </div>
 
@@ -488,7 +488,7 @@ const AdminBookings = () => {
 
             </div>
 
-            <span className="rounded-full bg-[#f7f3ed] px-3 py-1 text-[10px] font-bold text-[#63366f]">
+            <span className="rounded-none bg-[#f7f3ed] px-3 py-1 text-[10px] font-bold text-[#63366f]">
               {filteredBookings.length} Bookings
             </span>
 
@@ -585,7 +585,7 @@ const AdminBookings = () => {
 
                         <div className="flex items-center gap-3">
 
-                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-full bg-[#f7f3ed] text-[#63366f]">
+                          <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#63366f]">
                             <User size={15} />
                           </div>
 
@@ -682,7 +682,7 @@ const AdminBookings = () => {
                       <td className="px-5 py-4">
 
                         <span
-                          className={`inline-flex rounded-full px-3 py-1 text-[10px] font-bold ${getStatusClass(
+                          className={`inline-flex rounded-none px-3 py-1 text-[10px] font-bold ${getStatusClass(
                             booking.status
                           )}`}
                         >
@@ -707,7 +707,7 @@ const AdminBookings = () => {
                               )
                             }
                             title="View booking"
-                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e2d9df] bg-white text-[#8b778e] transition hover:border-[#e2d9df] hover:bg-[#f7f3ed] hover:text-[#63366f]"
+                            className="flex h-8 w-8 items-center justify-center rounded-none border border-[#e2d9df] bg-white text-[#8b778e] transition hover:border-[#e2d9df] hover:bg-[#f7f3ed] hover:text-[#63366f]"
                           >
                             <Eye size={15} />
                           </button>
@@ -725,7 +725,7 @@ const AdminBookings = () => {
                                 )
                               }
                               title="Approve"
-                              className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#f5eee2] bg-[#f7f3ed] text-[#9b7740] transition hover:bg-[#f5eee2]"
+                              className="flex h-8 w-8 items-center justify-center rounded-none border border-[#f5eee2] bg-[#f7f3ed] text-[#9b7740] transition hover:bg-[#f5eee2]"
                             >
                               <CheckCircle2
                                 size={15}
@@ -746,7 +746,7 @@ const AdminBookings = () => {
                                 )
                               }
                               title="Reject"
-                              className="flex h-8 w-8 items-center justify-center rounded-lg border border-red-100 bg-red-50 text-red-500 transition hover:bg-red-100"
+                              className="flex h-8 w-8 items-center justify-center rounded-none border border-red-100 bg-red-50 text-red-500 transition hover:bg-red-100"
                             >
                               <XCircle size={15} />
                             </button>
@@ -766,7 +766,7 @@ const AdminBookings = () => {
                                   )
                                 }
                                 title="Delete"
-                                className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e2d9df] bg-white text-[#8b778e] transition hover:border-red-100 hover:bg-red-50 hover:text-red-500"
+                                className="flex h-8 w-8 items-center justify-center rounded-none border border-[#e2d9df] bg-white text-[#8b778e] transition hover:border-red-100 hover:bg-red-50 hover:text-red-500"
                               >
                                 <Trash2 size={15} />
                               </button>
@@ -795,7 +795,7 @@ const AdminBookings = () => {
         {selectedBooking && !showActionModal && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/40 p-4 backdrop-blur-sm">
 
-            <div className="w-full max-w-lg overflow-hidden rounded-2xl border border-[#e2d9df] bg-white shadow-2xl">
+            <div className="w-full max-w-lg overflow-hidden rounded-none border border-[#e2d9df] bg-white shadow-2xl">
 
               {/* MODAL HEADER */}
 
@@ -816,7 +816,7 @@ const AdminBookings = () => {
                   onClick={() =>
                     setSelectedBooking(null)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
+                  className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -827,11 +827,11 @@ const AdminBookings = () => {
 
               <div className="space-y-5 p-5">
 
-                <div className="rounded-xl bg-[#f7f3ed] p-4">
+                <div className="rounded-none bg-[#f7f3ed] p-4">
 
                   <div className="flex items-center gap-3">
 
-                    <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#63366f]">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-none bg-white text-[#63366f]">
                       <Building2 size={20} />
                     </div>
 
@@ -888,7 +888,7 @@ const AdminBookings = () => {
                     Purpose
                   </p>
 
-                  <p className="mt-2 rounded-xl bg-[#f7f3ed] p-4 text-xs font-medium leading-6 text-[#756b78]">
+                  <p className="mt-2 rounded-none bg-[#f7f3ed] p-4 text-xs font-medium leading-6 text-[#756b78]">
                     {selectedBooking.purpose || "-"}
                   </p>
 
@@ -901,7 +901,7 @@ const AdminBookings = () => {
                   </p>
 
                   <span
-                    className={`mt-2 inline-flex rounded-full px-3 py-1 text-[10px] font-bold ${getStatusClass(
+                    className={`mt-2 inline-flex rounded-none px-3 py-1 text-[10px] font-bold ${getStatusClass(
                       selectedBooking.status
                     )}`}
                   >
@@ -917,7 +917,7 @@ const AdminBookings = () => {
                       Admin Remarks
                     </p>
 
-                    <p className="mt-2 rounded-xl bg-[#f7f3ed] p-4 text-xs leading-6 text-[#756b78]">
+                    <p className="mt-2 rounded-none bg-[#f7f3ed] p-4 text-xs leading-6 text-[#756b78]">
                       {selectedBooking.remarks}
                     </p>
 
@@ -938,7 +938,7 @@ const AdminBookings = () => {
         {showActionModal && selectedBooking && (
           <div className="fixed inset-0 z-[60] flex items-center justify-center bg-[#32143b]/40 p-4 backdrop-blur-sm">
 
-            <div className="w-full max-w-md overflow-hidden rounded-2xl border border-[#e2d9df] bg-white shadow-2xl">
+            <div className="w-full max-w-md overflow-hidden rounded-none border border-[#e2d9df] bg-white shadow-2xl">
 
               <div className="flex items-center justify-between border-b border-[#eee8ed] px-5 py-4">
 
@@ -962,7 +962,7 @@ const AdminBookings = () => {
                   onClick={() =>
                     setShowActionModal(false)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] hover:bg-[#eee8ed] hover:text-[#49394d]"
+                  className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -990,7 +990,7 @@ const AdminBookings = () => {
                         ? "Optional approval remarks..."
                         : "Reason for rejection..."
                     }
-                    className="w-full resize-none rounded-xl border border-[#e2d9df] bg-[#f7f3ed] p-3 text-xs font-medium text-[#49394d] outline-none placeholder:text-[#8b778e] focus:border-[#806d82] focus:bg-white"
+                    className="w-full resize-none rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-3 text-xs font-medium text-[#49394d] outline-none placeholder:text-[#8b778e] focus:border-[#806d82] focus:bg-white"
                   />
 
                 </div>
@@ -1002,7 +1002,7 @@ const AdminBookings = () => {
                     onClick={() =>
                       setShowActionModal(false)
                     }
-                    className="rounded-xl border border-[#e2d9df] bg-white px-4 py-2.5 text-xs font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
+                    className="rounded-none border border-[#e2d9df] bg-white px-4 py-2.5 text-xs font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
                   >
                     Cancel
                   </button>
@@ -1010,7 +1010,7 @@ const AdminBookings = () => {
                   <button
                     type="button"
                     onClick={updateStatus}
-                    className={`rounded-xl px-4 py-2.5 text-xs font-bold text-white transition ${
+                    className={`rounded-none px-4 py-2.5 text-xs font-bold text-white transition ${
                       actionType === "Approved"
                         ? "bg-[#9b7740] hover:bg-[#9b7740]"
                         : "bg-red-500 hover:bg-red-600"
@@ -1049,7 +1049,7 @@ function BookingStat({
   iconClass,
 }) {
   return (
-    <div className="rounded-2xl border border-[#e2d9df] bg-white p-5 shadow-sm transition hover:shadow-md">
+    <div className="rounded-none border border-[#e2d9df] bg-white p-5 shadow-sm transition hover:shadow-md">
 
       <div className="flex items-center justify-between">
 
@@ -1066,7 +1066,7 @@ function BookingStat({
         </div>
 
         <div
-          className={`flex h-10 w-10 items-center justify-center rounded-xl ${iconClass}`}
+          className={`flex h-10 w-10 items-center justify-center rounded-none ${iconClass}`}
         >
           {icon}
         </div>

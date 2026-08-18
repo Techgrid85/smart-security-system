@@ -221,7 +221,7 @@ function ResidentPolls() {
         </div>
 
         {/* POLLS */}
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -233,7 +233,7 @@ function ResidentPolls() {
               Available Polls
             </h2>
 
-            <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
+            <span className="rounded-none bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
               {polls.length}{" "}
               {polls.length === 1
                 ? "Poll"
@@ -251,13 +251,13 @@ function ResidentPolls() {
                 return (
                   <div
                     key={poll._id}
-                    className="rounded-[13px] border border-[#e2d9df] bg-[#f7f3ed] p-4"
+                    className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-4"
                   >
 
                     <div className="flex items-start gap-3">
 
                       {/* ICON */}
-                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-[10px] bg-[#f7f3ed] text-[#9b7740]">
+                      <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                         <Vote size={18} />
                       </div>
 
@@ -271,7 +271,7 @@ function ResidentPolls() {
                           </h3>
 
                           <span
-                            className={`rounded-full px-2 py-1 text-[8.5px] font-bold ${getStatusStyle(
+                            className={`rounded-none px-2 py-1 text-[8.5px] font-bold ${getStatusStyle(
                               status
                             )}`}
                           >
@@ -307,12 +307,12 @@ function ResidentPolls() {
                               onClick={() =>
                                 openVoteModal(poll)
                               }
-                              className="rounded-lg bg-[#9b7740] px-3.5 py-2 text-[10px] font-bold text-white shadow-sm transition hover:bg-[#9b7740]"
+                              className="rounded-none bg-[#9b7740] px-3.5 py-2 text-[10px] font-bold text-white shadow-sm transition hover:bg-[#9b7740]"
                             >
                               Vote Now
                             </button>
                           ) : (
-                            <span className="inline-flex items-center gap-1.5 rounded-lg bg-[#eee8ed] px-3 py-2 text-[10px] font-bold text-[#8b778e]">
+                            <span className="inline-flex items-center gap-1.5 rounded-none bg-[#eee8ed] px-3 py-2 text-[10px] font-bold text-[#8b778e]">
                               <CheckCircle2 size={13} />
                               Poll Closed
                             </span>
@@ -326,9 +326,9 @@ function ResidentPolls() {
                 );
               })
             ) : (
-              <div className="flex min-h-[220px] flex-col items-center justify-center rounded-[13px] border border-dashed border-[#e2d9df] bg-[#f7f3ed] px-5 text-center">
+              <div className="flex min-h-[220px] flex-col items-center justify-center rounded-none border border-dashed border-[#e2d9df] bg-[#f7f3ed] px-5 text-center">
 
-                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+                <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                   <Vote size={21} />
                 </div>
 
@@ -350,7 +350,7 @@ function ResidentPolls() {
         {showVoteModal && selectedPoll && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#210c28]/50 p-4">
 
-            <div className="w-full max-w-md overflow-hidden rounded-[16px] bg-white shadow-2xl">
+            <div className="w-full max-w-md overflow-hidden rounded-none bg-white shadow-2xl">
 
               {/* HEADER */}
               <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
@@ -370,7 +370,7 @@ function ResidentPolls() {
                   onClick={() =>
                     setShowVoteModal(false)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] hover:bg-[#eee8ed] hover:text-[#49394d]"
+                  className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -403,7 +403,7 @@ function ResidentPolls() {
                     return (
                       <label
                         key={optionId}
-                        className={`flex cursor-pointer items-center gap-3 rounded-lg border px-3 py-3 transition ${selectedOption === optionId
+                        className={`flex cursor-pointer items-center gap-3 rounded-none border px-3 py-3 transition ${selectedOption === optionId
                             ? "border-[#bca16a] bg-[#f7f3ed]"
                             : "border-[#e2d9df] hover:bg-[#f7f3ed]"
                           }`}
@@ -436,7 +436,7 @@ function ResidentPolls() {
                     onClick={() =>
                       setShowVoteModal(false)
                     }
-                    className="rounded-lg border border-[#e2d9df] px-4 py-2.5 text-[10.5px] font-bold text-[#756b78] hover:bg-[#f7f3ed]"
+                    className="rounded-none border border-[#e2d9df] px-4 py-2.5 text-[10.5px] font-bold text-[#756b78] hover:bg-[#f7f3ed]"
                   >
                     Cancel
                   </button>
@@ -447,7 +447,7 @@ function ResidentPolls() {
                       submitting ||
                       !selectedOption
                     }
-                    className="rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="rounded-none bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {submitting
                       ? "Submitting..."

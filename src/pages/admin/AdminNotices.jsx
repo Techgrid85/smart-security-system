@@ -337,7 +337,7 @@ function AdminNotices() {
               type="button"
               onClick={() => fetchNotices(true)}
               disabled={refreshing}
-              className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-60"
+              className="inline-flex items-center justify-center gap-2 rounded-none border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-60"
             >
               <RefreshCw
                 size={14}
@@ -351,7 +351,7 @@ function AdminNotices() {
             <button
               type="button"
               onClick={openCreateModal}
-              className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
+              className="inline-flex items-center justify-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
             >
               <Plus size={15} />
               Create Notice
@@ -397,7 +397,7 @@ function AdminNotices() {
 
         {/* ================= FILTERS ================= */}
 
-        <div className="mb-5 rounded-[16px] border border-[#e2d9df] bg-white p-4">
+        <div className="mb-5 rounded-none border border-[#e2d9df] bg-white p-4">
 
           <div className="flex flex-col gap-3 lg:flex-row">
 
@@ -415,7 +415,7 @@ function AdminNotices() {
                   setSearch(e.target.value)
                 }
                 placeholder="Search notices by title or description..."
-                className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-4 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
+                className="w-full rounded-none border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-4 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
               />
 
             </div>
@@ -425,7 +425,7 @@ function AdminNotices() {
               onChange={(e) =>
                 setPriorityFilter(e.target.value)
               }
-              className="rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-4 py-2.5 text-[12px] font-bold text-[#756b78] outline-none focus:border-[#bca16a]"
+              className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] px-4 py-2.5 text-[12px] font-bold text-[#756b78] outline-none focus:border-[#bca16a]"
             >
               <option value="All">
                 All Priorities
@@ -451,7 +451,7 @@ function AdminNotices() {
         {/* ================= ERROR ================= */}
 
         {error && (
-          <div className="mb-5 flex items-center justify-between gap-3 rounded-[12px] border border-red-200 bg-red-50 px-4 py-3">
+          <div className="mb-5 flex items-center justify-between gap-3 rounded-none border border-red-200 bg-red-50 px-4 py-3">
 
             <p className="text-[12px] font-medium text-red-600">
               {error}
@@ -470,13 +470,13 @@ function AdminNotices() {
 
         {/* ================= NOTICES TABLE ================= */}
 
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <Bell size={17} />
               </div>
 
@@ -492,7 +492,7 @@ function AdminNotices() {
 
             </div>
 
-            <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
+            <span className="rounded-none bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
               {filteredNotices.length} Notices
             </span>
 
@@ -556,7 +556,7 @@ function AdminNotices() {
 
                         <div className="flex items-start gap-3">
 
-                          <div className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${getPriorityIconClass(
+                          <div className={`mt-0.5 flex h-8 w-8 shrink-0 items-center justify-center rounded-none ${getPriorityIconClass(
                             notice.priority
                           )}`}>
                             <Bell size={14} />
@@ -592,7 +592,7 @@ function AdminNotices() {
 
                         <div className="flex items-center gap-2">
 
-                          <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#eee8ed] text-[#756b78]">
+                          <div className="flex h-7 w-7 items-center justify-center rounded-none bg-[#eee8ed] text-[#756b78]">
                             <User size={13} />
                           </div>
 
@@ -636,7 +636,7 @@ function AdminNotices() {
                               openEditModal(notice)
                             }
                             title="Edit Notice"
-                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e2d9df] text-[#756b78] transition hover:border-[#e2d9df] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
+                            className="flex h-8 w-8 items-center justify-center rounded-none border border-[#e2d9df] text-[#756b78] transition hover:border-[#e2d9df] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
                           >
                             <Pencil size={14} />
                           </button>
@@ -647,7 +647,7 @@ function AdminNotices() {
                               deleteNotice(notice)
                             }
                             title="Delete Notice"
-                            className="flex h-8 w-8 items-center justify-center rounded-lg border border-[#e2d9df] text-[#756b78] transition hover:border-red-200 hover:bg-red-50 hover:text-red-500"
+                            className="flex h-8 w-8 items-center justify-center rounded-none border border-[#e2d9df] text-[#756b78] transition hover:border-red-200 hover:bg-red-50 hover:text-red-500"
                           >
                             <Trash2 size={14} />
                           </button>
@@ -685,7 +685,7 @@ function AdminNotices() {
                   <button
                     type="button"
                     onClick={openCreateModal}
-                    className="mt-4 inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white hover:bg-[#9b7740]"
+                    className="mt-4 inline-flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white hover:bg-[#9b7740]"
                   >
                     <Plus size={14} />
                     Create First Notice
@@ -702,7 +702,7 @@ function AdminNotices() {
         {showModal && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#32143b]/40 p-4 backdrop-blur-[2px]">
 
-            <div className="w-full max-w-[560px] overflow-hidden rounded-[18px] border border-[#e2d9df] bg-white shadow-2xl">
+            <div className="w-full max-w-[560px] overflow-hidden rounded-none border border-[#e2d9df] bg-white shadow-2xl">
 
               {/* MODAL HEADER */}
 
@@ -710,7 +710,7 @@ function AdminNotices() {
 
                 <div className="flex items-center gap-3">
 
-                  <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+                  <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                     {editingNotice ? (
                       <Pencil size={17} />
                     ) : (
@@ -738,7 +738,7 @@ function AdminNotices() {
                   type="button"
                   onClick={closeModal}
                   disabled={submitting}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d] disabled:opacity-50"
+                  className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d] disabled:opacity-50"
                 >
                   <X size={17} />
                 </button>
@@ -769,7 +769,7 @@ function AdminNotices() {
                       onChange={handleChange}
                       maxLength={150}
                       placeholder="Enter notice title..."
-                      className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[12px] font-medium text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#bca16a] focus:bg-white"
+                      className="w-full rounded-none border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[12px] font-medium text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#bca16a] focus:bg-white"
                     />
 
                   </div>
@@ -786,7 +786,7 @@ function AdminNotices() {
                       name="priority"
                       value={formData.priority}
                       onChange={handleChange}
-                      className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[12px] font-bold text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
+                      className="w-full rounded-none border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[12px] font-bold text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
                     >
                       <option value="Normal">
                         Normal
@@ -826,7 +826,7 @@ function AdminNotices() {
                       maxLength={2000}
                       rows={6}
                       placeholder="Write the notice details..."
-                      className="w-full resize-none rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-3 text-[12px] font-medium leading-5 text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#bca16a] focus:bg-white"
+                      className="w-full resize-none rounded-none border border-[#e2d9df] bg-[#f7f3ed] px-3 py-3 text-[12px] font-medium leading-5 text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#bca16a] focus:bg-white"
                     />
 
                   </div>
@@ -841,7 +841,7 @@ function AdminNotices() {
                     type="button"
                     onClick={closeModal}
                     disabled={submitting}
-                    className="rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
+                    className="rounded-none border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -849,7 +849,7 @@ function AdminNotices() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:opacity-60"
+                    className="inline-flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:opacity-60"
                   >
 
                     {submitting && (
@@ -891,7 +891,7 @@ function StatCard({
   iconClass,
 }) {
   return (
-    <div className="flex items-center justify-between rounded-[16px] border border-[#e2d9df] bg-white p-4">
+    <div className="flex items-center justify-between rounded-none border border-[#e2d9df] bg-white p-4">
 
       <div>
         <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
@@ -904,7 +904,7 @@ function StatCard({
       </div>
 
       <div
-        className={`flex h-9 w-9 items-center justify-center rounded-xl ${iconClass}`}
+        className={`flex h-9 w-9 items-center justify-center rounded-none ${iconClass}`}
       >
         {icon}
       </div>
@@ -921,7 +921,7 @@ function StatCard({
 function PriorityBadge({ priority }) {
   if (priority === "Urgent") {
     return (
-      <span className="inline-flex rounded-full bg-red-50 px-2.5 py-1 text-[10px] font-bold text-red-600">
+      <span className="inline-flex rounded-none bg-red-50 px-2.5 py-1 text-[10px] font-bold text-red-600">
         Urgent
       </span>
     );
@@ -929,14 +929,14 @@ function PriorityBadge({ priority }) {
 
   if (priority === "Important") {
     return (
-      <span className="inline-flex rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+      <span className="inline-flex rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         Important
       </span>
     );
   }
 
   return (
-    <span className="inline-flex rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
+    <span className="inline-flex rounded-none bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
       Normal
     </span>
   );

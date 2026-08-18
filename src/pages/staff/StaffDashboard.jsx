@@ -146,8 +146,8 @@ function StaffDashboard() {
   const StatusBadge = ({ status }) => {
     if (status === "Resolved") {
       return (
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#9b7740]" />
+        <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
+          <span className="h-1.5 w-1.5 rounded-none bg-[#9b7740]" />
           Resolved
         </span>
       );
@@ -155,16 +155,16 @@ function StaffDashboard() {
 
     if (status === "In Progress") {
       return (
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
-          <span className="h-1.5 w-1.5 rounded-full bg-[#9b7740]" />
+        <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
+          <span className="h-1.5 w-1.5 rounded-none bg-[#9b7740]" />
           In Progress
         </span>
       );
     }
 
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 px-2.5 py-1 text-[9.5px] font-bold text-red-600">
-        <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-red-50 px-2.5 py-1 text-[9.5px] font-bold text-red-600">
+        <span className="h-1.5 w-1.5 rounded-none bg-red-500" />
         Pending
       </span>
     );
@@ -183,7 +183,7 @@ function StaffDashboard() {
 
     return (
       <span
-        className={`rounded-full px-2 py-1 text-[9.5px] font-bold ${
+        className={`rounded-none px-2 py-1 text-[9.5px] font-bold ${
           styles[priority] || styles.Normal
         }`}
       >
@@ -222,7 +222,7 @@ function StaffDashboard() {
               type="button"
               onClick={fetchDashboardData}
               disabled={loading}
-              className="inline-flex h-9 items-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 text-[10px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
+              className="inline-flex h-9 items-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3 text-[10px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
             >
               <RefreshCw
                 size={13}
@@ -234,7 +234,7 @@ function StaffDashboard() {
               Refresh
             </button>
 
-            <div className="hidden items-center gap-2 rounded-[10px] border border-[#e2d9df] bg-white px-3 py-2 sm:flex">
+            <div className="hidden items-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3 py-2 sm:flex">
 
               <UserCircle
                 size={15}
@@ -313,7 +313,7 @@ function StaffDashboard() {
         {/* QUICK ACTIONS */}
         {/* ========================================== */}
 
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="mt-6 overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center border-b border-[#e2d9df] px-5 py-4">
 
@@ -385,7 +385,7 @@ function StaffDashboard() {
 
         <section
           id="assigned-complaints"
-          className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white"
+          className="mt-6 overflow-hidden rounded-none border border-[#e2d9df] bg-white"
         >
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
@@ -409,7 +409,7 @@ function StaffDashboard() {
 
             </div>
 
-            <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
+            <span className="rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
               {complaints.length} Total
             </span>
 
@@ -436,7 +436,7 @@ function StaffDashboard() {
 
             <div className="px-5 py-16 text-center">
 
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <CheckCircle2 size={22} />
               </div>
 
@@ -563,7 +563,7 @@ function StaffDashboard() {
 
                           <td className="px-4 py-4">
 
-                            <span className="rounded-lg bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-semibold text-[#756b78]">
+                            <span className="rounded-none bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-semibold text-[#756b78]">
                               {complaint.category}
                             </span>
 
@@ -607,7 +607,7 @@ function StaffDashboard() {
                                       "In Progress"
                                     )
                                   }
-                                  className="rounded-lg bg-[#9b7740] px-3 py-1.5 text-[9px] font-bold text-white transition hover:bg-[#9b7740]"
+                                  className="rounded-none bg-[#9b7740] px-3 py-1.5 text-[9px] font-bold text-white transition hover:bg-[#9b7740]"
                                 >
                                   Start Work
                                 </button>
@@ -623,7 +623,7 @@ function StaffDashboard() {
                                       "Resolved"
                                     )
                                   }
-                                  className="rounded-lg bg-[#9b7740] px-3 py-1.5 text-[9px] font-bold text-white transition hover:bg-[#9b7740]"
+                                  className="rounded-none bg-[#9b7740] px-3 py-1.5 text-[9px] font-bold text-white transition hover:bg-[#9b7740]"
                                 >
                                   Mark Completed
                                 </button>
@@ -695,7 +695,7 @@ function StaffDashboard() {
         {/* MAINTENANCE NOTE */}
         {/* ========================================== */}
 
-        <section className="mt-6 rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="mt-6 rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -789,11 +789,11 @@ function QuickAction({
     <button
       type="button"
       onClick={onClick}
-      className={`group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[13px] border-[1.5px] border-dashed border-[#e2d9df] bg-[#f7f3ed] transition ${current.hover}`}
+      className={`group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-none border-[1.5px] border-dashed border-[#e2d9df] bg-[#f7f3ed] transition ${current.hover}`}
     >
 
       <div
-        className={`flex h-11 w-11 items-center justify-center rounded-xl ${current.bg} ${current.text} transition group-hover:scale-110`}
+        className={`flex h-11 w-11 items-center justify-center rounded-none ${current.bg} ${current.text} transition group-hover:scale-110`}
       >
         <Icon size={20} />
       </div>
@@ -844,14 +844,14 @@ function StaffStat({
   const current = tones[tone];
 
   return (
-    <div className="relative overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white p-5">
+    <div className="relative overflow-hidden rounded-none border border-[#e2d9df] bg-white p-5">
 
       <div
-        className={`absolute -right-5 -top-5 h-20 w-20 rounded-full opacity-[0.06] ${current.circle}`}
+        className={`absolute -right-5 -top-5 h-20 w-20 rounded-none opacity-[0.06] ${current.circle}`}
       />
 
       <div
-        className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${current.icon}`}
+        className={`mb-4 flex h-11 w-11 items-center justify-center rounded-none ${current.icon}`}
       >
         <Icon size={20} />
       </div>
@@ -871,7 +871,7 @@ function StaffStat({
       <div className="mt-3">
 
         <span
-          className={`inline-flex items-center gap-1 rounded-full px-2 py-1 text-[10px] font-semibold ${
+          className={`inline-flex items-center gap-1 rounded-none px-2 py-1 text-[10px] font-semibold ${
             changeType === "up"
               ? "bg-[#f7f3ed] text-[#9b7740]"
               : changeType === "down"
@@ -919,12 +919,12 @@ function SummaryCard({
   color,
 }) {
   return (
-    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-5">
+    <div className="rounded-none border border-[#e2d9df] bg-white p-5">
 
       <div className="flex items-start justify-between">
 
         <div
-          className={`flex h-10 w-10 items-center justify-center rounded-xl ${color}`}
+          className={`flex h-10 w-10 items-center justify-center rounded-none ${color}`}
         >
           <Icon size={18} />
         </div>
@@ -963,11 +963,11 @@ function WorkflowStep({
   text,
 }) {
   return (
-    <div className="rounded-[12px] border border-[#e2d9df] bg-[#f7f3ed] p-4">
+    <div className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
       <div className="flex items-center gap-3">
 
-        <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#9b7740] text-[11px] font-extrabold text-white">
+        <div className="flex h-8 w-8 items-center justify-center rounded-none bg-[#9b7740] text-[11px] font-extrabold text-white">
           {number}
         </div>
 

@@ -196,7 +196,7 @@ function AllVisitors() {
             type="button"
             onClick={() => fetchVisitors()}
             disabled={loading}
-            className="flex h-10 items-center gap-2 rounded-xl border border-[#e2d9df] bg-white px-4 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
+            className="flex h-10 items-center gap-2 rounded-none border border-[#e2d9df] bg-white px-4 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
           >
             <RefreshCw
               size={15}
@@ -261,7 +261,7 @@ function AllVisitors() {
         {/* SEARCH & FILTERS */}
         {/* ========================================== */}
 
-        <section className="mb-6 rounded-[18px] border border-[#e2d9df] bg-white p-5">
+        <section className="mb-6 rounded-none border border-[#e2d9df] bg-white p-5">
 
           <form
             onSubmit={handleSearch}
@@ -282,7 +282,7 @@ function AllVisitors() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search visitor, phone or flat number..."
-                className="h-11 w-full rounded-xl border border-[#e2d9df] bg-[#f7f3ed] pl-10 pr-4 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#bca16a] focus:bg-white focus:ring-4 focus:ring-[#f7f3ed]"
+                className="h-11 w-full rounded-none border border-[#e2d9df] bg-[#f7f3ed] pl-10 pr-4 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#8b778e] focus:border-[#bca16a] focus:bg-white focus:ring-4 focus:ring-[#f7f3ed]"
               />
 
             </div>
@@ -294,7 +294,7 @@ function AllVisitors() {
               onChange={(e) =>
                 handleStatusChange(e.target.value)
               }
-              className="h-11 rounded-xl border border-[#e2d9df] bg-white px-3 text-[10.5px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
+              className="h-11 rounded-none border border-[#e2d9df] bg-white px-3 text-[10.5px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
             >
               <option value="All">
                 All Pass Status
@@ -321,7 +321,7 @@ function AllVisitors() {
               onChange={(e) =>
                 handleGateStatusChange(e.target.value)
               }
-              className="h-11 rounded-xl border border-[#e2d9df] bg-white px-3 text-[10.5px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
+              className="h-11 rounded-none border border-[#e2d9df] bg-white px-3 text-[10.5px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
             >
               <option value="All">
                 All Gate Status
@@ -343,7 +343,7 @@ function AllVisitors() {
 
             <button
               type="submit"
-              className="flex h-11 items-center justify-center gap-2 rounded-xl bg-[#9b7740] px-5 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740]"
+              className="flex h-11 items-center justify-center gap-2 rounded-none bg-[#9b7740] px-5 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740]"
             >
               <Search size={15} />
               Search
@@ -352,7 +352,7 @@ function AllVisitors() {
             <button
               type="button"
               onClick={handleReset}
-              className="h-11 rounded-xl border border-[#e2d9df] px-4 text-[10.5px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
+              className="h-11 rounded-none border border-[#e2d9df] px-4 text-[10.5px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
             >
               Reset
             </button>
@@ -365,7 +365,7 @@ function AllVisitors() {
         {/* VISITORS TABLE */}
         {/* ========================================== */}
 
-        <section className="overflow-hidden rounded-[18px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex flex-wrap items-center justify-between gap-3 border-b border-[#e2d9df] px-5 py-4">
 
@@ -406,7 +406,7 @@ function AllVisitors() {
 
             <div className="flex min-h-[350px] flex-col items-center justify-center px-5 text-center">
 
-              <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#f7f3ed] text-[#8b778e]">
+              <div className="flex h-14 w-14 items-center justify-center rounded-none bg-[#f7f3ed] text-[#8b778e]">
                 <Users size={24} />
               </div>
 
@@ -459,7 +459,7 @@ function AllVisitors() {
 
                         <div className="flex items-center gap-3">
 
-                          <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+                          <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                             <User size={16} />
                           </div>
 
@@ -541,7 +541,7 @@ function AllVisitors() {
                         <button
                           type="button"
                           onClick={() => setSelectedVisitor(visitor)}
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-[#e2d9df] px-3 py-2 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
+                          className="inline-flex items-center gap-1.5 rounded-none border border-[#e2d9df] px-3 py-2 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
                         >
                           <Eye size={13} />
                           View
@@ -601,10 +601,10 @@ function StatCard({
   };
 
   return (
-    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-5">
+    <div className="rounded-none border border-[#e2d9df] bg-white p-5">
 
       <div
-        className={`flex h-10 w-10 items-center justify-center rounded-xl ${styles[tone]}`}
+        className={`flex h-10 w-10 items-center justify-center rounded-none ${styles[tone]}`}
       >
         <Icon size={18} />
       </div>
@@ -653,7 +653,7 @@ function PassStatus({ status }) {
 
   return (
     <span
-      className={`inline-flex rounded-full px-2.5 py-1 text-[9px] font-bold ${
+      className={`inline-flex rounded-none px-2.5 py-1 text-[9px] font-bold ${
         styles[status] ||
         "bg-[#eee8ed] text-[#756b78]"
       }`}
@@ -680,7 +680,7 @@ function GateStatus({ status }) {
 
   return (
     <span
-      className={`inline-flex rounded-full px-2.5 py-1 text-[9px] font-bold ${
+      className={`inline-flex rounded-none px-2.5 py-1 text-[9px] font-bold ${
         styles[status] ||
         "bg-[#eee8ed] text-[#756b78]"
       }`}
@@ -702,7 +702,7 @@ function VisitorModal({
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/40 p-4">
 
-      <div className="w-full max-w-[650px] overflow-hidden rounded-[20px] bg-white shadow-xl">
+      <div className="w-full max-w-[650px] overflow-hidden rounded-none bg-white shadow-xl">
 
         <div className="flex items-start justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -721,7 +721,7 @@ function VisitorModal({
           <button
             type="button"
             onClick={onClose}
-            className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed]"
+            className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] transition hover:bg-[#eee8ed]"
           >
             ×
           </button>
@@ -800,7 +800,7 @@ function VisitorModal({
           <button
             type="button"
             onClick={onClose}
-            className="h-10 rounded-xl bg-[#32143b] px-5 text-[10.5px] font-bold text-white transition hover:bg-[#49394d]"
+            className="h-10 rounded-none bg-[#32143b] px-5 text-[10.5px] font-bold text-white transition hover:bg-[#49394d]"
           >
             Close
           </button>

@@ -198,7 +198,7 @@ function AdminSecurity() {
           <button
             type="button"
             onClick={fetchSecurityData}
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
+            className="inline-flex items-center justify-center gap-2 rounded-none border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
           >
             <RefreshCw size={14} />
             Refresh
@@ -241,7 +241,7 @@ function AdminSecurity() {
 
         {/* ================= SEARCH ================= */}
 
-        <div className="mb-5 rounded-[16px] border border-[#e2d9df] bg-white p-4">
+        <div className="mb-5 rounded-none border border-[#e2d9df] bg-white p-4">
 
           <div className="mb-4 flex items-center gap-2">
             <Search size={17} className="text-[#9b7740]" />
@@ -268,7 +268,7 @@ function AdminSecurity() {
               value={search}
               onChange={(e) => handleSearch(e.target.value)}
               placeholder="Search visitor, phone or flat..."
-              className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-10 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
+              className="w-full rounded-none border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-10 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
             />
 
             {searching && (
@@ -282,7 +282,7 @@ function AdminSecurity() {
           {/* SEARCH RESULTS */}
 
           {search.trim() && (
-            <div className="mt-4 overflow-hidden rounded-[12px] border border-[#e2d9df]">
+            <div className="mt-4 overflow-hidden rounded-none border border-[#e2d9df]">
 
               <div className="border-b border-[#e2d9df] bg-[#f7f3ed] px-4 py-3">
                 <p className="text-[10.5px] font-bold uppercase tracking-wide text-[#8b778e]">
@@ -332,7 +332,7 @@ function AdminSecurity() {
                           <td className="px-4 py-3">
                             <div className="flex items-center gap-2">
 
-                              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
+                              <div className="flex h-7 w-7 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                                 <User size={13} />
                               </div>
 
@@ -404,7 +404,7 @@ function AdminSecurity() {
         {/* ================= ERROR ================= */}
 
         {error && (
-          <div className="mb-5 flex items-center justify-between rounded-[12px] border border-red-200 bg-red-50 px-4 py-3">
+          <div className="mb-5 flex items-center justify-between rounded-none border border-red-200 bg-red-50 px-4 py-3">
 
             <p className="text-[12px] font-medium text-red-600">
               {error}
@@ -423,13 +423,13 @@ function AdminSecurity() {
 
         {/* ================= OVERSTAY ALERTS ================= */}
 
-        <section className="mb-5 overflow-hidden rounded-[16px] border border-red-200 bg-white">
+        <section className="mb-5 overflow-hidden rounded-none border border-red-200 bg-white">
 
           <div className="flex items-center justify-between border-b border-red-100 px-5 py-4">
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-red-50 text-red-500">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-red-50 text-red-500">
                 <AlertTriangle size={17} />
               </div>
 
@@ -445,7 +445,7 @@ function AdminSecurity() {
 
             </div>
 
-            <span className="rounded-full bg-red-50 px-2.5 py-1 text-[10px] font-bold text-red-500">
+            <span className="rounded-none bg-red-50 px-2.5 py-1 text-[10px] font-bold text-red-500">
               {overstayAlerts.length} Alerts
             </span>
 
@@ -490,7 +490,7 @@ function AdminSecurity() {
 
                         <div className="flex items-center gap-2">
 
-                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-red-50 text-red-500">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-none bg-red-50 text-red-500">
                             <User size={14} />
                           </div>
 
@@ -557,13 +557,13 @@ function AdminSecurity() {
 
         {/* ================= ACTIVE VISITORS ================= */}
 
-        <section className="mb-5 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="mb-5 overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <Users size={17} />
               </div>
 
@@ -579,7 +579,7 @@ function AdminSecurity() {
 
             </div>
 
-            <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+            <span className="rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
               {activeVisitors.length} Inside
             </span>
 
@@ -591,14 +591,14 @@ function AdminSecurity() {
               {activeVisitors.map((visitor) => (
                 <div
                   key={visitor._id}
-                  className="rounded-[13px] border border-[#e2d9df] bg-[#f7f3ed] p-4 transition hover:border-[#e2d9df]"
+                  className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-4 transition hover:border-[#e2d9df]"
                 >
 
                   <div className="flex items-start justify-between">
 
                     <div className="flex items-center gap-2">
 
-                      <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                         <User size={15} />
                       </div>
 
@@ -614,7 +614,7 @@ function AdminSecurity() {
 
                     </div>
 
-                    <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
+                    <span className="rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
                       Inside
                     </span>
 
@@ -701,7 +701,7 @@ function AdminSecurity() {
         {loading && (
           <div className="flex min-h-[60vh] items-center justify-center">
           <div className="text-center">
-            <div className="mx-auto h-10 w-10 animate-spin rounded-full border-4 border-[#9b7740] border-t-transparent" />
+            <div className="mx-auto h-10 w-10 animate-spin rounded-none border-4 border-[#9b7740] border-t-transparent" />
 
             <p className="mt-4 text-sm font-medium text-[#756b78]">
               Loading Security...
@@ -726,7 +726,7 @@ function StatCard({
   iconClass,
 }) {
   return (
-    <div className="flex items-center justify-between rounded-[16px] border border-[#e2d9df] bg-white p-4">
+    <div className="flex items-center justify-between rounded-none border border-[#e2d9df] bg-white p-4">
 
       <div>
         <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
@@ -739,7 +739,7 @@ function StatCard({
       </div>
 
       <div
-        className={`flex h-9 w-9 items-center justify-center rounded-xl ${iconClass}`}
+        className={`flex h-9 w-9 items-center justify-center rounded-none ${iconClass}`}
       >
         {icon}
       </div>
@@ -775,7 +775,7 @@ function InfoRow({ label, value }) {
 function SecurityStatusBadge({ status }) {
   if (status === "Approved") {
     return (
-      <span className="inline-flex rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+      <span className="inline-flex rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         Approved
       </span>
     );
@@ -783,7 +783,7 @@ function SecurityStatusBadge({ status }) {
 
   if (status === "Completed") {
     return (
-      <span className="inline-flex rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
+      <span className="inline-flex rounded-none bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
         Completed
       </span>
     );
@@ -791,14 +791,14 @@ function SecurityStatusBadge({ status }) {
 
   if (status === "Rejected") {
     return (
-      <span className="inline-flex rounded-full bg-red-50 px-2.5 py-1 text-[10px] font-bold text-red-600">
+      <span className="inline-flex rounded-none bg-red-50 px-2.5 py-1 text-[10px] font-bold text-red-600">
         Rejected
       </span>
     );
   }
 
   return (
-    <span className="inline-flex rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+    <span className="inline-flex rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
       Pending
     </span>
   );
@@ -811,7 +811,7 @@ function SecurityStatusBadge({ status }) {
 function GateStatusBadge({ status }) {
   if (status === "Inside") {
     return (
-      <span className="inline-flex rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+      <span className="inline-flex rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         Inside
       </span>
     );
@@ -819,14 +819,14 @@ function GateStatusBadge({ status }) {
 
   if (status === "Exited") {
     return (
-      <span className="inline-flex rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
+      <span className="inline-flex rounded-none bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
         Exited
       </span>
     );
   }
 
   return (
-    <span className="inline-flex rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+    <span className="inline-flex rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
       Not Entered
     </span>
   );
@@ -847,14 +847,14 @@ function LogSection({
   emptyText,
 }) {
   return (
-    <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+    <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
       <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
         <div className="flex items-center gap-3">
 
           <div
-            className={`flex h-9 w-9 items-center justify-center rounded-xl ${iconClass}`}
+            className={`flex h-9 w-9 items-center justify-center rounded-none ${iconClass}`}
           >
             {icon}
           </div>
@@ -883,12 +883,12 @@ function LogSection({
           {logs.slice(0, 8).map((visitor) => (
             <div
               key={visitor._id}
-              className="flex items-center justify-between gap-3 rounded-[11px] border border-[#e2d9df] bg-[#f7f3ed] p-3 transition hover:bg-white"
+              className="flex items-center justify-between gap-3 rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-3 transition hover:bg-white"
             >
 
               <div className="flex min-w-0 items-center gap-2">
 
-                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-white text-[#756b78]">
+                <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-none bg-white text-[#756b78]">
                   <User size={14} />
                 </div>
 

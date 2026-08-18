@@ -123,7 +123,7 @@ function AdminDashboard() {
                 h-10
                 w-10
                 animate-spin
-                rounded-full
+                rounded-none
                 border-4
                 border-[#9b7740]
                 border-t-transparent
@@ -150,7 +150,7 @@ function AdminDashboard() {
           <div
             className="
               max-w-md
-              rounded-2xl
+              rounded-none
               border
               border-red-200
               bg-white
@@ -176,7 +176,7 @@ function AdminDashboard() {
               onClick={fetchDashboard}
               className="
                 mt-5
-                rounded-lg
+                rounded-none
                 bg-[#32143b]
                 px-4
                 py-2
@@ -232,7 +232,7 @@ function AdminDashboard() {
               hidden
               items-center
               gap-2
-              rounded-lg
+              rounded-none
               bg-[#9b7740]
               px-4
               py-2.5
@@ -307,7 +307,7 @@ function AdminDashboard() {
           className="
             mt-6
             overflow-hidden
-            rounded-xl
+            rounded-none
             border
             border-[#32143b]/10
             bg-white
@@ -373,7 +373,7 @@ function AdminDashboard() {
                     items-center
                     justify-center
                     gap-3
-                    rounded-lg
+                    rounded-none
                     border-[1.5px]
                     border-dashed
                     border-[#32143b]/10
@@ -394,7 +394,7 @@ function AdminDashboard() {
                       w-11
                       items-center
                       justify-center
-                      rounded-xl
+                      rounded-none
                       ${action.bg}
                       ${action.color}
                       transition
@@ -434,7 +434,7 @@ function AdminDashboard() {
           <section
             className="
               overflow-hidden
-              rounded-xl
+              rounded-none
               border
               border-[#32143b]/10
               bg-white
@@ -535,7 +535,7 @@ function AdminDashboard() {
 
                           <td className="px-4 py-3.5">
 
-                            <span className="rounded-md bg-[#f4f0f5] px-2 py-1 text-[10px] font-bold text-[#32143b]/60">
+                            <span className="rounded-none bg-[#f4f0f5] px-2 py-1 text-[10px] font-bold text-[#32143b]/60">
                               {complaint.category}
                             </span>
 
@@ -572,7 +572,7 @@ function AdminDashboard() {
 
           <section
             className="
-              rounded-xl
+              rounded-none
               border
               border-[#32143b]/10
               bg-white
@@ -611,7 +611,7 @@ function AdminDashboard() {
                       flex
                       items-center
                       gap-3
-                      rounded-lg
+                      rounded-none
                       border
                       border-[#32143b]/8
                       bg-[#fcfafc]
@@ -628,7 +628,7 @@ function AdminDashboard() {
                         shrink-0
                         items-center
                         justify-center
-                        rounded-lg
+                        rounded-none
                         bg-[#f4eee4]
                         text-[#9b7740]
                       "
@@ -678,7 +678,7 @@ function AdminDashboard() {
 
           <section
             className="
-              rounded-xl
+              rounded-none
               border
               border-[#32143b]/10
               bg-white
@@ -749,7 +749,7 @@ function AdminDashboard() {
 
           <section
             className="
-              rounded-xl
+              rounded-none
               border
               border-[#32143b]/10
               bg-white
@@ -836,7 +836,7 @@ function StatCard({
       className="
         relative
         overflow-hidden
-        rounded-xl
+        rounded-none
         border
         border-[#32143b]/10
         bg-white
@@ -852,7 +852,7 @@ function StatCard({
           -top-5
           h-20
           w-20
-          rounded-full
+          rounded-none
           opacity-[0.06]
           ${current.circle}
         `}
@@ -866,7 +866,7 @@ function StatCard({
           w-11
           items-center
           justify-center
-          rounded-xl
+          rounded-none
           ${current.icon}
         `}
       >
@@ -910,7 +910,7 @@ function ChangeBadge({ type, text }) {
           inline-flex
           items-center
           gap-1
-          rounded-md
+          rounded-none
           bg-[#f4eee4]
           px-2
           py-1
@@ -932,7 +932,7 @@ function ChangeBadge({ type, text }) {
           inline-flex
           items-center
           gap-1
-          rounded-md
+          rounded-none
           bg-red-50
           px-2
           py-1
@@ -953,7 +953,7 @@ function ChangeBadge({ type, text }) {
         inline-flex
         items-center
         gap-1
-        rounded-md
+        rounded-none
         bg-[#f4f0f5]
         px-2
         py-1
@@ -977,8 +977,8 @@ function StatusBadge({ status }) {
 
   if (status === "Pending") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-md bg-red-50 px-2.5 py-1 text-[10px] font-semibold text-red-700">
-        <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-red-50 px-2.5 py-1 text-[10px] font-semibold text-red-700">
+        <span className="h-1.5 w-1.5 rounded-none bg-red-500" />
         Pending
       </span>
     );
@@ -986,8 +986,8 @@ function StatusBadge({ status }) {
 
   if (status === "In Progress") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-md bg-amber-50 px-2.5 py-1 text-[10px] font-semibold text-amber-700">
-        <span className="h-1.5 w-1.5 rounded-full bg-amber-500" />
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-amber-50 px-2.5 py-1 text-[10px] font-semibold text-amber-700">
+        <span className="h-1.5 w-1.5 rounded-none bg-amber-500" />
         In Progress
       </span>
     );
@@ -995,16 +995,16 @@ function StatusBadge({ status }) {
 
   if (status === "Rejected") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-md bg-red-50 px-2.5 py-1 text-[10px] font-semibold text-red-700">
-        <span className="h-1.5 w-1.5 rounded-full bg-red-500" />
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-red-50 px-2.5 py-1 text-[10px] font-semibold text-red-700">
+        <span className="h-1.5 w-1.5 rounded-none bg-red-500" />
         Rejected
       </span>
     );
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-md bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold text-emerald-700">
-      <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
+    <span className="inline-flex items-center gap-1.5 rounded-none bg-emerald-50 px-2.5 py-1 text-[10px] font-semibold text-emerald-700">
+      <span className="h-1.5 w-1.5 rounded-none bg-emerald-500" />
       Resolved
     </span>
   );
@@ -1019,7 +1019,7 @@ function SummaryBox({ label, value }) {
   return (
     <div
       className="
-        rounded-lg
+        rounded-none
         border
         border-[#32143b]/8
         bg-[#fcfafc]

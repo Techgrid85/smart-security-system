@@ -292,7 +292,7 @@ function AdminFlats() {
           <button
             type="button"
             onClick={openAddModal}
-            className="inline-flex items-center justify-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
+            className="inline-flex items-center justify-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
           >
             <Building2 size={14} />
             Add Flat
@@ -333,7 +333,7 @@ function AdminFlats() {
         </div>
 
         {/* ================= SEARCH + FILTER ================= */}
-        <div className="mb-5 flex flex-col gap-4 rounded-[16px] border border-[#e2d9df] bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-5 flex flex-col gap-4 rounded-none border border-[#e2d9df] bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
 
           <div className="relative w-full sm:max-w-md">
             <Search
@@ -346,7 +346,7 @@ function AdminFlats() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search flat, block or resident..."
-              className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-4 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
+              className="w-full rounded-none border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-4 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
             />
           </div>
 
@@ -355,7 +355,7 @@ function AdminFlats() {
             <select
               value={statusFilter}
               onChange={(e) => setStatusFilter(e.target.value)}
-              className="rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
+              className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
             >
               <option value="All">All Status</option>
               <option value="Occupied">Occupied</option>
@@ -373,13 +373,13 @@ function AdminFlats() {
 
         {/* ================= ERROR ================= */}
         {error && (
-          <div className="mb-5 rounded-[12px] border border-red-200 bg-red-50 px-4 py-3 text-[12px] font-medium text-red-600">
+          <div className="mb-5 rounded-none border border-red-200 bg-red-50 px-4 py-3 text-[12px] font-medium text-red-600">
             {error}
           </div>
         )}
 
         {/* ================= FLATS TABLE ================= */}
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -396,7 +396,7 @@ function AdminFlats() {
             <button
               type="button"
               onClick={fetchFlats}
-              className="rounded-lg border border-[#e2d9df] px-3 py-2 text-[10.5px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
+              className="rounded-none border border-[#e2d9df] px-3 py-2 text-[10.5px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
             >
               Refresh
             </button>
@@ -462,7 +462,7 @@ function AdminFlats() {
                         <td className="px-5 py-4">
                           <div className="flex items-center gap-3">
 
-                            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
+                            <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                               <Building2 size={16} />
                             </div>
 
@@ -495,7 +495,7 @@ function AdminFlats() {
 
                         {/* TYPE */}
                         <td className="px-4 py-4">
-                          <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
+                          <span className="rounded-none bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
                             {flat.type}
                           </span>
                         </td>
@@ -506,7 +506,7 @@ function AdminFlats() {
                           {flat.resident ? (
                             <div className="flex items-center gap-2">
 
-                              <div className="flex h-7 w-7 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
+                              <div className="flex h-7 w-7 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                                 <User size={13} />
                               </div>
 
@@ -545,7 +545,7 @@ function AdminFlats() {
                               type="button"
                               onClick={() => openEditModal(flat)}
                               title="Edit Flat"
-                              className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740] transition hover:bg-[#f5eee2]"
+                              className="flex h-8 w-8 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740] transition hover:bg-[#f5eee2]"
                             >
                               <Pencil size={14} />
                             </button>
@@ -559,7 +559,7 @@ function AdminFlats() {
                                   ? "Cannot delete occupied flat"
                                   : "Delete Flat"
                               }
-                              className={`flex h-8 w-8 items-center justify-center rounded-lg transition ${
+                              className={`flex h-8 w-8 items-center justify-center rounded-none transition ${
                                 flat.resident
                                   ? "cursor-not-allowed bg-[#eee8ed] text-[#bca9c0]"
                                   : "bg-red-50 text-red-600 hover:bg-red-100"
@@ -607,7 +607,7 @@ function AdminFlats() {
         {modalOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#32143b]/50 p-4">
 
-            <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-[18px] bg-white shadow-2xl">
+            <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-none bg-white shadow-2xl">
 
               {/* HEADER */}
               <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
@@ -627,7 +627,7 @@ function AdminFlats() {
                 <button
                   type="button"
                   onClick={closeModal}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
+                  className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={18} />
                 </button>
@@ -675,7 +675,7 @@ function AdminFlats() {
                       value={formData.type}
                       onChange={handleChange}
                       required
-                      className="w-full rounded-[9px] border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                      className="w-full rounded-none border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
                     >
                       <option value="1BHK">1BHK</option>
                       <option value="2BHK">2BHK</option>
@@ -698,7 +698,7 @@ function AdminFlats() {
                     value={formData.status}
                     onChange={handleChange}
                     required
-                    className="w-full rounded-[9px] border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                    className="w-full rounded-none border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
                   >
                     <option value="Vacant">Vacant</option>
                     <option value="Occupied">Occupied</option>
@@ -723,7 +723,7 @@ function AdminFlats() {
                     type="button"
                     onClick={closeModal}
                     disabled={saving}
-                    className="rounded-lg border border-[#e2d9df] px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
+                    className="rounded-none border border-[#e2d9df] px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -731,7 +731,7 @@ function AdminFlats() {
                   <button
                     type="submit"
                     disabled={saving}
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="inline-flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {saving && (
                       <Loader2
@@ -768,7 +768,7 @@ function StatCard({
   iconClass,
 }) {
   return (
-    <div className="flex items-center justify-between rounded-[16px] border border-[#e2d9df] bg-white p-4">
+    <div className="flex items-center justify-between rounded-none border border-[#e2d9df] bg-white p-4">
 
       <div>
         <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
@@ -781,7 +781,7 @@ function StatCard({
       </div>
 
       <div
-        className={`flex h-9 w-9 items-center justify-center rounded-xl ${iconClass}`}
+        className={`flex h-9 w-9 items-center justify-center rounded-none ${iconClass}`}
       >
         {icon}
       </div>
@@ -796,7 +796,7 @@ function StatCard({
 function StatusBadge({ status }) {
   if (status === "Occupied") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         <UserCheck size={12} />
         Occupied
       </span>
@@ -805,7 +805,7 @@ function StatusBadge({ status }) {
 
   if (status === "Maintenance") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         <Wrench size={12} />
         Maintenance
       </span>
@@ -813,7 +813,7 @@ function StatusBadge({ status }) {
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+    <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
       <Home size={12} />
       Vacant
     </span>
@@ -846,7 +846,7 @@ function FormField({
         placeholder={placeholder}
         min={min}
         required
-        className="w-full rounded-[9px] border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
+        className="w-full rounded-none border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
       />
     </div>
   );

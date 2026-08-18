@@ -593,7 +593,7 @@ function ResidentMaintenance() {
 
         {/* ================= PENDING AMOUNT ================= */}
 
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-[#f7f3ed]">
+        <section className="mt-6 overflow-hidden rounded-none border border-[#e2d9df] bg-[#f7f3ed]">
 
           <div className="flex items-center justify-between gap-4 p-5">
 
@@ -612,7 +612,7 @@ function ResidentMaintenance() {
               </p>
             </div>
 
-            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-white text-[#9b7740]">
+            <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-none bg-white text-[#9b7740]">
               <ReceiptText size={22} />
             </div>
 
@@ -622,7 +622,7 @@ function ResidentMaintenance() {
 
         {/* ================= MAINTENANCE LIST ================= */}
 
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="mt-6 overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -649,7 +649,7 @@ function ResidentMaintenance() {
 
             {maintenance.length === 0 ? (
 
-              <div className="flex min-h-[180px] items-center justify-center rounded-[12px] border border-dashed border-[#e2d9df] bg-[#f7f3ed]">
+              <div className="flex min-h-[180px] items-center justify-center rounded-none border border-dashed border-[#e2d9df] bg-[#f7f3ed]">
 
                 <div className="text-center">
 
@@ -719,7 +719,7 @@ function ResidentMaintenance() {
 
                           <div className="flex items-center gap-2.5">
 
-                            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+                            <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
 
                               <ReceiptText size={16} />
 
@@ -793,7 +793,7 @@ function ResidentMaintenance() {
                                 )
                               }
                               title="View Details"
-                              className="inline-flex h-8 items-center gap-1.5 rounded-lg border border-[#e2d9df] bg-white px-3 text-[10px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
+                              className="inline-flex h-8 items-center gap-1.5 rounded-none border border-[#e2d9df] bg-white px-3 text-[10px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
                             >
 
                               <Eye size={13} />
@@ -812,7 +812,7 @@ function ResidentMaintenance() {
                                 )
                               }
                               title="View Voucher"
-                              className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-[#f7f3ed] px-3 text-[10px] font-bold text-[#63366f] transition hover:bg-[#f1eaf3]"
+                              className="inline-flex h-8 items-center gap-1.5 rounded-none bg-[#f7f3ed] px-3 text-[10px] font-bold text-[#63366f] transition hover:bg-[#f1eaf3]"
                             >
 
                               <FileText size={13} />
@@ -831,7 +831,7 @@ function ResidentMaintenance() {
                                 )
                               }
                               title="Download Voucher PDF"
-                              className="inline-flex h-8 items-center gap-1.5 rounded-lg bg-[#eee8ed] px-3 text-[10px] font-bold text-[#756b78] transition hover:bg-[#e2d9df]"
+                              className="inline-flex h-8 items-center gap-1.5 rounded-none bg-[#eee8ed] px-3 text-[10px] font-bold text-[#756b78] transition hover:bg-[#e2d9df]"
                             >
 
                               <Download size={13} />
@@ -866,7 +866,7 @@ function ResidentMaintenance() {
 
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/50 p-4">
 
-            <div className="w-full max-w-md overflow-hidden rounded-[16px] bg-white shadow-2xl">
+            <div className="w-full max-w-md overflow-hidden rounded-none bg-white shadow-2xl">
 
               <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -887,7 +887,7 @@ function ResidentMaintenance() {
                   onClick={() =>
                     setSelectedMaintenance(null)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
+                  className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
 
                   <X size={17} />
@@ -971,7 +971,7 @@ function ResidentMaintenance() {
                   onClick={() =>
                     setSelectedMaintenance(null)
                   }
-                  className="flex-1 rounded-lg border border-[#e2d9df] bg-white py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
+                  className="flex-1 rounded-none border border-[#e2d9df] bg-white py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
                 >
                   Close
                 </button>
@@ -984,7 +984,7 @@ function ResidentMaintenance() {
                       selectedMaintenance
                     );
                   }}
-                  className="flex-1 rounded-lg bg-[#63366f] py-2.5 text-[11px] font-bold text-white transition hover:bg-[#63366f]"
+                  className="flex-1 rounded-none bg-[#63366f] py-2.5 text-[11px] font-bold text-white transition hover:bg-[#63366f]"
                 >
                   View Voucher
                 </button>
@@ -1003,7 +1003,7 @@ function ResidentMaintenance() {
 
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#32143b]/50 p-4">
 
-            <div className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-[18px] bg-white shadow-2xl">
+            <div className="max-h-[92vh] w-full max-w-2xl overflow-y-auto rounded-none bg-white shadow-2xl">
 
               {/* VOUCHER HEADER */}
 
@@ -1011,7 +1011,7 @@ function ResidentMaintenance() {
 
                 <div className="flex items-center gap-3">
 
-                  <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#63366f]">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-none bg-[#f7f3ed] text-[#63366f]">
 
                     <FileText size={18} />
 
@@ -1036,7 +1036,7 @@ function ResidentMaintenance() {
                   onClick={() =>
                     setVoucherMaintenance(null)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
+                  className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
 
                   <X size={18} />
@@ -1165,7 +1165,7 @@ function ResidentMaintenance() {
 
                 {/* TABLE */}
 
-                <div className="overflow-hidden rounded-xl border border-[#e2d9df]">
+                <div className="overflow-hidden rounded-none border border-[#e2d9df]">
 
                   <div className="grid grid-cols-[1fr_auto] bg-[#f7f3ed] px-4 py-3">
 
@@ -1249,7 +1249,7 @@ function ResidentMaintenance() {
                   "Complaint" &&
                   voucherMaintenance.complaint && (
 
-                    <div className="mt-6 rounded-xl border border-[#e2d9df] bg-[#f7f3ed] p-4">
+                    <div className="mt-6 rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
                       <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
                         Complaint Information
@@ -1318,7 +1318,7 @@ function ResidentMaintenance() {
                   onClick={() =>
                     setVoucherMaintenance(null)
                   }
-                  className="rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#eee8ed]"
+                  className="rounded-none border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#eee8ed]"
                 >
                   Close
                 </button>
@@ -1330,7 +1330,7 @@ function ResidentMaintenance() {
                       voucherMaintenance
                     )
                   }
-                  className="inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
+                  className="inline-flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
                 >
 
                   <Download size={14} />
@@ -1353,7 +1353,7 @@ function ResidentMaintenance() {
 
           <div className="fixed inset-0 z-[110] flex items-center justify-center bg-[#32143b]/30">
 
-            <div className="rounded-lg bg-white px-5 py-3 shadow-lg">
+            <div className="rounded-none bg-white px-5 py-3 shadow-lg">
 
               <p className="text-[11px] font-semibold text-[#756b78]">
                 Loading details...
@@ -1401,14 +1401,14 @@ function MaintenanceStat({
   const current = tones[tone] || tones.green;
 
   return (
-    <div className="relative overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white p-5">
+    <div className="relative overflow-hidden rounded-none border border-[#e2d9df] bg-white p-5">
 
       <div
-        className={`absolute -right-5 -top-5 h-20 w-20 rounded-full opacity-[0.06] ${current.circle}`}
+        className={`absolute -right-5 -top-5 h-20 w-20 rounded-none opacity-[0.06] ${current.circle}`}
       />
 
       <div
-        className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${current.icon}`}
+        className={`mb-4 flex h-11 w-11 items-center justify-center rounded-none ${current.icon}`}
       >
         <Icon size={20} />
       </div>
@@ -1434,7 +1434,7 @@ function MaintenanceStat({
 function MaintenanceStatus({ status }) {
   if (status === "Paid") {
     return (
-      <span className="inline-flex rounded-full bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
+      <span className="inline-flex rounded-none bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
         Paid
       </span>
     );
@@ -1442,14 +1442,14 @@ function MaintenanceStatus({ status }) {
 
   if (status === "Overdue") {
     return (
-      <span className="inline-flex rounded-full bg-red-50 px-2 py-1 text-[8.5px] font-bold text-red-600">
+      <span className="inline-flex rounded-none bg-red-50 px-2 py-1 text-[8.5px] font-bold text-red-600">
         Overdue
       </span>
     );
   }
 
   return (
-    <span className="inline-flex rounded-full bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
+    <span className="inline-flex rounded-none bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
       Pending
     </span>
   );
@@ -1459,7 +1459,7 @@ function MaintenanceStatus({ status }) {
 
 function MaintenanceDetail({ label, value }) {
   return (
-    <div className="flex items-center justify-between gap-4 rounded-lg bg-[#f7f3ed] px-3 py-2.5">
+    <div className="flex items-center justify-between gap-4 rounded-none bg-[#f7f3ed] px-3 py-2.5">
 
       <span className="text-[10px] font-semibold text-[#8b778e]">
         {label}

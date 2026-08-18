@@ -180,7 +180,7 @@ function EntryLogs() {
 
           <Link
             to="/guard"
-            className="inline-flex w-fit items-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 py-2 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
+            className="inline-flex w-fit items-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3 py-2 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
           >
             <ArrowLeft size={14} />
             Back
@@ -193,7 +193,7 @@ function EntryLogs() {
         {/* ========================================== */}
 
         {error && (
-          <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3">
+          <div className="mb-5 rounded-none border border-red-200 bg-red-50 px-4 py-3">
             <p className="text-[11px] font-semibold text-red-500">
               {error}
             </p>
@@ -239,7 +239,7 @@ function EntryLogs() {
         {/* MAIN CARD */}
         {/* ========================================== */}
 
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           {/* CARD HEADER */}
 
@@ -278,7 +278,7 @@ function EntryLogs() {
                     setSearch(e.target.value)
                   }
                   placeholder="Search visitor, resident or flat..."
-                  className="h-10 w-full rounded-xl border border-[#e2d9df] bg-white pl-10 pr-4 text-[10.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
+                  className="h-10 w-full rounded-none border border-[#e2d9df] bg-white pl-10 pr-4 text-[10.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
                 />
 
               </div>
@@ -289,7 +289,7 @@ function EntryLogs() {
                 type="button"
                 onClick={() => fetchEntryLogs(true)}
                 disabled={refreshing || loading}
-                className="flex h-10 items-center justify-center gap-2 rounded-xl border border-[#e2d9df] px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:cursor-not-allowed disabled:opacity-50"
+                className="flex h-10 items-center justify-center gap-2 rounded-none border border-[#e2d9df] px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:cursor-not-allowed disabled:opacity-50"
               >
                 <RefreshCw
                   size={14}
@@ -336,7 +336,7 @@ function EntryLogs() {
             filteredVisitors.length === 0 && (
               <div className="px-5 py-16 text-center">
 
-                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#eee8ed] text-[#bca9c0]">
+                <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-none bg-[#eee8ed] text-[#bca9c0]">
                   <LogIn size={22} />
                 </div>
 
@@ -416,7 +416,7 @@ function EntryLogs() {
 
                             <div className="flex items-center gap-3">
 
-                              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+                              <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                                 <User size={15} />
                               </div>
 
@@ -511,7 +511,7 @@ function EntryLogs() {
                           <td className="px-5 py-4">
 
                             <span
-                              className={`inline-flex rounded-full px-2.5 py-1 text-[9px] font-bold ${
+                              className={`inline-flex rounded-none px-2.5 py-1 text-[9px] font-bold ${
                                 visitor.gateStatus === "Inside"
                                   ? "bg-[#f7f3ed] text-[#9b7740]"
                                   : visitor.gateStatus === "Exited"
@@ -547,14 +547,14 @@ function EntryLogs() {
                   (visitor) => (
                     <div
                       key={visitor._id}
-                      className="rounded-xl border border-[#e2d9df] p-4"
+                      className="rounded-none border border-[#e2d9df] p-4"
                     >
 
                       <div className="flex items-start justify-between gap-3">
 
                         <div className="flex items-center gap-3">
 
-                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+                          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                             <User size={16} />
                           </div>
 
@@ -571,7 +571,7 @@ function EntryLogs() {
                         </div>
 
                         <span
-                          className={`shrink-0 rounded-full px-2.5 py-1 text-[9px] font-bold ${
+                          className={`shrink-0 rounded-none px-2.5 py-1 text-[9px] font-bold ${
                             visitor.gateStatus === "Inside"
                               ? "bg-[#f7f3ed] text-[#9b7740]"
                               : "bg-[#eee8ed] text-[#756b78]"
@@ -653,7 +653,7 @@ function EntryLogs() {
 
 function StatCard({ icon, label, value }) {
   return (
-    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-4">
+    <div className="rounded-none border border-[#e2d9df] bg-white p-4">
 
       <div className="flex items-center justify-between">
 
@@ -667,7 +667,7 @@ function StatCard({ icon, label, value }) {
           </p>
         </div>
 
-        <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+        <div className="flex h-10 w-10 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
           {icon}
         </div>
 

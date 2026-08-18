@@ -223,7 +223,7 @@ function AdminComplaints() {
           <button
             type="button"
             onClick={fetchComplaints}
-            className="inline-flex items-center justify-center gap-2 rounded-[9px] border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
+            className="inline-flex items-center justify-center gap-2 rounded-none border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
           >
             <RefreshCw size={15} />
             Refresh
@@ -276,7 +276,7 @@ function AdminComplaints() {
         </div>
 
         {/* ================= COMPLAINTS CARD ================= */}
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           {/* ================= TOOLBAR ================= */}
           <div className="flex flex-col gap-4 border-b border-[#e2d9df] p-5 lg:flex-row lg:items-center lg:justify-between">
@@ -292,7 +292,7 @@ function AdminComplaints() {
                 value={search}
                 onChange={(e) => setSearch(e.target.value)}
                 placeholder="Search complaints..."
-                className="w-full rounded-[10px] border border-[#e2d9df] py-2.5 pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
+                className="w-full rounded-none border border-[#e2d9df] py-2.5 pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
               />
             </div>
 
@@ -307,7 +307,7 @@ function AdminComplaints() {
                 onChange={(e) =>
                   setStatusFilter(e.target.value)
                 }
-                className="rounded-[9px] border border-[#e2d9df] bg-white px-3 py-2.5 text-[11px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
+                className="rounded-none border border-[#e2d9df] bg-white px-3 py-2.5 text-[11px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
               >
                 <option value="All">
                   All Status
@@ -423,7 +423,7 @@ function AdminComplaints() {
                       <td className="px-5 py-4">
                         <div className="flex items-center gap-2.5">
 
-                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                             <User size={14} />
                           </div>
 
@@ -444,7 +444,7 @@ function AdminComplaints() {
 
                       {/* Category */}
                       <td className="px-5 py-4">
-                        <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+                        <span className="rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
                           {complaint.category}
                         </span>
                       </td>
@@ -488,7 +488,7 @@ function AdminComplaints() {
                             complaint.status === "Resolved" ||
                             complaint.status === "Rejected"
                           }
-                          className="inline-flex items-center gap-2 rounded-[8px] bg-[#9b7740] px-3 py-2 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-50"
+                          className="inline-flex items-center gap-2 rounded-none bg-[#9b7740] px-3 py-2 text-[10.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-50"
                         >
                           <UserCog size={13} />
 
@@ -526,7 +526,7 @@ function AdminComplaints() {
       {selectedComplaint && (
         <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#210c28]/40 p-4 backdrop-blur-[2px]">
 
-          <div className="w-full max-w-[500px] rounded-[18px] bg-white shadow-2xl">
+          <div className="w-full max-w-[500px] rounded-none bg-white shadow-2xl">
 
             {/* Modal Header */}
             <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
@@ -544,7 +544,7 @@ function AdminComplaints() {
               <button
                 type="button"
                 onClick={closeModal}
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
+                className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
               >
                 <X size={17} />
               </button>
@@ -556,7 +556,7 @@ function AdminComplaints() {
               <div className="space-y-4 p-5">
 
                 {/* Complaint Info */}
-                <div className="rounded-[12px] border border-[#e2d9df] bg-[#f7f3ed] p-4">
+                <div className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
                   <p className="text-[10px] font-bold uppercase tracking-[0.05em] text-[#8b778e]">
                     Complaint
@@ -584,7 +584,7 @@ function AdminComplaints() {
                       </p>
                     </div>
 
-                    <div className="overflow-hidden rounded-[12px] border border-[#e2d9df] bg-[#f7f3ed]">
+                    <div className="overflow-hidden rounded-none border border-[#e2d9df] bg-[#f7f3ed]">
                       <img
                         src={selectedComplaint.image}
                         alt="Complaint"
@@ -606,7 +606,7 @@ function AdminComplaints() {
                     onChange={(e) =>
                       setSelectedStaff(e.target.value)
                     }
-                    className="w-full rounded-[10px] border border-[#e2d9df] bg-white px-3 py-3 text-[11.5px] font-medium text-[#49394d] outline-none focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
+                    className="w-full rounded-none border border-[#e2d9df] bg-white px-3 py-3 text-[11.5px] font-medium text-[#49394d] outline-none focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
                   >
                     <option value="">
                       Select staff member
@@ -645,7 +645,7 @@ function AdminComplaints() {
                     }
                     placeholder="Add instructions for the assigned staff..."
                     rows="4"
-                    className="w-full resize-none rounded-[10px] border border-[#e2d9df] px-3 py-3 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
+                    className="w-full resize-none rounded-none border border-[#e2d9df] px-3 py-3 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
                   />
 
                 </div>
@@ -659,7 +659,7 @@ function AdminComplaints() {
                   type="button"
                   onClick={closeModal}
                   disabled={assignLoading}
-                  className="rounded-[9px] border border-[#e2d9df] px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
+                  className="rounded-none border border-[#e2d9df] px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
                 >
                   Cancel
                 </button>
@@ -667,7 +667,7 @@ function AdminComplaints() {
                 <button
                   type="submit"
                   disabled={assignLoading}
-                  className="inline-flex items-center gap-2 rounded-[9px] bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                  className="inline-flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                 >
                   <UserCog size={14} />
 
@@ -709,10 +709,10 @@ function SummaryCard({
   };
 
   return (
-    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-5">
+    <div className="rounded-none border border-[#e2d9df] bg-white p-5">
 
       <div
-        className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${styles[tone]}`}
+        className={`mb-4 flex h-11 w-11 items-center justify-center rounded-none ${styles[tone]}`}
       >
         <Icon size={20} />
       </div>
@@ -750,7 +750,7 @@ function StatusBadge({ status }) {
 
   return (
     <span
-      className={`inline-flex rounded-full px-2.5 py-1 text-[10px] font-bold ${
+      className={`inline-flex rounded-none px-2.5 py-1 text-[10px] font-bold ${
         styles[status] || styles.Pending
       }`}
     >

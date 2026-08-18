@@ -146,7 +146,7 @@ function StaffProfile() {
               PROFILE HERO
           ========================================== */}
 
-          <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+          <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
             <div className="h-24 bg-gradient-to-r from-[#9b7740] to-[#9b7740]" />
 
@@ -162,10 +162,10 @@ function StaffProfile() {
                     <img
                       src={staff.profilePic}
                       alt={staff?.name || "Staff"}
-                      className="h-20 w-20 rounded-2xl border-4 border-white object-cover shadow-lg"
+                      className="h-20 w-20 rounded-none border-4 border-white object-cover shadow-lg"
                     />
                   ) : (
-                    <div className="flex h-20 w-20 items-center justify-center rounded-2xl border-4 border-white bg-[#9b7740] text-[20px] font-extrabold text-white shadow-lg">
+                    <div className="flex h-20 w-20 items-center justify-center rounded-none border-4 border-white bg-[#9b7740] text-[20px] font-extrabold text-white shadow-lg">
                       {getInitials(staff?.name)}
                     </div>
                   )}
@@ -179,7 +179,7 @@ function StaffProfile() {
                   onClick={() =>
                     navigate("/staff/settings")
                   }
-                  className="mb-1 flex items-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 py-2 text-[10px] font-bold text-[#756b78] shadow-sm transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
+                  className="mb-1 flex items-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3 py-2 text-[10px] font-bold text-[#756b78] shadow-sm transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
                 >
                   <Camera size={13} />
                   Change Picture
@@ -196,7 +196,7 @@ function StaffProfile() {
 
                 <div className="mt-1 flex flex-wrap items-center gap-2">
 
-                  <span className="rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
+                  <span className="rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
                     Maintenance Staff
                   </span>
 
@@ -212,11 +212,11 @@ function StaffProfile() {
               PERSONAL INFORMATION
           ========================================== */}
 
-          <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+          <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
             <div className="flex items-center gap-3 border-b border-[#e2d9df] px-5 py-4">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <UserCircle size={17} />
               </div>
 
@@ -240,7 +240,7 @@ function StaffProfile() {
 
               <div className="flex items-center gap-3 px-5 py-4">
 
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#8b778e]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#8b778e]">
                   <UserCircle size={16} />
                 </div>
 
@@ -262,7 +262,7 @@ function StaffProfile() {
 
               <div className="flex items-center gap-3 px-5 py-4">
 
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#8b778e]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#8b778e]">
                   <Mail size={16} />
                 </div>
 
@@ -284,7 +284,7 @@ function StaffProfile() {
 
               <div className="flex items-center gap-3 px-5 py-4">
 
-                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#8b778e]">
+                <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#8b778e]">
                   <Phone size={16} />
                 </div>
 
@@ -311,9 +311,9 @@ function StaffProfile() {
               ACCOUNT STATUS
           ========================================== */}
 
-          <section className="flex items-center gap-3 rounded-[16px] border border-[#f5eee2] bg-[#f7f3ed]/50 p-4">
+          <section className="flex items-center gap-3 rounded-none border border-[#f5eee2] bg-[#f7f3ed]/50 p-4">
 
-            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#9b7740] shadow-sm">
+            <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-white text-[#9b7740] shadow-sm">
               <ShieldCheck size={19} />
             </div>
 

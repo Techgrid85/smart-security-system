@@ -245,7 +245,7 @@ function GuardDashboard() {
             </p>
           </div>
 
-          <div className="hidden items-center gap-2 rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2 sm:flex">
+          <div className="hidden items-center gap-2 rounded-none border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2 sm:flex">
             <ShieldCheck
               size={15}
               className="text-[#9b7740]"
@@ -266,7 +266,7 @@ function GuardDashboard() {
         {/* ================= ERROR ================= */}
 
         {error && (
-          <div className="mb-5 rounded-xl border border-red-200 bg-red-50 px-4 py-3">
+          <div className="mb-5 rounded-none border border-red-200 bg-red-50 px-4 py-3">
             <p className="text-[11px] font-semibold text-red-500">
               {error}
             </p>
@@ -329,7 +329,7 @@ function GuardDashboard() {
 
         {/* ================= QUICK ACTIONS ================= */}
 
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="mt-6 overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center border-b border-[#e2d9df] px-5 py-4">
             <h2 className="flex items-center gap-2 text-[13px] font-bold text-[#32143b]">
@@ -350,10 +350,10 @@ function GuardDashboard() {
                 <Link
                   to={action.path}
                   key={action.title}
-                  className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-[13px] border-[1.5px] border-dashed border-[#e2d9df] bg-[#f7f3ed] transition hover:border-[#bca16a] hover:bg-[#f7f3ed]"
+                  className="group flex min-h-[112px] flex-col items-center justify-center gap-3 rounded-none border-[1.5px] border-dashed border-[#e2d9df] bg-[#f7f3ed] transition hover:border-[#bca16a] hover:bg-[#f7f3ed]"
                 >
                   <div
-                    className={`flex h-11 w-11 items-center justify-center rounded-xl ${action.bg} ${action.color} transition group-hover:scale-110`}
+                    className={`flex h-11 w-11 items-center justify-center rounded-none ${action.bg} ${action.color} transition group-hover:scale-110`}
                   >
                     <Icon size={20} />
                   </div>
@@ -370,7 +370,7 @@ function GuardDashboard() {
 
         {/* ================= APPROVED VISITOR PASSES ================= */}
 
-        <section className="mt-6 overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="mt-6 overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -388,7 +388,7 @@ function GuardDashboard() {
               </p>
             </div>
 
-            <span className="rounded-full bg-[#f7f3ed] px-3 py-1.5 text-[9.5px] font-bold text-[#9b7740]">
+            <span className="rounded-none bg-[#f7f3ed] px-3 py-1.5 text-[9.5px] font-bold text-[#9b7740]">
               {pendingVisitors.length} Pending
             </span>
 
@@ -468,7 +468,7 @@ function GuardDashboard() {
                               );
                             }
                           }}
-                          className="inline-flex items-center gap-1.5 rounded-lg bg-[#9b7740] px-3 py-2 text-[9.5px] font-bold text-white transition hover:bg-[#9b7740]"
+                          className="inline-flex items-center gap-1.5 rounded-none bg-[#9b7740] px-3 py-2 text-[9.5px] font-bold text-white transition hover:bg-[#9b7740]"
                         >
                           <ShieldCheck size={13} />
                           Approve
@@ -485,7 +485,7 @@ function GuardDashboard() {
           ) : (
             <div className="flex min-h-[160px] flex-col items-center justify-center text-center">
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f7f3ed] text-[#8b778e]">
+              <div className="flex h-11 w-11 items-center justify-center rounded-none bg-[#f7f3ed] text-[#8b778e]">
                 <QrCode size={20} />
               </div>
 
@@ -506,7 +506,7 @@ function GuardDashboard() {
 
         <div className="mt-6 grid gap-5 xl:grid-cols-[1.45fr_0.95fr]">
 
-          <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+          <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
             <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -552,7 +552,7 @@ function GuardDashboard() {
                         <td className="px-4 py-3.5">
                           <div className="flex items-center gap-2.5">
 
-                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                               <Users size={14} />
                             </div>
 
@@ -614,7 +614,7 @@ function GuardDashboard() {
 
           {/* ================= ACTIVE VISITORS ================= */}
 
-          <section className="rounded-[16px] border border-[#e2d9df] bg-white">
+          <section className="rounded-none border border-[#e2d9df] bg-white">
 
             <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -626,7 +626,7 @@ function GuardDashboard() {
                 Currently Inside
               </h2>
 
-              <span className="rounded-full bg-[#f7f3ed] px-2 py-1 text-[9.5px] font-bold text-[#9b7740]">
+              <span className="rounded-none bg-[#f7f3ed] px-2 py-1 text-[9.5px] font-bold text-[#9b7740]">
                 {activeVisitors.length}
               </span>
 
@@ -639,12 +639,12 @@ function GuardDashboard() {
                   (visitor) => (
                     <div
                       key={visitor._id}
-                      className="rounded-[12px] border border-[#eee8ed] p-3"
+                      className="rounded-none border border-[#eee8ed] p-3"
                     >
 
                       <div className="flex items-center gap-3">
 
-                        <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+                        <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                           <Users size={16} />
                         </div>
 
@@ -680,7 +680,7 @@ function GuardDashboard() {
                             : "-"}
                         </span>
 
-                        <span className="rounded-full bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
+                        <span className="rounded-none bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
                           Inside
                         </span>
 
@@ -692,7 +692,7 @@ function GuardDashboard() {
               ) : (
                 <div className="flex min-h-[200px] flex-col items-center justify-center text-center">
 
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
+                  <div className="flex h-11 w-11 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                     <ShieldCheck size={20} />
                   </div>
 
@@ -782,14 +782,14 @@ function GuardStat({
   const current = tones[tone];
 
   return (
-    <div className="relative overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white p-5">
+    <div className="relative overflow-hidden rounded-none border border-[#e2d9df] bg-white p-5">
 
       <div
-        className={`absolute -right-5 -top-5 h-20 w-20 rounded-full opacity-[0.06] ${current.circle}`}
+        className={`absolute -right-5 -top-5 h-20 w-20 rounded-none opacity-[0.06] ${current.circle}`}
       />
 
       <div
-        className={`mb-4 flex h-11 w-11 items-center justify-center rounded-xl ${current.icon}`}
+        className={`mb-4 flex h-11 w-11 items-center justify-center rounded-none ${current.icon}`}
       >
         <Icon size={20} />
       </div>
@@ -823,7 +823,7 @@ function GuardStat({
 function ChangeBadge({ type, text }) {
   if (type === "up") {
     return (
-      <span className="inline-flex rounded-full bg-[#f7f3ed] px-2 py-1 text-[10px] font-semibold text-[#9b7740]">
+      <span className="inline-flex rounded-none bg-[#f7f3ed] px-2 py-1 text-[10px] font-semibold text-[#9b7740]">
         ↑ {text}
       </span>
     );
@@ -831,14 +831,14 @@ function ChangeBadge({ type, text }) {
 
   if (type === "down") {
     return (
-      <span className="inline-flex rounded-full bg-red-50 px-2 py-1 text-[10px] font-semibold text-red-500">
+      <span className="inline-flex rounded-none bg-red-50 px-2 py-1 text-[10px] font-semibold text-red-500">
         ! {text}
       </span>
     );
   }
 
   return (
-    <span className="inline-flex rounded-full bg-[#eee8ed] px-2 py-1 text-[10px] font-semibold text-[#756b78]">
+    <span className="inline-flex rounded-none bg-[#eee8ed] px-2 py-1 text-[10px] font-semibold text-[#756b78]">
       • {text}
     </span>
   );
@@ -857,8 +857,8 @@ function TableHead({ children }) {
 function VisitorStatus({ status }) {
   if (status === "Inside") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#826331]">
-        <span className="h-1.5 w-1.5 rounded-full bg-[#9b7740]" />
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#826331]">
+        <span className="h-1.5 w-1.5 rounded-none bg-[#9b7740]" />
         Inside
       </span>
     );
@@ -866,16 +866,16 @@ function VisitorStatus({ status }) {
 
   if (status === "Exited") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-bold text-[#756b78]">
-        <span className="h-1.5 w-1.5 rounded-full bg-[#8b778e]" />
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-bold text-[#756b78]">
+        <span className="h-1.5 w-1.5 rounded-none bg-[#8b778e]" />
         Exited
       </span>
     );
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
-      <span className="h-1.5 w-1.5 rounded-full bg-[#9b7740]" />
+    <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
+      <span className="h-1.5 w-1.5 rounded-none bg-[#9b7740]" />
       Waiting
     </span>
   );
@@ -890,12 +890,12 @@ function SummaryCard({
   color,
 }) {
   return (
-    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-5">
+    <div className="rounded-none border border-[#e2d9df] bg-white p-5">
 
       <div className="flex items-start justify-between">
 
         <div
-          className={`flex h-10 w-10 items-center justify-center rounded-xl ${color}`}
+          className={`flex h-10 w-10 items-center justify-center rounded-none ${color}`}
         >
           <Icon size={18} />
         </div>

@@ -381,7 +381,7 @@ function ResidentVisitorDetails() {
             type="button"
             onClick={fetchVisitors}
             disabled={loading}
-            className="flex items-center justify-center gap-2 rounded-[10px] border border-[#e2d9df] bg-white px-3.5 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-60"
+            className="flex items-center justify-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3.5 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-60"
           >
             <RefreshCw
               size={14}
@@ -393,7 +393,7 @@ function ResidentVisitorDetails() {
         </div>
 
         {/* ================= VISITORS TABLE ================= */}
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="border-b border-[#e2d9df] px-5 py-4">
             <h2 className="text-[13px] font-bold text-[#32143b]">
@@ -473,7 +473,7 @@ function ResidentVisitorDetails() {
                           onClick={() =>
                             handleViewVisitor(visitor._id)
                           }
-                          className="flex items-center gap-1.5 rounded-[8px] border border-[#e2d9df] bg-white px-3 py-2 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
+                          className="flex items-center gap-1.5 rounded-none border border-[#e2d9df] bg-white px-3 py-2 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
                         >
                           <Eye size={13} />
                           View Details
@@ -496,7 +496,7 @@ function ResidentVisitorDetails() {
         {(detailLoading || selectedVisitor) && (
           <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/40 p-4">
 
-            <div className="max-h-[90vh] w-full max-w-[600px] overflow-y-auto rounded-[18px] bg-white shadow-2xl">
+            <div className="max-h-[90vh] w-full max-w-[600px] overflow-y-auto rounded-none bg-white shadow-2xl">
 
               {detailLoading ? (
                 <div className="flex min-h-[300px] items-center justify-center">
@@ -526,7 +526,7 @@ function ResidentVisitorDetails() {
                     <button
                       type="button"
                       onClick={() => setSelectedVisitor(null)}
-                      className="flex h-9 w-9 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
+                      className="flex h-9 w-9 items-center justify-center rounded-none text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                     >
                       <X size={18} />
                     </button>
@@ -593,7 +593,7 @@ function ResidentVisitorDetails() {
                         </p>
                       </div>
 
-                      <div className="mt-2 rounded-[10px] bg-[#f7f3ed] p-4">
+                      <div className="mt-2 rounded-none bg-[#f7f3ed] p-4">
                         <p className="text-[11px] leading-6 font-medium text-[#756b78]">
                           {selectedVisitor?.purpose || "-"}
                         </p>
@@ -601,7 +601,7 @@ function ResidentVisitorDetails() {
                     </div>
 
                     {/* STATUS */}
-                    <div className="rounded-[12px] border border-[#eee8ed] bg-[#f7f3ed] p-4">
+                    <div className="rounded-none border border-[#eee8ed] bg-[#f7f3ed] p-4">
                       <p className="mb-2 text-[9px] font-bold uppercase tracking-wide text-[#8b778e]">
                         Approval Status
                       </p>
@@ -619,7 +619,7 @@ function ResidentVisitorDetails() {
                     <button
                       type="button"
                       onClick={() => setSelectedVisitor(null)}
-                      className="rounded-[9px] border border-[#e2d9df] px-4 py-2.5 text-[10px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
+                      className="rounded-none border border-[#e2d9df] px-4 py-2.5 text-[10px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
                     >
                       Close
                     </button>
@@ -627,7 +627,7 @@ function ResidentVisitorDetails() {
                     <button
                       type="button"
                       onClick={handleDownloadPass}
-                      className="flex items-center justify-center gap-2 rounded-[9px] bg-[#9b7740] px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-[#9b7740]"
+                      className="flex items-center justify-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[10px] font-bold text-white transition hover:bg-[#9b7740]"
                     >
                       <Download size={14} />
                       Download Pass
@@ -675,7 +675,7 @@ function VisitorStatus({ status }) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[9px] font-bold ${
+      className={`inline-flex items-center gap-1.5 rounded-none px-2.5 py-1 text-[9px] font-bold ${
         styles[status] || styles.Pending
       }`}
     >
@@ -690,7 +690,7 @@ function VisitorStatus({ status }) {
 
 function DetailItem({ icon: Icon, label, value }) {
   return (
-    <div className="rounded-[10px] border border-[#eee8ed] p-3">
+    <div className="rounded-none border border-[#eee8ed] p-3">
 
       <div className="flex items-center gap-2">
         <Icon size={13} className="text-[#9b7740]" />
@@ -726,7 +726,7 @@ function EmptyState() {
   return (
     <div className="flex min-h-[280px] flex-col items-center justify-center px-4 text-center">
 
-      <div className="flex h-14 w-14 items-center justify-center rounded-2xl bg-[#eee8ed] text-[#8b778e]">
+      <div className="flex h-14 w-14 items-center justify-center rounded-none bg-[#eee8ed] text-[#8b778e]">
         <Users size={24} />
       </div>
 

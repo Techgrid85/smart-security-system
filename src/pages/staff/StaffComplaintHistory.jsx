@@ -123,14 +123,14 @@ function StaffComplaintHistory() {
 
         {/* ERROR */}
         {error && (
-          <div className="mb-5 rounded-[12px] border border-red-200 bg-red-50 px-4 py-3 text-[11px] font-semibold text-red-600">
+          <div className="mb-5 rounded-none border border-red-200 bg-red-50 px-4 py-3 text-[11px] font-semibold text-red-600">
             {error}
           </div>
         )}
 
 
         {/* HISTORY TABLE */}
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -145,7 +145,7 @@ function StaffComplaintHistory() {
 
             </h2>
 
-            <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
+            <span className="rounded-none bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
               {complaints.length} Records
             </span>
 
@@ -161,7 +161,7 @@ function StaffComplaintHistory() {
           ) : complaints.length === 0 ? (
             <div className="flex min-h-[280px] flex-col items-center justify-center px-5 text-center">
 
-              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-full bg-[#f7f3ed]">
+              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-none bg-[#f7f3ed]">
                 <History
                   size={22}
                   className="text-[#bca9c0]"
@@ -224,7 +224,7 @@ function StaffComplaintHistory() {
 
                         <div className="flex items-center gap-2">
 
-                          <div className="flex h-8 w-8 items-center justify-center rounded-full bg-[#eee8ed]">
+                          <div className="flex h-8 w-8 items-center justify-center rounded-none bg-[#eee8ed]">
                             <UserCircle
                               size={15}
                               className="text-[#8b778e]"
@@ -266,7 +266,7 @@ function StaffComplaintHistory() {
                       {/* CATEGORY */}
                       <td className="px-4 py-4">
 
-                        <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-bold text-[#756b78]">
+                        <span className="rounded-none bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-bold text-[#756b78]">
                           {complaint.category}
                         </span>
 
@@ -312,7 +312,7 @@ function StaffComplaintHistory() {
                             window.location.href =
                               `/staff/assigned/${complaint._id}`
                           }
-                          className="inline-flex items-center gap-1.5 rounded-lg border border-[#e2d9df] px-2.5 py-1.5 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
+                          className="inline-flex items-center gap-1.5 rounded-none border border-[#e2d9df] px-2.5 py-1.5 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
                         >
                           <Eye size={12} />
                           View
@@ -348,10 +348,10 @@ function HistoryStat({
   iconClass,
 }) {
   return (
-    <div className="rounded-[16px] border border-[#e2d9df] bg-white p-5">
+    <div className="rounded-none border border-[#e2d9df] bg-white p-5">
 
       <div
-        className={`flex h-10 w-10 items-center justify-center rounded-xl ${iconClass}`}
+        className={`flex h-10 w-10 items-center justify-center rounded-none ${iconClass}`}
       >
         <Icon size={18} />
       </div>
@@ -433,12 +433,12 @@ function StatusBadge({ status }) {
 
   return (
     <span
-      className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[9.5px] font-bold ${
+      className={`inline-flex items-center gap-1.5 rounded-none px-2.5 py-1 text-[9.5px] font-bold ${
         styles[status] || "bg-[#eee8ed] text-[#756b78]"
       }`}
     >
       <span
-        className={`h-1.5 w-1.5 rounded-full ${
+        className={`h-1.5 w-1.5 rounded-none ${
           dots[status] || "bg-[#8b778e]"
         }`}
       />

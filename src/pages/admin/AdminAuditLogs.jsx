@@ -187,7 +187,7 @@ const AdminAuditLogs = () => {
             type="button"
             onClick={fetchAuditLogs}
             disabled={loading}
-            className="inline-flex items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:cursor-not-allowed disabled:opacity-60"
+            className="inline-flex items-center justify-center gap-2 rounded-none border border-[#e2d9df] bg-white px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:cursor-not-allowed disabled:opacity-60"
           >
             <RefreshCw
               size={14}
@@ -239,7 +239,7 @@ const AdminAuditLogs = () => {
             SEARCH + FILTER
         ====================================== */}
 
-        <div className="mb-5 flex flex-col gap-4 rounded-[16px] border border-[#e2d9df] bg-white p-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mb-5 flex flex-col gap-4 rounded-none border border-[#e2d9df] bg-white p-4 lg:flex-row lg:items-center lg:justify-between">
 
           <div className="relative w-full lg:max-w-md">
 
@@ -255,7 +255,7 @@ const AdminAuditLogs = () => {
                 setSearch(e.target.value)
               }
               placeholder="Search visitor, resident, flat or guard..."
-              className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-4 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
+              className="w-full rounded-none border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-4 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
             />
 
           </div>
@@ -267,7 +267,7 @@ const AdminAuditLogs = () => {
               onChange={(e) =>
                 setTypeFilter(e.target.value)
               }
-              className="rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
+              className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] px-3 py-2.5 text-[11px] font-semibold text-[#756b78] outline-none focus:border-[#bca16a]"
             >
               <option value="All">
                 All Activity
@@ -307,7 +307,7 @@ const AdminAuditLogs = () => {
             TABLE
         ====================================== */}
 
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -386,7 +386,7 @@ const AdminAuditLogs = () => {
 
                           <div className="flex items-center gap-3">
 
-                            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f7f3ed] text-[#9b7740]">
+                            <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                               <UserRound size={16} />
                             </div>
 
@@ -529,7 +529,7 @@ const AdminAuditLogs = () => {
                             onClick={() =>
                               setSelectedLog(log)
                             }
-                            className="inline-flex items-center gap-1.5 rounded-lg border border-[#e2d9df] bg-white px-3 py-2 text-[10px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
+                            className="inline-flex items-center gap-1.5 rounded-none border border-[#e2d9df] bg-white px-3 py-2 text-[10px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:bg-[#f7f3ed] hover:text-[#9b7740]"
                           >
                             <Eye size={13} />
                             View
@@ -581,7 +581,7 @@ const AdminAuditLogs = () => {
         {selectedLog && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#32143b]/50 p-4">
 
-            <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-[18px] bg-white shadow-2xl">
+            <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-none bg-white shadow-2xl">
 
               {/* HEADER */}
 
@@ -605,7 +605,7 @@ const AdminAuditLogs = () => {
                   onClick={() =>
                     setSelectedLog(null)
                   }
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
+                  className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -696,7 +696,7 @@ const AdminAuditLogs = () => {
                   }
                 />
 
-                <div className="flex items-center justify-between gap-4 rounded-lg bg-[#f7f3ed] px-3 py-3">
+                <div className="flex items-center justify-between gap-4 rounded-none bg-[#f7f3ed] px-3 py-3">
 
                   <span className="text-[10px] font-semibold text-[#8b778e]">
                     Current Status
@@ -711,7 +711,7 @@ const AdminAuditLogs = () => {
                 </div>
 
                 {selectedLog.isWalkIn && (
-                  <div className="rounded-lg border border-[#e2d9df] bg-[#f7f3ed] px-3 py-3">
+                  <div className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] px-3 py-3">
 
                     <p className="text-[10px] font-bold text-[#826331]">
                       Walk-in Visitor
@@ -735,7 +735,7 @@ const AdminAuditLogs = () => {
                   onClick={() =>
                     setSelectedLog(null)
                   }
-                  className="w-full rounded-lg bg-[#32143b] py-2.5 text-[11px] font-bold text-white transition hover:bg-[#49394d]"
+                  className="w-full rounded-none bg-[#32143b] py-2.5 text-[11px] font-bold text-white transition hover:bg-[#49394d]"
                 >
                   Close
                 </button>
@@ -763,7 +763,7 @@ function StatCard({
   iconClass,
 }) {
   return (
-    <div className="flex items-center justify-between rounded-[16px] border border-[#e2d9df] bg-white p-4">
+    <div className="flex items-center justify-between rounded-none border border-[#e2d9df] bg-white p-4">
 
       <div>
         <p className="text-[10px] font-bold uppercase tracking-wide text-[#8b778e]">
@@ -776,7 +776,7 @@ function StatCard({
       </div>
 
       <div
-        className={`flex h-9 w-9 items-center justify-center rounded-xl ${iconClass}`}
+        className={`flex h-9 w-9 items-center justify-center rounded-none ${iconClass}`}
       >
         {icon}
       </div>
@@ -792,7 +792,7 @@ function StatCard({
 function StatusBadge({ status }) {
   if (status === "Inside") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         <Clock3 size={12} />
         Inside
       </span>
@@ -801,7 +801,7 @@ function StatusBadge({ status }) {
 
   if (status === "Exited") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
         <CheckCircle2 size={12} />
         Exited
       </span>
@@ -809,7 +809,7 @@ function StatusBadge({ status }) {
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-full bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
+    <span className="inline-flex items-center gap-1.5 rounded-none bg-[#eee8ed] px-2.5 py-1 text-[10px] font-bold text-[#756b78]">
       <AlertCircle size={12} />
       {status || "Unknown"}
     </span>
@@ -826,7 +826,7 @@ function DetailRow({
   value,
 }) {
   return (
-    <div className="flex items-center justify-between gap-4 rounded-lg bg-[#f7f3ed] px-3 py-2.5">
+    <div className="flex items-center justify-between gap-4 rounded-none bg-[#f7f3ed] px-3 py-2.5">
 
       <div className="flex min-w-0 items-center gap-2 text-[#8b778e]">
         {icon}

@@ -90,7 +90,7 @@ function ResidentNotices() {
           </button>
 
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
               <Megaphone size={21} />
             </div>
 
@@ -111,7 +111,7 @@ function ResidentNotices() {
         </div>
 
         {/* NOTICE COUNT */}
-        <div className="mb-5 rounded-[14px] border border-[#e2d9df] bg-white px-5 py-4">
+        <div className="mb-5 rounded-none border border-[#e2d9df] bg-white px-5 py-4">
           <p className="text-[10px] font-bold uppercase tracking-[0.12em] text-[#8b778e]">
             Available Notices
           </p>
@@ -179,13 +179,13 @@ function NoticeCard({ notice, onClick }) {
     <button
       type="button"
       onClick={onClick}
-      className="group w-full rounded-[16px] border border-[#e2d9df] bg-white p-5 text-left transition hover:border-[#d9be82] hover:shadow-sm"
+      className="group w-full rounded-none border border-[#e2d9df] bg-white p-5 text-left transition hover:border-[#d9be82] hover:shadow-sm"
     >
       <div className="flex gap-4">
 
         {/* ICON */}
         <div
-          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-xl ${config.bg} ${config.iconColor}`}
+          className={`flex h-11 w-11 shrink-0 items-center justify-center rounded-none ${config.bg} ${config.iconColor}`}
         >
           <Icon size={20} />
         </div>
@@ -199,7 +199,7 @@ function NoticeCard({ notice, onClick }) {
             </h2>
 
             <span
-              className={`rounded-full px-2 py-1 text-[8.5px] font-bold ${config.badge}`}
+              className={`rounded-none px-2 py-1 text-[8.5px] font-bold ${config.badge}`}
             >
               {priority}
             </span>
@@ -229,8 +229,8 @@ function NoticeCard({ notice, onClick }) {
 
 function EmptyState() {
   return (
-    <div className="flex min-h-[250px] flex-col items-center justify-center rounded-[16px] border border-dashed border-[#e2d9df] bg-white px-5 text-center">
-      <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#8b778e]">
+    <div className="flex min-h-[250px] flex-col items-center justify-center rounded-none border border-dashed border-[#e2d9df] bg-white px-5 text-center">
+      <div className="flex h-12 w-12 items-center justify-center rounded-none bg-[#f7f3ed] text-[#8b778e]">
         <Megaphone size={21} />
       </div>
 

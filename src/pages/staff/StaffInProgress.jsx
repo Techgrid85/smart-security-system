@@ -174,7 +174,7 @@ function StaffInProgress() {
               </p>
 
               {complaints.length > 0 && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-[#f7f3ed] px-2 py-0.5 text-[8px] font-bold text-[#9b7740]">
+                <span className="inline-flex items-center gap-1 rounded-none bg-[#f7f3ed] px-2 py-0.5 text-[8px] font-bold text-[#9b7740]">
                   <Wrench size={10} />
                   Active Work
                 </span>
@@ -195,7 +195,7 @@ function StaffInProgress() {
             type="button"
             onClick={fetchInProgressComplaints}
             disabled={loading}
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
           >
             <RefreshCw
               size={14}
@@ -217,7 +217,7 @@ function StaffInProgress() {
 
           {/* COUNT */}
 
-          <div className="rounded-[16px] border border-[#e2d9df] bg-[#f7f3ed] p-4">
+          <div className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
             <div className="flex items-center justify-between">
 
@@ -237,7 +237,7 @@ function StaffInProgress() {
 
               </div>
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#9b7740]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-none bg-white text-[#9b7740]">
                 <Wrench size={19} />
               </div>
 
@@ -247,7 +247,7 @@ function StaffInProgress() {
 
           {/* SEARCH */}
 
-          <div className="flex items-center rounded-[16px] border border-[#e2d9df] bg-white p-4">
+          <div className="flex items-center rounded-none border border-[#e2d9df] bg-white p-4">
 
             <div className="relative w-full">
 
@@ -263,7 +263,7 @@ function StaffInProgress() {
                   setSearch(e.target.value)
                 }
                 placeholder="Search by complaint, resident, flat or category..."
-                className="h-11 w-full rounded-xl border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
+                className="h-11 w-full rounded-none border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
               />
 
             </div>
@@ -276,7 +276,7 @@ function StaffInProgress() {
         {/* TABLE */}
         {/* ========================================== */}
 
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -327,7 +327,7 @@ function StaffInProgress() {
 
             <div className="px-5 py-16 text-center">
 
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <CheckCircle2 size={22} />
               </div>
 
@@ -417,7 +417,7 @@ function StaffInProgress() {
 
                           <div className="flex items-center gap-2">
 
-                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#eee8ed] text-[#756b78]">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-none bg-[#eee8ed] text-[#756b78]">
                               <User size={14} />
                             </div>
 
@@ -463,7 +463,7 @@ function StaffInProgress() {
 
                         <td className="px-5 py-4">
 
-                          <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-bold text-[#756b78]">
+                          <span className="rounded-none bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-bold text-[#756b78]">
                             {complaint.category}
                           </span>
 
@@ -485,7 +485,7 @@ function StaffInProgress() {
 
                         <td className="px-5 py-4">
 
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
+                          <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
                             <Clock3 size={11} />
                             In Progress
                           </span>
@@ -507,7 +507,7 @@ function StaffInProgress() {
                               updatingId ===
                               complaint._id
                             }
-                            className="inline-flex h-8 items-center justify-center gap-1.5 rounded-lg bg-[#9b7740] px-3 text-[9.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                            className="inline-flex h-8 items-center justify-center gap-1.5 rounded-none bg-[#9b7740] px-3 text-[9.5px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                           >
 
                             {updatingId ===

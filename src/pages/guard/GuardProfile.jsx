@@ -90,7 +90,7 @@ const GuardProfile = () => {
   if (!guard) {
     return (
       <DashboardLayout role="guard">
-        <div className="rounded-2xl border border-[#e2d9df] bg-white p-8 text-center shadow-sm">
+        <div className="rounded-none border border-[#e2d9df] bg-white p-8 text-center shadow-sm">
           <p className="text-[#756b78]">
             Unable to load your profile.
           </p>
@@ -98,7 +98,7 @@ const GuardProfile = () => {
           <button
             type="button"
             onClick={fetchGuardProfile}
-            className="mt-4 rounded-xl bg-[#9b7740] px-5 py-2.5 font-medium text-white transition hover:bg-[#826331]"
+            className="mt-4 rounded-none bg-[#9b7740] px-5 py-2.5 font-medium text-white transition hover:bg-[#826331]"
           >
             Try Again
           </button>
@@ -179,7 +179,7 @@ const GuardProfile = () => {
               PROFILE HEADER
           ========================================== */}
 
-          <div className="mb-6 overflow-hidden rounded-2xl border border-[#e2d9df] bg-white shadow-sm">
+          <div className="mb-6 overflow-hidden rounded-none border border-[#e2d9df] bg-white shadow-sm">
 
             {/* GREEN TOP BANNER */}
             <div className="h-28 bg-gradient-to-r from-[#9b7740] to-[#9b7740]" />
@@ -194,7 +194,7 @@ const GuardProfile = () => {
 
                 <div className="relative shrink-0">
 
-                  <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-2xl border-4 border-white bg-[#f5eee2] text-2xl font-bold text-[#826331] shadow-md">
+                  <div className="flex h-24 w-24 items-center justify-center overflow-hidden rounded-none border-4 border-white bg-[#f5eee2] text-2xl font-bold text-[#826331] shadow-md">
 
                     {guard.profilePic ? (
                       <img
@@ -213,7 +213,7 @@ const GuardProfile = () => {
                   </div>
 
                   {/* CAMERA INDICATOR */}
-                  <div className="absolute bottom-1 right-1 flex h-7 w-7 items-center justify-center rounded-full border-2 border-white bg-[#9b7740] text-white shadow-sm">
+                  <div className="absolute bottom-1 right-1 flex h-7 w-7 items-center justify-center rounded-none border-2 border-white bg-[#9b7740] text-white shadow-sm">
                     <Camera size={13} />
                   </div>
 
@@ -249,7 +249,7 @@ const GuardProfile = () => {
                 <div className="sm:ml-auto sm:pb-1">
 
                   <span
-                    className={`inline-flex items-center gap-2 rounded-full px-3 py-1.5 text-xs font-medium ${
+                    className={`inline-flex items-center gap-2 rounded-none px-3 py-1.5 text-xs font-medium ${
                       guard.isActive
                         ? "bg-[#f5eee2] text-[#826331]"
                         : "bg-red-100 text-red-600"
@@ -257,7 +257,7 @@ const GuardProfile = () => {
                   >
 
                     <span
-                      className={`h-2 w-2 rounded-full ${
+                      className={`h-2 w-2 rounded-none ${
                         guard.isActive
                           ? "bg-[#9b7740]"
                           : "bg-red-500"
@@ -292,7 +292,7 @@ const GuardProfile = () => {
               PROFILE INFORMATION
           ========================================== */}
 
-          <div className="rounded-2xl border border-[#e2d9df] bg-white p-6 shadow-sm sm:p-8">
+          <div className="rounded-none border border-[#e2d9df] bg-white p-6 shadow-sm sm:p-8">
 
             <div className="mb-6">
 
@@ -314,10 +314,10 @@ const GuardProfile = () => {
                 return (
                   <div
                     key={item.label}
-                    className="flex items-center gap-4 rounded-xl border border-[#e2d9df] bg-white p-4 transition hover:border-[#e2d9df] hover:bg-[#f7f3ed]/40"
+                    className="flex items-center gap-4 rounded-none border border-[#e2d9df] bg-white p-4 transition hover:border-[#e2d9df] hover:bg-[#f7f3ed]/40"
                   >
 
-                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-xl bg-[#f5eee2] text-[#9b7740]">
+                    <div className="flex h-11 w-11 shrink-0 items-center justify-center rounded-none bg-[#f5eee2] text-[#9b7740]">
                       <Icon size={20} />
                     </div>
 

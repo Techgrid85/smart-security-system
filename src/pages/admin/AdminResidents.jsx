@@ -258,7 +258,7 @@ function AdminResidents() {
                   <button
                       type="button"
                       onClick={() => navigate("/register")}
-                      className="inline-flex shrink-0 items-center gap-2 rounded-[9px] bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white shadow-[0_4px_14px_rgba(16,185,129,0.22)] transition hover:bg-[#9b7740]"
+                      className="inline-flex shrink-0 items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white shadow-[0_4px_14px_rgba(16,185,129,0.22)] transition hover:bg-[#9b7740]"
                   >
                       <UserPlus size={15} />
                       Add Resident
@@ -266,7 +266,7 @@ function AdminResidents() {
               </div>
 
         {/* ================= SEARCH + COUNT ================= */}
-        <div className="mb-5 flex flex-col gap-4 rounded-[16px] border border-[#e2d9df] bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="mb-5 flex flex-col gap-4 rounded-none border border-[#e2d9df] bg-white p-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="relative w-full sm:max-w-md">
             <Search
               size={17}
@@ -278,7 +278,7 @@ function AdminResidents() {
               value={search}
               onChange={(e) => setSearch(e.target.value)}
               placeholder="Search name, email, phone or flat..."
-              className="w-full rounded-[10px] border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-4 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
+              className="w-full rounded-none border border-[#e2d9df] bg-[#f7f3ed] py-2.5 pl-10 pr-4 text-[12px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:bg-white"
             />
           </div>
 
@@ -290,13 +290,13 @@ function AdminResidents() {
 
         {/* ================= ERROR ================= */}
         {error && (
-          <div className="mb-5 rounded-[12px] border border-red-200 bg-red-50 px-4 py-3 text-[12px] font-medium text-red-600">
+          <div className="mb-5 rounded-none border border-red-200 bg-red-50 px-4 py-3 text-[12px] font-medium text-red-600">
             {error}
           </div>
         )}
 
         {/* ================= RESIDENTS TABLE ================= */}
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
             <div>
               <h2 className="text-[13px] font-bold text-[#32143b]">
@@ -311,7 +311,7 @@ function AdminResidents() {
             <button
               type="button"
               onClick={fetchResidents}
-              className="rounded-lg border border-[#e2d9df] px-3 py-2 text-[10.5px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
+              className="rounded-none border border-[#e2d9df] px-3 py-2 text-[10.5px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
             >
               Refresh
             </button>
@@ -361,7 +361,7 @@ function AdminResidents() {
                         {/* NAME */}
                         <td className="px-5 py-4">
                           <div className="flex items-center gap-3">
-                            <div className="flex h-9 w-9 items-center justify-center rounded-full bg-[#f7f3ed] text-[11px] font-bold text-[#9b7740]">
+                            <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[11px] font-bold text-[#9b7740]">
                               {resident.name
                                 ?.split(" ")
                                 .map((word) => word[0])
@@ -411,12 +411,12 @@ function AdminResidents() {
                         {/* STATUS */}
                         <td className="px-4 py-4">
                           {resident.isActive ? (
-                            <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
+                            <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[10px] font-bold text-[#9b7740]">
                               <UserCheck size={12} />
                               Active
                             </span>
                           ) : (
-                            <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 px-2.5 py-1 text-[10px] font-bold text-red-600">
+                            <span className="inline-flex items-center gap-1.5 rounded-none bg-red-50 px-2.5 py-1 text-[10px] font-bold text-red-600">
                               <UserX size={12} />
                               Inactive
                             </span>
@@ -430,7 +430,7 @@ function AdminResidents() {
                               type="button"
                               onClick={() => openEditModal(resident)}
                               title="Edit Resident"
-                              className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740] transition hover:bg-[#f5eee2]"
+                              className="flex h-8 w-8 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740] transition hover:bg-[#f5eee2]"
                             >
                               <Pencil size={14} />
                             </button>
@@ -445,7 +445,7 @@ function AdminResidents() {
                                   ? "Deactivate Resident"
                                   : "Activate Resident"
                               }
-                              className={`flex h-8 w-8 items-center justify-center rounded-lg transition ${
+                              className={`flex h-8 w-8 items-center justify-center rounded-none transition ${
                                 resident.isActive
                                   ? "bg-red-50 text-red-600 hover:bg-red-100"
                                   : "bg-[#f7f3ed] text-[#9b7740] hover:bg-[#f5eee2]"
@@ -487,7 +487,7 @@ function AdminResidents() {
         {/* ================= EDIT MODAL ================= */}
         {editOpen && (
           <div className="fixed inset-0 z-[100] flex items-center justify-center bg-[#32143b]/50 p-4">
-            <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-[18px] bg-white shadow-2xl">
+            <div className="max-h-[90vh] w-full max-w-lg overflow-y-auto rounded-none bg-white shadow-2xl">
               {/* MODAL HEADER */}
               <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
                 <div>
@@ -503,7 +503,7 @@ function AdminResidents() {
                 <button
                   type="button"
                   onClick={closeEditModal}
-                  className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
+                  className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
                 >
                   <X size={18} />
                 </button>
@@ -543,7 +543,7 @@ function AdminResidents() {
                 </div>
 
                 {/* STATUS */}
-                <label className="mt-5 flex cursor-pointer items-center justify-between rounded-xl border border-[#e2d9df] bg-[#f7f3ed] px-4 py-3">
+                <label className="mt-5 flex cursor-pointer items-center justify-between rounded-none border border-[#e2d9df] bg-[#f7f3ed] px-4 py-3">
                   <div>
                     <p className="text-[11.5px] font-bold text-[#49394d]">
                       Active Account
@@ -569,7 +569,7 @@ function AdminResidents() {
                     type="button"
                     onClick={closeEditModal}
                     disabled={saving}
-                    className="rounded-lg border border-[#e2d9df] px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
+                    className="rounded-none border border-[#e2d9df] px-4 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -577,7 +577,7 @@ function AdminResidents() {
                   <button
                     type="submit"
                     disabled={saving}
-                    className="inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="inline-flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {saving && (
                       <Loader2 size={14} className="animate-spin" />
@@ -618,7 +618,7 @@ function FormField({
         value={value}
         onChange={onChange}
         required
-        className="w-full rounded-[9px] border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
+        className="w-full rounded-none border border-[#e2d9df] bg-white px-3 py-2.5 text-[11.5px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a]"
       />
     </div>
   );

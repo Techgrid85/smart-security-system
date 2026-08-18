@@ -159,7 +159,7 @@ function StaffAssignedComplaints() {
   const StatusBadge = ({ status }) => {
     if (status === "Resolved") {
       return (
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
+        <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
           <CheckCircle2 size={11} />
           Resolved
         </span>
@@ -168,7 +168,7 @@ function StaffAssignedComplaints() {
 
     if (status === "In Progress") {
       return (
-        <span className="inline-flex items-center gap-1.5 rounded-full bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
+        <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9.5px] font-bold text-[#9b7740]">
           <Clock3 size={11} />
           In Progress
         </span>
@@ -176,7 +176,7 @@ function StaffAssignedComplaints() {
     }
 
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-full bg-red-50 px-2.5 py-1 text-[9.5px] font-bold text-red-600">
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-red-50 px-2.5 py-1 text-[9.5px] font-bold text-red-600">
         <AlertCircle size={11} />
         Pending
       </span>
@@ -211,7 +211,7 @@ function StaffAssignedComplaints() {
             type="button"
             onClick={fetchComplaints}
             disabled={loading}
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740] disabled:opacity-60"
           >
             <RefreshCw
               size={14}
@@ -229,7 +229,7 @@ function StaffAssignedComplaints() {
         {/* SEARCH */}
         {/* ========================================== */}
 
-        <div className="mb-5 rounded-[16px] border border-[#e2d9df] bg-white p-4">
+        <div className="mb-5 rounded-none border border-[#e2d9df] bg-white p-4">
 
           <div className="relative">
 
@@ -245,7 +245,7 @@ function StaffAssignedComplaints() {
                 setSearch(e.target.value)
               }
               placeholder="Search by complaint, resident, flat or category..."
-              className="h-11 w-full rounded-xl border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
+              className="h-11 w-full rounded-none border border-[#e2d9df] bg-white pl-10 pr-4 text-[11.5px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f7f3ed]"
             />
 
           </div>
@@ -256,7 +256,7 @@ function StaffAssignedComplaints() {
         {/* TABLE */}
         {/* ========================================== */}
 
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -307,7 +307,7 @@ function StaffAssignedComplaints() {
 
             <div className="px-5 py-16 text-center">
 
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <CheckCircle2 size={22} />
               </div>
 
@@ -401,7 +401,7 @@ function StaffAssignedComplaints() {
 
                           <div className="flex items-center gap-2">
 
-                            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#eee8ed] text-[#756b78]">
+                            <div className="flex h-8 w-8 items-center justify-center rounded-none bg-[#eee8ed] text-[#756b78]">
                               <User size={14} />
                             </div>
 
@@ -447,7 +447,7 @@ function StaffAssignedComplaints() {
 
                         <td className="px-5 py-4">
 
-                          <span className="rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-bold text-[#756b78]">
+                          <span className="rounded-none bg-[#eee8ed] px-2.5 py-1 text-[9.5px] font-bold text-[#756b78]">
                             {complaint.category}
                           </span>
 
@@ -493,7 +493,7 @@ function StaffAssignedComplaints() {
                                 e.target.value
                               )
                             }
-                            className="h-8 rounded-lg border border-[#e2d9df] bg-white px-2 text-[9.5px] font-bold text-[#756b78] outline-none focus:border-[#bca16a] disabled:cursor-not-allowed disabled:bg-[#f7f3ed] disabled:opacity-60"
+                            className="h-8 rounded-none border border-[#e2d9df] bg-white px-2 text-[9.5px] font-bold text-[#756b78] outline-none focus:border-[#bca16a] disabled:cursor-not-allowed disabled:bg-[#f7f3ed] disabled:opacity-60"
                           >
 
                             <option value="Pending">

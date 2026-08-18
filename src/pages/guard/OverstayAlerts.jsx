@@ -269,7 +269,7 @@ function OverstayAlerts() {
 
               {(overstayVisitors.length > 0 ||
                 deliveryVisitors.length > 0) && (
-                <span className="inline-flex items-center gap-1 rounded-full bg-rose-50 px-2 py-0.5 text-[8px] font-bold text-rose-500">
+                <span className="inline-flex items-center gap-1 rounded-none bg-rose-50 px-2 py-0.5 text-[8px] font-bold text-rose-500">
 
                   <AlertTriangle size={10} />
 
@@ -294,7 +294,7 @@ function OverstayAlerts() {
             type="button"
             onClick={fetchAlerts}
             disabled={loading}
-            className="inline-flex h-9 items-center justify-center gap-2 rounded-lg border border-[#e2d9df] bg-white px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-rose-300 hover:text-rose-600 disabled:opacity-60"
+            className="inline-flex h-9 items-center justify-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3 text-[10.5px] font-bold text-[#756b78] transition hover:border-rose-300 hover:text-rose-600 disabled:opacity-60"
           >
 
             <RefreshCw
@@ -317,7 +317,7 @@ function OverstayAlerts() {
         {/* ================================================= */}
 
         {error && (
-          <div className="mb-5 flex items-center gap-2 rounded-xl border border-red-200 bg-red-50 px-4 py-3">
+          <div className="mb-5 flex items-center gap-2 rounded-none border border-red-200 bg-red-50 px-4 py-3">
 
             <AlertCircle
               size={15}
@@ -339,7 +339,7 @@ function OverstayAlerts() {
 
           {/* OVERSTAY */}
 
-          <div className="rounded-[16px] border border-rose-100 bg-rose-50 p-4">
+          <div className="rounded-none border border-rose-100 bg-rose-50 p-4">
 
             <div className="flex items-center justify-between">
 
@@ -359,7 +359,7 @@ function OverstayAlerts() {
 
               </div>
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-rose-500">
+              <div className="flex h-10 w-10 items-center justify-center rounded-none bg-white text-rose-500">
                 <ShieldAlert size={19} />
               </div>
 
@@ -369,7 +369,7 @@ function OverstayAlerts() {
 
           {/* DELIVERY */}
 
-          <div className="rounded-[16px] border border-[#e2d9df] bg-[#f7f3ed] p-4">
+          <div className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
             <div className="flex items-center justify-between">
 
@@ -389,7 +389,7 @@ function OverstayAlerts() {
 
               </div>
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-white text-[#9b7740]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-none bg-white text-[#9b7740]">
                 <Package size={19} />
               </div>
 
@@ -399,7 +399,7 @@ function OverstayAlerts() {
 
           {/* TOTAL */}
 
-          <div className="rounded-[16px] border border-[#e2d9df] bg-white p-4">
+          <div className="rounded-none border border-[#e2d9df] bg-white p-4">
 
             <div className="flex items-center justify-between">
 
@@ -419,7 +419,7 @@ function OverstayAlerts() {
 
               </div>
 
-              <div className="flex h-10 w-10 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#756b78]">
+              <div className="flex h-10 w-10 items-center justify-center rounded-none bg-[#f7f3ed] text-[#756b78]">
                 <AlertTriangle size={19} />
               </div>
 
@@ -433,20 +433,20 @@ function OverstayAlerts() {
         {/* TABS + SEARCH */}
         {/* ================================================= */}
 
-        <section className="mb-5 rounded-[16px] border border-[#e2d9df] bg-white p-4">
+        <section className="mb-5 rounded-none border border-[#e2d9df] bg-white p-4">
 
           <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
 
             {/* TABS */}
 
-            <div className="flex rounded-xl bg-[#f7f3ed] p-1">
+            <div className="flex rounded-none bg-[#f7f3ed] p-1">
 
               <button
                 type="button"
                 onClick={() =>
                   setActiveTab("overstay")
                 }
-                className={`flex items-center gap-2 rounded-lg px-4 py-2 text-[10px] font-bold transition ${
+                className={`flex items-center gap-2 rounded-none px-4 py-2 text-[10px] font-bold transition ${
                   activeTab === "overstay"
                     ? "bg-white text-rose-600 shadow-sm"
                     : "text-[#8b778e] hover:text-[#756b78]"
@@ -457,7 +457,7 @@ function OverstayAlerts() {
 
                 Overstay
 
-                <span className="rounded-full bg-rose-50 px-1.5 py-0.5 text-[8px] text-rose-500">
+                <span className="rounded-none bg-rose-50 px-1.5 py-0.5 text-[8px] text-rose-500">
                   {overstayVisitors.length}
                 </span>
 
@@ -468,7 +468,7 @@ function OverstayAlerts() {
                 onClick={() =>
                   setActiveTab("delivery")
                 }
-                className={`flex items-center gap-2 rounded-lg px-4 py-2 text-[10px] font-bold transition ${
+                className={`flex items-center gap-2 rounded-none px-4 py-2 text-[10px] font-bold transition ${
                   activeTab === "delivery"
                     ? "bg-white text-[#9b7740] shadow-sm"
                     : "text-[#8b778e] hover:text-[#756b78]"
@@ -479,7 +479,7 @@ function OverstayAlerts() {
 
                 Delivery
 
-                <span className="rounded-full bg-[#f7f3ed] px-1.5 py-0.5 text-[8px] text-[#9b7740]">
+                <span className="rounded-none bg-[#f7f3ed] px-1.5 py-0.5 text-[8px] text-[#9b7740]">
                   {deliveryVisitors.length}
                 </span>
 
@@ -503,7 +503,7 @@ function OverstayAlerts() {
                   setSearch(e.target.value)
                 }
                 placeholder="Search visitor, resident, flat or phone..."
-                className="h-10 w-full rounded-xl border border-[#e2d9df] bg-white pl-9 pr-4 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-rose-400 focus:ring-2 focus:ring-rose-50"
+                className="h-10 w-full rounded-none border border-[#e2d9df] bg-white pl-9 pr-4 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-rose-400 focus:ring-2 focus:ring-rose-50"
               />
 
             </div>
@@ -516,7 +516,7 @@ function OverstayAlerts() {
         {/* ALERT TABLE */}
         {/* ================================================= */}
 
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -585,7 +585,7 @@ function OverstayAlerts() {
 
             <div className="px-5 py-16 text-center">
 
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
 
                 <CheckCircle2 size={22} />
 
@@ -676,7 +676,7 @@ function OverstayAlerts() {
                           <div className="flex items-center gap-3">
 
                             <div
-                              className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-lg ${
+                              className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-none ${
                                 activeTab ===
                                 "overstay"
                                   ? "bg-rose-50 text-rose-500"
@@ -778,7 +778,7 @@ function OverstayAlerts() {
 
                         <td className="px-5 py-4">
 
-                          <div className="inline-flex items-center gap-1.5 rounded-lg bg-[#f7f3ed] px-2.5 py-1.5 text-[9.5px] font-bold text-[#756b78]">
+                          <div className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1.5 text-[9.5px] font-bold text-[#756b78]">
 
                             <Clock3 size={12} />
 
@@ -794,7 +794,7 @@ function OverstayAlerts() {
 
                         <td className="px-5 py-4">
 
-                          <div className="inline-flex items-center gap-1.5 rounded-lg bg-rose-50 px-2.5 py-1.5 text-[9.5px] font-bold text-rose-600">
+                          <div className="inline-flex items-center gap-1.5 rounded-none bg-rose-50 px-2.5 py-1.5 text-[9.5px] font-bold text-rose-600">
 
                             <AlertTriangle
                               size={12}
@@ -823,7 +823,7 @@ function OverstayAlerts() {
                               exitingId ===
                               visitor._id
                             }
-                            className="inline-flex h-8 items-center justify-center gap-1.5 rounded-lg bg-rose-500 px-3 text-[9.5px] font-bold text-white transition hover:bg-rose-600 disabled:cursor-not-allowed disabled:opacity-60"
+                            className="inline-flex h-8 items-center justify-center gap-1.5 rounded-none bg-rose-500 px-3 text-[9.5px] font-bold text-white transition hover:bg-rose-600 disabled:cursor-not-allowed disabled:opacity-60"
                           >
 
                             {exitingId ===

@@ -229,11 +229,11 @@ function AdminSettings() {
         </div>
 
         {/* SETTINGS CARD */}
-        <section className="max-w-3xl overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="max-w-3xl overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           {/* CARD HEADER */}
           <div className="flex items-center gap-3 border-b border-[#e2d9df] px-5 py-4">
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
               <Settings size={17} />
             </div>
 
@@ -273,7 +273,7 @@ function AdminSettings() {
                   onChange={handleChange}
                   placeholder="Enter your name"
                   required
-                  className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                  className="h-10 w-full rounded-none border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                 />
               </div>
             </div>
@@ -296,7 +296,7 @@ function AdminSettings() {
                   value={formData.phone}
                   onChange={handleChange}
                   placeholder="Enter phone number"
-                  className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                  className="h-10 w-full rounded-none border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                 />
               </div>
             </div>
@@ -306,7 +306,7 @@ function AdminSettings() {
               <button
                 type="submit"
                 disabled={saving}
-                className="flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[10.5px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
               >
                 <Save size={14} />
 

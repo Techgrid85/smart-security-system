@@ -141,9 +141,9 @@ function ResidentGuidelines() {
 
         {/* ================= INFORMATION BANNER ================= */}
 
-        <div className="mb-6 flex items-start gap-4 rounded-[16px] border border-[#f5eee2] bg-[#f7f3ed] p-5">
+        <div className="mb-6 flex items-start gap-4 rounded-none border border-[#f5eee2] bg-[#f7f3ed] p-5">
 
-          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-white text-[#9b7740]">
+          <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-none bg-white text-[#9b7740]">
             <BookOpen size={19} />
           </div>
 
@@ -185,7 +185,7 @@ function ResidentGuidelines() {
               return (
                 <div
                   key={guideline.title}
-                  className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white"
+                  className="overflow-hidden rounded-none border border-[#e2d9df] bg-white"
                 >
 
                   {/* CARD HEADER */}
@@ -195,7 +195,7 @@ function ResidentGuidelines() {
                     <div className="flex items-center gap-3">
 
                       <div
-                        className={`flex h-9 w-9 items-center justify-center rounded-xl ${toneStyles[guideline.tone]}`}
+                        className={`flex h-9 w-9 items-center justify-center rounded-none ${toneStyles[guideline.tone]}`}
                       >
                         <Icon size={17} />
                       </div>
@@ -226,7 +226,7 @@ function ResidentGuidelines() {
                           className="flex items-start gap-2.5"
                         >
 
-                          <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-[#bca16a]" />
+                          <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-none bg-[#bca16a]" />
 
                           <p className="text-[10.5px] font-medium leading-5 text-[#756b78]">
                             {point}
@@ -250,7 +250,7 @@ function ResidentGuidelines() {
 
         {/* ================= IMPORTANT NOTICE ================= */}
 
-        <div className="mt-6 flex items-start gap-3 rounded-[14px] border border-[#e2d9df] bg-[#f7f3ed] p-4">
+        <div className="mt-6 flex items-start gap-3 rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
           <AlertTriangle
             size={17}

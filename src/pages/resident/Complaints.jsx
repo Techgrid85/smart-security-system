@@ -347,7 +347,7 @@ function Complaints() {
             <button
               type="button"
               onClick={fetchComplaints}
-              className="flex items-center justify-center gap-2 rounded-[1px] border border-[#e2d9df] bg-white px-3.5 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
+              className="flex items-center justify-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3.5 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed]"
             >
               <RefreshCw size={14} />
               Refresh
@@ -356,7 +356,7 @@ function Complaints() {
             <button
               type="button"
               onClick={openCreateModal}
-              className="flex items-center justify-center gap-2 rounded-[1px] bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
+              className="flex items-center justify-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740]"
             >
               <Plus size={15} />
               New Complaint
@@ -408,7 +408,7 @@ function Complaints() {
             COMPLAINT TABLE
         ========================================== */}
 
-        <section className="overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
@@ -467,7 +467,7 @@ function Complaints() {
                         <div className="flex items-center gap-2">
 
                           {complaint.photo && (
-                            <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-[1px] border border-[#e2d9df]">
+                            <div className="flex h-8 w-8 shrink-0 items-center justify-center overflow-hidden rounded-none border border-[#e2d9df]">
                               <img
                                 src={complaint.photo}
                                 alt="Complaint"
@@ -494,7 +494,7 @@ function Complaints() {
 
                       <td className="px-5 py-4">
 
-                        <span className="rounded-[1px] bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
+                        <span className="rounded-none bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
                           {complaint.category}
                         </span>
 
@@ -525,7 +525,7 @@ function Complaints() {
                               complaint._id
                             )
                           }
-                          className="flex items-center gap-1.5 rounded-[1px] border border-[#e2d9df] bg-white px-2.5 py-1.5 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
+                          className="flex items-center gap-1.5 rounded-none border border-[#e2d9df] bg-white px-2.5 py-1.5 text-[9.5px] font-bold text-[#756b78] transition hover:border-[#d9be82] hover:text-[#9b7740]"
                         >
                           <Eye size={13} />
                           View
@@ -560,7 +560,7 @@ function Complaints() {
           >
 
             <div
-              className="max-h-[92vh] w-full max-w-[760px] overflow-y-auto rounded-[1px] border border-[#e2d9df] bg-white shadow-2xl"
+              className="max-h-[92vh] w-full max-w-[760px] overflow-y-auto rounded-none border border-[#e2d9df] bg-white shadow-2xl"
               onClick={(e) => e.stopPropagation()}
             >
 
@@ -587,7 +587,7 @@ function Complaints() {
                 <button
                   type="button"
                   onClick={closeCreateModal}
-                  className="flex h-9 w-9 items-center justify-center rounded-[1px] border border-[#e2d9df] text-[#8b778e] transition hover:bg-[#f7f3ed] hover:text-[#49394d]"
+                  className="flex h-9 w-9 items-center justify-center rounded-none border border-[#e2d9df] text-[#8b778e] transition hover:bg-[#f7f3ed] hover:text-[#49394d]"
                 >
                   <X size={17} />
                 </button>
@@ -618,7 +618,7 @@ function Complaints() {
                       onChange={handleChange}
                       maxLength={100}
                       placeholder="e.g. Water leakage in bathroom"
-                      className="w-full rounded-[1px] border border-[#e2d9df] px-3 py-3 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
+                      className="w-full rounded-none border border-[#e2d9df] px-3 py-3 text-[11px] font-medium text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                     />
 
                     <p className="mt-1 text-right text-[9px] text-[#8b778e]">
@@ -637,7 +637,7 @@ function Complaints() {
                       name="category"
                       value={formData.category}
                       onChange={handleChange}
-                      className="w-full rounded-[1px] border border-[#e2d9df] bg-white px-3 py-3 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
+                      className="w-full rounded-none border border-[#e2d9df] bg-white px-3 py-3 text-[11px] font-medium text-[#49394d] outline-none transition focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                     >
 
                       <option value="">
@@ -676,7 +676,7 @@ function Complaints() {
                     rows={7}
                     maxLength={1000}
                     placeholder="Describe the issue clearly so management can understand and resolve it..."
-                    className="w-full resize-none rounded-[1px] border border-[#e2d9df] px-3 py-3 text-[11px] font-medium leading-5 text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
+                    className="w-full resize-none rounded-none border border-[#e2d9df] px-3 py-3 text-[11px] font-medium leading-5 text-[#49394d] outline-none transition placeholder:text-[#bca9c0] focus:border-[#bca16a] focus:ring-2 focus:ring-[#f5eee2]"
                   />
 
                   <p className="mt-1 text-right text-[9px] text-[#8b778e]">
@@ -706,7 +706,7 @@ function Complaints() {
                       className="flex min-h-[150px] w-full flex-col items-center justify-center border border-dashed border-[#bca9c0] bg-[#f7f3ed] px-5 py-8 text-center transition hover:border-[#bca16a] hover:bg-[#f7f3ed]/30"
                     >
 
-                      <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-[1px] bg-white text-[#8b778e] shadow-sm">
+                      <div className="mb-3 flex h-11 w-11 items-center justify-center rounded-none bg-white text-[#8b778e] shadow-sm">
                         <Upload size={19} />
                       </div>
 
@@ -752,7 +752,7 @@ function Complaints() {
                         <button
                           type="button"
                           onClick={removePhoto}
-                          className="flex shrink-0 items-center gap-1 rounded-[1px] border border-[#e2d9df] bg-white px-2.5 py-1.5 text-[9px] font-bold text-red-500 transition hover:bg-red-50"
+                          className="flex shrink-0 items-center gap-1 rounded-none border border-[#e2d9df] bg-white px-2.5 py-1.5 text-[9px] font-bold text-red-500 transition hover:bg-red-50"
                         >
                           <X size={12} />
                           Remove
@@ -799,7 +799,7 @@ function Complaints() {
                     type="button"
                     onClick={closeCreateModal}
                     disabled={submitting}
-                    className="rounded-[1px] border border-[#e2d9df] px-5 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
+                    className="rounded-none border border-[#e2d9df] px-5 py-2.5 text-[11px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
                   >
                     Cancel
                   </button>
@@ -807,7 +807,7 @@ function Complaints() {
                   <button
                     type="submit"
                     disabled={submitting}
-                    className="flex items-center gap-2 rounded-[1px] bg-[#9b7740] px-5 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="flex items-center gap-2 rounded-none bg-[#9b7740] px-5 py-2.5 text-[11px] font-bold text-white transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                   >
 
                     <Send size={14} />
@@ -842,7 +842,7 @@ function Complaints() {
           >
 
             <div
-              className="max-h-[90vh] w-full max-w-[650px] overflow-y-auto rounded-[1px] border border-[#e2d9df] bg-white shadow-2xl"
+              className="max-h-[90vh] w-full max-w-[650px] overflow-y-auto rounded-none border border-[#e2d9df] bg-white shadow-2xl"
               onClick={(e) =>
                 e.stopPropagation()
               }
@@ -881,7 +881,7 @@ function Complaints() {
                       onClick={() =>
                         setSelectedComplaint(null)
                       }
-                      className="flex h-9 w-9 items-center justify-center rounded-[1px] border border-[#e2d9df] text-[#8b778e] transition hover:bg-[#f7f3ed]"
+                      className="flex h-9 w-9 items-center justify-center rounded-none border border-[#e2d9df] text-[#8b778e] transition hover:bg-[#f7f3ed]"
                     >
                       <X size={17} />
                     </button>
@@ -1036,10 +1036,10 @@ function ComplaintStat({
   };
 
   return (
-    <div className="rounded-[1px] border border-[#e2d9df] bg-white p-5">
+    <div className="rounded-none border border-[#e2d9df] bg-white p-5">
 
       <div
-        className={`mb-4 flex h-10 w-10 items-center justify-center rounded-[1px] ${tones[tone]}`}
+        className={`mb-4 flex h-10 w-10 items-center justify-center rounded-none ${tones[tone]}`}
       >
         <Icon size={19} />
       </div>
@@ -1063,7 +1063,7 @@ function ComplaintStat({
 function ComplaintStatus({ status }) {
   if (status === "Resolved") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
         <CheckCircle2 size={11} />
         Resolved
       </span>
@@ -1072,7 +1072,7 @@ function ComplaintStatus({ status }) {
 
   if (status === "In Progress") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-2.5 py-1 text-[9px] font-bold text-[#9b7740]">
         <Clock3 size={11} />
         In Progress
       </span>
@@ -1081,7 +1081,7 @@ function ComplaintStatus({ status }) {
 
   if (status === "Rejected") {
     return (
-      <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-red-50 px-2.5 py-1 text-[9px] font-bold text-red-600">
+      <span className="inline-flex items-center gap-1.5 rounded-none bg-red-50 px-2.5 py-1 text-[9px] font-bold text-red-600">
         <AlertCircle size={11} />
         Rejected
       </span>
@@ -1089,7 +1089,7 @@ function ComplaintStatus({ status }) {
   }
 
   return (
-    <span className="inline-flex items-center gap-1.5 rounded-[1px] bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
+    <span className="inline-flex items-center gap-1.5 rounded-none bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
       <AlertCircle size={11} />
       {status || "Pending"}
     </span>
@@ -1136,7 +1136,7 @@ function EmptyState({ text }) {
   return (
     <div className="flex min-h-[250px] flex-col items-center justify-center px-4 text-center">
 
-      <div className="flex h-12 w-12 items-center justify-center rounded-[1px] bg-[#eee8ed] text-[#8b778e]">
+      <div className="flex h-12 w-12 items-center justify-center rounded-none bg-[#eee8ed] text-[#8b778e]">
         <MessageSquareWarning size={21} />
       </div>
 

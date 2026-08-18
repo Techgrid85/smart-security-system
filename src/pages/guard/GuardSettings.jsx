@@ -381,7 +381,7 @@ const GuardSettings = () => {
           <div className="mb-8">
             <div className="flex items-center gap-3">
 
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#f5eee2] text-[#9b7740]">
+              <div className="flex h-11 w-11 items-center justify-center rounded-none bg-[#f5eee2] text-[#9b7740]">
                 <Settings size={22} />
               </div>
 
@@ -403,7 +403,7 @@ const GuardSettings = () => {
           ====================================== */}
           <form
             onSubmit={handleSubmit}
-            className="rounded-2xl border border-[#e2d9df] bg-white p-6 shadow-sm sm:p-8"
+            className="rounded-none border border-[#e2d9df] bg-white p-6 shadow-sm sm:p-8"
           >
 
             {/* =================================
@@ -414,7 +414,7 @@ const GuardSettings = () => {
               {/* AVATAR */}
               <div className="relative">
 
-                <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-2xl border-4 border-white bg-[#f5eee2] text-3xl font-bold text-[#826331] shadow-md">
+                <div className="flex h-28 w-28 items-center justify-center overflow-hidden rounded-none border-4 border-white bg-[#f5eee2] text-3xl font-bold text-[#826331] shadow-md">
 
                   {profilePic ? (
                     <img
@@ -431,7 +431,7 @@ const GuardSettings = () => {
                 {/* CAMERA BUTTON */}
                 <label
                   htmlFor="profilePic"
-                  className="absolute bottom-1 right-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-full border-2 border-white bg-[#9b7740] text-white shadow-md transition hover:bg-[#826331]"
+                  className="absolute bottom-1 right-1 flex h-9 w-9 cursor-pointer items-center justify-center rounded-none border-2 border-white bg-[#9b7740] text-white shadow-md transition hover:bg-[#826331]"
                 >
                   <Camera size={16} />
 
@@ -467,7 +467,7 @@ const GuardSettings = () => {
                     type="button"
                     onClick={uploadProfilePicture}
                     disabled={uploadingPicture}
-                    className="mt-3 inline-flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#826331] disabled:cursor-not-allowed disabled:opacity-60"
+                    className="mt-3 inline-flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2 text-xs font-semibold text-white transition hover:bg-[#826331] disabled:cursor-not-allowed disabled:opacity-60"
                   >
                     {uploadingPicture ? (
                       <>
@@ -523,7 +523,7 @@ const GuardSettings = () => {
                     value={formData.name}
                     onChange={handleChange}
                     placeholder="Enter your full name"
-                    className="w-full rounded-xl border border-[#bca9c0] bg-white py-3 pl-11 pr-4 text-sm text-[#32143b] outline-none transition placeholder:text-[#8b778e] focus:border-[#9b7740] focus:ring-2 focus:ring-[#f5eee2]"
+                    className="w-full rounded-none border border-[#bca9c0] bg-white py-3 pl-11 pr-4 text-sm text-[#32143b] outline-none transition placeholder:text-[#8b778e] focus:border-[#9b7740] focus:ring-2 focus:ring-[#f5eee2]"
                     required
                   />
 
@@ -549,7 +549,7 @@ const GuardSettings = () => {
                     value={formData.email}
                     onChange={handleChange}
                     placeholder="Enter email address"
-                    className="w-full rounded-xl border border-[#bca9c0] bg-white py-3 pl-11 pr-4 text-sm text-[#32143b] outline-none transition placeholder:text-[#8b778e] focus:border-[#9b7740] focus:ring-2 focus:ring-[#f5eee2]"
+                    className="w-full rounded-none border border-[#bca9c0] bg-white py-3 pl-11 pr-4 text-sm text-[#32143b] outline-none transition placeholder:text-[#8b778e] focus:border-[#9b7740] focus:ring-2 focus:ring-[#f5eee2]"
                     required
                   />
 
@@ -576,7 +576,7 @@ const GuardSettings = () => {
                     onChange={handleChange}
                     placeholder="Enter 10 digit phone number"
                     maxLength={10}
-                    className="w-full rounded-xl border border-[#bca9c0] bg-white py-3 pl-11 pr-4 text-sm text-[#32143b] outline-none transition placeholder:text-[#8b778e] focus:border-[#9b7740] focus:ring-2 focus:ring-[#f5eee2]"
+                    className="w-full rounded-none border border-[#bca9c0] bg-white py-3 pl-11 pr-4 text-sm text-[#32143b] outline-none transition placeholder:text-[#8b778e] focus:border-[#9b7740] focus:ring-2 focus:ring-[#f5eee2]"
                     required
                   />
 
@@ -601,7 +601,7 @@ const GuardSettings = () => {
                     name="flatNo"
                     value={formData.flatNo}
                     disabled
-                    className="w-full cursor-not-allowed rounded-xl border border-[#bca9c0] bg-[#f7f3ed] py-3 pl-11 pr-4 text-sm text-[#756b78] outline-none"
+                    className="w-full cursor-not-allowed rounded-none border border-[#bca9c0] bg-[#f7f3ed] py-3 pl-11 pr-4 text-sm text-[#756b78] outline-none"
                   />
 
                 </div>
@@ -628,7 +628,7 @@ const GuardSettings = () => {
                     type="text"
                     value="Security Guard"
                     disabled
-                    className="w-full cursor-not-allowed rounded-xl border border-[#e2d9df] bg-[#f7f3ed] py-3 pl-11 pr-4 text-sm text-[#826331]"
+                    className="w-full cursor-not-allowed rounded-none border border-[#e2d9df] bg-[#f7f3ed] py-3 pl-11 pr-4 text-sm text-[#826331]"
                   />
 
                 </div>
@@ -644,7 +644,7 @@ const GuardSettings = () => {
               <button
                 type="submit"
                 disabled={saving}
-                className="flex items-center gap-2 rounded-xl bg-[#9b7740] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#826331] disabled:cursor-not-allowed disabled:opacity-60"
+                className="flex items-center gap-2 rounded-none bg-[#9b7740] px-6 py-3 text-sm font-semibold text-white transition hover:bg-[#826331] disabled:cursor-not-allowed disabled:opacity-60"
               >
 
                 {saving ? (

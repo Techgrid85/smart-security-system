@@ -261,10 +261,10 @@ function AdminCompletedComplaints() {
         {/* SUMMARY */}
         <div className="mb-5 grid grid-cols-1 gap-3 sm:grid-cols-3">
 
-          <div className="rounded-[14px] border border-[#e2d9df] bg-white p-4">
+          <div className="rounded-none border border-[#e2d9df] bg-white p-4">
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <CheckCircle2 size={17} />
               </div>
 
@@ -281,10 +281,10 @@ function AdminCompletedComplaints() {
             </div>
           </div>
 
-          <div className="rounded-[14px] border border-[#e2d9df] bg-white p-4">
+          <div className="rounded-none border border-[#e2d9df] bg-white p-4">
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#63366f]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#63366f]">
                 <ReceiptText size={17} />
               </div>
 
@@ -301,10 +301,10 @@ function AdminCompletedComplaints() {
             </div>
           </div>
 
-          <div className="rounded-[14px] border border-[#e2d9df] bg-white p-4">
+          <div className="rounded-none border border-[#e2d9df] bg-white p-4">
             <div className="flex items-center gap-3">
 
-              <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+              <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                 <ClipboardList size={17} />
               </div>
 
@@ -326,12 +326,12 @@ function AdminCompletedComplaints() {
         </div>
 
         {/* TABLE */}
-        <section className="overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white">
+        <section className="overflow-hidden rounded-none border border-[#e2d9df] bg-white">
 
           {/* TABLE HEADER */}
           <div className="flex items-center gap-3 border-b border-[#e2d9df] px-5 py-4">
 
-            <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+            <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
               <CheckCircle2 size={17} />
             </div>
 
@@ -352,7 +352,7 @@ function AdminCompletedComplaints() {
             /* EMPTY */
             <div className="flex min-h-[280px] flex-col items-center justify-center px-5 text-center">
 
-              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-xl bg-[#eee8ed] text-[#8b778e]">
+              <div className="mb-3 flex h-12 w-12 items-center justify-center rounded-none bg-[#eee8ed] text-[#8b778e]">
                 <ClipboardList size={22} />
               </div>
 
@@ -421,7 +421,7 @@ function AdminCompletedComplaints() {
 
                         <div className="flex items-center gap-3">
 
-                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+                          <div className="flex h-8 w-8 shrink-0 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                             <Wrench size={15} />
                           </div>
 
@@ -490,7 +490,7 @@ function AdminCompletedComplaints() {
                       {/* CATEGORY */}
                       <td className="px-5 py-4">
 
-                        <span className="inline-flex rounded-full bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
+                        <span className="inline-flex rounded-none bg-[#eee8ed] px-2.5 py-1 text-[9px] font-bold text-[#756b78]">
                           {complaint.category || "Other"}
                         </span>
 
@@ -530,7 +530,7 @@ function AdminCompletedComplaints() {
 
                         {hasBill(complaint) ? (
 
-                          <span className="inline-flex items-center gap-1.5 rounded-lg bg-[#f7f3ed] px-3 py-2 text-[9px] font-bold text-[#9b7740]">
+                          <span className="inline-flex items-center gap-1.5 rounded-none bg-[#f7f3ed] px-3 py-2 text-[9px] font-bold text-[#9b7740]">
                             <CheckCircle2 size={13} />
                             Bill Generated
                           </span>
@@ -542,7 +542,7 @@ function AdminCompletedComplaints() {
                             onClick={() =>
                               openBillModal(complaint)
                             }
-                            className="inline-flex items-center gap-1.5 rounded-lg bg-[#9b7740] px-3 py-2 text-[9px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740]"
+                            className="inline-flex items-center gap-1.5 rounded-none bg-[#9b7740] px-3 py-2 text-[9px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740]"
                           >
                             <ReceiptText size={13} />
                             Generate Bill
@@ -576,14 +576,14 @@ function AdminCompletedComplaints() {
 
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-[#32143b]/40 p-4 backdrop-blur-sm">
 
-          <div className="w-full max-w-md overflow-hidden rounded-[16px] border border-[#e2d9df] bg-white shadow-2xl">
+          <div className="w-full max-w-md overflow-hidden rounded-none border border-[#e2d9df] bg-white shadow-2xl">
 
             {/* MODAL HEADER */}
             <div className="flex items-center justify-between border-b border-[#e2d9df] px-5 py-4">
 
               <div className="flex items-center gap-3">
 
-                <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+                <div className="flex h-9 w-9 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                   <ReceiptText size={17} />
                 </div>
 
@@ -602,7 +602,7 @@ function AdminCompletedComplaints() {
               <button
                 type="button"
                 onClick={closeBillModal}
-                className="flex h-8 w-8 items-center justify-center rounded-lg text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
+                className="flex h-8 w-8 items-center justify-center rounded-none text-[#8b778e] transition hover:bg-[#eee8ed] hover:text-[#49394d]"
               >
                 <X size={17} />
               </button>
@@ -653,7 +653,7 @@ function AdminCompletedComplaints() {
                   Category
                 </p>
 
-                <span className="mt-1 inline-flex rounded-full bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
+                <span className="mt-1 inline-flex rounded-none bg-[#f7f3ed] px-2 py-1 text-[8.5px] font-bold text-[#9b7740]">
                   {selectedComplaint.category}
                 </span>
               </div>
@@ -691,7 +691,7 @@ function AdminCompletedComplaints() {
                       setAmount(e.target.value)
                     }
                     placeholder="Enter amount"
-                    className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                    className="h-10 w-full rounded-none border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                     required
                   />
 
@@ -719,7 +719,7 @@ function AdminCompletedComplaints() {
                     onChange={(e) =>
                       setDueDate(e.target.value)
                     }
-                    className="h-10 w-full rounded-lg border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
+                    className="h-10 w-full rounded-none border border-[#e2d9df] bg-white pl-9 pr-3 text-[11px] text-[#49394d] outline-none transition focus:border-[#bca16a]"
                     required
                   />
 
@@ -734,7 +734,7 @@ function AdminCompletedComplaints() {
                   type="button"
                   onClick={closeBillModal}
                   disabled={generating}
-                  className="rounded-lg border border-[#e2d9df] px-4 py-2.5 text-[10px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
+                  className="rounded-none border border-[#e2d9df] px-4 py-2.5 text-[10px] font-bold text-[#756b78] transition hover:bg-[#f7f3ed] disabled:opacity-50"
                 >
                   Cancel
                 </button>
@@ -742,7 +742,7 @@ function AdminCompletedComplaints() {
                 <button
                   type="submit"
                   disabled={generating}
-                  className="flex items-center gap-2 rounded-lg bg-[#9b7740] px-4 py-2.5 text-[10px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
+                  className="flex items-center gap-2 rounded-none bg-[#9b7740] px-4 py-2.5 text-[10px] font-bold text-white shadow-lg shadow-#9b7740/20 transition hover:bg-[#9b7740] disabled:cursor-not-allowed disabled:opacity-60"
                 >
 
                   {generating ? (

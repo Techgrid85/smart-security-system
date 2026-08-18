@@ -187,7 +187,7 @@ function SocietyMap() {
       <DashboardLayout role="admin">
         <div className="flex min-h-[400px] items-center justify-center">
           <div className="text-center">
-            <div className="mx-auto h-9 w-9 animate-spin rounded-full border-4 border-[#9b7740] border-t-transparent" />
+            <div className="mx-auto h-9 w-9 animate-spin rounded-none border-4 border-[#9b7740] border-t-transparent" />
 
             <p className="mt-4 text-[11px] font-medium text-[#8b778e]">
               Loading society map...
@@ -226,7 +226,7 @@ function SocietyMap() {
             </p>
           </div>
 
-          <div className="hidden items-center gap-2 rounded-[1px] border border-[#e2d9df] bg-white px-3 py-2 sm:flex">
+          <div className="hidden items-center gap-2 rounded-none border border-[#e2d9df] bg-white px-3 py-2 sm:flex">
             <MapPinned
               size={14}
               className="text-[#9b7740]"
@@ -247,11 +247,11 @@ function SocietyMap() {
 
           {/* TOTAL */}
 
-          <div className="relative overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white p-5">
+          <div className="relative overflow-hidden rounded-none border border-[#e2d9df] bg-white p-5">
 
-            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-[#32143b] opacity-[0.04]" />
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-none bg-[#32143b] opacity-[0.04]" />
 
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#eee8ed] text-[#756b78]">
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-none bg-[#eee8ed] text-[#756b78]">
               <Building2 size={20} />
             </div>
 
@@ -271,11 +271,11 @@ function SocietyMap() {
 
           {/* OCCUPIED */}
 
-          <div className="relative overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white p-5">
+          <div className="relative overflow-hidden rounded-none border border-[#e2d9df] bg-white p-5">
 
-            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-[#9b7740] opacity-[0.06]" />
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-none bg-[#9b7740] opacity-[0.06]" />
 
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
               <Users size={20} />
             </div>
 
@@ -295,11 +295,11 @@ function SocietyMap() {
 
           {/* VACANT */}
 
-          <div className="relative overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white p-5">
+          <div className="relative overflow-hidden rounded-none border border-[#e2d9df] bg-white p-5">
 
-            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-[#756b78] opacity-[0.05]" />
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-none bg-[#756b78] opacity-[0.05]" />
 
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#eee8ed] text-[#756b78]">
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-none bg-[#eee8ed] text-[#756b78]">
               <Home size={20} />
             </div>
 
@@ -319,11 +319,11 @@ function SocietyMap() {
 
           {/* MAINTENANCE */}
 
-          <div className="relative overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white p-5">
+          <div className="relative overflow-hidden rounded-none border border-[#e2d9df] bg-white p-5">
 
-            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-full bg-[#9b7740] opacity-[0.06]" />
+            <div className="absolute -right-5 -top-5 h-20 w-20 rounded-none bg-[#9b7740] opacity-[0.06]" />
 
-            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#9b7740]">
+            <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
               <Building2 size={20} />
             </div>
 
@@ -347,7 +347,7 @@ function SocietyMap() {
         {/* LEGEND */}
         {/* ================================================= */}
 
-        <div className="mb-6 flex flex-wrap items-center gap-5 rounded-[1px] border border-[#e2d9df] bg-white px-4 py-3">
+        <div className="mb-6 flex flex-wrap items-center gap-5 rounded-none border border-[#e2d9df] bg-white px-4 py-3">
 
           <div className="mr-1 flex items-center gap-2">
             <span className="text-[10px] font-bold text-[#756b78]">
@@ -356,7 +356,7 @@ function SocietyMap() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-[1px] bg-[#9b7740]" />
+            <span className="h-2.5 w-2.5 rounded-none bg-[#9b7740]" />
 
             <span className="text-[10px] font-semibold text-[#756b78]">
               Occupied
@@ -364,7 +364,7 @@ function SocietyMap() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-[1px] bg-[#bca9c0]" />
+            <span className="h-2.5 w-2.5 rounded-none bg-[#bca9c0]" />
 
             <span className="text-[10px] font-semibold text-[#756b78]">
               Vacant
@@ -372,7 +372,7 @@ function SocietyMap() {
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="h-2.5 w-2.5 rounded-[1px] bg-[#bca16a]" />
+            <span className="h-2.5 w-2.5 rounded-none bg-[#bca16a]" />
 
             <span className="text-[10px] font-semibold text-[#756b78]">
               Maintenance
@@ -391,9 +391,9 @@ function SocietyMap() {
 
         {blocks.length === 0 ? (
 
-          <div className="rounded-[1px] border border-[#e2d9df] bg-white p-12 text-center">
+          <div className="rounded-none border border-[#e2d9df] bg-white p-12 text-center">
 
-            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-xl bg-[#f7f3ed] text-[#bca9c0]">
+            <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-none bg-[#f7f3ed] text-[#bca9c0]">
               <MapPinned size={28} />
             </div>
 
@@ -426,7 +426,7 @@ function SocietyMap() {
               return (
                 <section
                   key={block}
-                  className="overflow-hidden rounded-[1px] border border-[#e2d9df] bg-white"
+                  className="overflow-hidden rounded-none border border-[#e2d9df] bg-white"
                 >
 
                   {/* ================================================= */}
@@ -437,7 +437,7 @@ function SocietyMap() {
 
                     <div className="flex items-center gap-3">
 
-                      <div className="flex h-9 w-9 items-center justify-center rounded-lg border border-white/10 bg-white/5">
+                      <div className="flex h-9 w-9 items-center justify-center rounded-none border border-white/10 bg-white/5">
                         <Building2
                           size={16}
                           className="text-[#bca16a]"
@@ -539,7 +539,7 @@ function SocietyMap() {
                                   group
                                   relative
                                   min-h-[78px]
-                                  rounded-[1px]
+                                  rounded-none
                                   border
                                   p-3
                                   text-left
@@ -581,7 +581,7 @@ function SocietyMap() {
                                       w-56
                                       -translate-x-1/2
                                       overflow-hidden
-                                      rounded-xl
+                                      rounded-none
                                       border
                                       border-[#49394d]
                                       bg-[#32143b]
@@ -747,7 +747,7 @@ function SocietyMap() {
                 w-full
                 max-w-lg
                 overflow-hidden
-                rounded-xl
+                rounded-none
                 border
                 border-[#e2d9df]
                 bg-white
@@ -785,7 +785,7 @@ function SocietyMap() {
                     w-8
                     items-center
                     justify-center
-                    rounded-lg
+                    rounded-none
                     border
                     border-[#e2d9df]
                     text-[#8b778e]
@@ -812,7 +812,7 @@ function SocietyMap() {
                     flex
                     items-center
                     justify-between
-                    rounded-[1px]
+                    rounded-none
                     border
                     p-3
                     ${
@@ -841,7 +841,7 @@ function SocietyMap() {
                     className={`
                       h-3
                       w-3
-                      rounded-[1px]
+                      rounded-none
                       ${getStatusDot(
                         selectedFlat.status
                       )}
@@ -880,11 +880,11 @@ function SocietyMap() {
 
                 {selectedFlat.resident ? (
 
-                  <div className="overflow-hidden rounded-[1px] border border-[#e2d9df]">
+                  <div className="overflow-hidden rounded-none border border-[#e2d9df]">
 
                     <div className="flex items-center gap-2 border-b border-[#e2d9df] bg-[#f7f3ed] px-4 py-3">
 
-                      <div className="flex h-7 w-7 items-center justify-center rounded-lg bg-[#f7f3ed] text-[#9b7740]">
+                      <div className="flex h-7 w-7 items-center justify-center rounded-none bg-[#f7f3ed] text-[#9b7740]">
                         <Users size={14} />
                       </div>
 
@@ -945,7 +945,7 @@ function SocietyMap() {
 
                 ) : (
 
-                  <div className="rounded-[1px] border border-[#e2d9df] bg-[#f7f3ed] p-4">
+                  <div className="rounded-none border border-[#e2d9df] bg-[#f7f3ed] p-4">
 
                     <p className="text-[10px] font-medium text-[#756b78]">
                       No resident is currently assigned to this flat.
@@ -969,7 +969,7 @@ function SocietyMap() {
                     setSelectedFlat(null)
                   }
                   className="
-                    rounded-[1px]
+                    rounded-none
                     border
                     border-[#bca9c0]
                     px-4
@@ -1003,7 +1003,7 @@ function SocietyMap() {
 
 function InfoBox({ label, value }) {
   return (
-    <div className="rounded-[1px] border border-[#e2d9df] bg-white p-3">
+    <div className="rounded-none border border-[#e2d9df] bg-white p-3">
       <p className="text-[8px] font-bold uppercase tracking-wide text-[#8b778e]">
         {label}
       </p>
