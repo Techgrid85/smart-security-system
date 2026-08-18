@@ -5,11 +5,9 @@ import toast from "react-hot-toast";
 import {
   Building2,
   Home,
-  User,
-  Mail,
-  Phone,
-  Layers3,
-  RefreshCw,
+  Users,
+  Wrench,
+  MapPinned,
 } from "lucide-react";
 
 import DashboardLayout from "../../components/dashboard/DashboardLayout";
@@ -17,20 +15,15 @@ import DashboardLayout from "../../components/dashboard/DashboardLayout";
 function SocietyMap() {
   const [flats, setFlats] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [refreshing, setRefreshing] = useState(false);
   const [selectedFlat, setSelectedFlat] = useState(null);
 
   // ==========================================
   // FETCH FLATS
   // ==========================================
 
-  const fetchFlats = async (showRefresh = false) => {
+  const fetchFlats = async () => {
     try {
-      if (showRefresh) {
-        setRefreshing(true);
-      } else {
-        setLoading(true);
-      }
+      setLoading(true);
 
       const token = localStorage.getItem("token");
 
@@ -52,7 +45,8 @@ function SocietyMap() {
         setFlats(response.data.data || []);
       } else {
         toast.error(
-          response.data.message || "Failed to load society map"
+          response.data.message ||
+            "Failed to load society map"
         );
       }
     } catch (error) {
@@ -64,7 +58,6 @@ function SocietyMap() {
       );
     } finally {
       setLoading(false);
-      setRefreshing(false);
     }
   };
 
@@ -73,78 +66,72 @@ function SocietyMap() {
   }, []);
 
   // ==========================================
-  // GROUP FLATS BY BLOCK
+  // GROUP FLATS DYNAMICALLY
+  // BLOCK -> FLOOR -> FLATS
   // ==========================================
 
-  const blocks = useMemo(() => {
-    const grouped = {};
+  const groupedFlats = useMemo(() => {
+    return flats.reduce((groups, flat) => {
+      const block = flat.block || "Other";
+      const floor = flat.floor ?? 0;
 
-    flats.forEach((flat) => {
-      if (!grouped[flat.block]) {
-        grouped[flat.block] = [];
+      if (!groups[block]) {
+        groups[block] = {};
       }
 
-      grouped[flat.block].push(flat);
-    });
+      if (!groups[block][floor]) {
+        groups[block][floor] = [];
+      }
 
-    return Object.entries(grouped).sort(([a], [b]) =>
-      a.localeCompare(b)
-    );
+      groups[block][floor].push(flat);
+
+      return groups;
+    }, {});
   }, [flats]);
 
   // ==========================================
-  // STATISTICS
+  // SORT BLOCKS
   // ==========================================
 
-  const stats = useMemo(() => {
-    return {
-      total: flats.length,
-
-      occupied: flats.filter(
-        (flat) => flat.status === "Occupied"
-      ).length,
-
-      vacant: flats.filter(
-        (flat) => flat.status === "Vacant"
-      ).length,
-
-      maintenance: flats.filter(
-        (flat) => flat.status === "Maintenance"
-      ).length,
-
-      blocks: blocks.length,
-    };
-  }, [flats, blocks]);
+  const blocks = Object.keys(groupedFlats).sort(
+    (a, b) => a.localeCompare(b)
+  );
 
   // ==========================================
-  // STATUS STYLING
+  // STATUS COUNTS
   // ==========================================
 
-  const getStatusStyles = (status) => {
+  const stats = {
+    total: flats.length,
+
+    occupied: flats.filter(
+      (flat) => flat.status === "Occupied"
+    ).length,
+
+    vacant: flats.filter(
+      (flat) => flat.status === "Vacant"
+    ).length,
+
+    maintenance: flats.filter(
+      (flat) => flat.status === "Maintenance"
+    ).length,
+  };
+
+  // ==========================================
+  // STATUS STYLE
+  // ==========================================
+
+  const getStatusClass = (status) => {
     switch (status) {
       case "Occupied":
-        return {
-          box: "border-emerald-300 bg-emerald-50 hover:bg-emerald-100",
-          icon: "bg-emerald-500 text-white",
-          text: "text-emerald-700",
-          label: "Occupied",
-        };
+        return "border-emerald-500 bg-emerald-500 text-white hover:bg-emerald-600";
 
       case "Maintenance":
-        return {
-          box: "border-amber-300 bg-amber-50 hover:bg-amber-100",
-          icon: "bg-amber-500 text-white",
-          text: "text-amber-700",
-          label: "Maintenance",
-        };
+        return "border-amber-400 bg-amber-400 text-slate-900 hover:bg-amber-500";
 
+      case "Vacant":
       default:
-        return {
-          box: "border-slate-300 bg-slate-50 hover:bg-slate-100",
-          icon: "bg-slate-400 text-white",
-          text: "text-slate-600",
-          label: "Vacant",
-        };
+        return "border-slate-300 bg-slate-100 text-slate-600 hover:bg-slate-200";
     }
   };
 
@@ -155,169 +142,82 @@ function SocietyMap() {
   if (loading) {
     return (
       <DashboardLayout role="admin">
-        <div className="flex min-h-[500px] items-center justify-center">
-          <div className="text-center">
-            <div className="mx-auto mb-3 h-8 w-8 animate-spin rounded-full border-2 border-slate-200 border-t-emerald-500" />
-
-            <p className="text-[11px] font-semibold text-slate-500">
-              Loading society map...
-            </p>
-          </div>
+        <div className="flex min-h-[400px] items-center justify-center">
+          <p className="text-sm font-medium text-slate-500">
+            Loading society map...
+          </p>
         </div>
       </DashboardLayout>
     );
   }
 
-  // ==========================================
-  // PAGE
-  // ==========================================
-
   return (
     <DashboardLayout role="admin">
-
-      <div className="w-full min-w-0">
+      <div className="w-full min-w-0 max-w-full">
 
         {/* ====================================== */}
         {/* HEADER */}
         {/* ====================================== */}
 
-        <div className="mb-6 flex flex-col justify-between gap-4 md:flex-row md:items-end">
+        <div className="mb-6">
+          <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
+            Society Management
+          </p>
 
-          <div>
+          <h1 className="text-[22px] font-extrabold tracking-tight text-slate-900">
+            Society Map
+          </h1>
 
-            <p className="mb-1 text-[9px] font-bold uppercase tracking-[0.14em] text-emerald-500">
-              Society Overview
-            </p>
-
-            <h1 className="text-[21px] font-extrabold tracking-tight text-slate-900">
-              Society Map
-            </h1>
-
-            <p className="mt-1 text-[11px] font-medium text-slate-400">
-              Live overview of blocks, flats and occupancy status.
-            </p>
-
-          </div>
-
-          <button
-            type="button"
-            onClick={() => fetchFlats(true)}
-            disabled={refreshing}
-            className="flex h-9 items-center justify-center gap-2 self-start border border-slate-200 bg-white px-3 text-[10px] font-bold text-slate-600 transition hover:border-emerald-300 hover:text-emerald-600 disabled:opacity-60 md:self-auto"
-          >
-            <RefreshCw
-              size={13}
-              className={
-                refreshing
-                  ? "animate-spin"
-                  : ""
-              }
-            />
-
-            Refresh Map
-          </button>
-
+          <p className="mt-1 text-[11.5px] font-medium text-slate-400">
+            View all blocks, floors and flats across the society.
+          </p>
         </div>
 
 
         {/* ====================================== */}
-        {/* STATISTICS */}
+        {/* STATS */}
         {/* ====================================== */}
 
-        <div className="mb-6 grid grid-cols-2 gap-3 md:grid-cols-5">
-
-          {/* TOTAL */}
+        <div className="mb-6 grid grid-cols-2 gap-3 md:grid-cols-4">
 
           <div className="border border-slate-200 bg-white p-4">
-
-            <div className="mb-3 flex h-8 w-8 items-center justify-center bg-slate-100 text-slate-500">
-              <Building2 size={15} />
-            </div>
-
             <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
               Total Flats
             </p>
 
-            <p className="mt-1 text-[20px] font-extrabold text-slate-900">
+            <p className="mt-2 text-[22px] font-extrabold text-slate-900">
               {stats.total}
             </p>
-
           </div>
 
-
-          {/* OCCUPIED */}
-
-          <div className="border border-emerald-200 bg-emerald-50/50 p-4">
-
-            <div className="mb-3 flex h-8 w-8 items-center justify-center bg-emerald-500 text-white">
-              <Home size={15} />
-            </div>
-
+          <div className="border border-emerald-200 bg-emerald-50 p-4">
             <p className="text-[9px] font-bold uppercase tracking-wide text-emerald-600">
               Occupied
             </p>
 
-            <p className="mt-1 text-[20px] font-extrabold text-emerald-700">
+            <p className="mt-2 text-[22px] font-extrabold text-emerald-700">
               {stats.occupied}
             </p>
-
           </div>
 
-
-          {/* VACANT */}
-
           <div className="border border-slate-200 bg-slate-50 p-4">
-
-            <div className="mb-3 flex h-8 w-8 items-center justify-center bg-slate-400 text-white">
-              <Home size={15} />
-            </div>
-
             <p className="text-[9px] font-bold uppercase tracking-wide text-slate-500">
               Vacant
             </p>
 
-            <p className="mt-1 text-[20px] font-extrabold text-slate-700">
+            <p className="mt-2 text-[22px] font-extrabold text-slate-700">
               {stats.vacant}
             </p>
-
           </div>
 
-
-          {/* MAINTENANCE */}
-
-          <div className="border border-amber-200 bg-amber-50/50 p-4">
-
-            <div className="mb-3 flex h-8 w-8 items-center justify-center bg-amber-500 text-white">
-              <Layers3 size={15} />
-            </div>
-
+          <div className="border border-amber-200 bg-amber-50 p-4">
             <p className="text-[9px] font-bold uppercase tracking-wide text-amber-600">
               Maintenance
             </p>
 
-            <p className="mt-1 text-[20px] font-extrabold text-amber-700">
+            <p className="mt-2 text-[22px] font-extrabold text-amber-700">
               {stats.maintenance}
             </p>
-
-          </div>
-
-
-          {/* BLOCKS */}
-
-          <div className="border border-slate-200 bg-white p-4">
-
-            <div className="mb-3 flex h-8 w-8 items-center justify-center bg-indigo-500 text-white">
-              <Building2 size={15} />
-            </div>
-
-            <p className="text-[9px] font-bold uppercase tracking-wide text-slate-400">
-              Blocks
-            </p>
-
-            <p className="mt-1 text-[20px] font-extrabold text-slate-900">
-              {stats.blocks}
-            </p>
-
           </div>
 
         </div>
@@ -327,63 +227,54 @@ function SocietyMap() {
         {/* LEGEND */}
         {/* ====================================== */}
 
-        <div className="mb-5 flex flex-wrap items-center gap-4 border border-slate-200 bg-white px-4 py-3">
+        <div className="mb-6 flex flex-wrap items-center gap-4 border border-slate-200 bg-white px-4 py-3">
 
-          <p className="mr-2 text-[9px] font-bold uppercase tracking-[0.12em] text-slate-400">
-            Status
+          <p className="mr-2 text-[10px] font-bold text-slate-500">
+            STATUS:
           </p>
 
           <div className="flex items-center gap-2">
-
             <span className="h-3 w-3 bg-emerald-500" />
-
             <span className="text-[10px] font-semibold text-slate-600">
               Occupied
             </span>
-
           </div>
 
           <div className="flex items-center gap-2">
-
-            <span className="h-3 w-3 bg-slate-400" />
-
+            <span className="h-3 w-3 bg-slate-300" />
             <span className="text-[10px] font-semibold text-slate-600">
               Vacant
             </span>
-
           </div>
 
           <div className="flex items-center gap-2">
-
-            <span className="h-3 w-3 bg-amber-500" />
-
+            <span className="h-3 w-3 bg-amber-400" />
             <span className="text-[10px] font-semibold text-slate-600">
               Maintenance
             </span>
-
           </div>
 
         </div>
 
 
         {/* ====================================== */}
-        {/* SOCIETY MAP */}
+        {/* MAP */}
         {/* ====================================== */}
 
         {blocks.length === 0 ? (
 
-          <div className="border border-slate-200 bg-white py-20 text-center">
+          <div className="border border-slate-200 bg-white p-12 text-center">
 
-            <Building2
-              size={35}
-              className="mx-auto mb-3 text-slate-300"
+            <MapPinned
+              size={30}
+              className="mx-auto text-slate-300"
             />
 
-            <h3 className="text-[13px] font-bold text-slate-700">
-              No Flats Found
-            </h3>
+            <h2 className="mt-4 text-[14px] font-bold text-slate-700">
+              No flats found
+            </h2>
 
-            <p className="mt-1 text-[10px] font-medium text-slate-400">
+            <p className="mt-1 text-[10px] text-slate-400">
               Add flats from the Flats management section.
             </p>
 
@@ -391,84 +282,74 @@ function SocietyMap() {
 
         ) : (
 
-          <div className="space-y-6">
+          <div className="grid gap-6 xl:grid-cols-2">
 
-            {blocks.map(([blockName, blockFlats]) => {
+            {blocks.map((block) => {
 
-              // Group flats inside block by floor
-
-              const floors = {};
-
-              blockFlats.forEach((flat) => {
-
-                if (!floors[flat.floor]) {
-                  floors[flat.floor] = [];
-                }
-
-                floors[flat.floor].push(flat);
-
-              });
-
-              const sortedFloors = Object.entries(
-                floors
-              ).sort(
-                ([a], [b]) =>
-                  Number(b) - Number(a)
-              );
+              const floors = Object.keys(
+                groupedFlats[block]
+              )
+                .map(Number)
+                .sort((a, b) => b - a);
 
               return (
 
                 <section
-                  key={blockName}
-                  className="border border-slate-200 bg-white"
+                  key={block}
+                  className="border border-slate-300 bg-white"
                 >
 
                   {/* BLOCK HEADER */}
 
-                  <div className="flex items-center justify-between border-b border-slate-200 bg-slate-50 px-5 py-4">
+                  <div className="flex items-center justify-between border-b border-slate-300 bg-slate-900 px-4 py-3">
 
-                    <div className="flex items-center gap-3">
+                    <div className="flex items-center gap-2">
 
-                      <div className="flex h-9 w-9 items-center justify-center bg-slate-900 text-white">
-                        <Building2 size={16} />
-                      </div>
+                      <Building2
+                        size={16}
+                        className="text-emerald-400"
+                      />
 
                       <div>
 
-                        <h2 className="text-[14px] font-extrabold text-slate-900">
-                          Block {blockName}
-                        </h2>
-
-                        <p className="mt-0.5 text-[9px] font-medium text-slate-400">
-                          {blockFlats.length}{" "}
-                          {blockFlats.length === 1
-                            ? "Flat"
-                            : "Flats"}
+                        <p className="text-[9px] font-bold uppercase tracking-[0.14em] text-slate-400">
+                          Society Block
                         </p>
+
+                        <h2 className="text-[14px] font-extrabold text-white">
+                          Block {block}
+                        </h2>
 
                       </div>
 
                     </div>
+
+                    <span className="border border-white/10 px-2 py-1 text-[9px] font-bold text-slate-300">
+                      {floors.length} Floors
+                    </span>
 
                   </div>
 
 
                   {/* FLOORS */}
 
-                  <div className="space-y-5 p-5">
+                  <div className="p-4">
 
-                    {sortedFloors.map(
-                      ([floor, floorFlats]) => (
+                    {floors.map((floor) => {
 
-                        <div key={floor}>
+                      const floorFlats =
+                        groupedFlats[block][floor];
 
-                          {/* FLOOR LABEL */}
+                      return (
+
+                        <div
+                          key={floor}
+                          className="border-b border-slate-200 py-4 last:border-b-0"
+                        >
 
                           <div className="mb-3 flex items-center gap-2">
 
-                            <div className="h-px flex-1 bg-slate-100" />
-
-                            <span className="bg-slate-100 px-2.5 py-1 text-[8px] font-bold uppercase tracking-wide text-slate-500">
+                            <span className="min-w-[65px] bg-slate-100 px-2 py-1 text-center text-[9px] font-bold text-slate-600">
                               Floor {floor}
                             </span>
 
@@ -479,91 +360,68 @@ function SocietyMap() {
 
                           {/* FLATS */}
 
-                          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8">
+                          <div className="grid grid-cols-2 gap-2 sm:grid-cols-3 md:grid-cols-4">
 
-                            {floorFlats.map((flat) => {
-
-                              const styles =
-                                getStatusStyles(
-                                  flat.status
-                                );
-
-                              return (
+                            {floorFlats
+                              .sort((a, b) =>
+                                a.flatNo.localeCompare(
+                                  b.flatNo,
+                                  undefined,
+                                  {
+                                    numeric: true,
+                                  }
+                                )
+                              )
+                              .map((flat) => (
 
                                 <button
                                   key={flat._id}
                                   type="button"
                                   onClick={() =>
-                                    setSelectedFlat(
-                                      flat
-                                    )
+                                    setSelectedFlat(flat)
                                   }
                                   className={`
-                                    group
+                                    relative
+                                    min-h-[75px]
                                     border
                                     p-3
                                     text-left
                                     transition-all
-                                    ${styles.box}
+                                    ${getStatusClass(
+                                      flat.status
+                                    )}
                                   `}
                                 >
 
-                                  <div className="flex items-start justify-between gap-2">
+                                  <Home
+                                    size={15}
+                                    className="mb-2 opacity-80"
+                                  />
 
-                                    <div
-                                      className={`
-                                        flex
-                                        h-7
-                                        w-7
-                                        shrink-0
-                                        items-center
-                                        justify-center
-                                        ${styles.icon}
-                                      `}
-                                    >
-                                      <Home size={13} />
-                                    </div>
-
-                                    <span
-                                      className={`
-                                        text-[8px]
-                                        font-bold
-                                        ${styles.text}
-                                      `}
-                                    >
-                                      {flat.status}
-                                    </span>
-
-                                  </div>
-
-
-                                  <p className="mt-3 text-[11px] font-extrabold text-slate-800">
+                                  <p className="text-[11px] font-extrabold">
                                     {flat.flatNo}
                                   </p>
 
-                                  <p className="mt-0.5 text-[8px] font-medium text-slate-400">
+                                  <p className="mt-0.5 text-[8px] font-medium opacity-80">
                                     {flat.type}
                                   </p>
 
                                 </button>
 
-                              );
-
-                            })}
+                              ))}
 
                           </div>
 
                         </div>
 
-                      )
-                    )}
+                      );
+                    })}
 
                   </div>
 
                 </section>
 
               );
-
             })}
 
           </div>
@@ -572,24 +430,24 @@ function SocietyMap() {
 
 
         {/* ====================================== */}
-        {/* FLAT DETAILS */}
+        {/* FLAT DETAILS PANEL */}
         {/* ====================================== */}
 
         {selectedFlat && (
 
           <div
-            className="fixed inset-0 z-[100] flex items-center justify-center bg-slate-950/50 p-4"
-            onClick={() => setSelectedFlat(null)}
+            className="fixed inset-0 z-[100] flex items-end justify-center bg-slate-950/50 p-4 md:items-center"
+            onClick={() =>
+              setSelectedFlat(null)
+            }
           >
 
             <div
-              className="w-full max-w-md border border-slate-200 bg-white shadow-2xl"
+              className="w-full max-w-md border border-slate-300 bg-white shadow-2xl"
               onClick={(e) =>
                 e.stopPropagation()
               }
             >
-
-              {/* MODAL HEADER */}
 
               <div className="flex items-center justify-between border-b border-slate-200 px-5 py-4">
 
@@ -610,86 +468,56 @@ function SocietyMap() {
                   onClick={() =>
                     setSelectedFlat(null)
                   }
-                  className="flex h-7 w-7 items-center justify-center border border-slate-200 text-slate-400 transition hover:border-red-300 hover:text-red-500"
+                  className="border border-slate-200 px-3 py-1.5 text-[10px] font-bold text-slate-500 hover:bg-slate-50"
                 >
-                  ×
+                  Close
                 </button>
 
               </div>
 
 
-              {/* DETAILS */}
-
               <div className="space-y-4 p-5">
-
-                {/* STATUS */}
-
-                <div className="border border-slate-200 p-4">
-
-                  <p className="text-[8px] font-bold uppercase tracking-wide text-slate-400">
-                    Status
-                  </p>
-
-                  <p
-                    className={`
-                      mt-1
-                      text-[12px]
-                      font-extrabold
-                      ${
-                        selectedFlat.status ===
-                        "Occupied"
-                          ? "text-emerald-600"
-                          : selectedFlat.status ===
-                            "Maintenance"
-                          ? "text-amber-600"
-                          : "text-slate-500"
-                      }
-                    `}
-                  >
-                    {selectedFlat.status}
-                  </p>
-
-                </div>
-
-
-                {/* FLAT INFO */}
 
                 <div className="grid grid-cols-2 gap-3">
 
                   <div className="border border-slate-200 p-3">
-
-                    <p className="text-[8px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="text-[8px] font-bold uppercase text-slate-400">
                       Block
                     </p>
 
                     <p className="mt-1 text-[11px] font-bold text-slate-700">
                       {selectedFlat.block}
                     </p>
-
                   </div>
 
                   <div className="border border-slate-200 p-3">
-
-                    <p className="text-[8px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="text-[8px] font-bold uppercase text-slate-400">
                       Floor
                     </p>
 
                     <p className="mt-1 text-[11px] font-bold text-slate-700">
                       {selectedFlat.floor}
                     </p>
-
                   </div>
 
                   <div className="border border-slate-200 p-3">
-
-                    <p className="text-[8px] font-bold uppercase tracking-wide text-slate-400">
+                    <p className="text-[8px] font-bold uppercase text-slate-400">
                       Type
                     </p>
 
                     <p className="mt-1 text-[11px] font-bold text-slate-700">
                       {selectedFlat.type}
                     </p>
+                  </div>
 
+                  <div className="border border-slate-200 p-3">
+                    <p className="text-[8px] font-bold uppercase text-slate-400">
+                      Status
+                    </p>
+
+                    <p className="mt-1 text-[11px] font-bold text-slate-700">
+                      {selectedFlat.status}
+                    </p>
                   </div>
 
                 </div>
@@ -697,75 +525,62 @@ function SocietyMap() {
 
                 {/* RESIDENT */}
 
-                <div className="border border-slate-200">
+                {selectedFlat.resident ? (
 
-                  <div className="border-b border-slate-200 bg-slate-50 px-4 py-3">
+                  <div className="border border-slate-200 p-4">
 
-                    <p className="text-[9px] font-bold uppercase tracking-wide text-slate-500">
-                      Resident Information
-                    </p>
+                    <div className="mb-3 flex items-center gap-2">
 
-                  </div>
+                      <Users
+                        size={15}
+                        className="text-emerald-500"
+                      />
 
-                  {selectedFlat.resident ? (
-
-                    <div className="space-y-3 p-4">
-
-                      <div className="flex items-center gap-3">
-
-                        <div className="flex h-9 w-9 items-center justify-center bg-emerald-500 text-white">
-                          <User size={15} />
-                        </div>
-
-                        <div>
-
-                          <p className="text-[11px] font-bold text-slate-800">
-                            {selectedFlat.resident.name}
-                          </p>
-
-                          <p className="text-[9px] text-slate-400">
-                            Resident
-                          </p>
-
-                        </div>
-
-                      </div>
-
-                      <div className="flex items-center gap-2 text-[10px] text-slate-500">
-
-                        <Mail size={13} />
-
-                        {selectedFlat.resident.email}
-
-                      </div>
-
-                      {selectedFlat.resident.phone && (
-
-                        <div className="flex items-center gap-2 text-[10px] text-slate-500">
-
-                          <Phone size={13} />
-
-                          {selectedFlat.resident.phone}
-
-                        </div>
-
-                      )}
-
-                    </div>
-
-                  ) : (
-
-                    <div className="p-4">
-
-                      <p className="text-[10px] font-medium text-slate-400">
-                        No resident is currently assigned to this flat.
+                      <p className="text-[10px] font-bold text-slate-700">
+                        Resident Information
                       </p>
 
                     </div>
 
-                  )}
+                    <div className="space-y-2">
 
-                </div>
+                      <p className="text-[10px] text-slate-500">
+                        <span className="font-bold text-slate-700">
+                          Name:
+                        </span>{" "}
+                        {selectedFlat.resident.name}
+                      </p>
+
+                      <p className="text-[10px] text-slate-500">
+                        <span className="font-bold text-slate-700">
+                          Email:
+                        </span>{" "}
+                        {selectedFlat.resident.email}
+                      </p>
+
+                      <p className="text-[10px] text-slate-500">
+                        <span className="font-bold text-slate-700">
+                          Phone:
+                        </span>{" "}
+                        {selectedFlat.resident.phone ||
+                          "Not provided"}
+                      </p>
+
+                    </div>
+
+                  </div>
+
+                ) : (
+
+                  <div className="border border-slate-200 bg-slate-50 p-4">
+
+                    <p className="text-[10px] font-medium text-slate-500">
+                      No resident is currently assigned to this flat.
+                    </p>
+
+                  </div>
+
+                )}
 
               </div>
 
@@ -776,7 +591,6 @@ function SocietyMap() {
         )}
 
       </div>
-
     </DashboardLayout>
   );
 }
