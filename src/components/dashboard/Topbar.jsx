@@ -20,6 +20,7 @@ function Topbar({
   role,
   user,
   setMobileSidebarOpen,
+  unreadCount,
 }) {
   const config = dashboardConfig[role];
   const navigate = useNavigate();
@@ -339,6 +340,7 @@ function Topbar({
 
         <button
           type="button"
+          onClick={() => navigate(`/${role}/notifications`)}
           className="
             relative
             flex
@@ -360,23 +362,11 @@ function Topbar({
         >
           <Bell size={17} />
 
-          <span
-            className="
-              absolute
-              right-[8px]
-              top-[7px]
-
-              h-[5px]
-              w-[5px]
-
-              rounded-full
-
-              bg-[#9b7740]
-
-              ring-2
-              ring-white
-            "
-          />
+          {unreadCount > 0 && (
+            <span className="absolute -right-1 -top-1 flex h-4 min-w-4 items-center justify-center rounded-full bg-[#9b7740] px-1 text-[9px] font-bold text-white ring-2 ring-white">
+              {unreadCount > 99 ? "99+" : unreadCount}
+            </span>
+          )}
         </button>
 
         <div

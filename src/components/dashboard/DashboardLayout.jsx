@@ -1,4 +1,5 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import axios from "axios";
 
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
@@ -9,7 +10,30 @@ function DashboardLayout({ role, children }) {
 
   const [mobileSidebarOpen, setMobileSidebarOpen] =
     useState(false);
+  const [unreadCount, setUnreadCount] = useState(0);
   const touchStart = useRef(null);
+
+  useEffect(() => {
+    const loadUnreadCount = async () => {
+      try {
+        const response = await axios.get(
+          "https://smart-society-backend-delta.vercel.app/notifications/unread-count",
+          { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+        );
+        setUnreadCount(response.data.unreadCount || 0);
+      } catch {
+        setUnreadCount(0);
+      }
+    };
+
+    loadUnreadCount();
+    const interval = window.setInterval(loadUnreadCount, 30000);
+    window.addEventListener("notifications-updated", loadUnreadCount);
+    return () => {
+      window.clearInterval(interval);
+      window.removeEventListener("notifications-updated", loadUnreadCount);
+    };
+  }, []);
 
   const handleTouchStart = (event) => {
     const touch = event.touches[0];
@@ -78,6 +102,7 @@ function DashboardLayout({ role, children }) {
         setCollapsed={setSidebarCollapsed}
         mobileOpen={mobileSidebarOpen}
         setMobileOpen={setMobileSidebarOpen}
+        unreadCount={unreadCount}
       />
 
       {/* MAIN AREA */}
@@ -101,6 +126,7 @@ function DashboardLayout({ role, children }) {
           role={role}
           user={user}
           setMobileSidebarOpen={setMobileSidebarOpen}
+          unreadCount={unreadCount}
         />
 
         {/* PAGE CONTENT */}

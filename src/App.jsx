@@ -5,6 +5,7 @@ import LandingPage from "./pages/LandingPage";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import NotFound from "./pages/NotFound";
+import Notifications from "./pages/Notifications";
 import ProtectedRoute from "./components/auth/ProtectedRoute";
 
 import ResidentDashboard from "./pages/resident/ResidentDashboard";
@@ -88,6 +89,7 @@ function App() {
       <Route path="/visitor/passes" element={<ProtectedRoute role="visitor"><VisitorPasses /></ProtectedRoute>} />
       <Route path="/visitor/profile" element={<ProtectedRoute role="visitor"><VisitorProfile /></ProtectedRoute>} />
       <Route path="/visitor/map" element={<ProtectedRoute role="visitor"><VisitorMap /></ProtectedRoute>} />
+      <Route path="/visitor/notifications" element={<ProtectedRoute role="visitor"><Notifications role="visitor" /></ProtectedRoute>} />
 
 
 
@@ -100,6 +102,7 @@ function App() {
           </ProtectedRoute>
         }
       />
+      <Route path="/admin/notifications" element={<ProtectedRoute role="admin"><Notifications role="admin" /></ProtectedRoute>} />
       <Route
         path="/admin/society-map"
         element={
@@ -221,6 +224,7 @@ function App() {
           </ProtectedRoute>
         }
       />
+      <Route path="/resident/notifications" element={<ProtectedRoute role="resident"><Notifications role="resident" /></ProtectedRoute>} />
         <Route
           path="/resident/profile"
           element={
@@ -344,6 +348,7 @@ function App() {
           </ProtectedRoute>
         }
       />
+      <Route path="/guard/notifications" element={<ProtectedRoute role="guard"><Notifications role="guard" /></ProtectedRoute>} />
         <Route
           path="/guard/verify-pass"
           element={
@@ -427,6 +432,7 @@ function App() {
           </ProtectedRoute>
         }
       />
+      <Route path="/staff/notifications" element={<ProtectedRoute role="staff"><Notifications role="staff" /></ProtectedRoute>} />
       <Route
         path="/staff/assigned"
         element={

@@ -20,6 +20,7 @@ function Sidebar({
   setCollapsed,
   mobileOpen,
   setMobileOpen,
+  unreadCount,
 }) {
   const config = dashboardConfig[role];
   const location = useLocation();
@@ -420,7 +421,7 @@ function Sidebar({
 
                     {/* BADGE */}
 
-                    {item.badge && (
+                    {(item.badge || (item.path === `/${role}/notifications` && unreadCount > 0)) && (
                       <span
                         className={`
                           flex
@@ -449,7 +450,7 @@ function Sidebar({
                           }
                         `}
                       >
-                        {item.badge}
+                        {item.path === `/${role}/notifications` ? unreadCount : item.badge}
                       </span>
                     )}
 

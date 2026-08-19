@@ -25,6 +25,7 @@ import {
   History,
   CheckCircle2,
   MapPin,
+  Bell,
 } from "lucide-react";
 
 const dashboardConfig = {
@@ -43,6 +44,11 @@ const dashboardConfig = {
             label: "Dashboard",
             icon: LayoutDashboard,
             path: "/admin",
+          },
+          {
+            label: "Notifications",
+            icon: Bell,
+            path: "/admin/notifications",
           },
         ],
       },
@@ -150,6 +156,11 @@ const dashboardConfig = {
             icon: LayoutDashboard,
             path: "/resident",
           },
+          {
+            label: "Notifications",
+            icon: Bell,
+            path: "/resident/notifications",
+          },
         ],
       },
       {
@@ -251,6 +262,11 @@ const dashboardConfig = {
             icon: LayoutDashboard,
             path: "/guard",
           },
+          {
+            label: "Notifications",
+            icon: Bell,
+            path: "/guard/notifications",
+          },
         ],
       },
       {
@@ -332,6 +348,11 @@ const dashboardConfig = {
             icon: LayoutDashboard,
             path: "/staff",
           },
+          {
+            label: "Notifications",
+            icon: Bell,
+            path: "/staff/notifications",
+          },
         ],
       },
       {
@@ -387,6 +408,7 @@ const dashboardConfig = {
         title: "VISIT MANAGEMENT",
         items: [
           { label: "Dashboard", icon: LayoutDashboard, path: "/visitor" },
+          { label: "Notifications", icon: Bell, path: "/visitor/notifications" },
           { label: "Request a Visit", icon: UserPlus, path: "/visitor/request" },
           { label: "My Passes", icon: QrCode, path: "/visitor/passes" },
           { label: "Society Map", icon: MapPin, path: "/visitor/map" },
