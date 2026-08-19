@@ -3,13 +3,11 @@ import axios from "axios";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import {
-  ChevronDown,
   ArrowRight,
   User,
   Mail,
   Phone,
   Lock,
-  Home,
   CheckCircle2,
 } from "lucide-react";
 
@@ -19,7 +17,6 @@ function Register() {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    flatNo: "",
     phone: "",
     password: "",
     confirmPassword: "",
@@ -27,10 +24,6 @@ function Register() {
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  // Flat ownership is deliberately not collected during public visitor signup.
-  // These keep the legacy layout stable until the form is redesigned further.
-  const flats = [];
-  const flatsLoading = false;
 
   // ==========================================
   // VALIDATE FIELD
@@ -63,9 +56,6 @@ function Register() {
           return "Please enter a valid email address";
         }
 
-        return "";
-
-      case "flatNo":
         return "";
 
       case "phone":
@@ -234,7 +224,6 @@ function Register() {
         setFormData({
           name: "",
           email: "",
-          flatNo: "",
           phone: "",
           password: "",
           confirmPassword: "",
