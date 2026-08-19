@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 import Sidebar from "./Sidebar";
 import Topbar from "./Topbar";
@@ -9,6 +9,32 @@ function DashboardLayout({ role, children }) {
 
   const [mobileSidebarOpen, setMobileSidebarOpen] =
     useState(false);
+  const touchStart = useRef(null);
+
+  const handleTouchStart = (event) => {
+    const touch = event.touches[0];
+    touchStart.current = {
+      x: touch.clientX,
+      y: touch.clientY,
+    };
+  };
+
+  const handleTouchEnd = (event) => {
+    if (!touchStart.current || window.innerWidth >= 1024) return;
+
+    const touch = event.changedTouches[0];
+    const deltaX = touch.clientX - touchStart.current.x;
+    const deltaY = Math.abs(touch.clientY - touchStart.current.y);
+    const startedAtLeftEdge = touchStart.current.x <= 36;
+
+    // Open only for a deliberate horizontal swipe from the left edge.
+    // This keeps regular page scrolling and form interaction unaffected.
+    if (!mobileSidebarOpen && startedAtLeftEdge && deltaX > 70 && deltaY < 70) {
+      setMobileSidebarOpen(true);
+    }
+
+    touchStart.current = null;
+  };
 
   const storedUser = localStorage.getItem("user");
 
@@ -23,7 +49,11 @@ function DashboardLayout({ role, children }) {
   }
 
   return (
-    <div className="min-h-screen overflow-x-hidden bg-[#f7f5f8]">
+    <div
+      className="min-h-screen overflow-x-hidden bg-[#f7f5f8]"
+      onTouchStart={handleTouchStart}
+      onTouchEnd={handleTouchEnd}
+    >
 
       {/* MOBILE OVERLAY */}
       {mobileSidebarOpen && (
