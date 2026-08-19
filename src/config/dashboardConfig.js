@@ -386,9 +386,13 @@ const dashboardConfig = {
       {
         title: "VISIT MANAGEMENT",
         items: [
-          { label: "My Visits", icon: LayoutDashboard, path: "/visitor" },
+          { label: "Dashboard", icon: LayoutDashboard, path: "/visitor" },
+          { label: "Request a Visit", icon: UserPlus, path: "/visitor/request" },
+          { label: "My Passes", icon: QrCode, path: "/visitor/passes" },
+          { label: "Society Map", icon: MapPin, path: "/visitor/map" },
         ],
       },
+      { title: "ACCOUNT", items: [{ label: "My Profile", icon: UserCircle, path: "/visitor/profile" }] },
     ],
   },
 };

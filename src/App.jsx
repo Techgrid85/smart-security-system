@@ -22,6 +22,10 @@ import ResidentSettings from "./pages/resident/ResidentSettings";
 import ResidentGuidelines from "./pages/resident/ResidentGuidelines";
 import ResidentVisitorRequests from "./pages/resident/ResidentVisitorRequests";
 import VisitorPanel from "./pages/visitor/VisitorPanel";
+import VisitorRequest from "./pages/visitor/VisitorRequest";
+import VisitorPasses from "./pages/visitor/VisitorPasses";
+import VisitorProfile from "./pages/visitor/VisitorProfile";
+import VisitorMap from "./pages/visitor/VisitorMap";
 
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -80,6 +84,10 @@ function App() {
       <Route path="/register" element={<Register />} />
 
       <Route path="/visitor" element={<ProtectedRoute role="visitor"><VisitorPanel /></ProtectedRoute>} />
+      <Route path="/visitor/request" element={<ProtectedRoute role="visitor"><VisitorRequest /></ProtectedRoute>} />
+      <Route path="/visitor/passes" element={<ProtectedRoute role="visitor"><VisitorPasses /></ProtectedRoute>} />
+      <Route path="/visitor/profile" element={<ProtectedRoute role="visitor"><VisitorProfile /></ProtectedRoute>} />
+      <Route path="/visitor/map" element={<ProtectedRoute role="visitor"><VisitorMap /></ProtectedRoute>} />
 
 
 
