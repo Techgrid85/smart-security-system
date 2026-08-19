@@ -518,12 +518,11 @@ function Register() {
 
               </div>
 
-              {/* FLAT + PHONE */}
+              {/* PHONE */}
 
-              <div className="mb-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
+              <div className="mb-5">
 
-                {/* FLAT */}
-
+                {false && (
                 <div>
 
                   <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-[#49394d]">
@@ -587,6 +586,7 @@ function Register() {
                   )}
 
                 </div>
+                )}
 
                 {/* PHONE */}
 
