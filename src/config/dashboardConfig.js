@@ -171,6 +171,11 @@ const dashboardConfig = {
             path: "/resident/visitor-passes",
           },
           {
+            label: "Visitor Requests",
+            icon: UserPlus,
+            path: "/resident/visitor-requests",
+          },
+          {
             label: "Visitor Details",
             icon: Users,
             path: "/resident/visitors-details",
@@ -367,6 +372,21 @@ const dashboardConfig = {
             icon: Settings,
             path: "/staff/settings",
           },
+        ],
+      },
+    ],
+  },
+  visitor: {
+    title: "Visitor Panel",
+    welcome: "Welcome to SmartSociety",
+    roleLabel: "Visitor",
+    initials: "VP",
+    portalLabel: "Visitor Portal",
+    sections: [
+      {
+        title: "VISIT MANAGEMENT",
+        items: [
+          { label: "My Visits", icon: LayoutDashboard, path: "/visitor" },
         ],
       },
     ],

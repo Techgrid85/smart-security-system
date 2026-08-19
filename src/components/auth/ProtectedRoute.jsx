@@ -36,6 +36,10 @@ function ProtectedRoute({ children, role }) {
       return <Navigate to="/staff" replace />;
     }
 
+    if (user.role === "visitor") {
+      return <Navigate to="/visitor" replace />;
+    }
+
     return <Navigate to="/" replace />;
   }
 

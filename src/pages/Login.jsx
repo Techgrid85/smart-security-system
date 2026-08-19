@@ -159,6 +159,8 @@ function Login() {
         navigate("/guard");
       } else if (role === "staff") {
         navigate("/staff");
+      } else if (role === "visitor") {
+        navigate("/visitor");
       } else {
         toast.error("Invalid user role");
       }

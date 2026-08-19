@@ -20,6 +20,8 @@ import ResidentPolls from "./pages/resident/ResidentPolls";
 import ResidentEmergency from "./pages/resident/ResidentEmergency";
 import ResidentSettings from "./pages/resident/ResidentSettings";
 import ResidentGuidelines from "./pages/resident/ResidentGuidelines";
+import ResidentVisitorRequests from "./pages/resident/ResidentVisitorRequests";
+import VisitorPanel from "./pages/visitor/VisitorPanel";
 
 
 import AdminDashboard from "./pages/admin/AdminDashboard";
@@ -76,6 +78,8 @@ function App() {
       <Route path="/" element={<LandingPage />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
+
+      <Route path="/visitor" element={<ProtectedRoute role="visitor"><VisitorPanel /></ProtectedRoute>} />
 
 
 
@@ -230,6 +234,14 @@ function App() {
         element={
           <ProtectedRoute role="resident">
             <ResidentVisitors />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/resident/visitor-requests"
+        element={
+          <ProtectedRoute role="resident">
+            <ResidentVisitorRequests />
           </ProtectedRoute>
         }
       />

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
@@ -27,38 +27,10 @@ function Register() {
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
-  const [flats, setFlats] = useState([]);
-  const [flatsLoading, setFlatsLoading] = useState(true);
-
-  // ==========================================
-  // FETCH AVAILABLE FLATS
-  // ==========================================
-  useEffect(() => {
-    const fetchAvailableFlats = async () => {
-      try {
-        setFlatsLoading(true);
-
-        const response = await axios.get(
-          "https://smart-society-backend-delta.vercel.app/available-flats"
-        );
-
-        if (response.data.success) {
-          setFlats(response.data.data || []);
-        }
-      } catch (error) {
-        console.error("Fetch Available Flats Error:", error);
-
-        toast.error(
-          error.response?.data?.message ||
-            "Failed to load available flats"
-        );
-      } finally {
-        setFlatsLoading(false);
-      }
-    };
-
-    fetchAvailableFlats();
-  }, []);
+  // Flat ownership is deliberately not collected during public visitor signup.
+  // These keep the legacy layout stable until the form is redesigned further.
+  const flats = [];
+  const flatsLoading = false;
 
   // ==========================================
   // VALIDATE FIELD
@@ -94,12 +66,6 @@ function Register() {
         return "";
 
       case "flatNo":
-        if (!trimmedValue) return "Please select your flat";
-
-        if (!flats.some((flat) => flat.flatNo === trimmedValue)) {
-          return "Please select a valid flat";
-        }
-
         return "";
 
       case "phone":
@@ -250,11 +216,10 @@ function Register() {
       setLoading(true);
 
       const response = await axios.post(
-        "https://smart-society-backend-delta.vercel.app/register",
+        "https://smart-society-backend-delta.vercel.app/visitor/register",
         {
           name: formData.name.trim(),
           email: formData.email.trim().toLowerCase(),
-          flatNo: formData.flatNo,
           phone: formData.phone,
           password: formData.password,
         }
@@ -371,7 +336,7 @@ function Register() {
 
               <div className="mb-6 flex items-center gap-3 text-[10px] font-bold uppercase tracking-[0.2em] text-[#d9be82]">
                 <span className="h-px w-10 bg-[#d9be82]" />
-                Join SmartSociety
+                Visitor Registration
               </div>
 
               <h2 className="text-[50px] font-black leading-[1.03] tracking-[-0.04em] text-white xl:text-[68px]">
@@ -383,9 +348,8 @@ function Register() {
               </h2>
 
               <p className="mt-7 max-w-xl text-[15px] leading-8 text-white/75">
-                Join your SmartSociety community and manage
-                your society activities through one connected
-                platform.
+                Create a visitor account to request visits and
+                access your approved digital visitor passes.
               </p>
 
               {/* Features */}
@@ -482,7 +446,7 @@ function Register() {
               </h2>
 
               <p className="mt-3 text-sm leading-6 text-[#756b78]">
-                Register and join your SmartSociety community.
+                Register as a visitor. Resident accounts are created only by the administrator.
               </p>
 
             </div>
@@ -574,7 +538,7 @@ function Register() {
                 <div>
 
                   <label className="mb-2 block text-xs font-bold uppercase tracking-wide text-[#49394d]">
-                    Flat Number
+                    Resident Flat
                   </label>
 
                   <div className="relative">
@@ -595,7 +559,7 @@ function Register() {
                     >
 
                       <option value="">
-                        Select flat
+                        Choose later when requesting a visit
                       </option>
 
                       {flatsLoading ? (

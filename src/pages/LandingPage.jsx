@@ -101,6 +101,20 @@ function LandingPage() {
     },
     {
       icon: UserRoundCheck,
+      title: "Visitor Portal",
+      subtitle: "Plan Visits Securely",
+      description:
+        "Visitors can create an account, request a visit using a resident's flat number, track approval and show their digital gate pass at entry.",
+      features: [
+        "Request a visit to a resident",
+        "See when requests are unavailable",
+        "Track approval status",
+        "Access approved digital passes",
+      ],
+      image: visitorPasses,
+    },
+    {
+      icon: UserRoundCheck,
       title: "Security Portal",
       subtitle: "Smarter Visitor Control",
       description:
@@ -1191,7 +1205,7 @@ function LandingPage() {
             to="/register"
             className="inline-flex w-fit items-center gap-3 bg-[#d9be82] px-7 py-4 text-[12px] font-bold text-[#32143b] transition hover:bg-white"
           >
-            Get Started
+            Register as a Visitor
             <ArrowRight size={16} />
           </Link>
 
@@ -1349,7 +1363,7 @@ function LandingPage() {
                 to="/register"
                 className="mt-6 inline-flex items-center gap-2 bg-[#d9be82] px-5 py-3 text-xs font-bold text-[#32143b] transition hover:bg-white"
               >
-                Get Started
+                Visitor Registration
                 <ArrowRight size={14} />
               </Link>
 

@@ -19,10 +19,16 @@ function AdminSettings() {
 
   const [loading, setLoading] = useState(true);
   const [saving, setSaving] = useState(false);
+  const [visitorSaving, setVisitorSaving] = useState(false);
 
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
+  });
+  const [visitorSettings, setVisitorSettings] = useState({
+    visitorRegistrationEnabled: true,
+    visitorRequestsEnabled: true,
+    publicMapUrl: "",
   });
 
   // ==========================================
@@ -74,7 +80,37 @@ function AdminSettings() {
 
   useEffect(() => {
     fetchProfile();
+    const fetchVisitorSettings = async () => {
+      try {
+        const response = await axios.get(
+          "https://smart-society-backend-delta.vercel.app/admin/settings",
+          { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+        );
+        if (response.data.success) setVisitorSettings(response.data.data);
+      } catch (error) {
+        console.error("Visitor settings load error:", error);
+      }
+    };
+    fetchVisitorSettings();
   }, []);
+
+  const saveVisitorSettings = async (event) => {
+    event.preventDefault();
+    try {
+      setVisitorSaving(true);
+      const response = await axios.put(
+        "https://smart-society-backend-delta.vercel.app/admin/settings",
+        visitorSettings,
+        { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+      );
+      setVisitorSettings(response.data.data);
+      toast.success("Visitor website settings updated");
+    } catch (error) {
+      toast.error(error.response?.data?.message || "Unable to update visitor settings");
+    } finally {
+      setVisitorSaving(false);
+    }
+  };
 
   // ==========================================
   // HANDLE INPUT CHANGE
@@ -316,6 +352,19 @@ function AdminSettings() {
               </button>
             </div>
 
+          </form>
+        </section>
+
+        <section className="mt-5 max-w-3xl overflow-hidden rounded-none border border-[#e2d9df] bg-white">
+          <div className="border-b border-[#e2d9df] px-5 py-4">
+            <h2 className="text-[13px] font-bold text-[#32143b]">Visitor Website Controls</h2>
+            <p className="mt-0.5 text-[9.5px] font-medium text-[#8b778e]">Control public visitor registration, visit requests, and the visitor map.</p>
+          </div>
+          <form onSubmit={saveVisitorSettings} className="space-y-4 p-5 text-sm text-[#49394d]">
+            <label className="flex items-center gap-3"><input type="checkbox" checked={visitorSettings.visitorRegistrationEnabled} onChange={(e) => setVisitorSettings({ ...visitorSettings, visitorRegistrationEnabled: e.target.checked })} /> Allow public visitor registration</label>
+            <label className="flex items-center gap-3"><input type="checkbox" checked={visitorSettings.visitorRequestsEnabled} onChange={(e) => setVisitorSettings({ ...visitorSettings, visitorRequestsEnabled: e.target.checked })} /> Allow visitors to submit visit requests</label>
+            <label className="block text-[10px] font-bold text-[#756b78]">Public society map URL<input type="url" value={visitorSettings.publicMapUrl || ""} onChange={(e) => setVisitorSettings({ ...visitorSettings, publicMapUrl: e.target.value })} placeholder="https://..." className="mt-1.5 h-10 w-full border border-[#e2d9df] px-3 text-[11px]" /></label>
+            <button disabled={visitorSaving} className="bg-[#32143b] px-4 py-2.5 text-[10.5px] font-bold text-white disabled:opacity-60">{visitorSaving ? "Saving..." : "Save visitor controls"}</button>
           </form>
         </section>
 
