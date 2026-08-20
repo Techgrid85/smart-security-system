@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -389,19 +390,7 @@ function AllVisitors() {
           </div>
 
           {loading ? (
-
-            <div className="flex min-h-[350px] items-center justify-center">
-
-              <div className="flex items-center gap-2 text-[11px] font-medium text-[#8b778e]">
-                <Loader2
-                  size={17}
-                  className="animate-spin"
-                />
-                Loading visitor records...
-              </div>
-
-            </div>
-
+            <PageLoader message="Loading visitor records..." />
           ) : visitors.length === 0 ? (
 
             <div className="flex min-h-[350px] flex-col items-center justify-center px-5 text-center">

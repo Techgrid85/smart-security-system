@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -185,15 +186,7 @@ function SocietyMap() {
   if (loading) {
     return (
       <DashboardLayout role="admin">
-        <div className="flex min-h-[400px] items-center justify-center">
-          <div className="text-center">
-            <div className="mx-auto h-9 w-9 animate-spin rounded-none border-4 border-[#9b7740] border-t-transparent" />
-
-            <p className="mt-4 text-[11px] font-medium text-[#8b778e]">
-              Loading society map...
-            </p>
-          </div>
-        </div>
+        <PageLoader message="Loading society map..." />
       </DashboardLayout>
     );
   }

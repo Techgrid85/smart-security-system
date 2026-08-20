@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import {
   CalendarDays,
@@ -497,22 +498,7 @@ const AdminBookings = () => {
           {/* TABLE */}
 
           {loading ? (
-            <div className="flex items-center justify-center px-5 py-16">
-
-              <div className="flex items-center gap-3">
-
-                <Loader2
-                  size={18}
-                  className="animate-spin text-[#63366f]"
-                />
-
-                <span className="text-xs font-semibold text-[#756b78]">
-                  Loading bookings...
-                </span>
-
-              </div>
-
-            </div>
+            <PageLoader message="Loading bookings..." />
           ) : filteredBookings.length === 0 ? (
             <div className="px-5 py-16 text-center">
 

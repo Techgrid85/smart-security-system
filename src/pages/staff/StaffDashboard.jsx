@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -416,22 +417,7 @@ function StaffDashboard() {
           </div>
 
           {loading ? (
-
-            <div className="flex items-center justify-center py-16">
-
-              <div className="flex items-center gap-2 text-[11px] font-semibold text-[#8b778e]">
-
-                <Loader2
-                  size={17}
-                  className="animate-spin"
-                />
-
-                Loading assigned complaints...
-
-              </div>
-
-            </div>
-
+            <PageLoader message="Loading assigned complaints..." />
           ) : complaints.length === 0 ? (
 
             <div className="px-5 py-16 text-center">

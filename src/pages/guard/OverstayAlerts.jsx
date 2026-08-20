@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -561,22 +562,7 @@ function OverstayAlerts() {
           {/* ================================================= */}
 
           {loading ? (
-
-            <div className="flex items-center justify-center py-16">
-
-              <div className="flex items-center gap-2 text-[11px] font-semibold text-[#8b778e]">
-
-                <Loader2
-                  size={17}
-                  className="animate-spin"
-                />
-
-                Checking security alerts...
-
-              </div>
-
-            </div>
-
+            <PageLoader message="Checking security alerts..." />
           ) : currentVisitors.length === 0 ? (
 
             /* ================================================= */

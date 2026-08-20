@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import {
   Building2,
@@ -404,12 +405,7 @@ function AdminFlats() {
           </div>
 
           {loading ? (
-            <div className="flex min-h-[300px] items-center justify-center">
-              <Loader2
-                size={28}
-                className="animate-spin text-[#9b7740]"
-              />
-            </div>
+            <PageLoader message="Loading flats..." />
           ) : (
             <div className="overflow-x-auto">
 

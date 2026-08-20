@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -211,15 +212,7 @@ function AdminCompletedComplaints() {
   if (loading) {
     return (
       <DashboardLayout role="admin">
-        <div className="flex min-h-[400px] items-center justify-center">
-          <div className="flex items-center gap-2 text-sm font-medium text-[#756b78]">
-            <Loader2
-              size={16}
-              className="animate-spin"
-            />
-            Loading completed complaints...
-          </div>
-        </div>
+        <PageLoader message="Loading completed complaints..." />
       </DashboardLayout>
     );
   }

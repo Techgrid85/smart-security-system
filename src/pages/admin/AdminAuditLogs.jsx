@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 
 import { useEffect, useMemo, useState } from "react";
 import axios from "axios";
@@ -324,14 +325,7 @@ const AdminAuditLogs = () => {
           </div>
 
           {loading ? (
-            <div className="flex min-h-[300px] items-center justify-center">
-
-              <RefreshCw
-                size={28}
-                className="animate-spin text-[#9b7740]"
-              />
-
-            </div>
+            <PageLoader message="Loading audit logs..." />
           ) : (
             <div className="overflow-x-auto">
 

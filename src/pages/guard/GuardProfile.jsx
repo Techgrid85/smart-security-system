@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -73,12 +74,7 @@ const GuardProfile = () => {
   if (loading) {
     return (
       <DashboardLayout role="guard">
-        <div className="flex min-h-[60vh] items-center justify-center bg-white">
-          <Loader2
-            size={36}
-            className="animate-spin text-[#9b7740]"
-          />
-        </div>
+        <PageLoader message="Loading profile..." />
       </DashboardLayout>
     );
   }

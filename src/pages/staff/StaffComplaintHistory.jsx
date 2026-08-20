@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import {
@@ -153,11 +154,7 @@ function StaffComplaintHistory() {
 
 
           {loading ? (
-            <div className="flex min-h-[250px] items-center justify-center">
-              <p className="text-[11px] font-semibold text-[#8b778e]">
-                Loading complaint history...
-              </p>
-            </div>
+            <PageLoader message="Loading complaint history..." />
           ) : complaints.length === 0 ? (
             <div className="flex min-h-[280px] flex-col items-center justify-center px-5 text-center">
 

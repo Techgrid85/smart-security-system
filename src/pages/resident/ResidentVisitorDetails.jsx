@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -407,11 +408,7 @@ function ResidentVisitorDetails() {
           </div>
 
           {loading ? (
-            <div className="flex min-h-[280px] items-center justify-center">
-              <p className="text-[11px] font-medium text-[#8b778e]">
-                Loading visitors...
-              </p>
-            </div>
+            <PageLoader message="Loading visitors..." />
           ) : visitors.length > 0 ? (
             <div className="overflow-x-auto">
 

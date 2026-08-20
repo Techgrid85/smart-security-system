@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -115,26 +116,7 @@ function AdminDashboard() {
   if (loading) {
     return (
       <DashboardLayout role="admin">
-        <div className="flex min-h-[60vh] items-center justify-center">
-          <div className="text-center">
-            <div
-              className="
-                mx-auto
-                h-10
-                w-10
-                animate-spin
-                rounded-none
-                border-4
-                border-[#9b7740]
-                border-t-transparent
-              "
-            />
-
-            <p className="mt-4 text-sm font-medium text-[#32143b]/55">
-              Loading dashboard...
-            </p>
-          </div>
-        </div>
+        <PageLoader message="Loading dashboard..." />
       </DashboardLayout>
     );
   }

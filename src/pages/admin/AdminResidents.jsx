@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
@@ -318,12 +319,7 @@ function AdminResidents() {
           </div>
 
           {loading ? (
-            <div className="flex min-h-[300px] items-center justify-center">
-              <Loader2
-                size={28}
-                className="animate-spin text-[#9b7740]"
-              />
-            </div>
+            <PageLoader message="Loading residents..." />
           ) : (
             <div className="overflow-x-auto">
               <table className="w-full min-w-[850px] border-collapse">

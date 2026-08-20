@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -208,18 +209,7 @@ function GuardDashboard() {
   if (loading) {
     return (
       <DashboardLayout role="guard">
-        <div className="flex min-h-[500px] items-center justify-center">
-          <div className="flex flex-col items-center gap-3">
-            <Loader2
-              size={32}
-              className="animate-spin text-[#9b7740]"
-            />
-
-            <p className="text-sm font-medium text-[#8b778e]">
-              Loading security dashboard...
-            </p>
-          </div>
-        </div>
+        <PageLoader message="Loading security dashboard..." />
       </DashboardLayout>
     );
   }

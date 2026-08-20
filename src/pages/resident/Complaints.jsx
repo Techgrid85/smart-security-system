@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useRef, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -429,11 +430,7 @@ function Complaints() {
           </div>
 
           {loading ? (
-            <div className="flex min-h-[250px] items-center justify-center">
-              <p className="text-[11px] font-medium text-[#8b778e]">
-                Loading complaints...
-              </p>
-            </div>
+            <PageLoader message="Loading complaints..." />
           ) : complaints.length > 0 ? (
             <div className="overflow-x-auto">
 

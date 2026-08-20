@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
@@ -909,11 +910,7 @@ const downloadVisitorPassPDF = async (visitor) => {
           </div>
 
           {loading ? (
-            <div className="flex min-h-[250px] items-center justify-center">
-              <p className="text-[11px] font-medium text-[#8b778e]">
-                Loading visitors...
-              </p>
-            </div>
+            <PageLoader message="Loading visitors..." />
           ) : visitors.length > 0 ? (
             <div className="overflow-x-auto">
 

@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import jsPDF from "jspdf";
@@ -938,14 +939,7 @@ const MaintenanceBills = () => {
           </div>
 
           {loading ? (
-            <div className="flex min-h-[300px] items-center justify-center">
-
-              <Loader2
-                size={28}
-                className="animate-spin text-[#9b7740]"
-              />
-
-            </div>
+            <PageLoader message="Loading maintenance bills..." />
           ) : (
             <div className="overflow-x-auto">
 

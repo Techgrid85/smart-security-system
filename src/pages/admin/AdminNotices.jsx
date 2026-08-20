@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import {
   Bell,
@@ -499,18 +500,7 @@ function AdminNotices() {
           </div>
 
           {loading ? (
-            <div className="flex items-center justify-center gap-3 px-5 py-16">
-
-              <Loader2
-                size={19}
-                className="animate-spin text-[#9b7740]"
-              />
-
-              <span className="text-[11px] font-bold text-[#756b78]">
-                Loading notices...
-              </span>
-
-            </div>
+            <PageLoader message="Loading notices..." />
           ) : filteredNotices.length > 0 ? (
             <div className="overflow-x-auto">
 

@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -372,11 +373,8 @@ function AdminComplaints() {
 
                 {loading ? (
                   <tr>
-                    <td
-                      colSpan="6"
-                      className="px-5 py-14 text-center text-[12px] font-medium text-[#8b778e]"
-                    >
-                      Loading complaints...
+                    <td colSpan="6">
+                      <PageLoader message="Loading complaints..." />
                     </td>
                   </tr>
                 ) : filteredComplaints.length === 0 ? (

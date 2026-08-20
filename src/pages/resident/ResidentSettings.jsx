@@ -1,3 +1,4 @@
+import PageLoader from "../../components/dashboard/PageLoader";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
@@ -424,11 +425,7 @@ function ResidentSettings() {
   if (loading) {
     return (
       <DashboardLayout role="resident">
-        <div className="flex min-h-[400px] items-center justify-center">
-          <p className="text-sm font-medium text-[#756b78]">
-            Loading settings...
-          </p>
-        </div>
+        <PageLoader message="Loading settings..." />
       </DashboardLayout>
     );
   }
