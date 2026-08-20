@@ -574,6 +574,15 @@ function LandingPage() {
                 <ArrowRight size={16} />
               </Link>
 
+              <a
+                href="/SmartSociety-User-Guide.docx"
+                download
+                className="inline-flex items-center gap-3 border border-white/35 bg-white/10 px-7 py-4 text-[12px] font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#32143b]"
+              >
+                User Guide
+                <HelpCircle size={16} />
+              </a>
+
               <button
                 onClick={() => handleNavClick("#about")}
                 className="inline-flex items-center gap-3 border border-white/35 bg-white/10 px-7 py-4 text-[12px] font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#32143b]"
