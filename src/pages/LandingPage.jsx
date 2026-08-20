@@ -575,8 +575,9 @@ function LandingPage() {
               </Link>
 
               <a
-                href="/SmartSociety-User-Guide.docx"
-                download
+                href="/SmartSociety-User-Guide.pdf"
+                target="_blank"
+                rel="noreferrer"
                 className="inline-flex items-center gap-3 border border-white/35 bg-white/10 px-7 py-4 text-[12px] font-bold text-white backdrop-blur-sm transition hover:bg-white hover:text-[#32143b]"
               >
                 User Guide
