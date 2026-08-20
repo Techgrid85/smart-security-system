@@ -3,6 +3,7 @@ import axios from "axios";
 import { Bell, CheckCheck, Clock3, LoaderCircle } from "lucide-react";
 import toast from "react-hot-toast";
 import DashboardLayout from "../components/dashboard/DashboardLayout";
+import PageLoader from "../components/dashboard/PageLoader";
 
 const API = "https://smart-society-backend-delta.vercel.app/notifications";
 const authConfig = () => ({ headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } });
@@ -78,7 +79,7 @@ export default function Notifications({ role }) {
 
         <section className="mt-6 overflow-hidden border border-[#e2d9df] bg-white">
           {loading ? (
-            <div className="flex items-center justify-center gap-2 p-12 text-sm text-[#8b778e]"><LoaderCircle size={18} className="animate-spin" /> Loading notifications…</div>
+            <PageLoader message="Loading notifications..." />
           ) : notifications.length ? (
             <div className="divide-y divide-[#eee8ed]">
               {notifications.map((notification) => (

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,6 +9,7 @@ import {
   Phone,
   Lock,
   CheckCircle2,
+  AlertTriangle,
 } from "lucide-react";
 
 function Register() {
@@ -24,6 +25,15 @@ function Register() {
 
   const [errors, setErrors] = useState({});
   const [loading, setLoading] = useState(false);
+  const [registrationEnabled, setRegistrationEnabled] = useState(true);
+  const [settingsLoaded, setSettingsLoaded] = useState(false);
+
+  useEffect(() => {
+    axios.get("https://smart-society-backend-delta.vercel.app/visitor/public-settings")
+      .then((response) => setRegistrationEnabled(response.data.data?.visitorRegistrationEnabled !== false))
+      .catch(() => setRegistrationEnabled(true))
+      .finally(() => setSettingsLoaded(true));
+  }, []);
 
   // ==========================================
   // VALIDATE FIELD
@@ -196,6 +206,11 @@ function Register() {
   // ==========================================
   const register = async (e) => {
     e.preventDefault();
+
+    if (!registrationEnabled) {
+      toast.error("Visitor registration is currently closed");
+      return;
+    }
 
     if (!validateForm()) {
       toast.error("Please fix the errors in the form");
@@ -441,6 +456,13 @@ function Register() {
             </div>
 
             {/* FORM */}
+
+            {!registrationEnabled && settingsLoaded && (
+              <div className="mb-5 flex gap-3 border border-amber-300 bg-amber-50 p-4 text-amber-900">
+                <AlertTriangle size={19} className="mt-0.5 shrink-0" />
+                <div><p className="text-sm font-bold">Visitor registration is currently closed</p><p className="mt-1 text-xs leading-5">The society administrator has temporarily disabled new visitor accounts. Please try again later.</p></div>
+              </div>
+            )}
 
             <form
               onSubmit={register}
@@ -704,12 +726,10 @@ function Register() {
 
               <button
                 type="submit"
-                disabled={loading}
+                disabled={loading || !registrationEnabled || !settingsLoaded}
                 className="flex h-12 w-full items-center justify-center gap-2 bg-[#32143b] text-sm font-bold text-white shadow-lg shadow-[#32143b]/15 transition hover:bg-[#4b2357] disabled:cursor-not-allowed disabled:opacity-60"
               >
-                {loading
-                  ? "Creating Account..."
-                  : "Create Account"}
+                {loading ? "Creating Account..." : !settingsLoaded ? "Checking registration..." : !registrationEnabled ? "Registration Closed" : "Create Account"}
 
                 {!loading && <ArrowRight size={18} />}
               </button>
