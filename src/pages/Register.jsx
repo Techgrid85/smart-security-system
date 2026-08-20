@@ -276,6 +276,16 @@ function Register() {
   return (
     <div className="min-h-screen bg-[#f7f3ed]">
 
+      {!registrationEnabled && settingsLoaded && (
+        <div
+          role="alert"
+          className="relative z-20 flex items-center justify-center gap-2 border-b border-amber-300 bg-amber-50 px-5 py-3 text-center text-sm font-bold text-amber-900"
+        >
+          <AlertTriangle size={18} className="shrink-0" />
+          <span>Visitor registration is currently not available.</span>
+        </div>
+      )}
+
       {/* =====================================================
           DESKTOP LAYOUT
       ===================================================== */}
@@ -456,13 +466,6 @@ function Register() {
             </div>
 
             {/* FORM */}
-
-            {!registrationEnabled && settingsLoaded && (
-              <div className="mb-5 flex gap-3 border border-amber-300 bg-amber-50 p-4 text-amber-900">
-                <AlertTriangle size={19} className="mt-0.5 shrink-0" />
-                <div><p className="text-sm font-bold">Visitor registration is currently closed</p><p className="mt-1 text-xs leading-5">The society administrator has temporarily disabled new visitor accounts. Please try again later.</p></div>
-              </div>
-            )}
 
             <form
               onSubmit={register}
